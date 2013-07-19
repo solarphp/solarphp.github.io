@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:54:40 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">1.6. Make a Basic Application</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="blog-demo.model">Prev</a> </td>
+          <th width="60%" align="center">Chapter 1. Quick-Start Blog Demo</th>
+          <td width="20%" align="right"> <a accesskey="n" href="blog-demo.app.setup">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="1.6. Make a Basic Application">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="blog-demo.app"></a>1.6. Make a Basic Application</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        Now that you have a model to work with, we will make a basic
+        application. It won't do much to begin with; later, we will add
+        actions to browse, read, edit, add, and delete articles.
+    </p>
+      <p>
+    
+        At the command line, in the
+        <code class="filename"><em class="replaceable"><code>SYSTEM</code></em></code> directory,
+        issue the <span class="command"><strong>make-app</strong></span> command to create the 
+        basic application class and its support directories.
+    
+        </p>
+      <pre class="screen">$ <strong class="userinput"><code>./script/solar make-app Acme_App_Blog</code></strong>
+Making app.
+Creating app directory.
+Creating app Layout directory.
+Creating app Locale directory.
+Creating app Public directory.
+Creating app View directory.
+App class 'Acme_App_Blog' extends 'Acme_Controller_Page'.
+Preparing to write to '<em class="replaceable"><code>SYSTEM</code></em>/include/'.
+Writing app class.
+Writing locale file.
+Making public symlinks for 'Acme_App_Blog' ...
+    Making public directory docroot/public/Acme/App ... done.
+    Making public symlink for Acme_App_Blog ... done.
+... done.
+Done.
+$</pre>
+      <p>
+        
+    </p>
+      <p>
+        Now you can browse to the basic app at <a class="link" href="http://localhost/index.php/blog" target="_top">http://localhost/index.php/blog</a>.
+    </p>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="blog-demo.model">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="blog-demo">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="blog-demo.app.setup">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">1.5. Make a Model From a Database Table </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 1.7. Basic Application Setup</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

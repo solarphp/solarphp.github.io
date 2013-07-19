@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:50 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">2.3. Rewrite Rules</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="dispatch-cycle.front-controller">Prev</a> </td>
+          <th width="60%" align="center">Chapter 2. Dynamic Dispatch Cycle</th>
+          <td width="20%" align="right"> <a accesskey="n" href="dispatch-cycle.page-controller">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="2.3. Rewrite Rules">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="dispatch-cycle.rewrite-rules"></a>2.3. Rewrite Rules</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        Recall that all Solar URIs are always in the form of
+        <code class="literal">controller/action/param/param/param</code>.
+        For example, in the demo blog app, the URI to read an article
+        is <code class="literal">blog/read/1</code>.  This is how Solar knows to
+        route the URI request to the "blog" page controller, using
+        the "read" action with a parameter of "1".
+    </p>
+      <p>
+        But what if you want to recognize URIs that have a different
+        information architecture to them? This is where the dynamic
+        rewrite rules come into play. You can use the rewrite rules here
+        to convert incoming URIs not in that format to something that
+        Solar will recognize internally.
+    </p>
+      <p>
+        There are two ways of expressing a rewrite rule: a short form, and
+        a long form.
+    </p>
+      <div class="sect2" title="2.3.1. Short Form">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="dispatch-cycle.rewrite-rules.short-form"></a>2.3.1. Short Form</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            In the short form, a rewrite rule is expressed as an array
+            element, where the key is a regular expression patterns to match
+            against incoming URIs. The element value indicates how to rewrite
+            the matched URI. (These are used as the first two parameters to a
+            <code class="function"><a class="link" href="http://php.net/preg_replace" target="_top">preg_replace()</a></code>
+            call.)
+        </p>
+        <p>
+            Here is an example config file value for a short-form rewrite rule
+            in the front controller:
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// "blog/88/edit" gets rewritten as "blog/edit/88"
+</span><span style="color: #0000BB">$pattern </span><span style="color: #007700">= </span><span style="color: #DD0000">'blog/(\d+)/edit'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$rewrite </span><span style="color: #007700">= </span><span style="color: #DD0000">'blog/edit/$1'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Controller_Front'</span><span style="color: #007700">][</span><span style="color: #DD0000">'rewrite'</span><span style="color: #007700">][</span><span style="color: #0000BB">$pattern</span><span style="color: #007700">] = </span><span style="color: #0000BB">$rewrite</span><span style="color: #007700">;</span></span></code></pre>
+      </div>
+      <div class="sect2" title="2.3.2. Replacement Tokens">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="dispatch-cycle.rewrite-rules.replacement-tokens"></a>2.3.2. Replacement Tokens</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            You can also define replacement tokens for the regular
+            expressions; this lets you predefine certain expression parts and
+            reuse them in an easier-to-read way. The front controller defines
+            a number of replacements, but you can add your own as well.
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// Solar_Uri_Rewrite defines the following by default:
+// '{:action}'     =&gt; '([a-z-]+)',
+// '{:alpha}'      =&gt; '([a-zA-Z]+)',
+// '{:alnum}'      =&gt; '([a-zA-Z0-9]+)',
+// '{:controller}' =&gt; '([a-z-]+)',
+// '{:digit}'      =&gt; '([0-9]+)',
+// '{:param}'      =&gt; '([^/]+)',
+// '{:params}'     =&gt; '(.*)',
+// '{:slug}'       =&gt; '([a-zA-Z0-9-]+)',
+// '{:word}'       =&gt; '([a-zA-Z0-9_]+)',
+
+// you can add your own regex replacement strings as well
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Controller_Front'</span><span style="color: #007700">][</span><span style="color: #DD0000">'replace'</span><span style="color: #007700">] = array(
+    </span><span style="color: #DD0000">'{:product_slug}' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'(\d+\-[a-zA-Z]+)'</span><span style="color: #007700">,
+);
+
+</span><span style="color: #FF8000">// "product/123-foobar/view" gets rewritten as "catalog/show-item/123-foobar"
+</span><span style="color: #0000BB">$pattern </span><span style="color: #007700">= </span><span style="color: #DD0000">'product/{:product_slug}/view'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$rewrite </span><span style="color: #007700">= </span><span style="color: #DD0000">'catalog/show-item/$1'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Controller_Front'</span><span style="color: #007700">][</span><span style="color: #DD0000">'rewrite'</span><span style="color: #007700">][</span><span style="color: #0000BB">$pattern</span><span style="color: #007700">] = </span><span style="color: #0000BB">$rewrite</span><span style="color: #007700">;</span></span></code></pre>
+        <div class="note" title="Note">
+          <table border="0" summary="Note">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">Note</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+            In a short-form rule, the replacement tokens have no semantic
+            meaning and are not parameter keywords. They are used only as
+            easy-to-read placeholders for reusable regular expression pieces.
+        </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="sect2" title="2.3.3. Long Form">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="dispatch-cycle.rewrite-rules.long-form"></a>2.3.3. Long Form</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            In the long form, a rewrite rule is still expressed as an array
+            element. However, the element key is a name for the rule, and the
+            element value is sub-array of processing instructions. We call
+            this a "named action" or a "named rule" (in other frameworks this
+            is called a "named route").
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$name </span><span style="color: #007700">= </span><span style="color: #DD0000">'blog-edit'</span><span style="color: #007700">;
+
+</span><span style="color: #0000BB">$rule </span><span style="color: #007700">= array(
+    </span><span style="color: #DD0000">'pattern' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'blog/{:id}/edit'</span><span style="color: #007700">, </span><span style="color: #FF8000">// the URI pattern to match
+    </span><span style="color: #DD0000">'rewrite' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'blog/edit/$1'</span><span style="color: #007700">,    </span><span style="color: #FF8000">// rewrite the URI like this
+    </span><span style="color: #DD0000">'replace' </span><span style="color: #007700">=&gt; array(             </span><span style="color: #FF8000">// custom replacement tokens
+        </span><span style="color: #DD0000">'{:id}' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'(\d+)'</span><span style="color: #007700">,
+    ),
+    </span><span style="color: #DD0000">'default' </span><span style="color: #007700">=&gt; array(
+        </span><span style="color: #DD0000">'id' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'88'</span><span style="color: #007700">,
+    ),
+);
+
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Controller_Front'</span><span style="color: #007700">][</span><span style="color: #DD0000">'rewrite'</span><span style="color: #007700">][</span><span style="color: #0000BB">$name</span><span style="color: #007700">] = </span><span style="color: #0000BB">$rule</span><span style="color: #007700">;</span></span></code></pre>
+        <p>
+            In your view scripts (described elsewhere) you can use a named
+            action to generate a URI for you, with data interpolated into
+            the URI.
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// from inside a view script:
+</span><span style="color: #0000BB">$name </span><span style="color: #007700">= </span><span style="color: #DD0000">'blog-edit'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$data </span><span style="color: #007700">= array(</span><span style="color: #DD0000">'id' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'70'</span><span style="color: #007700">);
+</span><span style="color: #0000BB">$text </span><span style="color: #007700">= </span><span style="color: #DD0000">'Edit Blog Entry'</span><span style="color: #007700">;
+echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">namedAction</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">, </span><span style="color: #0000BB">$data</span><span style="color: #007700">, </span><span style="color: #0000BB">$text</span><span style="color: #007700">);
+</span><span style="color: #FF8000">// outputs &lt;a href="/blog/70/edit"&gt;Edit Blog Entry&lt;/a&gt;</span></span></code></pre>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="dispatch-cycle.front-controller">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="dispatch-cycle">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="dispatch-cycle.page-controller">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">2.2. Front Controller </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 2.4. Page Controller</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

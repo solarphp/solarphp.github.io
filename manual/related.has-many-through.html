@@ -1,0 +1,532 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:54 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">4.6. Native Model "Has Many" Related Foreign Records "Through" An Association</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="related.belongs-to">Prev</a> </td>
+          <th width="60%" align="center">Chapter 4. Working With Related Models</th>
+          <td width="20%" align="right"> <a accesskey="n" href="related.eager">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="4.6. Native Model &quot;Has Many&quot; Related Foreign Records &quot;Through&quot; An Association">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="related.has-many-through"></a>4.6. Native Model "Has Many" Related Foreign Records "Through" An Association</h2>
+          </div>
+        </div>
+      </div>
+      <div class="sect2" title="4.6.1. Setup">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="related.has-many-through.setup"></a>4.6.1. Setup</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            In our example domain, a blog entry "has many" tags, but because a
+            tag also "has many" blog entries, there has to be an association
+            table mapping between the two. This kind of many-to-many
+            relationship requires a third model to be present; it models the
+            association mapping through which the native and foreign models
+            relate to each other.
+        </p>
+        <p>
+            As such, setup for a many-to-many relationship is slightly more
+            complicated than a regular has-many/belongs-to. First you have to
+            relate to the association model, then you have to relate to the
+            foreign model through the association. Do so for each side of the
+            many-to-many relationship.
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #007700">class </span><span style="color: #0000BB">Acme_Model_Blogs </span><span style="color: #007700">extends </span><span style="color: #0000BB">Acme_Sql_Model
+</span><span style="color: #007700">{
+    protected function </span><span style="color: #0000BB">_setup</span><span style="color: #007700">()
+    {
+        </span><span style="color: #FF8000">// the "through" related association
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_hasMany</span><span style="color: #007700">(</span><span style="color: #DD0000">'taggings'</span><span style="color: #007700">);
+        
+        </span><span style="color: #FF8000">// has many tags, through this relationship name
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_hasManyThrough</span><span style="color: #007700">(</span><span style="color: #DD0000">'tags'</span><span style="color: #007700">, </span><span style="color: #DD0000">'taggings'</span><span style="color: #007700">);
+    }
+}
+
+class </span><span style="color: #0000BB">Acme_Model_Tags </span><span style="color: #007700">extends </span><span style="color: #0000BB">Acme_Sql_Model
+</span><span style="color: #007700">{
+    protected function </span><span style="color: #0000BB">_setup</span><span style="color: #007700">()
+    {
+        </span><span style="color: #FF8000">// the "through" related association
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_hasMany</span><span style="color: #007700">(</span><span style="color: #DD0000">'taggings'</span><span style="color: #007700">);
+        
+        </span><span style="color: #FF8000">// has many tags, through this relationship name
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_hasManyThrough</span><span style="color: #007700">(</span><span style="color: #DD0000">'blogs'</span><span style="color: #007700">, </span><span style="color: #DD0000">'taggings'</span><span style="color: #007700">);
+    }
+}</span></span></code></pre>
+        <p>
+            Finally, in the association model, state that it belongs-to
+            both sides of the many-to-many relationship.
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #007700">class </span><span style="color: #0000BB">Acme_Model_Taggings </span><span style="color: #007700">extends </span><span style="color: #0000BB">Acme_Sql_Model
+</span><span style="color: #007700">{
+    protected function </span><span style="color: #0000BB">_setup</span><span style="color: #007700">()
+    {
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_belongsTo</span><span style="color: #007700">(</span><span style="color: #DD0000">'blog'</span><span style="color: #007700">);
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_belongsTo</span><span style="color: #007700">(</span><span style="color: #DD0000">'tag'</span><span style="color: #007700">);
+    }
+}</span></span></code></pre>
+      </div>
+      <div class="sect2" title="4.6.2. SQL for Lazy-Load">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="related.has-many-through.sql-lazy"></a>4.6.2. SQL for Lazy-Load</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            The above code creates a pseudo-property on each blog record called
+            <code class="literal">$tags</code> that gets lazy-loaded by a fetch from
+            the <code class="literal">tags</code> entry in the model catalog.  That is,
+            each time you ask for a <code class="literal">$blog_record-&gt;tags</code>, the model
+            system will fetch the related tag collection from the database
+            and place it in <code class="literal">$tags</code> for you. The SQL for
+            the lazy-load looks similar to this:
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000">SELECT tags.*
+FROM tags AS tags
+LEFT JOIN taggings AS taggings ON taggings.tag_id = tags.id
+WHERE taggings.blog_id = {$blog_record-&gt;id}</span></code></pre>
+        <p>
+            Similarly, the above code creates a pseudo-property on each tag record called
+            <code class="literal">$blogs</code> that gets lazy-loaded by a fetch from
+            the <code class="literal">blogs</code> entry in the model catalog.  That is,
+            each time you ask for a <code class="literal">$tag_record-&gt;blogs</code>, the model
+            system will fetch the related blog collection from the database
+            and place it in <code class="literal">$blogs</code> for you. The SQL for
+            the lazy-load looks similar to this:
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000">SELECT blogs.*
+FROM blogs AS blogs
+LEFT JOIN taggings AS taggings ON taggings.blog_id = blogs.id
+WHERE taggings.tag_id = {$tag_record-&gt;id}</span></code></pre>
+        <div class="warning" title="Lazy vs. Eager Loading">
+          <table border="0" summary="Warning: Lazy vs. Eager Loading">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Warning]" src="images/warning.png" />
+              </td>
+              <th align="left">Lazy vs. Eager Loading</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+                Beware the dreaded N+1 problem! If you fetch a collection of
+                10 blog records and loop through them, displaying the
+                <code class="literal">$blog_record-&gt;tags</code> each
+                time, you will generate 10 additional SELECT queries (one for
+                each related blog) for a total of 11 queries. To avoid this,
+                eager-fetch the related tags when you fetch the blog
+                collection; more on eager fetching in a later section.
+            </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="sect2" title="4.6.3. Foreign Key">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="related.has-many-through.foreign-key"></a>4.6.3. Foreign Key</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            In a has-many-through relationship, the foreign key exists in the
+            "through" association model/table, and identifies which mappings
+            belong to the native model. In our example domain, where a blog
+            has many tags through taggings, this means the blog foreign key
+            <code class="literal">blog_id</code> is on the taggings table, and maps to
+            the primary key on the blogs table. Similarly, where a tag has
+            many blogs through taggings, the tag foreign key
+            <code class="literal">tag_id</code>is on the taggings table, and maps to the
+            primary key on the tags table.
+        </p>
+      </div>
+      <div class="sect2" title="4.6.4. Through Key">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="related.has-many-through.through-key"></a>4.6.4. Through Key</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            In a has-many-through relationship, there is a second foreign key
+            to keep track of, the "through" key. The "through" key exists in
+            the "through" model/table, and identifies which mappings belong to
+            the foreign model. In our example domain, where a blog has many
+            tags through taggings, the through key <code class="literal">tag_id</code>is
+            on the taggings table, and maps to the primary key on the tags
+            table. Similarly, where a tag has many blogs through taggings, the
+            through key <code class="literal">blog_id</code>is on the taggings table,
+            and maps to the primary key on the blogs table.
+        </p>
+      </div>
+      <div class="sect2" title="4.6.5. Relationship Definition">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="related.has-many-through.definition"></a>4.6.5. Relationship Definition</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            Although the Solar model system makes some assumptions about how
+            tables and foreign keys are named, these assumptions are not
+            hard-coded. You can define every aspect of the foreign
+            relationship using an array of key-value pairs passed to the
+            <code class="literal">_hasManyThrough()</code> method.
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+        $this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_hasManyThrough</span><span style="color: #007700">(</span><span style="color: #DD0000">'foreigns'</span><span style="color: #007700">, </span><span style="color: #DD0000">'mappings'</span><span style="color: #007700">, array(
+            </span><span style="color: #DD0000">'option' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'value'</span><span style="color: #007700">,
+            </span><span style="color: #FF8000">// ...
+        </span><span style="color: #007700">));</span></span></code></pre>
+        <div class="variablelist">
+          <dl>
+            <dt>
+              <span class="term">string <code class="literal">foreign_name</code></span>
+            </dt>
+            <dd>
+              <p>
+                        Normally, the model system expects the foreign model
+                        to be in the catalog uner the plural form of the
+                        related name. E.g., <code class="literal">{native} _hasManyThrough('foreigns', 'mappings')</code>
+                        means the foreign model on the other side of the
+                        mapping relationship uses the catalog name 'foreigns'.
+                    </p>
+              <p>
+                        Use the <code class="literal">foreign_name</code> option to
+                        specify a different catalog name for the foreign model
+                        on the other side of the related mappings. This allows
+                        you to name the relationship "foo" (and thereby the
+                        record property for the foreign) but use the catalog
+                        name "bar" to do the work. (The
+                        <code class="literal">foreign_class</code> option takes
+                        precedence over <code class="literal">foreign_name</code>.)
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">string <code class="literal">foreign_key</code></span>
+            </dt>
+            <dd>
+              <p>
+                        Normally, the model system expects the foreign key on
+                        the foreign table to be the same as the foreign
+                        model's <code class="literal">primary_col</code> value.
+                    </p>
+              <p>
+                        Use the <code class="literal">foreign_key</code> option to
+                        specify a different column in the foreign table. (This
+                        option will be ignored if a specific
+                        <code class="literal">native_col</code> or
+                        <code class="literal">foreign_col</code> option is set.)
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">string <code class="literal">through_key</code></span>
+            </dt>
+            <dd>
+              <p>
+                        Normally, the model system expects the through key on
+                        the through table to be the same as the one defined
+                        by the foreign model's <code class="literal">foreign_col</code>
+                        value.
+                    </p>
+              <p>
+                        Use the <code class="literal">through_key</code> option to
+                        specify a different column in the through table. (This
+                        option will be ignored if a specific
+                        <code class="literal">native_col</code> or
+                        <code class="literal">foreign_col</code> option is set.)
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">array <code class="literal">cols</code></span>
+            </dt>
+            <dd>
+              <p>
+                    Fetch these columns for the foreign records.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">array <code class="literal">conditions</code></span>
+            </dt>
+            <dd>
+              <p>
+                    Additional conditions on the foreign table when fetching
+                    related records. These will be used as WHERE conditions,
+                    or as JOIN ON conditions, as appropriate for the kind of
+                    fetch being performed (e.g. lazy vs. eager fetch).
+                </p>
+            </dd>
+            <dt>
+              <span class="term">array <code class="literal">through_conditions</code></span>
+            </dt>
+            <dd>
+              <p>
+                    Additional conditions on the through table when fetching
+                    related records. These will be used as WHERE conditions,
+                    or as JOIN ON conditions, as appropriate for the kind of
+                    fetch being performed (e.g. lazy vs. eager fetch).
+                </p>
+            </dd>
+            <dt>
+              <span class="term">array <code class="literal">order</code></span>
+            </dt>
+            <dd>
+              <p>
+                    Additional ORDER clauses when fetching related records.
+                </p>
+            </dd>
+          </dl>
+        </div>
+        <div class="note" title="Note">
+          <table border="0" summary="Note">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">Note</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+            The following are some less common, but more advanced and more finely
+            grained, options for defining relationships:
+        </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="variablelist">
+          <dl>
+            <dt>
+              <span class="term">string <code class="literal">foreign_class</code></span>
+            </dt>
+            <dd>
+              <p>
+                    The class name of the foreign model on the other side
+                    of the association mapping. Default is the first
+                    matching class for the relationship name, as loaded from
+                    the parent class stack.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">string <code class="literal">foreign_alias</code></span>
+            </dt>
+            <dd>
+              <p>
+                    Aliases the foreign table using this name. Default is the
+                    relationship name.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">string <code class="literal">foreign_col</code></span>
+            </dt>
+            <dd>
+              <p>
+                    The name of the column to join with in the foreign table,
+                    matching against the
+                    <code class="literal">through_foreign_col</code> column in the
+                    through table.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">string <code class="literal">through_foreign_col</code></span>
+            </dt>
+            <dd>
+              <p>
+                    The name of the column to join with in the through table,
+                    matching against the <code class="literal">foreign_col</code> column
+                    in the foreign table.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">string <code class="literal">through native_col</code></span>
+            </dt>
+            <dd>
+              <p>
+                    The name of column to join with in the through table,
+                    matching against the <code class="literal">native_col</code>
+                    column in the native table.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">string <code class="literal">native_col</code></span>
+            </dt>
+            <dd>
+              <p>
+                    The name of column to join with in the native table,
+                    matching against the <code class="literal">through_native_col</code>
+                    column in the through table.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">string <code class="literal">native_by</code></span>
+            </dt>
+            <dd>
+              <p>
+                    The strategy to be used for connecting to native
+                    records when eager-fetching: 'wherein', meaning a "WHERE
+                    IN (...)" a list of native IDs, or 'select', meaning a
+                    join against a sub-SELECT.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">int <code class="literal">wherein_max</code></span>
+            </dt>
+            <dd>
+              <p>
+                    When picking a native-by strategy, use 'wherein' for up to
+                    this many records in the native result; after this point,
+                    use a 'select' strategy.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">string <code class="literal">merge</code></span>
+            </dt>
+            <dd>
+              <p>
+                    Indicates the strategy to use for merging joined foreign
+                    rows; 'server' means the database will do it via a single
+                    SELECT combined into the native fetch (only possible with
+                    to-one relationships), whereas 'client' means PHP will do
+                    it, using one additional SELECT for the relationship
+                    (always for to-many relationships, optionally for to-one
+                    relationships) and then merging the rows in a PHP loop.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="related.belongs-to">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="related">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="related.eager">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">4.5. Native Model "Belongs To" Related Foreign Model </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 4.7. Eager Fetching</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

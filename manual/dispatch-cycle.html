@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:50 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">Chapter 2. Dynamic Dispatch Cycle</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="blog-demo.vhost">Prev</a> </td>
+          <th width="60%" align="center">Part I. Getting Started</th>
+          <td width="20%" align="right"> <a accesskey="n" href="dispatch-cycle.bootstrap-config">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="chapter" title="Chapter 2. Dynamic Dispatch Cycle">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title"><a id="dispatch-cycle"></a>Chapter 2. Dynamic Dispatch Cycle</h2>
+          </div>
+        </div>
+      </div>
+      <div class="toc">
+        <p>
+          <b>Table of Contents</b>
+        </p>
+        <dl>
+          <dt>
+            <span class="sect1">
+              <a href="dispatch-cycle.bootstrap-config">2.1. Bootstrap and Configuration</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect2">
+                  <a href="dispatch-cycle.bootstrap-config#dispatch-cycle.bootstrap-config.solar-start">2.1.1. The <code class="literal">Solar::start()</code> Method</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="dispatch-cycle.bootstrap-config#dispatch-cycle.bootstrap-config.configuration">2.1.2. Configuration</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="sect1">
+              <a href="dispatch-cycle.front-controller">2.2. Front Controller</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect2">
+                  <a href="dispatch-cycle.front-controller#dispatch-cycle.front-controller.dynamic-rewrite">2.2.1. Dynamic Rewrite</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="dispatch-cycle.front-controller#dispatch-cycle.front-controller.static-routing">2.2.2. Static Routing</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="dispatch-cycle.front-controller#dispatch-cycle.front-controller.class-stack">2.2.3. Class Stack</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="sect1">
+              <a href="dispatch-cycle.rewrite-rules">2.3. Rewrite Rules</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect2">
+                  <a href="dispatch-cycle.rewrite-rules#dispatch-cycle.rewrite-rules.short-form">2.3.1. Short Form</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="dispatch-cycle.rewrite-rules#dispatch-cycle.rewrite-rules.replacement-tokens">2.3.2. Replacement Tokens</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="dispatch-cycle.rewrite-rules#dispatch-cycle.rewrite-rules.long-form">2.3.3. Long Form</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="sect1">
+              <a href="dispatch-cycle.page-controller">2.4. Page Controller</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect2">
+                  <a href="dispatch-cycle.page-controller#dispatch-cycle.page-controller.setup-loading">2.4.1. Setup and Loading</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="dispatch-cycle.page-controller#dispatch-cycle.page-controller.action">2.4.2. Running the Action</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="dispatch-cycle.page-controller#dispatch-cycle.page-controller.render">2.4.3. Rendering the Results</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="dispatch-cycle.page-controller#dispatch-cycle.page-controller.return">2.4.4. Returning the Response</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="blog-demo.vhost">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="pt01">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="dispatch-cycle.bootstrap-config">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">1.15. Cleaner URIs with a Virtual Host </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 2.1. Bootstrap and Configuration</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

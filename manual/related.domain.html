@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:53 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">4.2. Domain Description</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="related.intro">Prev</a> </td>
+          <th width="60%" align="center">Chapter 4. Working With Related Models</th>
+          <td width="20%" align="right"> <a accesskey="n" href="related.has-one">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="4.2. Domain Description">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="related.domain"></a>4.2. Domain Description</h2>
+          </div>
+        </div>
+      </div>
+      <div class="sect2" title="4.2.1. A Blogging System">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="related.domain.blogging-system"></a>4.2.1. A Blogging System</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            Let's use a blogging system as the example domain and put together
+            some models that describe it. The blog entry itself is only one
+            component of domain. There are also blog authors, comments on entries,
+            tags on entries, and entry summary data. In everyday language,
+            we might say the domain is composed of the following entities and
+            relationships:
+        </p>
+        <div class="variablelist">
+          <dl>
+            <dt>
+              <span class="term">
+                <code class="literal">Authors</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Each author can make one or more blog entries.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">Blogs</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Each blog entry is posted by only one main author. Each blog
+                    entry can have many comments on it. Each blog entry can have
+                    one or more tags associated with it. Each blog entry
+                    has summary data about how many comments there are, how
+                    many times it has been viewed, etc., kept separate from the
+                    content of the blog entry.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">Comments</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Each of the many comments in the system is attached to only
+                    one blog entry.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">Tags</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Each tag has one or more blog entries associated with it.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">Summaries</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Each summary is attached to only one blog entry.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="sect2" title="4.2.2. Terminology">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="related.domain.terms"></a>4.2.2. Terminology</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            In Solar terms, we can more formally say the following about the
+            domain:
+        </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>
+                An <code class="literal">Author</code> "has many"
+                <code class="literal">Blogs</code>. This is a one-to-many relationship.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                A <code class="literal">Blog</code> entry "belongs to" an
+                <code class="literal">Author</code>. This is a one-to-one relationship.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                A <code class="literal">Blog</code> entry "has many"
+                <code class="literal">Comments</code>. This is a one-to-many
+                relationship.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                A <code class="literal">Blog</code> entry "has many"
+                <code class="literal">Tags</code> associated with it, and at the same
+                time "belongs to" those tags. This is a many-to-many
+                relationship.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                A <code class="literal">Blog</code> entry "has one"
+                <code class="literal">Summary</code> line. This is a one-to-one
+                relationship.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                A <code class="literal">Comment</code> "belongs to" a
+                <code class="literal">Blog</code> entry. This is a one-to-one
+                relationship.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                A <code class="literal">Tag</code> "has many" <code class="literal">Blog</code>
+                entries associated with it, and at the same time "belongs to"
+                those blog entries. This is a many-to-many relationship.
+            </p>
+            </li>
+          </ul>
+        </div>
+        <p>
+            Based on that language, we can see the four types of relationships
+            that Solar recognizes in the above example:
+        </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>
+                superior one-to-one relationships (<code class="literal">hasOne</code>
+                and the variant <code class="literal">hasOneOrNull</code>);
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                superior one-to-many relationships (<code class="literal">hasMany</code>);
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                subordinate (reciprocal) one-to-one and many-to-one
+                relationships (<code class="literal">belongsTo</code>); and
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                many-to-many relationships.
+            </p>
+            </li>
+          </ul>
+        </div>
+        <p>
+            This many-to-many relationship is called "has and belongs to many"
+            in some systems. In Solar, we call this a
+            <code class="literal">hasManyThrough</code> because of the need to go
+            through an <a class="link" href="http://martinfowler.com/eaaCatalog/associationTableMapping.html" target="_top">AssociationTableMapping</a>
+            model. We will call this association model the
+            <code class="literal">Taggings</code> through which <code class="literal">Blogs</code>
+            and <code class="literal">Tags</code> relate to each other.
+        </p>
+      </div>
+      <div class="sect2" title="4.2.3. Domain Diagram">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="related.domain.diagram"></a>4.2.3. Domain Diagram</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            Here is a graphical diagram of the domain tables and how they
+            relate to each other, using the above terminology.
+        </p>
+        <div class="mediaobject">
+          <img src="figures/related/domain-diagram.png" />
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="related.intro">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="related">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="related.has-one">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">4.1. Introduction </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 4.3. Native Model "Has One" Related Foreign Record</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

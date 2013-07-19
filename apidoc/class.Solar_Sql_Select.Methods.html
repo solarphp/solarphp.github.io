@@ -1,0 +1,779 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 10:07:18 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Sql_Select : Methods</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Methods</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Sql_Select.Properties">Prev</a></td>
+                <th width="60%" align="center">Solar_Sql_Select</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Sql_Select.__construct">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Sql_Select.Methods" class="section">
+
+<h1>Methods</h1>
+
+<p class="para">All methods in the <code class="literal">Solar_Sql_Select</code> class.</p>
+
+<div>
+<h2>Public</h2>
+
+<dl>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.__construct" class="link"><code class="literal">__construct()</code></a></span>
+<dd>
+<p class="para">Constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.__destruct" class="link"><code class="literal">__destruct()</code></a></span>
+<dd>
+<p class="para">Default destructor; does nothing other than provide a safe fallback for calls to parent::__destruct().</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.__toString" class="link"><code class="literal">__toString()</code></a></span>
+<dd>
+<p class="para">Returns this object as an SQL statement string.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.bind" class="link"><code class="literal">bind()</code></a></span>
+<dd>
+<p class="para">Adds data to bind into the query.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.clear" class="link"><code class="literal">clear()</code></a></span>
+<dd>
+<p class="para">Clears query properties and row sources.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.cols" class="link"><code class="literal">cols()</code></a></span>
+<dd>
+<p class="para">Adds 1 or more columns to the SELECT, without regard to a FROM or JOIN.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.compoundLimit" class="link"><code class="literal">compoundLimit()</code></a></span>
+<dd>
+<p class="para">Sets a <em class="emphasis">compound</em> limit count and offset to the query; used only in UNION (etc) queries.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.compoundLimitPage" class="link"><code class="literal">compoundLimitPage()</code></a></span>
+<dd>
+<p class="para">Sets the <em class="emphasis">compound</em> limit and count by page number; used only in UNION (etc) queries.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.compoundOrder" class="link"><code class="literal">compoundOrder()</code></a></span>
+<dd>
+<p class="para">Adds a <em class="emphasis">compound</em> row order to the query; used only in UNION (etc) queries.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.countPages" class="link"><code class="literal">countPages()</code></a></span>
+<dd>
+<p class="para">Get the count of rows and number of pages for the current query.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.distinct" class="link"><code class="literal">distinct()</code></a></span>
+<dd>
+<p class="para">Makes the query SELECT DISTINCT.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.dump" class="link"><code class="literal">dump()</code></a></span>
+<dd>
+<p class="para">Convenience method for getting a dump the whole object, or one of its properties, or an external variable.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.fetch" class="link"><code class="literal">fetch()</code></a></span>
+<dd>
+<p class="para">Fetch the results based on the current query properties.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.fetchAll" class="link"><code class="literal">fetchAll()</code></a></span>
+<dd>
+<p class="para">Fetches all rows from the database using sequential keys.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.fetchAssoc" class="link"><code class="literal">fetchAssoc()</code></a></span>
+<dd>
+<p class="para">Fetches all rows from the database using associative keys (defined by the first column).</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.fetchCol" class="link"><code class="literal">fetchCol()</code></a></span>
+<dd>
+<p class="para">Fetches the first column of all rows as a sequential array.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.fetchOne" class="link"><code class="literal">fetchOne()</code></a></span>
+<dd>
+<p class="para">Fetches one row from the database.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.fetchPairs" class="link"><code class="literal">fetchPairs()</code></a></span>
+<dd>
+<p class="para">Fetches an associative array of all rows as key-value pairs (first  column is the key, second column is the value).</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.fetchPdo" class="link"><code class="literal">fetchPdo()</code></a></span>
+<dd>
+<p class="para">Fetches a PDOStatement result object.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.fetchSql" class="link"><code class="literal">fetchSql()</code></a></span>
+<dd>
+<p class="para">Builds the SQL statement and returns it as a string instead of  executing it.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.fetchValue" class="link"><code class="literal">fetchValue()</code></a></span>
+<dd>
+<p class="para">Fetches the very first value (i.e., first column of the first row).</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.from" class="link"><code class="literal">from()</code></a></span>
+<dd>
+<p class="para">Adds a FROM table and columns to the query.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.fromSelect" class="link"><code class="literal">fromSelect()</code></a></span>
+<dd>
+<p class="para">Adds a sub-select and columns to the query.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.getPaging" class="link"><code class="literal">getPaging()</code></a></span>
+<dd>
+<p class="para">Gets the number of rows per page.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.group" class="link"><code class="literal">group()</code></a></span>
+<dd>
+<p class="para">Adds grouping to the query.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.having" class="link"><code class="literal">having()</code></a></span>
+<dd>
+<p class="para">Adds a HAVING condition to the query by AND.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.innerJoin" class="link"><code class="literal">innerJoin()</code></a></span>
+<dd>
+<p class="para">Adds an INNER JOIN table and columns to the query.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.innerJoinSelect" class="link"><code class="literal">innerJoinSelect()</code></a></span>
+<dd>
+<p class="para">Adds an INNER JOIN sub-select and columns to the query.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.join" class="link"><code class="literal">join()</code></a></span>
+<dd>
+<p class="para">Adds a JOIN table and columns to the query.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.leftJoin" class="link"><code class="literal">leftJoin()</code></a></span>
+<dd>
+<p class="para">Adds a LEFT JOIN table and columns to the query.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.leftJoinSelect" class="link"><code class="literal">leftJoinSelect()</code></a></span>
+<dd>
+<p class="para">Adds a LEFT JOIN sub-select and columns to the query.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.limit" class="link"><code class="literal">limit()</code></a></span>
+<dd>
+<p class="para">Sets a limit count and offset to the query.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.limitPage" class="link"><code class="literal">limitPage()</code></a></span>
+<dd>
+<p class="para">Sets the limit and count by page number.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.locale" class="link"><code class="literal">locale()</code></a></span>
+<dd>
+<p class="para">Looks up class-specific locale strings based on a key.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.multiHaving" class="link"><code class="literal">multiHaving()</code></a></span>
+<dd>
+<p class="para">Adds multiple HAVING conditions to the query.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.multiJoin" class="link"><code class="literal">multiJoin()</code></a></span>
+<dd>
+<p class="para">Adds multiple JOINs to the query.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.multiWhere" class="link"><code class="literal">multiWhere()</code></a></span>
+<dd>
+<p class="para">Adds multiple WHERE conditions to the query.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.orHaving" class="link"><code class="literal">orHaving()</code></a></span>
+<dd>
+<p class="para">Adds a HAVING condition to the query by OR.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.orWhere" class="link"><code class="literal">orWhere()</code></a></span>
+<dd>
+<p class="para">Adds a WHERE condition to the query by OR.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.order" class="link"><code class="literal">order()</code></a></span>
+<dd>
+<p class="para">Adds a row order to the query.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.quote" class="link"><code class="literal">quote()</code></a></span>
+<dd>
+<p class="para">Safely quotes a value for an SQL statement.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.quoteInto" class="link"><code class="literal">quoteInto()</code></a></span>
+<dd>
+<p class="para">Quotes a value and places into a piece of text at a placeholder.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.quoteMulti" class="link"><code class="literal">quoteMulti()</code></a></span>
+<dd>
+<p class="para">Quote multiple text-and-value pieces.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.setPaging" class="link"><code class="literal">setPaging()</code></a></span>
+<dd>
+<p class="para">Sets the number of rows per page.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.unbind" class="link"><code class="literal">unbind()</code></a></span>
+<dd>
+<p class="para">Unsets bound data.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.union" class="link"><code class="literal">union()</code></a></span>
+<dd>
+<p class="para">Takes the current select properties and prepares them for UNION with the next set of select properties.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.unionAll" class="link"><code class="literal">unionAll()</code></a></span>
+<dd>
+<p class="para">Takes the current select properties and prepares them for UNION ALL with the next set of select properties.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select.where" class="link"><code class="literal">where()</code></a></span>
+<dd>
+<p class="para">Adds a WHERE condition to the query by AND.</p></dd>
+
+</dt>
+
+
+</dl>
+
+
+</div>
+
+<div>
+<h2>Protected</h2>
+
+<dl>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select._addCompound" class="link"><code class="literal">_addCompound()</code></a></span>
+<dd>
+<p class="para">Support method for adding compound (&#039;UNION&#039;, &#039;UNION ALL&#039;) queries based on the current object properties.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select._addSource" class="link"><code class="literal">_addSource()</code></a></span>
+<dd>
+<p class="para">Adds a row source (from table, from select, or join) to the  sources array.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select._build" class="link"><code class="literal">_build()</code></a></span>
+<dd>
+<p class="para">Support method for building corrected parts from sources.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select._buildConfig" class="link"><code class="literal">_buildConfig()</code></a></span>
+<dd>
+<p class="para">Builds and returns the default config for a class, including all configs inherited from its parents.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select._buildFrom" class="link"><code class="literal">_buildFrom()</code></a></span>
+<dd>
+<p class="para">Builds a part element <em class="emphasis">in place</em> using a &#039;from&#039; source.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select._buildJoin" class="link"><code class="literal">_buildJoin()</code></a></span>
+<dd>
+<p class="para">Builds a part element <em class="emphasis">in place</em> using a &#039;join&#039; source.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select._buildSelect" class="link"><code class="literal">_buildSelect()</code></a></span>
+<dd>
+<p class="para">Builds a part element <em class="emphasis">in place</em> using a &#039;select&#039; source.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select._clearCompound" class="link"><code class="literal">_clearCompound()</code></a></span>
+<dd>
+<p class="para">Clears only the compound elements, not the current select properties  and row sources.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select._clearParts" class="link"><code class="literal">_clearParts()</code></a></span>
+<dd>
+<p class="para">Clears only the current select properties and row sources, not  compound elements.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select._countSubSelect" class="link"><code class="literal">_countSubSelect()</code></a></span>
+<dd>
+<p class="para">When doing a countPages(), count using a subselect.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select._exception" class="link"><code class="literal">_exception()</code></a></span>
+<dd>
+<p class="para">Convenience method for returning exceptions with localized text.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select._hasCountCond" class="link"><code class="literal">_hasCountCond()</code></a></span>
+<dd>
+<p class="para">Determines if there is a COUNT() in any of the condition snippets.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select._join" class="link"><code class="literal">_join()</code></a></span>
+<dd>
+<p class="para">Support method for adding JOIN clauses.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select._multiHaving" class="link"><code class="literal">_multiHaving()</code></a></span>
+<dd>
+<p class="para">Backend support for multiHaving().</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select._multiWhere" class="link"><code class="literal">_multiWhere()</code></a></span>
+<dd>
+<p class="para">Backend support for multiWhere().</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select._nameCols" class="link"><code class="literal">_nameCols()</code></a></span>
+<dd>
+<p class="para">Support method for finding a table name and column names.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select._origAlias" class="link"><code class="literal">_origAlias()</code></a></span>
+<dd>
+<p class="para">Returns an identifier as an &quot;original&quot; name and an &quot;alias&quot;.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select._postConfig" class="link"><code class="literal">_postConfig()</code></a></span>
+<dd>
+<p class="para">A hook that activates after _buildConfig() in the constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select._postConstruct" class="link"><code class="literal">_postConstruct()</code></a></span>
+<dd>
+<p class="para">Post-construction tasks to complete object construction.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select._preConfig" class="link"><code class="literal">_preConfig()</code></a></span>
+<dd>
+<p class="para">A hook that activates before _buildConfig() in the constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Select._prepareSubSelect" class="link"><code class="literal">_prepareSubSelect()</code></a></span>
+<dd>
+<p class="para">Prepares a select statement for use as a sub-select; returns strings as they are, but converts Solar_Sql_Select objects to strings after merging bind values.</p></dd>
+
+</dt>
+
+
+</dl>
+
+
+</div>
+
+<div>
+<h2>Private</h2>
+
+<p class="para">None.</p>
+
+</div>
+    
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Sql_Select.Properties">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_Sql_Select">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Sql_Select.__construct">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Properties</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Solar_Sql_Select::__construct()</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

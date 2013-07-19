@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:57:20 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar : Exception</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Solar::exception()</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar.dump">Prev</a></td>
+                <th width="60%" align="center">Solar</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar.factory">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar.exception" class="section">
+
+<h1>Solar::exception()</h1>
+
+<div class="methodsynopsis dc-description">
+    <span class="modifier">static public</span>
+    <span class="type">Solar_Exception</span>
+     <span class="methodname">Solar::exception</span> 
+         ( <span class="methodparam"><span class="type">string|object</span>  <span class="parameter">$spec</span></span>
+        , <span class="methodparam"><span class="type">mixed</span>  <span class="parameter">$code</span></span>
+        , <span class="methodparam"><span class="type">string</span>  <span class="parameter">$text</span> <span class="initializer"> = &#039;&#039;</span></span>
+        , <span class="methodparam"><span class="type">array</span>  <span class="parameter">$info</span> <span class="initializer"> = array ()</span></span>
+    
+ )</div>
+
+
+<p class="para">Generates a simple exception, but does not throw it.</p>
+
+<div>
+<h2>Parameters</h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><em class="emphasis">(string|object)</em> <code class="literal">$spec</code>: The class name (or object) that generated  the exception.</p></li>
+<li class="listitem"><p class="para"><em class="emphasis">(mixed)</em> <code class="literal">$code</code>: A scalar error code, generally a string.</p></li>
+<li class="listitem"><p class="para"><em class="emphasis">(string)</em> <code class="literal">$text</code>: Any error message text.</p></li>
+<li class="listitem"><p class="para"><em class="emphasis">(array)</em> <code class="literal">$info</code>: Additional error information in an associative array.</p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Returns</h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><em class="emphasis">(Solar_Exception)</em></p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Description</h2>
+
+<p class="para">Generates a simple exception, but does not throw it.</p>
+
+<p class="para">This method attempts to automatically load an exception class
+based on the error code, falling back to parent exceptions
+when no specific exception classes exist.  For example, if a
+class named &#039;Vendor_Example&#039; extended from &#039;Vendor_Base&#039; throws an
+exception or error coded as &#039;ERR_FILE_NOT_FOUND&#039;, the method will
+attempt to return these exception classes in this order ...</p>
+
+<ol type="1">
+<li class="listitem"><p class="para">Vendor_Example_Exception_FileNotFound (class specific)</p></li>
+<li class="listitem"><p class="para">Vendor_Base_Exception_FileNotFound (parent specific)</p></li>
+<li class="listitem"><p class="para">Vendor_Example_Exception (class generic)</p></li>
+<li class="listitem"><p class="para">Vendor_Base_Exception (parent generic)</p></li>
+<li class="listitem"><p class="para">Vendor_Exception (generic for all of vendor)
+</p></li>
+</ol>
+
+<p class="para">The final fallback is always the generic Solar_Exception class.</p>
+
+<p class="para">Note that this method only generates the object; it does not
+throw the exception.</p>
+
+<pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$class </span><span style="color: #007700">= </span><span style="color: #DD0000">'My_Example_Class'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$code </span><span style="color: #007700">= </span><span style="color: #DD0000">'ERR_SOMETHING_WRONG'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$text </span><span style="color: #007700">= </span><span style="color: #DD0000">'Something is wrong.'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$info </span><span style="color: #007700">= array(</span><span style="color: #DD0000">'foo' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'bar'</span><span style="color: #007700">);
+</span><span style="color: #0000BB">$exception </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">exception</span><span style="color: #007700">(</span><span style="color: #0000BB">$class</span><span style="color: #007700">, </span><span style="color: #0000BB">$code</span><span style="color: #007700">, </span><span style="color: #0000BB">$text</span><span style="color: #007700">, </span><span style="color: #0000BB">$info</span><span style="color: #007700">);
+throw </span><span style="color: #0000BB">$exception</span><span style="color: #007700">;</span></span></code></pre>
+
+
+<p class="para">In general, you shouldn&#039;t need to use this directly in classes
+extended from <a href="class.Solar_Base.Overview" class="link">Solar_Base</a>.  Instead, use
+<a href="class.Solar_Base._exception" class="link">$this-&gt;_exception()</a> for automated
+picking of the right exception class from the $code, and
+automated translation of the error message.</p>
+
+</div>
+    
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar.dump">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar.factory">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar::dump()</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Solar::factory()</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

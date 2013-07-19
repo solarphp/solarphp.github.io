@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:57:08 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Sql_Model_Related_HasOne</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Solar_Sql_Model_Related_HasOne</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Sql_Model_Related_HasManyThrough.toArray">Prev</a></td>
+                <th width="60%" align="center">Classes</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Sql_Model_Related_HasOne.Overview">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Sql_Model_Related_HasOne" class="chapter">
+
+<h1>Solar_Sql_Model_Related_HasOne</h1><p><b>Table of Contents</b></p><ul class="chunklist chunklist_title">
+<li><a href="class.Solar_Sql_Model_Related_HasOne.Overview">Overview</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.Config">Configuration</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.Constants">Constants</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.Properties">Properties</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.Methods">Methods</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.__construct">Solar_Sql_Model_Related_HasOne::__construct()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.__destruct">Solar_Sql_Model_Related_HasOne::__destruct()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._buildConfig">Solar_Sql_Model_Related_HasOne::_buildConfig()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._collate">Solar_Sql_Model_Related_HasOne::_collate()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._emergeFromArrayAll">Solar_Sql_Model_Related_HasOne::_emergeFromArrayAll()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._emergeFromArrayOne">Solar_Sql_Model_Related_HasOne::_emergeFromArrayOne()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._exception">Solar_Sql_Model_Related_HasOne::_exception()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._fetchIntoArrayAll">Solar_Sql_Model_Related_HasOne::_fetchIntoArrayAll()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._fetchIntoArrayOne">Solar_Sql_Model_Related_HasOne::_fetchIntoArrayOne()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._fixEagerParams">Solar_Sql_Model_Related_HasOne::_fixEagerParams()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._fixFetchParams">Solar_Sql_Model_Related_HasOne::_fixFetchParams()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._fixForeignKey">Solar_Sql_Model_Related_HasOne::_fixForeignKey()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._fixRelatedCol">Solar_Sql_Model_Related_HasOne::_fixRelatedCol()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._getEmpty">Solar_Sql_Model_Related_HasOne::_getEmpty()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._getNativeBySelect">Solar_Sql_Model_Related_HasOne::_getNativeBySelect()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._getNativeByWherein">Solar_Sql_Model_Related_HasOne::_getNativeByWherein()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._modEagerFetch">Solar_Sql_Model_Related_HasOne::_modEagerFetch()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._postConfig">Solar_Sql_Model_Related_HasOne::_postConfig()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._postConstruct">Solar_Sql_Model_Related_HasOne::_postConstruct()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._preConfig">Solar_Sql_Model_Related_HasOne::_preConfig()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._setCols">Solar_Sql_Model_Related_HasOne::_setCols()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._setConditions">Solar_Sql_Model_Related_HasOne::_setConditions()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._setForeignClass">Solar_Sql_Model_Related_HasOne::_setForeignClass()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._setForeignModel">Solar_Sql_Model_Related_HasOne::_setForeignModel()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._setMerge">Solar_Sql_Model_Related_HasOne::_setMerge()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._setNativeBy">Solar_Sql_Model_Related_HasOne::_setNativeBy()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._setOrder">Solar_Sql_Model_Related_HasOne::_setOrder()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._setRelated">Solar_Sql_Model_Related_HasOne::_setRelated()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._setType">Solar_Sql_Model_Related_HasOne::_setType()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne._setWhereinMax">Solar_Sql_Model_Related_HasOne::_setWhereinMax()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.dump">Solar_Sql_Model_Related_HasOne::dump()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.fetch">Solar_Sql_Model_Related_HasOne::fetch()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.fetchEmpty">Solar_Sql_Model_Related_HasOne::fetchEmpty()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.fetchNew">Solar_Sql_Model_Related_HasOne::fetchNew()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.getForeignConditions">Solar_Sql_Model_Related_HasOne::getForeignConditions()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.getModel">Solar_Sql_Model_Related_HasOne::getModel()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.isInvalid">Solar_Sql_Model_Related_HasOne::isInvalid()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.isMany">Solar_Sql_Model_Related_HasOne::isMany()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.isOne">Solar_Sql_Model_Related_HasOne::isOne()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.load">Solar_Sql_Model_Related_HasOne::load()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.locale">Solar_Sql_Model_Related_HasOne::locale()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.modEagerFetch">Solar_Sql_Model_Related_HasOne::modEagerFetch()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.modEagerResult">Solar_Sql_Model_Related_HasOne::modEagerResult()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.newObject">Solar_Sql_Model_Related_HasOne::newObject()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.preSave">Solar_Sql_Model_Related_HasOne::preSave()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.save">Solar_Sql_Model_Related_HasOne::save()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.setNativeModel">Solar_Sql_Model_Related_HasOne::setNativeModel()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_HasOne.toArray">Solar_Sql_Model_Related_HasOne::toArray()</a></li>
+</ul>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Sql_Model_Related_HasManyThrough.toArray">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Sql_Model_Related_HasOne.Overview">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_Sql_Model_Related_HasManyThrough::toArray()</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Overview</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:57 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">6.5. View Presentation</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="form.elements">Prev</a> </td>
+          <th width="60%" align="center">Chapter 6. Models and Forms</th>
+          <td width="20%" align="right"> <a accesskey="n" href="form.view.decorate">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="6.5. View Presentation">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="form.view"></a>6.5. View Presentation</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        At this point, we have used controller logic to work with a model
+        record, and asked the record to give us a form object. Now we need to
+        display that form object in a view. Solar has a whole series of view
+        helpers for rendering forms manually, but here we are going to
+        concentrate on automated form presentation using
+        <a class="link" href="http://solarphp.com/class/Solar_View_Helper_Form" target="_top">Solar_View_Helper_Form</a>, which you access using
+        <code class="literal">$this-&gt;form()</code> in a view script.
+    </p>
+      <div class="note" title="Note">
+        <table border="0" summary="Note">
+          <tr>
+            <td rowspan="2" align="center" valign="top" width="25">
+              <img alt="[Note]" src="images/note.png" />
+            </td>
+            <th align="left">Note</th>
+          </tr>
+          <tr>
+            <td align="left" valign="top">
+              <p>
+        Solar_View_Helper_Form uses "fluent" methods for most of its
+        operation.  This means you can chain methods together in a single
+        call to perform a series of operations in sequence.
+    </p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <p>
+        The easiest way to display a form is to use
+        <code class="literal">$this-&gt;form()-&gt;auto()</code>. This method will take a
+        <a class="link" href="http://solarphp.com/class/Solar_Form" target="_top">Solar_Form</a> object and build out its elements automatically for us.
+        We have seen this previously in the blog demo for
+        <code class="filename">edit.php</code> view.
+    </p>
+      <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+    </span><span style="color: #007700">echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">form</span><span style="color: #007700">()             </span><span style="color: #FF8000">// fluent form helper
+              </span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">auto</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">form</span><span style="color: #007700">)  </span><span style="color: #FF8000">// auto-build from a Solar_Form object
+              </span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addProcess</span><span style="color: #007700">(</span><span style="color: #DD0000">'save'</span><span style="color: #007700">) </span><span style="color: #FF8000">// add a "Save" button
+              </span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetch</span><span style="color: #007700">();           </span><span style="color: #FF8000">// fetch the xhtml output</span></span></code></pre>
+      <div class="note" title="Note">
+        <table border="0" summary="Note">
+          <tr>
+            <td rowspan="2" align="center" valign="top" width="25">
+              <img alt="[Note]" src="images/note.png" />
+            </td>
+            <th align="left">Note</th>
+          </tr>
+          <tr>
+            <td align="left" valign="top">
+              <p>
+        What's with the call to <code class="function">addProcess()</code>? The 
+        model record <code class="function">newForm()</code> method does not add
+        submit buttons, since it doesn't necessarily know how the form is
+        going to be used by the calling logic.  As such, we add submit
+        buttons with process keys at view time; the process keys allow
+        the controller to know which submit button was clicked by the
+        the end-user.
+    </p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <p>
+        Those four lines of view script code build the form for you,
+        complete with CSS classes and IDs based on the form element types,
+        names, attributes, whether or not they are required, whether or not
+        they are invalid, and so on.
+    </p>
+      <pre class="programlisting"><code><span style="color: #000000">&lt;form action="/blog/edit/2" method="post" enctype="multipart/form-data"&gt;
+    &lt;dl class="list"&gt;
+        
+        &lt;dt class="blog-status"&gt;
+            &lt;label for="blog-status" class="blog-status"&gt;Status&lt;/label&gt;
+        &lt;/dt&gt;
+        &lt;dd class="blog-status"&gt;
+            &lt;select name="blog[status]" id="blog-status" class="input-select blog-status"&gt;
+                &lt;option value="draft" label="draft" selected="selected"&gt;draft&lt;/option&gt;
+                &lt;option value="public" label="public"&gt;public&lt;/option&gt;
+            &lt;/select&gt;
+        &lt;/dd&gt;
+        
+        &lt;dt class="blog-title require"&gt;
+            &lt;label for="blog-title" class="blog-title require"&gt;Title&lt;/label&gt;
+        &lt;/dt&gt;
+        &lt;dd class="blog-title require"&gt;
+            &lt;input type="text" name="blog[title]" value="A Draft Article" 
+                maxlength="63" size="60" id="blog-title" class="input-text 
+                blog-title require"
+            /&gt;
+        &lt;/dd&gt;
+        
+        &lt;dt class="blog-body"&gt;
+            &lt;label for="blog-body" class="blog-body"&gt;Body&lt;/label&gt;
+        &lt;/dt&gt;
+        &lt;dd class="blog-body"&gt;
+            &lt;textarea name="blog[body]" rows="18" cols="60" id="blog-body" 
+                class="input-textarea blog-body"&gt;My, it sure is drafty in here.&lt;/textarea&gt;
+        &lt;/dd&gt;
+        
+        &lt;dt class="process-save"&gt;
+        &lt;/dt&gt;
+        &lt;dd class="process-save"&gt;
+            &lt;input type="submit" name="process" value="Save" id="process-save"
+                class="input-submit process-save" /&gt;
+        &lt;/dd&gt;
+        
+    &lt;/dl&gt;
+&lt;/form&gt;</span></code></pre>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="form.elements">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="form">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="form.view.decorate">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">6.4. Form Elements </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 6.6. View Decoration</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

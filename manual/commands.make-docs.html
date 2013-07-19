@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:56:02 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">8.12. Make Wiki-Like Documentation</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="commands.run-tests">Prev</a> </td>
+          <th width="60%" align="center">Chapter 8. Command-Line Tools</th>
+          <td width="20%" align="right"> <a accesskey="n" href="commands.make-docbook">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="8.12. Make Wiki-Like Documentation">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="commands.make-docs"></a>8.12. Make Wiki-Like Documentation</h2>
+          </div>
+        </div>
+      </div>
+      <div class="cmdsynopsis">
+        <p><code class="command">./script/solar make-docs</code>   <em class="replaceable"><code>Vendor</code></em>  [--lint]  --package-dir=<em class="replaceable"><code>/path/to/package-output</code></em>   --class-dir=<em class="replaceable"><code>/path/to/class-output</code></em>  [--docbook-dir=<em class="replaceable"><code>/path/to/docbook-output</code></em>]</p>
+      </div>
+      <p>
+        This command examines the docblock comments for all classes in the
+        named <code class="filename"><em class="replaceable"><code>Vendor</code></em></code> in
+        <code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/include/</code>
+        directory. It then generates wiki-like documentation files for each
+        class, including information about its constants, configuration,
+        properties and methods. These wiki files can then be read by web
+        applcations to present them, or by CLI scripts to further transform
+        them into other formats.
+    </p>
+      <p>
+        The documentation generated for the classes will be saved in the
+        directory specified by <code class="literal">--class-dir</code>. The package
+        documentation will be saved in the directory specified by
+        <code class="literal">--package-dir</code>.
+        If the optional <code class="literal">--docbook-dir</code> tag is passed, the
+        wiki-like documentation files will be transformed into DocBook sources
+        suitable for processing by the <a class="link" href="http://doc.php.net/phd/" target="_top">PHP Documentation Project PhD
+        processor</a> or another DocBook processor.
+    </p>
+      <p>
+        As part of the documentation generating process, the command will
+        emit warnings when class docblocks appear incomplete.  If you want
+        to check the source documentation completeness without generating
+        any files, pass the <code class="literal">--lint</code> option.
+    </p>
+      <p>
+        The parser recognizes a subset of JavaDoc/PhpDoc tags as defined in
+        <a class="link" href="http://solarphp.com/class/Solar_Docs_Phpdoc" target="_top">Solar_Docs_Phpdoc</a>.
+        The narrative text for comments uses the markup rules defined by <a class="link" href="http://solarphp.com/class/Solar_Markdown_Apidoc" target="_top">Solar_Markdown_Apidoc</a>.
+        For examples, see the Solar
+        codebase itself.
+    </p>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="commands.run-tests">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="commands">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="commands.make-docbook">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">8.11. Run A Test Suite </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 8.13. Make DocBook Files</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

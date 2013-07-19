@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:50 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">2.2. Front Controller</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="dispatch-cycle.bootstrap-config">Prev</a> </td>
+          <th width="60%" align="center">Chapter 2. Dynamic Dispatch Cycle</th>
+          <td width="20%" align="right"> <a accesskey="n" href="dispatch-cycle.rewrite-rules">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="2.2. Front Controller">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="dispatch-cycle.front-controller"></a>2.2. Front Controller</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        Once <code class="literal">Solar::start()</code> is done, the bootstrap script
+        retrieves a <code class="literal"><a class="link" href="http://solarphp.com/class/Solar_Controller_Front" target="_top">Solar_Controller_Front</a></code>
+        object from the registry under the name
+        <code class="literal">controller_front</code>, and tells it to display the
+        results of its activity. The front controller performs the following
+        steps:
+    </p>
+      <div class="itemizedlist">
+        <ul class="itemizedlist" type="disc">
+          <li class="listitem">
+            <p>
+            As part of instantiation, it gets its own configuration values
+            from the <code class="literal">Solar_Config</code> class (these were
+            populated by <code class="literal">Solar::start()</code> from the config
+            file).
+        </p>
+          </li>
+          <li class="listitem">
+            <p>
+            Using the config values from <code class="literal">rewrite</code> and
+            <code class="literal">replace</code>, it modifies the request URI 
+            according to the specified dynamic rewrite rules.
+        </p>
+          </li>
+          <li class="listitem">
+            <p>
+            It now looks at the first path-info element of the URI to
+            determine what page controller to instantiate. At first, it uses
+            the <code class="literal">routing</code> config value to match the element
+            against a particular page controller class. If there are no
+            matches, it tries to automatically pick a class using the
+            <code class="literal">classes</code> class stack prefixes.
+        </p>
+          </li>
+          <li class="listitem">
+            <p>
+            If after all of this, the front controller could not find a 
+            page controller class that matched the first element of the
+            URI path info, it will return a "not found" page; otherwise,
+            it will instantiate the page controller class and pass it the
+            (possibly modified) remainder of the URI.
+        </p>
+          </li>
+        </ul>
+      </div>
+      <p>
+        Note that the three layers of modification and discovery (dynamic
+        rewrite, static routing, and class prefixes) are complementary; each
+        can be used by itself alone, or in combination with the others, or not
+        at all.
+    </p>
+      <div class="sect2" title="2.2.1. Dynamic Rewrite">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="dispatch-cycle.front-controller.dynamic-rewrite"></a>2.2.1. Dynamic Rewrite</h3>
+            </div>
+          </div>
+        </div>
+        <p>This somewhat complicated topic is covered on the next page.</p>
+        <div class="note" title="Note">
+          <table border="0" summary="Note">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">Note</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+                Once a rewrite rule is matched, rewrite processing stops and
+                passes along to static routing. Any URI not matching a rewrite
+                rule will be left untouched.
+            </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="sect2" title="2.2.2. Static Routing">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="dispatch-cycle.front-controller.static-routing"></a>2.2.2. Static Routing</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            After any dynamic rewrites, the front controller then looks at the
+            first path-info element of the URI and tries route it to a
+            page controller class. It does this in two steps: via static
+            routing, and then via a class stack.
+        </p>
+        <p>
+            For the static routing, the front controller looks at the
+            <code class="literal">routing</code> config value to see if the first
+            path-info element has a page controller class defined for it.
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// routes all "/journal" URIs to the Acme_App_Blog class
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Controller_Front'</span><span style="color: #007700">][</span><span style="color: #DD0000">'routing'</span><span style="color: #007700">] = array(
+    </span><span style="color: #DD0000">'journal' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Acme_App_Blog'</span><span style="color: #007700">,
+);</span></span></code></pre>
+      </div>
+      <div class="sect2" title="2.2.3. Class Stack">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="dispatch-cycle.front-controller.class-stack"></a>2.2.3. Class Stack</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            If there were no static routing matches, the front controller
+            finally falls back to a stack of class prefixes. Solar will append
+            the first path-info element of the URI to each of these in turn,
+            and try to find that class from the include-path. If there are
+            multiple classes in the stack, it will search each one in turn
+            until it finds an existing class.
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// "/zim-gir" will cause the front controller to look for Foo_App_ZimGir,
+// then Bar_App_ZimGir, and finally Baz_App_ZimGir.
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Controller_Front'</span><span style="color: #007700">][</span><span style="color: #DD0000">'classes'</span><span style="color: #007700">] = array(
+    </span><span style="color: #DD0000">'classes' </span><span style="color: #007700">=&gt; array(</span><span style="color: #DD0000">'Foo_App'</span><span style="color: #007700">, </span><span style="color: #DD0000">'Bar_App'</span><span style="color: #007700">, </span><span style="color: #DD0000">'Baz_App'</span><span style="color: #007700">),
+);</span></span></code></pre>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="dispatch-cycle.bootstrap-config">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="dispatch-cycle">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="dispatch-cycle.rewrite-rules">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">2.1. Bootstrap and Configuration </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 2.3. Rewrite Rules</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

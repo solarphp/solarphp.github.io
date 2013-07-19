@@ -1,0 +1,625 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:52 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">3.7. Record Filters</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="model.record">Prev</a> </td>
+          <th width="60%" align="center">Chapter 3. Working With Models</th>
+          <td width="20%" align="right"> <a accesskey="n" href="model.columns">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="3.7. Record Filters">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="model.filters"></a>3.7. Record Filters</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        Filters provide a way to automatically sanitize and validate the
+        properties of a model record.  The model system uses the independent
+        <a class="link" href="http://solarphp.com/package/Solar_Filter" target="_top">Solar_Filter</a> for its filters (click on the link to see the
+        list of available filter classes).
+    </p>
+      <p>
+        The model automatically adds certain filters based on the database
+        column definition, and you can add your own as well. When you
+        <code class="literal">save()</code> a record object, these filters are applied
+        in sequence (the automatic ones are applied last). If any of the
+        validation filters fail, the <code class="literal">save()</code> will fail as
+        well.
+    </p>
+      <div class="note" title="Filter, Sanitize, and Validate">
+        <table border="0" summary="Note: Filter, Sanitize, and Validate">
+          <tr>
+            <td rowspan="2" align="center" valign="top" width="25">
+              <img alt="[Note]" src="images/note.png" />
+            </td>
+            <th align="left">Filter, Sanitize, and Validate</th>
+          </tr>
+          <tr>
+            <td align="left" valign="top">
+              <p>
+            These terms may have different meanings in other frameworks.
+            In Solar, a "filter" is the generic term for sanitizing and/or
+            validating data. To "sanitize" means to change the data as
+            necessary to make it match a particular format or set of
+            criteria. To "validate" means to check the if data matches a
+            particular format or set of criteria, without changing the
+            data itself. You can do both to any piece of data, in whatever
+            order you like, depending on your needs.
+        </p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="sect2" title="3.7.1. Automatic Filters">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="model.filters.auto"></a>3.7.1. Automatic Filters</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            These filters are added to these column types automatically.
+        </p>
+        <table id="id36144240">
+          <caption>Table 3.1. Filters Added Automatically In Models</caption>
+          <thead>
+            <tr>
+                    <td>Column Info</td>
+                    <td>Filters Added</td>
+                </tr>
+          </thead>
+          <tbody>
+            <tr>
+                    <td><code class="literal">boolean</code></td>
+                    <td><a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateBool.validateBool" target="_top">validateBool</a> and <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeBool.sanitizeBool" target="_top">sanitizeBool</a></td>
+                </tr>
+            <tr>
+                    <td>
+                        <code class="literal">char</code> and <code class="literal">varchar</code>
+                    </td>
+                    <td>
+                        <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateString.validateString" target="_top">validateString</a>, <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateMaxLength.validateMaxLength" target="_top">validateMaxLength</a> for the defined
+                        column width, and <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeString.sanitizeString" target="_top">sanitizeString</a>
+                    </td>
+                </tr>
+            <tr>
+                    <td>
+                        <code class="literal">smallint</code>, <code class="literal">int</code>,
+                        and <code class="literal">bigint</code>
+                    </td>
+                    <td>
+                        <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateInt.validateInt" target="_top">validateInt</a>, <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateRange.validateRange" target="_top">validateRange</a> for the lowest and
+                        highest allowed values of each integer type,
+                        and <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeInt.sanitizeInt" target="_top">sanitizeInt</a>.
+                    </td>
+                </tr>
+            <tr>
+                    <td><code class="literal">numeric</code> (fixed-point decimal)</td>
+                    <td>
+                        <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateNumeric.validateNumeric" target="_top">validateNumeric</a>, <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateSizeScope.validateSizeScope" target="_top">validateSizeScope</a> for the defines
+                        column size and scope, and <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeNumeric.sanitizeNumeric" target="_top">sanitizeNumeric</a>
+                    </td>
+                </tr>
+            <tr>
+                    <td><code class="literal">float</code> (double)</td>
+                    <td><a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateFloat.validateFloat" target="_top">validateFloat</a> and <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeFloat.sanitizeFloat" target="_top">sanitizeFloat</a></td>
+                </tr>
+            <tr>
+                    <td><code class="literal">clob</code></td>
+                    <td>(none)</td>
+                </tr>
+            <tr>
+                    <td><code class="literal">date</code></td>
+                    <td><a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateIsoDate.validateIsoDate" target="_top">validateIsoDate</a> and <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeIsoDate.sanitizeIsoDate" target="_top">sanitizeIsoDate</a></td>
+                </tr>
+            <tr>
+                    <td><code class="literal">time</code></td>
+                    <td><a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateIsoTime.validateIsoTime" target="_top">validateIsoTime</a> and <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeIsoTime.sanitizeIsoTime" target="_top">sanitizeIsoTime</a></td>
+                </tr>
+            <tr>
+                    <td><code class="literal">timestamp</code> (datetime)</td>
+                    <td><a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateIsoTimestamp.validateIsoTimestamp" target="_top">validateIsoTimestamp</a> and <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeIsoTimestamp.sanitizeIsoTimestamp" target="_top">sanitizeIsoTimestamp</a></td>
+                </tr>
+          </tbody>
+        </table>
+        <div class="note" title="What about NOT NULL columns?">
+          <table border="0" summary="Note: What about NOT NULL columns?">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">What about NOT NULL columns?</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+                Because of the way <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter" target="_top">Solar_Filter</a> works, a particular piece
+                of data is not defined as "required" until filtering actually
+                occurs. This is because if a piece of data is missing,
+                it won't be filtered, because there's nothing to filter.
+                As such, NOT NULL columns are checked if they are present
+                and not blank, but this is done programmatically as part
+                of the filtering logic, not as a separate filter.  You
+                can still add <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateNotBlank.validateNotBlank" target="_top">validateNotBlank</a> on your own to make sure
+                properties, when present, are filled in.
+            </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="sect2" title="3.7.2. Adding Filters">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="model.filters.add"></a>3.7.2. Adding Filters</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            To add one or more filters to a model, edit the model
+            <code class="literal">_setup()</code> method and call
+            <code class="literal">$this-&gt;_addFilter()</code> with the record property
+            name, the filter name, and the parameters (if any) for
+            the filter.
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #007700">class </span><span style="color: #0000BB">Vendor_Model_Foo </span><span style="color: #007700">extends </span><span style="color: #0000BB">Vendor_Sql_Model
+</span><span style="color: #007700">{
+    public function </span><span style="color: #0000BB">_setup</span><span style="color: #007700">()
+    {
+        </span><span style="color: #FF8000">// validate that a username is only alphanumeric characters
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_addFilter</span><span style="color: #007700">(</span><span style="color: #DD0000">'user_handle'</span><span style="color: #007700">, </span><span style="color: #DD0000">'validateAlnum'</span><span style="color: #007700">);
+        
+        </span><span style="color: #FF8000">// validate column 'user_email' is not blank, and is an email address
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_addFilter</span><span style="color: #007700">(</span><span style="color: #DD0000">'user_email'</span><span style="color: #007700">, </span><span style="color: #DD0000">'validateNotBlank'</span><span style="color: #007700">);
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_addFilter</span><span style="color: #007700">(</span><span style="color: #DD0000">'user_email'</span><span style="color: #007700">, </span><span style="color: #DD0000">'validateEmail'</span><span style="color: #007700">);
+        
+        </span><span style="color: #FF8000">// validate column 'foo' is at least 8 characters long,
+        // and has at least one non-alphanumeric character
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_addFilter</span><span style="color: #007700">(</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">, </span><span style="color: #DD0000">'validateMinLength'</span><span style="color: #007700">, </span><span style="color: #0000BB">8</span><span style="color: #007700">);
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_addFilter</span><span style="color: #007700">(</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">, </span><span style="color: #DD0000">'validatePregMatch'</span><span style="color: #007700">, </span><span style="color: #DD0000">'/[^a-zA-Z0-9]/'</span><span style="color: #007700">);
+        
+        </span><span style="color: #FF8000">// make sure the column 'bar' is one of a list of approved values
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_addFilter</span><span style="color: #007700">(</span><span style="color: #DD0000">'bar'</span><span style="color: #007700">, </span><span style="color: #DD0000">'validateInList'</span><span style="color: #007700">, array(
+            </span><span style="color: #DD0000">'baz'</span><span style="color: #007700">, </span><span style="color: #DD0000">'dib'</span><span style="color: #007700">, </span><span style="color: #DD0000">'zim'</span><span style="color: #007700">, </span><span style="color: #DD0000">'gir'</span><span style="color: #007700">,
+        ));
+    }
+}</span></span></code></pre>
+        <p>
+            Now when you <code class="literal">save()</code> a record from that model,
+            those filters will be applied before inserting or updating to
+            the database.  If any of them fail, the <code class="literal">save()</code>
+            will fail.
+        </p>
+      </div>
+      <div class="sect2" title="3.7.3. Available &quot;Sanitize&quot; Filters">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="model.filters.sanitize"></a>3.7.3. Available "Sanitize" Filters</h3>
+            </div>
+          </div>
+        </div>
+        <p>(Click on each to see its description.)</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeAlnum.sanitizeAlnum" target="_top">sanitizeAlnum</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeAlpha.sanitizeAlpha" target="_top">sanitizeAlpha</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeBool.sanitizeBool" target="_top">sanitizeBool</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeFloat.sanitizeFloat" target="_top">sanitizeFloat</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeInt.sanitizeInt" target="_top">sanitizeInt</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeIpv4.sanitizeIpv4" target="_top">sanitizeIpv4</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeIsoDate.sanitizeIsoDate" target="_top">sanitizeIsoDate</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeIsoTime.sanitizeIsoTime" target="_top">sanitizeIsoTime</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeIsoTimestamp.sanitizeIsoTimestamp" target="_top">sanitizeIsoTimestamp</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeNumeric.sanitizeNumeric" target="_top">sanitizeNumeric</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizePregReplace.sanitizePregReplace" target="_top">sanitizePregReplace</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeString.sanitizeString" target="_top">sanitizeString</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeStrReplace.sanitizeStrReplace" target="_top">sanitizeStrReplace</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeTrim.sanitizeTrim" target="_top">sanitizeTrim</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeUpload.sanitizeUpload" target="_top">sanitizeUpload</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_SanitizeWord.sanitizeWord" target="_top">sanitizeWord</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="sect2" title="3.7.4. Available &quot;Validate&quot; Filters">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="model.filters.validate"></a>3.7.4. Available "Validate" Filters</h3>
+            </div>
+          </div>
+        </div>
+        <p>(Click on each to see its description.)</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateAlnum.validateAlnum" target="_top">validateAlnum</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateAlpha.validateAlpha" target="_top">validateAlpha</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateBlank.validateBlank" target="_top">validateBlank</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateBool.validateBool" target="_top">validateBool</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateCtype.validateCtype" target="_top">validateCtype</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateEmail.validateEmail" target="_top">validateEmail</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateEquals.validateEquals" target="_top">validateEquals</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateFloat.validateFloat" target="_top">validateFloat</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateInKeys.validateInKeys" target="_top">validateInKeys</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateInList.validateInList" target="_top">validateInList</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateInt.validateInt" target="_top">validateInt</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateIp.validateIp" target="_top">validateIp</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateIpv4.validateIpv4" target="_top">validateIpv4</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateIsoDate.validateIsoDate" target="_top">validateIsoDate</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateIsoTime.validateIsoTime" target="_top">validateIsoTime</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateIsoTimestamp.validateIsoTimestamp" target="_top">validateIsoTimestamp</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateLocaleCode.validateLocaleCode" target="_top">validateLocaleCode</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateMax.validateMax" target="_top">validateMax</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateMaxLength.validateMaxLength" target="_top">validateMaxLength</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateMimeType.validateMimeType" target="_top">validateMimeType</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateMin.validateMin" target="_top">validateMin</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateMinLength.validateMinLength" target="_top">validateMinLength</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateNotBlank.validateNotBlank" target="_top">validateNotBlank</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateNotEquals.validateNotEquals" target="_top">validateNotEquals</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateNotInKeys.validateNotInKeys" target="_top">validateNotInKeys</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateNotInList.validateNotInList" target="_top">validateNotInList</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateNotSame.validateNotSame" target="_top">validateNotSame</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateNotZero.validateNotZero" target="_top">validateNotZero</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateNumeric.validateNumeric" target="_top">validateNumeric</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidatePregMatch.validatePregMatch" target="_top">validatePregMatch</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateRange.validateRange" target="_top">validateRange</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateRangeLength.validateRangeLength" target="_top">validateRangeLength</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateSame.validateSame" target="_top">validateSame</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateSepWords.validateSepWords" target="_top">validateSepWords</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateSizeScope.validateSizeScope" target="_top">validateSizeScope</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateString.validateString" target="_top">validateString</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateUnique.validateUnique" target="_top">validateUnique</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateUpload.validateUpload" target="_top">validateUpload</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateUri.validateUri" target="_top">validateUri</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="link" href="http://solarphp.com/apidoc/class.Solar_Filter_ValidateWord.validateWord" target="_top">validateWord</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="model.record">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="model">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="model.columns">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">3.6. Record Creation, Modification, and Saving </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 3.8. Special Column Processing</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

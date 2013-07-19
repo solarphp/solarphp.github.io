@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:56:40 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Form</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Solar_Form</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Filter_ValidateWord.validateWord">Prev</a></td>
+                <th width="60%" align="center">Classes</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Form.Overview">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Form" class="chapter">
+
+<h1>Solar_Form</h1><p><b>Table of Contents</b></p><ul class="chunklist chunklist_title">
+<li><a href="class.Solar_Form.Overview">Overview</a></li>
+<li><a href="class.Solar_Form.Config">Configuration</a></li>
+<li><a href="class.Solar_Form.Constants">Constants</a></li>
+<li><a href="class.Solar_Form.Properties">Properties</a></li>
+<li><a href="class.Solar_Form.Methods">Methods</a></li>
+<li><a href="class.Solar_Form.__construct">Solar_Form::__construct()</a></li>
+<li><a href="class.Solar_Form.__destruct">Solar_Form::__destruct()</a></li>
+<li><a href="class.Solar_Form._buildConfig">Solar_Form::_buildConfig()</a></li>
+<li><a href="class.Solar_Form._exception">Solar_Form::_exception()</a></li>
+<li><a href="class.Solar_Form._load">Solar_Form::_load()</a></li>
+<li><a href="class.Solar_Form._populate">Solar_Form::_populate()</a></li>
+<li><a href="class.Solar_Form._postConfig">Solar_Form::_postConfig()</a></li>
+<li><a href="class.Solar_Form._postConstruct">Solar_Form::_postConstruct()</a></li>
+<li><a href="class.Solar_Form._preConfig">Solar_Form::_preConfig()</a></li>
+<li><a href="class.Solar_Form._prepareName">Solar_Form::_prepareName()</a></li>
+<li><a href="class.Solar_Form._values">Solar_Form::_values()</a></li>
+<li><a href="class.Solar_Form.addFilter">Solar_Form::addFilter()</a></li>
+<li><a href="class.Solar_Form.addFilters">Solar_Form::addFilters()</a></li>
+<li><a href="class.Solar_Form.addInvalid">Solar_Form::addInvalid()</a></li>
+<li><a href="class.Solar_Form.addInvalids">Solar_Form::addInvalids()</a></li>
+<li><a href="class.Solar_Form.dump">Solar_Form::dump()</a></li>
+<li><a href="class.Solar_Form.getElements">Solar_Form::getElements()</a></li>
+<li><a href="class.Solar_Form.getStatus">Solar_Form::getStatus()</a></li>
+<li><a href="class.Solar_Form.getValue">Solar_Form::getValue()</a></li>
+<li><a href="class.Solar_Form.getValues">Solar_Form::getValues()</a></li>
+<li><a href="class.Solar_Form.isFailure">Solar_Form::isFailure()</a></li>
+<li><a href="class.Solar_Form.isSuccess">Solar_Form::isSuccess()</a></li>
+<li><a href="class.Solar_Form.load">Solar_Form::load()</a></li>
+<li><a href="class.Solar_Form.locale">Solar_Form::locale()</a></li>
+<li><a href="class.Solar_Form.orderElements">Solar_Form::orderElements()</a></li>
+<li><a href="class.Solar_Form.populate">Solar_Form::populate()</a></li>
+<li><a href="class.Solar_Form.reset">Solar_Form::reset()</a></li>
+<li><a href="class.Solar_Form.setAttribs">Solar_Form::setAttribs()</a></li>
+<li><a href="class.Solar_Form.setElement">Solar_Form::setElement()</a></li>
+<li><a href="class.Solar_Form.setElements">Solar_Form::setElements()</a></li>
+<li><a href="class.Solar_Form.setFilterLocaleObject">Solar_Form::setFilterLocaleObject()</a></li>
+<li><a href="class.Solar_Form.setStatus">Solar_Form::setStatus()</a></li>
+<li><a href="class.Solar_Form.setType">Solar_Form::setType()</a></li>
+<li><a href="class.Solar_Form.setValue">Solar_Form::setValue()</a></li>
+<li><a href="class.Solar_Form.setValues">Solar_Form::setValues()</a></li>
+<li><a href="class.Solar_Form.validate">Solar_Form::validate()</a></li>
+</ul>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Filter_ValidateWord.validateWord">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Form.Overview">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_Filter_ValidateWord::validateWord()</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Overview</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

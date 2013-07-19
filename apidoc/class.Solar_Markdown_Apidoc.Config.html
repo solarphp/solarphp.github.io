@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 10:02:55 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Markdown_Apidoc : Config</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Configuration</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Markdown_Apidoc.Overview">Prev</a></td>
+                <th width="60%" align="center">Solar_Markdown_Apidoc</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Markdown_Apidoc.Constants">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Markdown_Apidoc.Config" class="section">
+
+<h1>Configuration</h1>
+
+<p class="para">Configuration keys for the <code class="literal">Solar_Markdown_Apidoc</code> class.</p>
+
+<div id="class.Solar_Markdown_Apidoc.Config.tab_width">
+<h2><code class="literal">tab_width</code> </h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para">(<em class="emphasis">int</em>) Number of spaces per tab.  Default 4.</p></li>
+<li class="listitem"><p class="para">Default: <code class="literal">4</code></p></li>
+</ul>
+
+</div>
+
+<div id="class.Solar_Markdown_Apidoc.Config.tidy">
+<h2><code class="literal">tidy</code> </h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para">(<em class="emphasis">bool|array</em>) If empty/false/null, do not use Tidy to post-process the transformed output.  If true or a non-empty array, is a set of config options to pass to Tidy when rendering output. See also <a href="http://php.net/tidy" class="link external">&raquo; http://php.net/tidy</a>.  Default false.</p></li>
+<li class="listitem"><p class="para">Default: <code class="literal">false</code></p></li>
+</ul>
+
+</div>
+
+<div id="class.Solar_Markdown_Apidoc.Config.plugins">
+<h2><code class="literal">plugins</code> </h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para">(<em class="emphasis">array</em>) An array of plugins for the parser to use, in order.</p></li>
+<li class="listitem"><p class="para">Default: <code class="literal">array (
+0 =&gt; &#039;Solar_Markdown_Plugin_Prefilter&#039;,
+1 =&gt; &#039;Solar_Markdown_Plugin_StripLinkDefs&#039;,
+2 =&gt; &#039;Solar_Markdown_Apidoc_MethodSynopsis&#039;,
+3 =&gt; &#039;Solar_Markdown_Apidoc_Table&#039;,
+4 =&gt; &#039;Solar_Markdown_Apidoc_Section&#039;,
+5 =&gt; &#039;Solar_Markdown_Apidoc_List&#039;,
+6 =&gt; &#039;Solar_Markdown_Apidoc_VariableList&#039;,
+7 =&gt; &#039;Solar_Markdown_Apidoc_ProgramListing&#039;,
+8 =&gt; &#039;Solar_Markdown_Apidoc_Screen&#039;,
+9 =&gt; &#039;Solar_Markdown_Plugin_BlockQuote&#039;,
+10 =&gt; &#039;Solar_Markdown_Apidoc_Paragraph&#039;,
+11 =&gt; &#039;Solar_Markdown_Apidoc_Literal&#039;,
+12 =&gt; &#039;Solar_Markdown_Apidoc_ClassPage&#039;,
+13 =&gt; &#039;Solar_Markdown_Apidoc_Link&#039;,
+14 =&gt; &#039;Solar_Markdown_Apidoc_Uri&#039;,
+15 =&gt; &#039;Solar_Markdown_Plugin_Encode&#039;,
+16 =&gt; &#039;Solar_Markdown_Apidoc_EmStrong&#039;,
+17 =&gt; &#039;Solar_Markdown_Wiki_Escape&#039;,
+)</code></p></li>
+</ul>
+
+</div>
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Markdown_Apidoc.Overview">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_Markdown_Apidoc">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Markdown_Apidoc.Constants">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Overview</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Constants</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

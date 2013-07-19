@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:59 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">7.8. Ownership Access</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="user.integration">Prev</a> </td>
+          <th width="60%" align="center">Chapter 7. User Authentication, Roles, and Access Control</th>
+          <td width="20%" align="right"> <a accesskey="n" href="commands">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="7.8. Ownership Access">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="user.ownership"></a>7.8. Ownership Access</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        There's more to an application than its controllers and action
+        methods. Sometimes you want to allow a user to access a controller and
+        action, but only when that user is working with content objects that
+        he owns within that system. For example, a user might be allowed to
+        edit blog entries, but only his *own* blog entries. In these cases, we
+        need to know if the current user is the owner of the blog entry he is
+        attempting to work with.
+    </p>
+      <div class="sect2" title="7.8.1. Preparing Your Content Objects">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="user.ownership.prepare"></a>7.8.1. Preparing Your Content Objects</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            First, you need to add a special method on your content objects.
+            In the example, we will call the method
+            <code class="literal">accessIsOwner()</code>, but you can call it whatever you
+            like.
+        </p>
+        <p>
+            The special ownership method on your content object should take
+            two params in this order: a <a class="link" href="http://solarphp.com/class/Solar_Auth_Adapter" target="_top">Solar_Auth_Adapter</a> instance, and a
+            <a class="link" href="http://solarphp.com/class/Solar_Role_Adapter" target="_top">Solar_Role_Adapter</a> instance. The method you write can then check
+            the current user's authenticated identity and/or assigned roles,
+            and then return <code class="literal">true</code> if the user is considered
+            an owner of the content object (or <code class="literal">false</code> if
+            not).
+        </p>
+        <p>
+            As an example, let's say we have a model record for a blogs entry,
+            and that the database table for that model includes a column
+            called <code class="literal">author_handle</code> (i.e., the username handle
+            of the person who created the blog entry). We could write a method
+            like this on the blogs record class:
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #007700">class </span><span style="color: #0000BB">Vendor_Model_Blogs_Record
+</span><span style="color: #007700">{
+    public function </span><span style="color: #0000BB">accessIsOwner</span><span style="color: #007700">(</span><span style="color: #0000BB">Solar_Auth_Adapter $auth</span><span style="color: #007700">, </span><span style="color: #0000BB">Solar_Role_Adapter $role</span><span style="color: #007700">)
+    {
+        </span><span style="color: #FF8000">// check the record's 'author_handle' column to see
+        // if it matches the current authenticated user.
+        </span><span style="color: #007700">if (</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">author_handle </span><span style="color: #007700">== </span><span style="color: #0000BB">$auth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">handle</span><span style="color: #007700">) {
+            return </span><span style="color: #0000BB">true</span><span style="color: #007700">;
+        }
+        
+        </span><span style="color: #FF8000">// not the original author, so don't treat as an owner.
+        </span><span style="color: #007700">return </span><span style="color: #0000BB">false</span><span style="color: #007700">;
+    }
+}</span></span></code></pre>
+      </div>
+      <div class="sect2" title="7.8.2. Configure Access To Recognize Ownership">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="user.ownership.recognize"></a>7.8.2. Configure Access To Recognize Ownership</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            For each kind of content object in the system, you will need to
+            tell Solar_Access_Adapter what method to use on each object to
+            determine if the user is an owner or not. In the above example, we
+            have the <code class="literal">Vendor_Model_Blogs_Record::accessIsOwner()</code>
+            method. We make a corresponding entry in the
+            <code class="literal">'owner_method'</code> config key for
+            Solar_Access_Adapter:
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Access_Adapter'</span><span style="color: #007700">][</span><span style="color: #DD0000">'owner_method'</span><span style="color: #007700">] = array(
+    </span><span style="color: #DD0000">'Vendor_Model_Blogs_Record' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'accessIsOwner'</span><span style="color: #007700">,
+);</span></span></code></pre>
+        <p>
+            The <code class="literal">'owner_method'</code> config setting is an array of
+            key-value pairs where the key is the class name of the object
+            being checked, and the value is the method on that class. Later,
+            when we call <code class="literal">$user-&gt;access-&gt;isOwner()</code>, the
+            adapter will loop through these keys, see if the object being
+            controller matches a class in the array, and call the
+            corresponding method to check ownership.
+        </p>
+      </div>
+      <div class="sect2" title="7.8.3. Access Control List Entries">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="user.ownership.entry"></a>7.8.3. Access Control List Entries</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            As noted in an earlier section, you can use an
+            <code class="literal">'owner'</code> entry type to specify that the user has
+            to be the owner of an object being checked in the controller and
+            action.
+        </p>
+        <pre class="screen">
+# flag      type        name        class                   action
+# ----      ----        ----        -----                   ------
+# allow users to edit their own posts
+allow       owner       -           Vendor_App_Blog         edit
+</pre>
+      </div>
+      <div class="sect2" title="7.8.4. Integration With Controllers">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="user.ownership.integration"></a>7.8.4. Integration With Controllers</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            Now that we have the special ownership method on our content
+            class, and the access adapter knows what methods to check on
+            which content classes, we can integrate an ownership access
+            check in our controller actions.
+        </p>
+        <p>
+            Using the "Intra-Action Access Control" approach from the previous
+            section, adding ownership checks would look like this:
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #007700">abstract class </span><span style="color: #0000BB">Vendor_Controller_Page </span><span style="color: #007700">extends </span><span style="color: #0000BB">Solar_Controller_Page
+</span><span style="color: #007700">{
+    public </span><span style="color: #0000BB">$user</span><span style="color: #007700">;
+    
+    protected function </span><span style="color: #0000BB">_setup</span><span style="color: #007700">()
+    {
+        </span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">_setup</span><span style="color: #007700">();
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">user </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar_Registry</span><span style="color: #007700">::</span><span style="color: #0000BB">get</span><span style="color: #007700">(</span><span style="color: #DD0000">'user'</span><span style="color: #007700">);
+    }
+    
+    protected function </span><span style="color: #0000BB">_isUserAllowed</span><span style="color: #007700">(</span><span style="color: #0000BB">$object </span><span style="color: #007700">= </span><span style="color: #0000BB">null</span><span style="color: #007700">)
+    {
+        if (</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">access</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isAllowed</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">, </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_action</span><span style="color: #007700">, </span><span style="color: #0000BB">$object</span><span style="color: #007700">)) {
+            return </span><span style="color: #0000BB">true</span><span style="color: #007700">;
+        } else {
+            </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_error</span><span style="color: #007700">(</span><span style="color: #DD0000">'Access denied.'</span><span style="color: #007700">);
+            </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_response</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setStatusCode</span><span style="color: #007700">(</span><span style="color: #0000BB">403</span><span style="color: #007700">);
+            return </span><span style="color: #0000BB">false</span><span style="color: #007700">;
+        }
+    }
+}
+
+class </span><span style="color: #0000BB">Vendor_App_Blog </span><span style="color: #007700">extends </span><span style="color: #0000BB">Vendor_Controller_Page
+</span><span style="color: #007700">{  
+    public function </span><span style="color: #0000BB">actionEdit</span><span style="color: #007700">(</span><span style="color: #0000BB">$id </span><span style="color: #007700">= </span><span style="color: #0000BB">null</span><span style="color: #007700">)
+    {
+        </span><span style="color: #FF8000">// ... perform preliminary logic ...
+        
+        // get the blog item for editing
+        </span><span style="color: #0000BB">$item </span><span style="color: #007700">= </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">blogs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetch</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">);
+        
+        </span><span style="color: #FF8000">// check access
+        </span><span style="color: #007700">if (! </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_isUserAllowed</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">)) {
+            return;
+        }
+        
+        </span><span style="color: #FF8000">// ... rest of the action here ...
+    </span><span style="color: #007700">}
+}</span></span></code></pre>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>
+                In the <code class="literal">_isUserAllowed()</code> method, we have added
+                a single parameter to allow passing of a content object for 
+                ownership checks.  Likewise, the call to <code class="literal">isAllowed()</code>
+                passes the content object along for checking.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                The <code class="literal">actionEdit()</code> method retrieves the blog
+                entry before checking access controls. Only after the entry is
+                retrieved do we check to see if the user is allowed to access
+                this object within the context of this controller and action.
+            </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="user.integration">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="user">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="commands">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">7.7. Integration With Page Controllers </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> Chapter 8. Command-Line Tools</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 10:06:12 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Sql_Adapter_Sqlite : QuoteMulti</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Solar_Sql_Adapter_Sqlite::quoteMulti()</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Sql_Adapter_Sqlite.quoteInto">Prev</a></td>
+                <th width="60%" align="center">Solar_Sql_Adapter_Sqlite</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Sql_Adapter_Sqlite.quoteName">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Sql_Adapter_Sqlite.quoteMulti" class="section">
+
+<h1>Solar_Sql_Adapter_Sqlite::quoteMulti()</h1>
+
+<div class="methodsynopsis dc-description">
+    <span class="modifier">public</span>
+    <span class="type">string</span>
+     <span class="methodname">Solar_Sql_Adapter_Sqlite::quoteMulti</span> 
+         ( <span class="methodparam"><span class="type">array</span>  <span class="parameter">$list</span></span>
+        , <span class="methodparam"><span class="type">string</span>  <span class="parameter">$sep</span> <span class="initializer"> = NULL</span></span>
+    
+ )</div>
+
+
+<p class="para">Quote multiple text-and-value pieces.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Sql_Adapter.quoteMulti" class="link">Solar_Sql_Adapter</a>.</p>
+
+<div>
+<h2>Parameters</h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><em class="emphasis">(array)</em> <code class="literal">$list</code>: A series of key-value pairs where the key is the placeholder text and the value is the value to be quoted into it.  If the key is an integer, it is assumed that the value is piece of literal text to be used and not quoted.</p></li>
+<li class="listitem"><p class="para"><em class="emphasis">(string)</em> <code class="literal">$sep</code>: Return the list pieces separated with this string (for example &#039; AND &#039;), default null.</p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Returns</h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><em class="emphasis">(string)</em> An SQL-safe string composed of the list keys and quoted values.</p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Description</h2>
+
+<p class="para">Quote multiple text-and-value pieces.</p>
+
+<p class="para">The placeholder is a question-mark; all placeholders will be replaced
+with the quoted value.   For example ...</p>
+
+<pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$sql </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">factory</span><span style="color: #007700">(</span><span style="color: #DD0000">'Solar_Sql'</span><span style="color: #007700">);
+
+</span><span style="color: #0000BB">$list </span><span style="color: #007700">= array(
+     </span><span style="color: #DD0000">"WHERE date &gt; ?"   </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'2005-01-01'</span><span style="color: #007700">,
+     </span><span style="color: #DD0000">"  AND date &lt; ?"   </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'2005-02-01'</span><span style="color: #007700">,
+     </span><span style="color: #DD0000">"  AND type IN(?)" </span><span style="color: #007700">=&gt; array(</span><span style="color: #DD0000">'a'</span><span style="color: #007700">, </span><span style="color: #DD0000">'b'</span><span style="color: #007700">, </span><span style="color: #DD0000">'c'</span><span style="color: #007700">),
+);
+</span><span style="color: #0000BB">$safe </span><span style="color: #007700">= </span><span style="color: #0000BB">$sql</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteMulti</span><span style="color: #007700">(</span><span style="color: #0000BB">$list</span><span style="color: #007700">);
+
+</span><span style="color: #FF8000">// $safe = "WHERE date &gt; '2005-01-02'
+//          AND date &lt; 2005-02-01
+//          AND type IN('a','b','c')"</span></span></code></pre>
+
+
+</div>
+    
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Sql_Adapter_Sqlite.quoteInto">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_Sql_Adapter_Sqlite">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Sql_Adapter_Sqlite.quoteName">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_Sql_Adapter_Sqlite::quoteInto()</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Solar_Sql_Adapter_Sqlite::quoteName()</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

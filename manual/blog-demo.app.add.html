@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:54:41 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">1.12. Add One New Article</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="blog-demo.app.edit">Prev</a> </td>
+          <th width="60%" align="center">Chapter 1. Quick-Start Blog Demo</th>
+          <td width="20%" align="right"> <a accesskey="n" href="blog-demo.app.delete">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="1.12. Add One New Article">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="blog-demo.app.add"></a>1.12. Add One New Article</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        Although we can edit existing articles, we need to be able to add
+        new ones.
+    </p>
+      <div class="sect2" title="1.12.1. The &quot;Add&quot; Action Method">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="blog-demo.app.add.action"></a>1.12.1. The "Add" Action Method</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            
+            Open the <code class="filename">Blog.php</code> page controller
+            class file. (In this example we use the <span class="command"><strong>vim</strong></span>
+            editor, but you can use anything you like.)
+        
+            </p>
+        <pre class="screen">$ <strong class="userinput"><code>vim Blog.php</code></strong></pre>
+        <p>
+        
+        </p>
+        <p>
+            Add the following PHP code to the class.
+        
+            </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+    </span><span style="color: #007700">public function </span><span style="color: #0000BB">actionAdd</span><span style="color: #007700">()
+    {
+        </span><span style="color: #FF8000">// get a new default record
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">item </span><span style="color: #007700">= </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">blogs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchNew</span><span style="color: #007700">();
+    
+        </span><span style="color: #FF8000">// did the user click the save button?
+        </span><span style="color: #007700">if (</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_isProcess</span><span style="color: #007700">(</span><span style="color: #DD0000">'save'</span><span style="color: #007700">)) {
+        
+            </span><span style="color: #FF8000">// look for $_POST['blog'] in the request,
+            // and load into the record.
+            </span><span style="color: #0000BB">$data </span><span style="color: #007700">= </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_request</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">post</span><span style="color: #007700">(</span><span style="color: #DD0000">'blog'</span><span style="color: #007700">);
+            </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">load</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">);
+        
+            </span><span style="color: #FF8000">// attempt to save it, and redirect to editing on success
+            </span><span style="color: #007700">if (</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">save</span><span style="color: #007700">()) {
+                </span><span style="color: #0000BB">$uri </span><span style="color: #007700">= </span><span style="color: #DD0000">"/</span><span style="color: #007700">{</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_controller</span><span style="color: #007700">}</span><span style="color: #DD0000">/edit/</span><span style="color: #007700">{</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">}</span><span style="color: #DD0000">"</span><span style="color: #007700">;
+                return </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_redirectNoCache</span><span style="color: #007700">(</span><span style="color: #0000BB">$uri</span><span style="color: #007700">);
+            }
+        }
+    
+        </span><span style="color: #FF8000">// get form hints from the record
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">form </span><span style="color: #007700">= </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">newForm</span><span style="color: #007700">();
+        
+        </span><span style="color: #FF8000">// turn off http caching
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_response</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setNoCache</span><span style="color: #007700">();
+    }</span></span></code></pre>
+        <p>
+        
+        </p>
+        <p>
+            This action is very similar to the <code class="literal">actionEdit()</code>
+            method, but here we don't attempt to fetch an existing record.
+            Instead, we fetch a new (default) record to work with. The
+            process-check and save are similar as well, but on a successful
+            save, we redirect to the <code class="literal">edit</code> action for
+            further editing of the newly-saved article.
+            
+            </p>
+        <div class="note" title="Redirect">
+          <table border="0" summary="Note: Redirect">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">Redirect</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>Solar page controllers have two methods for redirecting a web
+                request: <code class="literal">_redirect()</code> and
+                <code class="literal">_redirectNoCache()</code>. The no-cache version
+                makes it so that clicking the back button does not result in a
+                accidental resubmission.</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <p>
+        
+        </p>
+      </div>
+      <div class="sect2" title="1.12.2. The &quot;Add&quot; View Script">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="blog-demp.app.add.view"></a>1.12.2. The "Add" View Script</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            Create a view called <code class="filename">add.php</code> for the
+            <code class="literal">actionAdd()</code> method.
+            
+            </p>
+        <pre class="screen">$ <strong class="userinput"><code>vim Blog/View/add.php</code></strong></pre>
+        <p>
+        </p>
+        <p>
+            Enter the following code in the new <code class="filename">add.php</code>
+            view script.
+            
+            </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+    $title </span><span style="color: #007700">= </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getTextRaw</span><span style="color: #007700">(</span><span style="color: #DD0000">'TITLE_ADD'</span><span style="color: #007700">);
+    </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">head</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">setTitle</span><span style="color: #007700">(</span><span style="color: #0000BB">$title</span><span style="color: #007700">);
+</span><span style="color: #0000BB">?&gt;
+</span>
+&lt;h2&gt;<span style="color: #0000BB">&lt;?php </span><span style="color: #007700">echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getText</span><span style="color: #007700">(</span><span style="color: #DD0000">'HEADING_ADD'</span><span style="color: #007700">); </span><span style="color: #0000BB">?&gt;</span>&lt;/h2&gt;
+
+<span style="color: #0000BB">&lt;?php
+    </span><span style="color: #007700">echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">form</span><span style="color: #007700">()
+              -&gt;</span><span style="color: #0000BB">auto</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">form</span><span style="color: #007700">)
+              -&gt;</span><span style="color: #0000BB">addProcess</span><span style="color: #007700">(</span><span style="color: #DD0000">'save'</span><span style="color: #007700">)
+              -&gt;</span><span style="color: #0000BB">fetch</span><span style="color: #007700">();
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+        <p>
+        </p>
+        <p>
+            Essentially, this view takes the form hints
+            (<code class="literal">$this-&gt;form</code>) and auto-generates a form for the
+            user to work with.  It is almost identical to the <code class="filename">edit.php</code>
+            view script, except it uses different title and header strings.
+        </p>
+        <p>
+            You should now be able to browse to
+            <a class="link" href="http://localhost/index.php/blog/add" target="_top">http://localhost/index.php/blog/add</a>
+            to add a new article.
+        </p>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="blog-demo.app.edit">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="blog-demo">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="blog-demo.app.delete">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">1.11. Edit One Article </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 1.13. Delete One Article</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:30 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Session : Overview</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Overview</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Session">Prev</a></td>
+                <th width="60%" align="center">Solar_Session</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Session.Config">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Session.Overview" class="section">
+
+<h1>Overview</h1>
+
+<p class="para">Class for working with the $_SESSION array, including read-once flashes.</p>
+
+<p class="para">On instantiation, lazy-starts the session.  That is, if a session cookie
+already exists, it starts the session; otherwise, it waits until the 
+first attempt to write to the session before starting it.</p>
+
+<p class="para">Instantiate this once for each class that wants access to $_SESSION
+values.  It automatically segments $_SESSION by class name, so be 
+sure to use setClass() (or the &#039;class&#039; config key) to identify the
+segment properly.</p>
+
+<p class="para">A &quot;flash&quot; is a session value that propagates only until it is read,
+at which time it is removed from the session.  Taken from ideas 
+popularized by Ruby on Rails, this is useful for forwarding
+information and messages between page loads without using GET vars
+or cookies.</p>
+
+<div>
+<h2>Package</h2>
+
+<p class="para">This class is part of the <a href="package.Solar_Session" class="link">Solar_Session</a> package.</p>
+
+<p class="para">Inheritance:</p>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><a href="class.Solar_Base.Overview" class="link">Solar_Base</a>
+<ul class="itemizedlist"><li class="listitem"><p class="para">Solar_Session</p></li>
+</ul></p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Configuration Keys</h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><a href="class.Solar_Session.Config#class.Solar_Session.Config.class" class="link"><code class="literal">class</code></a>: Store values in this top-level key in $_SESSION.  Default is   &#039;Solar&#039;.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Session.Config#class.Solar_Session.Config.handler" class="link"><code class="literal">handler</code></a>: A Solar_Session_Handler dependency injection. Default   is the string &#039;php&#039;, which means to use the native PHP session save.   handler instead of a dependency injection.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Session.Config#class.Solar_Session.Config.P3P" class="link"><code class="literal">P3P</code></a>: Compact [Platform for Privacy Preferences][] policy. Default is   &#039;CP=&quot;CAO COR CURa ADMa DEVa TAIa OUR BUS IND UNI COM NAV INT STA&quot;&#039;,   which translates to:      <em class="emphasis">CAO</em> <em class="emphasis">ACCESS Element</em>: the ability of the individual to view    identified data and address questions or concerns to the service    provider. CAO is short for &#039;contact-and-other&#039;, meaning <em class="emphasis">Identified    Contact Information and Other Identified Data: access is given to    identified online and physical contact information as well as to    certain other identified data.</em>    <em class="emphasis">COR</em> <em class="emphasis">REMEDIES Element</em>: Remedies in case a policy breach occurs.   COR is short for &#039;correct&#039;, meaning <em class="emphasis">Errors or wrongful actions    arising in connection with the privacy policy will be remedied by    the service.</em>    <em class="emphasis">CURa</em>   <em class="emphasis">ADMa</em>   <em class="emphasis">DEVa</em>   <em class="emphasis">TAIa</em> <em class="emphasis">PURPOSE Elements</em>: Purposes for data processing relevant to    the Web. The &#039;a&#039; following each code indicates &#039;always&#039;, meaning    the site provides no opt-in/opt-out choices for the information    collected in the <em class="emphasis">CATEGORIES</em> Elements.    CUR is short for &#039;current&#039;, meaning <em class="emphasis">Completion and Support of    Activity For Which Data Was Provided: Information may be used by the    service provider to complete the activity for which it was provided,    whether a one-time activity such as returning the results from a Web    search, forwarding an email message, or placing an order; or a    recurring activity such as providing a subscription service, or    allowing access to an online address book or electronic wallet.</em>    ADM is short for &#039;admin&#039;, meaning <em class="emphasis">Web Site and System    Administration: Information may be used for the technical support of    the Web site and its computer system. This would include processing    computer account information, information used in the course of    securing and maintaining the site, and verification of Web site    activity by the site or its agents.</em>    DEV is short for &#039;develop&#039;, meaning <em class="emphasis">Research and Development:    Information may be used to enhance, evaluate, or otherwise review    the site, service, product, or market. This does not include personal    information used to tailor or modify the content to the specific    individual nor information used to evaluate, target, profile or    contact the individual.</em>    TAI is short for &#039;tailoring&#039;, meaning <em class="emphasis">One-time Tailoring:    Information may be used to tailor or modify content or design of the    site where the information is used only for a single visit to the    site and not used for any kind of future customization. For example,    an online store might suggest other items a visitor may wish to    purchase based on the items he has already placed in his shopping    basket.</em>    <em class="emphasis">OUR</em> <em class="emphasis">RECIPIENT Element</em>: The legal entity, or domain, beyond the    service provider and its agents where data may be distributed.   OUR is short for &#039;ourselves&#039;, meaning <em class="emphasis">Ourselves and/or entities    acting as our agents or entities for whom we are acting as an agent:    An agent in this instance is defined as a third party that processes    data only on behalf of the service provider for the completion of the    stated purposes. (e.g., the service provider and its printing bureau    which prints address labels and does nothing further with the    information.)</em>    <em class="emphasis">BUS</em>   <em class="emphasis">IND</em> <em class="emphasis">RETENTION Elements</em>: The type of retention policy in effect.   BUS is short for &#039;business-practices&#039;, meaning <em class="emphasis">Determined by    service provider&#039;s business practice: Information is retained under    a service provider&#039;s stated business practices.</em>    IND is short for &#039;indefinitely&#039;, meaning <em class="emphasis">Information is retained   for an indeterminate period of time.</em>      <em class="emphasis">UNI</em>   <em class="emphasis">COM</em>   <em class="emphasis">NAV</em>   <em class="emphasis">INT</em>   <em class="emphasis">STA</em> <em class="emphasis">CATEGORIES Elements</em>: Elements inside data elements that    provide hints to users and user agents as to the intended uses of    the data.    UNI is short for &#039;uniqeid&#039;, meaning <em class="emphasis">Unique Identifiers:    Non-financial identifiers, excluding government-issued identifiers,    issued for purposes of consistently identifying or recognizing the    individual. These include identifiers issued by a Web site or    service.</em>    COM is short for &#039;computer&#039;, meaning <em class="emphasis">Computer Information:    Information about the computer system that the individual is using    to access the network -- such as the IP number, domain name, browser    type or operating system.</em>    NAV is short for &#039;navigation&#039;, meaning <em class="emphasis">Navigation and Click-stream    Data: Data passively generated by browsing the Web site -- such as    which pages are visited, and how long users stay on each page.</em>    INT is short for &#039;interactive&#039;, meaning <em class="emphasis">Interactive Data: Data    actively generated from or reflecting explicit interactions with a    service provider through its site -- such as queries to a search    engine, or logs of account activity.</em>    STA is short for &#039;state&#039;, meaning <em class="emphasis">State Management Mechanisms:    Mechanisms for maintaining a stateful session with a user or    automatically recognizing users who have visited a particular site    or accessed particular content previously -- such as HTTP cookies.</em>      Please refer to the W3C P3P specification for more information    on customizing this default policy. A compact policy delivered    in an HTTP header is only part of a complete P3P implementation.    [Platform for Privacy Preferences]: http://www.w3.org/TR/P3P/</p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Constants</h2>
+
+<p class="para">None.</p>
+
+</div>
+
+<div>
+<h2>Public Properties</h2>
+
+<p class="para">The Solar_Session class has no public properties; try the list of <a href="class.Solar_Session.Properties" class="link">all properties</a>.</p>
+
+</div>
+
+<div>
+<h2>Public Methods</h2>
+
+<p class="para">These are all the public methods in the Solar_Session class.</p>
+
+<p class="para">You can also view the list of <a href="class.Solar_Session.Methods" class="link">all public, protected, and private methods</a>.</p>
+
+<dl>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.__construct" class="link"><code class="literal">__construct()</code></a></span>
+<dd>
+<p class="para">Constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.__destruct" class="link"><code class="literal">__destruct()</code></a></span>
+<dd>
+<p class="para">Default destructor; does nothing other than provide a safe fallback for calls to parent::__destruct().</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.__get" class="link"><code class="literal">__get()</code></a></span>
+<dd>
+<p class="para">Magic get for store and flash as a temporary measure.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.add" class="link"><code class="literal">add()</code></a></span>
+<dd>
+<p class="para">Appends a normal value to a key; this will start the session if needed.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.addFlash" class="link"><code class="literal">addFlash()</code></a></span>
+<dd>
+<p class="para">Appends a flash value to a key; this will start the session if needed.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.delete" class="link"><code class="literal">delete()</code></a></span>
+<dd>
+<p class="para">Deletes a key from the store, removing it entirely.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.deleteFlash" class="link"><code class="literal">deleteFlash()</code></a></span>
+<dd>
+<p class="para">Deletes a flash key, removing it entirely.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.dump" class="link"><code class="literal">dump()</code></a></span>
+<dd>
+<p class="para">Convenience method for getting a dump the whole object, or one of its properties, or an external variable.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.get" class="link"><code class="literal">get()</code></a></span>
+<dd>
+<p class="para">Gets a normal value by key, or an alternative default value if the key does not exist.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.getClass" class="link"><code class="literal">getClass()</code></a></span>
+<dd>
+<p class="para">Gets the current class segment for $_SESSION.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.getFlash" class="link"><code class="literal">getFlash()</code></a></span>
+<dd>
+<p class="para">Gets a flash value by key, thereby removing the value.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.has" class="link"><code class="literal">has()</code></a></span>
+<dd>
+<p class="para">Whether or not the session currently has a particular data key stored.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.hasFlash" class="link"><code class="literal">hasFlash()</code></a></span>
+<dd>
+<p class="para">Whether or not the session currently has a particular flash key stored.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.isLoaded" class="link"><code class="literal">isLoaded()</code></a></span>
+<dd>
+<p class="para">Tells if the session segment is loaded or not.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.isStarted" class="link"><code class="literal">isStarted()</code></a></span>
+<dd>
+<p class="para">Has a session been started yet?</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.lazyStart" class="link"><code class="literal">lazyStart()</code></a></span>
+<dd>
+<p class="para">Lazy-start the session (i.e., only if a session cookie from the client already exists).</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.load" class="link"><code class="literal">load()</code></a></span>
+<dd>
+<p class="para">Loads the session segment with store and flash values for the current class.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.locale" class="link"><code class="literal">locale()</code></a></span>
+<dd>
+<p class="para">Looks up class-specific locale strings based on a key.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.regenerateId" class="link"><code class="literal">regenerateId()</code></a></span>
+<dd>
+<p class="para">Regenerates the session ID.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.reset" class="link"><code class="literal">reset()</code></a></span>
+<dd>
+<p class="para">Resets (clears) all normal keys and values.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.resetAll" class="link"><code class="literal">resetAll()</code></a></span>
+<dd>
+<p class="para">Resets both &quot;normal&quot; and &quot;flash&quot; values.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.resetFlash" class="link"><code class="literal">resetFlash()</code></a></span>
+<dd>
+<p class="para">Resets (clears) all flash keys and values.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.set" class="link"><code class="literal">set()</code></a></span>
+<dd>
+<p class="para">Sets a normal value by key; this will start the session if needed.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.setClass" class="link"><code class="literal">setClass()</code></a></span>
+<dd>
+<p class="para">Sets the class segment for $_SESSION; unloads existing store and flash values.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.setFlash" class="link"><code class="literal">setFlash()</code></a></span>
+<dd>
+<p class="para">Sets a flash value by key; this will start the session if needed.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.start" class="link"><code class="literal">start()</code></a></span>
+<dd>
+<p class="para">Starts the session; automatically sends a P3P header if one is defined (and it is, by default).</p></dd>
+
+</dt>
+
+
+</dl>
+
+
+</div>
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Session">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_Session">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Session.Config">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_Session</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Configuration</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

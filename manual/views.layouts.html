@@ -1,0 +1,667 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 17:57:36 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">5.6. Layouts</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="views.helpers">Prev</a> </td>
+          <th width="60%" align="center">Chapter 5. Views and Layouts</th>
+          <td width="20%" align="right"> <a accesskey="n" href="form">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="5.6. Layouts">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="views.layouts"></a>5.6. Layouts</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+		As mentioned in the introduction, layouts are typically shared by
+		the entire application and wrap around a controller's view. A layout
+		usually contains common page elements such as the header, footer,
+		navigation, and the content area where the view's output is
+		displayed. Layouts are often divided into separate sub-layouts. For example, the head
+		section of your page may be one sub-layout, the global navigation
+		another, and so forth. A single, parent layout file contains all the references
+		to the sub-layouts. Your application can specify this parent layout using
+		the protected <code class="literal">$_layout_default</code>
+		property.
+	</p>
+      <p>
+		The graphic below shows the relationship between the parent
+		layout file, represented by the outer, yellow box, and each sub-layout. The
+		positioning of each container is typically accomplished using Cascading
+		Style Sheets (CSS).
+	</p>
+      <div class="figure">
+        <a id="id36147979"></a>
+        <p class="title">
+          <b>Figure 5.1. 
+		A graphical representation of a layout containing several sub-layouts. 
+	</b>
+        </p>
+        <div class="figure-contents">
+          <div class="mediaobject">
+            <img src="figures/views/layout.png" alt="A graphical representation of a layout containing several sub-layouts" />
+            <div class="caption">
+              <p>The main layout file is represented by the outer, yellow box. The <code class="filename">_head.php</code> 
+			   section would be part of the source, and not visible on the screen.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br class="figure-break" />
+      <p>Let's make the blog demo created in chapter one look like the	example graphic above.</p>
+      <div class="sect2" title="5.6.1. Specify the Default Layout">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="views.layouts.setupdefault"></a>5.6.1. Specify the Default Layout</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+			The first thing we need to do is specify which layout our blog
+			application will use. Remember that the <code class="literal">Acme_App_Blog</code>
+			application extends the <code class="literal">Acme_Controller_Page</code>
+			class.
+		</p>
+        <p>Browse to the <code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller</code> 
+		folder and edit the <code class="filename">Page.php</code> file.</p>
+        <pre class="screen">$ <strong class="userinput"><code>cd <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/</code></strong>
+$ <strong class="userinput"><code>vim Page.php</code></strong></pre>
+        <p>Add the following text to the class so it looks like the code below.</p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php 
+</span><span style="color: #007700">abstract class </span><span style="color: #0000BB">Acme_Controller_Page </span><span style="color: #007700">extends </span><span style="color: #0000BB">Solar_Controller_Page
+</span><span style="color: #007700">{
+    </span><span style="color: #FF8000">/**
+     * 
+     * Sets up the Acme_App environment.
+     * 
+     * @return void
+     * 
+     */
+    </span><span style="color: #007700">protected function </span><span style="color: #0000BB">_setup</span><span style="color: #007700">()
+    {
+        </span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">_setup</span><span style="color: #007700">();
+        
+        </span><span style="color: #FF8000">// set the default layout for all applications that 
+        // extend Acme_Controller_Page
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_layout_default </span><span style="color: #007700">= </span><span style="color: #DD0000">'blog'</span><span style="color: #007700">;
+    }
+}
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+        <div class="note" title="Note">
+          <table border="0" summary="Note">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">Note</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+				You can also accomplish this by defining the protected
+				<code class="literal">$_layout_default</code> property.
+			</p>
+                <p>
+				<code class="literal">protected $_layout_default = 'blog';</code>
+			</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="sect2" title="5.6.2. Create the Default Layout">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="views.layouts.createdefault"></a>5.6.2. Create the Default Layout</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+			The default layout is <code class="filename">blog.php</code> and is located in the
+			<code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Page/Layout</code> folder.
+		</p>
+        <pre class="screen">$ <strong class="userinput"><code>cd <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Page/Layout</code></strong>
+$ <strong class="userinput"><code>vim blog.php</code></strong></pre>
+        <p>Copy and paste the following into the <code class="filename">blog.php</code> file.</p>
+        <pre class="programlisting"><code><span style="color: #000000">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+<span style="color: #0000BB">&lt;?php 
+</span><span style="color: #FF8000">// generate the &lt;head&gt;
+</span><span style="color: #007700">include </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">template</span><span style="color: #007700">(</span><span style="color: #DD0000">'_head.php'</span><span style="color: #007700">); 
+</span><span style="color: #0000BB">?&gt;
+</span>
+<span style="color: #0000BB">&lt;?php 
+</span><span style="color: #FF8000">// generate the &lt;body&gt;
+</span><span style="color: #007700">include </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">template</span><span style="color: #007700">(</span><span style="color: #DD0000">'_body.php'</span><span style="color: #007700">); 
+</span><span style="color: #0000BB">?&gt;
+</span>&lt;/html&gt;</span></code></pre>
+        <p>
+			This is our main layout script. Within this layout are references
+			to two sub-layouts, namely <code class="filename">_head.php</code> and
+			<code class="filename">_body.php</code>.
+		</p>
+      </div>
+      <div class="sect2" title="5.6.3. Create the _head.php Sub-Layout">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="views.layouts.head"></a>5.6.3. Create the _head.php Sub-Layout</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+		    Now you need the <code class="filename">_head.php</code>. Assuming you are still in the 
+		    <code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Page/Layout</code> folder, 
+		    create the <code class="filename">_head.php</code> file.
+		</p>
+        <pre class="screen">$ <strong class="userinput"><code>vim _head.php</code></strong></pre>
+        <p>Copy and paste the following text into the file and save.</p>
+        <pre class="programlisting"><code><span style="color: #000000">&lt;head&gt;
+    <span style="color: #0000BB">&lt;?php 
+    </span><span style="color: #FF8000">// use the Solar_View_Helper_Head::head() helper 
+    // add a base stylesheet, then set any other head elements
+    </span><span style="color: #007700">echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">head</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">addStyleBase</span><span style="color: #007700">(</span><span style="color: #DD0000">'Acme/Controller/Page/styles/blog.css'</span><span style="color: #007700">)
+                      -&gt;</span><span style="color: #0000BB">fetch</span><span style="color: #007700">(); 
+    </span><span style="color: #0000BB">?&gt;
+</span>&lt;/head&gt;</span></code></pre>
+        <p>
+			This layout script is responsible for the content between the
+			<code class="literal">&lt;head&gt;&lt;/head&gt;</code> tags. It relies on the
+			<code class="literal">Solar_View_Helper_Head</code> view helper to set the main stylesheet, and
+			display any other head elements. See the API documentation on the
+			<code class="literal"><a class="link" href="http://solarphp.com/class/Solar_View_Helper_Head" target="_top">Solar_View_Helper_Head</a></code> view helper.
+		</p>
+      </div>
+      <div class="sect2" title="5.6.4. Create the _body.php Sub-Layout">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="views.layouts.body"></a>5.6.4. Create the _body.php Sub-Layout</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+			Assuming you are still in the 
+			<code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Page/Layout</code> 
+			folder, create the <code class="filename">_body.php</code> file.
+		</p>
+        <pre class="screen">$ <strong class="userinput"><code>vim _body.php</code></strong></pre>
+        <p>Copy and paste the following text into the file and save.</p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php </span><span style="color: #FF8000">// set the id of the body tag. Handy for css and javascript </span><span style="color: #0000BB">?&gt;
+</span>&lt;body id="<span style="color: #0000BB">&lt;?php </span><span style="color: #007700">echo </span><span style="color: #DD0000">"</span><span style="color: #007700">{</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">controller</span><span style="color: #007700">}</span><span style="color: #DD0000">-page" </span><span style="color: #0000BB">?&gt;</span>"&gt;
+&lt;div id="wrap"&gt;    
+    &lt;div id="header"&gt;
+        <span style="color: #0000BB">&lt;?php </span><span style="color: #007700">include </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">template</span><span style="color: #007700">(</span><span style="color: #DD0000">'_header.php'</span><span style="color: #007700">); </span><span style="color: #0000BB">?&gt;
+</span>    &lt;/div&gt;
+
+    &lt;div id="nav"&gt;
+        <span style="color: #0000BB">&lt;?php </span><span style="color: #007700">include </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">template</span><span style="color: #007700">(</span><span style="color: #DD0000">'_nav.php'</span><span style="color: #007700">); </span><span style="color: #0000BB">?&gt;
+</span>    &lt;/div&gt;
+
+    &lt;div id="main"&gt;
+        <span style="color: #0000BB">&lt;?php </span><span style="color: #FF8000">// Add the content from the application controller </span><span style="color: #0000BB">?&gt;
+</span>        <span style="color: #0000BB">&lt;?php </span><span style="color: #007700">echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">layout_content</span><span style="color: #007700">; </span><span style="color: #0000BB">?&gt;
+</span>    &lt;/div&gt;
+
+    &lt;div id="footer"&gt;
+        <span style="color: #0000BB">&lt;?php </span><span style="color: #007700">include </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">template</span><span style="color: #007700">(</span><span style="color: #DD0000">'_footer.php'</span><span style="color: #007700">); </span><span style="color: #0000BB">?&gt;
+</span>    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;</span></code></pre>
+        <p>
+			This layout script defines the structure of the page. A cascading
+			stylesheet will define the styles for each page element. Each
+			element of the page, such as the header, gets it's own sub-layout script. The
+			output from an application controller's action is injected into the
+			layout via the <code class="literal">$this-&gt;layout_content</code>
+			property.
+		</p>
+      </div>
+      <div class="sect2" title="5.6.5. Create the _header.php and _footer Sub-Layouts">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="views.layouts.header"></a>5.6.5. Create the _header.php and _footer Sub-Layouts</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+			Assuming you are still in the 
+			<code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Page/Layout</code> 
+			folder, create the <code class="filename">_header.php</code> file.
+		</p>
+        <pre class="screen">$ <strong class="userinput"><code>vim _header.php</code></strong></pre>
+        <p>Copy and paste the following text into the file and save.</p>
+        <pre class="programlisting"><code><span style="color: #000000">&lt;div id="branding"&gt;
+    &lt;h1&gt;The Acme Blog&lt;/h1&gt;
+&lt;/div&gt;</span></code></pre>
+        <p>This simple sub-layout creates the header banner at the top.</p>
+        <p>
+			Now create the <code class="filename">_footer.php</code> file in the same folder.
+		</p>
+        <pre class="screen">$ <strong class="userinput"><code>vim _footer.php</code></strong></pre>
+        <p>Copy and paste the following text into the file and save.</p>
+        <pre class="programlisting"><code><span style="color: #000000">&lt;div id="footer"&gt;
+    &lt;p&gt;Copyright &amp;copy; 2010 Acme&lt;/p&gt;
+&lt;/div&gt;</span></code></pre>
+        <p>This simple sub-layout creates the footer at the bottom.</p>
+      </div>
+      <div class="sect2" title="5.6.6. Create the _nav.php and _local.php Sub-Layouts">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="views.layouts.nav"></a>5.6.6. Create the _nav.php and _local.php Sub-Layouts</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+			Next, we need some sort of navigation element. Assuming you are still in the 
+			<code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Page/Layout</code> 
+			folder, create the <code class="filename">_nav.php</code> file.
+		</p>
+        <pre class="screen">$ <strong class="userinput"><code>vim _nav.php</code></strong></pre>
+        <p>Copy and paste the following text and save.</p>
+        <pre class="programlisting"><code><span style="color: #000000">&lt;div id="nav"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;<span style="color: #0000BB">&lt;?php </span><span style="color: #007700">echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">action</span><span style="color: #007700">(</span><span style="color: #DD0000">'blog'</span><span style="color: #007700">, </span><span style="color: #DD0000">'Blog Home'</span><span style="color: #007700">); </span><span style="color: #0000BB">?&gt;</span>&lt;/li&gt;
+        &lt;li&gt;<span style="color: #0000BB">&lt;?php </span><span style="color: #007700">echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">action</span><span style="color: #007700">(</span><span style="color: #DD0000">'blog/add'</span><span style="color: #007700">, </span><span style="color: #DD0000">'ACTION_ADD'</span><span style="color: #007700">); </span><span style="color: #0000BB">?&gt;</span>&lt;/li&gt;
+        &lt;li&gt;<span style="color: #0000BB">&lt;?php </span><span style="color: #007700">echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">action</span><span style="color: #007700">(</span><span style="color: #DD0000">'blog/drafts'</span><span style="color: #007700">, </span><span style="color: #DD0000">'View Drafts'</span><span style="color: #007700">); </span><span style="color: #0000BB">?&gt;</span>&lt;/li&gt;
+    &lt;/ul&gt;
+    <span style="color: #0000BB">&lt;?php </span><span style="color: #FF8000">// allow for extra local navigation
+    </span><span style="color: #007700">include </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">template</span><span style="color: #007700">(</span><span style="color: #DD0000">'_local.php'</span><span style="color: #007700">); 
+    </span><span style="color: #0000BB">?&gt;
+</span>&lt;/div&gt;</span></code></pre>
+        <p>
+			Notice the reference to the <code class="filename">_local.php</code> sub-layout. 
+			Adding this sub-layout lets us optionally add extra navigation for each 
+			controller. This will become clearer later on in this chapter.
+		</p>
+        <div class="note" title="Note">
+          <table border="0" summary="Note">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">Note</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+				The second list item in the navigation layout uses a locale
+				key as the link text.
+			</p>
+                <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php </span><span style="color: #007700">echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">action</span><span style="color: #007700">(</span><span style="color: #DD0000">'blog/add'</span><span style="color: #007700">, </span><span style="color: #DD0000">'ACTION_ADD'</span><span style="color: #007700">); </span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+                <p>
+				Please see the API documentation on the 
+				<code class="literal"><a class="link" href="http://solarphp.com/class/Solar_View_Helper_Action" target="_top">Solar_View_Helper_Action</a></code>
+				helper, as well as chapter one for a brief introduction to
+				locales.
+			</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <p>
+			In the same folder, create the <code class="filename">_local.php</code> file.
+		</p>
+        <pre class="screen">$ <strong class="userinput"><code>vim _local.php</code></strong></pre>
+        <p>Copy and paste the following text and save.</p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// placeholder for local navigation</span></span></code></pre>
+      </div>
+      <div class="sect2" title="5.6.7. Create a Stylesheet">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="views.layouts.stylesheet"></a>5.6.7. Create a Stylesheet</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+			All the layout elements are now in place. A quick view of the
+			<code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Page/Layout</code> 
+			folder should show the following files:
+		</p>
+        <pre class="screen">Acme/Controller/Page/
+    Layout/
+        _body.php
+        _footer.php
+        _head.php
+        _header.php
+        _local.php
+        _nav.php
+        blog.php
+</pre>
+        <div class="note" title="Note">
+          <table border="0" summary="Note">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">Note</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+				Though not a requirement, prefixing partials and nested
+				views/layouts with an underscore helps you easily identify
+				them.
+			</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <p>
+			Browsing to the blog application at this point might leave you
+			visually disappointed. In the <code class="filename">_head.php</code> file, we referenced a
+			stylesheet called <code class="filename">blog.css</code>. This style sheet is responsible for positioning our
+			page elements and setting fonts and colors. Let's create it now. 
+		</p>
+        <p>
+			First, create a folder called 'styles' in the
+			<code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Page/Public</code> folder.
+		</p>
+        <pre class="screen">$ <strong class="userinput"><code>cd ../Public</code></strong>
+$ <strong class="userinput"><code>mkdir styles</code></strong>
+$ <strong class="userinput"><code>cd styles</code></strong></pre>
+        <p>
+			Next, create a css file called <code class="filename">blog.css</code> in that newly created
+			folder.
+		</p>
+        <pre class="screen">$ <strong class="userinput"><code>vim blog.css</code></strong></pre>
+        <p>
+			Copy and paste the following into the <code class="filename">blog.css</code> file and save.
+		</p>
+        <pre class="programlisting"><code><span style="color: #000000">body, html {
+    margin: 0;
+    padding: 0;
+    color: #000;
+    background-color: #fff;
+    font-family: sans-serif;
+    font-size: 10pt;
+}
+
+#wrap {
+    width: 750px;
+    margin:0 auto;
+    background-color: #ccc;
+}
+
+#header {
+    background-color: #666;
+    margin: 0px;
+    color: #fff;
+    margin-top: 10px;
+}
+
+#header h1 {
+    margin: 0;
+    padding: 10px;
+}
+
+#nav {
+    background-color: #ccc;
+    width: 150px;
+    float: left;
+}
+
+#main {
+    float: left;
+    width: 580px;
+    background-color: #efefef;
+    padding: 10px;
+    min-height: 400px;
+}
+
+#main h2 {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+#footer {
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    clear: both;
+    padding: 5px;
+}
+
+#footer p {
+    padding: 0px;
+    margin: 0px;
+}</span></code></pre>
+        <p>You should now have the following:</p>
+        <pre class="screen">Acme/Controller/Page/
+    Public/
+        styles/
+            blog.css
+</pre>
+        <div class="note" title="Note">
+          <table border="0" summary="Note">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">Note</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+				The <code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Page/Public</code> 
+				folder is not directly accessible by the web browser. In order for the browser to find assets in the 
+				<code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Page/Public</code> folder, a
+				symbolic link was defined when the Acme vendor was created. If you browse to the 
+				<code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/docroot/public</code> folder, you will see 
+				a subfolder named Acme. The web server can access the public assets via that folder.
+			</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <p>
+			A quick browse to the blog (<a class="link" href="http://localhost/blog" target="_top">http://localhost/blog</a>) should show
+			a screen similar to the image below.
+		</p>
+        <div class="screenshot">
+          <div class="mediaobject">
+            <img src="figures/views/blog.png" />
+          </div>
+        </div>
+      </div>
+      <div class="sect2" title="5.6.8. Overriding Layouts">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="views.layouts.overriding"></a>5.6.8. Overriding Layouts</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+			Because layouts are shared, they greatly reduce duplication of
+			code. However, there may be times when you want to alter a page
+			element for one particular application. The modular approach to the layout and
+			Solar's class stack (hierarchy of classes) makes this an easy task.
+			For example, if we wanted to have application-specific links below the main
+			navigation, we could easily do this by overriding the <code class="filename">_local.php</code>
+			layout script. 
+		</p>
+        <p>
+			Create a new <code class="filename">_local.php</code> layout file in the
+			<code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/App/Blog/Layout</code> folder. 
+		</p>
+        <pre class="screen">$ <strong class="userinput"><code>cd <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/App/Blog/Layout</code></strong>
+$ <strong class="userinput"><code>vim _local.php</code></strong></pre>
+        <p>Add the following text and save.</p>
+        <pre class="programlisting"><code><span style="color: #000000">&lt;ul&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Local Item One&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Local Item Two&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</span></code></pre>
+        <p>
+			Now, refresh the browser and you should notice how the left
+			navigation has changed. Here, the original <code class="filename">_local.php</code> layout script
+			in the <code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Page/Layout</code> 
+			folder is overridden by the <code class="filename">_local.php</code> layout script in
+			<code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/App/Blog/Layout</code>.
+		</p>
+        <p>
+			Solar uses the file that is most closely related to the
+			application, then, if it doesn't find what it's looking for, will
+			work its way up the class stack (hierarchy). 
+		</p>
+        <p>
+			An example of the class stack for layouts would like this:
+		</p>
+        <pre class="programlisting"><code><span style="color: #000000">Array
+(
+    [0] =&gt; Acme/App/Blog/Layout
+    [1] =&gt; Acme/Controller/Page/Layout
+    [2] =&gt; Solar/Controller/Page/Layout
+)</span></code></pre>
+        <p>
+			Note that <code class="literal">Acme_App_Blog</code> extends <code class="literal">Acme_Controller_Page</code>, which
+			extends <code class="literal">Solar_Controller_Page</code>. Knowing this may help you understand
+			how the class stack is built.
+		</p>
+        <div class="note" title="Note">
+          <table border="0" summary="Note">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">Note</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+				You can also turn the layout off by setting <code class="literal">$this-&gt;_layout = false</code> 
+				in your controller, or you can change the layout altogether
+				using <code class="literal">$this-&gt;_layout = 'someotherlayout'</code>.
+			</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="views.helpers">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="views">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="form">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">5.5. View Helpers </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> Chapter 6. Models and Forms</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

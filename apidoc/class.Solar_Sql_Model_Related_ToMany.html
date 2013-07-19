@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:57:08 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Sql_Model_Related_ToMany</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Solar_Sql_Model_Related_ToMany</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Sql_Model_Related_HasOneOrNull.toArray">Prev</a></td>
+                <th width="60%" align="center">Classes</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Sql_Model_Related_ToMany.Overview">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Sql_Model_Related_ToMany" class="chapter">
+
+<h1>Solar_Sql_Model_Related_ToMany</h1><p><b>Table of Contents</b></p><ul class="chunklist chunklist_title">
+<li><a href="class.Solar_Sql_Model_Related_ToMany.Overview">Overview</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.Config">Configuration</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.Constants">Constants</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.Properties">Properties</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.Methods">Methods</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.__construct">Solar_Sql_Model_Related_ToMany::__construct()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.__destruct">Solar_Sql_Model_Related_ToMany::__destruct()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._buildConfig">Solar_Sql_Model_Related_ToMany::_buildConfig()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._collate">Solar_Sql_Model_Related_ToMany::_collate()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._exception">Solar_Sql_Model_Related_ToMany::_exception()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._fetchIntoArrayAll">Solar_Sql_Model_Related_ToMany::_fetchIntoArrayAll()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._fetchIntoArrayOne">Solar_Sql_Model_Related_ToMany::_fetchIntoArrayOne()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._fixEagerParams">Solar_Sql_Model_Related_ToMany::_fixEagerParams()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._fixFetchParams">Solar_Sql_Model_Related_ToMany::_fixFetchParams()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._fixForeignKey">Solar_Sql_Model_Related_ToMany::_fixForeignKey()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._fixRelatedCol">Solar_Sql_Model_Related_ToMany::_fixRelatedCol()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._getEmpty">Solar_Sql_Model_Related_ToMany::_getEmpty()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._getNativeBySelect">Solar_Sql_Model_Related_ToMany::_getNativeBySelect()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._getNativeByWherein">Solar_Sql_Model_Related_ToMany::_getNativeByWherein()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._modEagerFetch">Solar_Sql_Model_Related_ToMany::_modEagerFetch()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._postConfig">Solar_Sql_Model_Related_ToMany::_postConfig()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._postConstruct">Solar_Sql_Model_Related_ToMany::_postConstruct()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._preConfig">Solar_Sql_Model_Related_ToMany::_preConfig()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._setCols">Solar_Sql_Model_Related_ToMany::_setCols()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._setConditions">Solar_Sql_Model_Related_ToMany::_setConditions()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._setForeignClass">Solar_Sql_Model_Related_ToMany::_setForeignClass()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._setForeignModel">Solar_Sql_Model_Related_ToMany::_setForeignModel()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._setMerge">Solar_Sql_Model_Related_ToMany::_setMerge()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._setNativeBy">Solar_Sql_Model_Related_ToMany::_setNativeBy()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._setOrder">Solar_Sql_Model_Related_ToMany::_setOrder()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._setRelated">Solar_Sql_Model_Related_ToMany::_setRelated()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._setType">Solar_Sql_Model_Related_ToMany::_setType()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany._setWhereinMax">Solar_Sql_Model_Related_ToMany::_setWhereinMax()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.dump">Solar_Sql_Model_Related_ToMany::dump()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.fetch">Solar_Sql_Model_Related_ToMany::fetch()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.fetchEmpty">Solar_Sql_Model_Related_ToMany::fetchEmpty()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.fetchNew">Solar_Sql_Model_Related_ToMany::fetchNew()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.getForeignConditions">Solar_Sql_Model_Related_ToMany::getForeignConditions()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.getModel">Solar_Sql_Model_Related_ToMany::getModel()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.isInvalid">Solar_Sql_Model_Related_ToMany::isInvalid()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.isMany">Solar_Sql_Model_Related_ToMany::isMany()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.isOne">Solar_Sql_Model_Related_ToMany::isOne()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.load">Solar_Sql_Model_Related_ToMany::load()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.locale">Solar_Sql_Model_Related_ToMany::locale()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.modEagerFetch">Solar_Sql_Model_Related_ToMany::modEagerFetch()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.modEagerResult">Solar_Sql_Model_Related_ToMany::modEagerResult()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.newObject">Solar_Sql_Model_Related_ToMany::newObject()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.preSave">Solar_Sql_Model_Related_ToMany::preSave()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.save">Solar_Sql_Model_Related_ToMany::save()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.setNativeModel">Solar_Sql_Model_Related_ToMany::setNativeModel()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_ToMany.toArray">Solar_Sql_Model_Related_ToMany::toArray()</a></li>
+</ul>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Sql_Model_Related_HasOneOrNull.toArray">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Sql_Model_Related_ToMany.Overview">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_Sql_Model_Related_HasOneOrNull::toArray()</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Overview</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

@@ -1,0 +1,631 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:32 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Sql_Adapter_MysqlReplicated : Overview</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Overview</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Sql_Adapter_MysqlReplicated">Prev</a></td>
+                <th width="60%" align="center">Solar_Sql_Adapter_MysqlReplicated</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Sql_Adapter_MysqlReplicated.Config">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Sql_Adapter_MysqlReplicated.Overview" class="section">
+
+<h1>Overview</h1>
+
+<p class="para">Uses a random slave server for SELECT queries, and a master server for all other queries.</p>
+
+<p class="para">Multiple slaves can be configured, but once we start reading from a slave,
+we read from that slave for the remainder of the connection.  (Invoking
+disconnect() will let you connect to new random slave.)</p>
+
+<div>
+<h2>Package</h2>
+
+<p class="para">This class is part of the <a href="package.Solar_Sql" class="link">Solar_Sql</a> package.</p>
+
+<p class="para">Inheritance:</p>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><a href="class.Solar_Base.Overview" class="link">Solar_Base</a>
+<ul class="itemizedlist"><li class="listitem"><p class="para"><a href="class.Solar_Sql_Adapter.Overview" class="link">Solar_Sql_Adapter</a>
+<ul class="itemizedlist"><li class="listitem"><p class="para"><a href="class.Solar_Sql_Adapter_Mysql.Overview" class="link">Solar_Sql_Adapter_Mysql</a>
+<ul class="itemizedlist"><li class="listitem"><p class="para">Solar_Sql_Adapter_MysqlReplicated</p></li>
+</ul></p></li>
+</ul></p></li>
+</ul></p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Configuration Keys</h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><a href="class.Solar_Sql_Adapter_MysqlReplicated.Config#class.Solar_Sql_Adapter_MysqlReplicated.Config.host" class="link"><code class="literal">host</code></a>: Host specification (typically &#039;localhost&#039;).</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Sql_Adapter_MysqlReplicated.Config#class.Solar_Sql_Adapter_MysqlReplicated.Config.port" class="link"><code class="literal">port</code></a>: Port number for the host name.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Sql_Adapter_MysqlReplicated.Config#class.Solar_Sql_Adapter_MysqlReplicated.Config.sock" class="link"><code class="literal">sock</code></a>: The Unix socket for the connection. Should not be used with   host and port.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Sql_Adapter_MysqlReplicated.Config#class.Solar_Sql_Adapter_MysqlReplicated.Config.user" class="link"><code class="literal">user</code></a>: Connect to the database as this username.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Sql_Adapter_MysqlReplicated.Config#class.Solar_Sql_Adapter_MysqlReplicated.Config.pass" class="link"><code class="literal">pass</code></a>: Password associated with the username.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Sql_Adapter_MysqlReplicated.Config#class.Solar_Sql_Adapter_MysqlReplicated.Config.name" class="link"><code class="literal">name</code></a>: Database name (or file path, or TNS name).</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Sql_Adapter_MysqlReplicated.Config#class.Solar_Sql_Adapter_MysqlReplicated.Config.profiling" class="link"><code class="literal">profiling</code></a>: Turn on query profiling?</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Sql_Adapter_MysqlReplicated.Config#class.Solar_Sql_Adapter_MysqlReplicated.Config.cache" class="link"><code class="literal">cache</code></a>: The cache to use, if any, for the lists of table names, table columns, etc.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Sql_Adapter_MysqlReplicated.Config#class.Solar_Sql_Adapter_MysqlReplicated.Config.request" class="link"><code class="literal">request</code></a>: A Solar_Request dependecy.  Defaults to the &#039;request&#039;   registry entry.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Sql_Adapter_MysqlReplicated.Config#class.Solar_Sql_Adapter_MysqlReplicated.Config.slaves" class="link"><code class="literal">slaves</code></a>: An array of arrays, each representing the connection values   for a different slave server.  The non-slave connection values are for the master server.  For example:  {{code: php     $config = array(              // these apply to the master and all slaves         &#039;profiling&#039; =&gt; false,         &#039;cache&#039;     =&gt; array(&#039;adapter&#039; =&gt; &#039;Solar_Cache_Adapter_Var&#039;),                  // master server connection         &#039;host&#039;      =&gt; null,         &#039;port&#039;      =&gt; null,         &#039;sock&#039;      =&gt; null,         &#039;user&#039;      =&gt; null,         &#039;pass&#039;      =&gt; null,         &#039;name&#039;      =&gt; null,                  // all slave servers         &#039;slaves&#039;    =&gt; array(                          // first slave server             0 =&gt; array(                 &#039;host&#039;      =&gt; null,                 &#039;port&#039;      =&gt; null,                 &#039;sock&#039;      =&gt; null,                 &#039;user&#039;      =&gt; null,                 &#039;pass&#039;      =&gt; null,                 &#039;name&#039;      =&gt; null,             ),                          // second slave server             1 =&gt; array(                 &#039;host&#039;      =&gt; null,                 &#039;port&#039;      =&gt; null,                 &#039;sock&#039;      =&gt; null,                 &#039;user&#039;      =&gt; null,                 &#039;pass&#039;      =&gt; null,                 &#039;name&#039;      =&gt; null,             ),                          // ... etc ...         ),     ); }}</p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Constants</h2>
+
+<p class="para">None.</p>
+
+</div>
+
+<div>
+<h2>Public Properties</h2>
+
+<p class="para">The Solar_Sql_Adapter_MysqlReplicated class has no public properties; try the list of <a href="class.Solar_Sql_Adapter_MysqlReplicated.Properties" class="link">all properties</a>.</p>
+
+</div>
+
+<div>
+<h2>Public Methods</h2>
+
+<p class="para">These are all the public methods in the Solar_Sql_Adapter_MysqlReplicated class.</p>
+
+<p class="para">You can also view the list of <a href="class.Solar_Sql_Adapter_MysqlReplicated.Methods" class="link">all public, protected, and private methods</a>.</p>
+
+<dl>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.__construct" class="link"><code class="literal">__construct()</code></a></span>
+<dd>
+<p class="para">Constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.__destruct" class="link"><code class="literal">__destruct()</code></a></span>
+<dd>
+<p class="para">Default destructor; does nothing other than provide a safe fallback for calls to parent::__destruct().</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.addColumn" class="link"><code class="literal">addColumn()</code></a></span>
+<dd>
+<p class="para">Adds a portable column to a table in the database.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.begin" class="link"><code class="literal">begin()</code></a></span>
+<dd>
+<p class="para">Leave autocommit mode and begin a transaction <em class="emphasis">on the master</em>.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.commit" class="link"><code class="literal">commit()</code></a></span>
+<dd>
+<p class="para">Commit a transaction and return to autocommit mode <em class="emphasis">on the master</em>.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.connect" class="link"><code class="literal">connect()</code></a></span>
+<dd>
+<p class="para">Connects to a random slave server.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.connectMaster" class="link"><code class="literal">connectMaster()</code></a></span>
+<dd>
+<p class="para">Connects to the master server.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.createIndex" class="link"><code class="literal">createIndex()</code></a></span>
+<dd>
+<p class="para">Creates a portable index on a table.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.createSequence" class="link"><code class="literal">createSequence()</code></a></span>
+<dd>
+<p class="para">Creates a sequence in the database.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.createTable" class="link"><code class="literal">createTable()</code></a></span>
+<dd>
+<p class="para">Creates a portable table.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.delete" class="link"><code class="literal">delete()</code></a></span>
+<dd>
+<p class="para">Deletes rows from the table based on a WHERE clause.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.disconnect" class="link"><code class="literal">disconnect()</code></a></span>
+<dd>
+<p class="para">Disconnects from the master and the slave.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.dropColumn" class="link"><code class="literal">dropColumn()</code></a></span>
+<dd>
+<p class="para">Drops a column from a table in the database.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.dropIndex" class="link"><code class="literal">dropIndex()</code></a></span>
+<dd>
+<p class="para">Drops an index from a table in the database.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.dropSequence" class="link"><code class="literal">dropSequence()</code></a></span>
+<dd>
+<p class="para">Drops a sequence from the database.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.dropTable" class="link"><code class="literal">dropTable()</code></a></span>
+<dd>
+<p class="para">Drops a table from the database, if it exists.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.dump" class="link"><code class="literal">dump()</code></a></span>
+<dd>
+<p class="para">Convenience method for getting a dump the whole object, or one of its properties, or an external variable.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.fetchAll" class="link"><code class="literal">fetchAll()</code></a></span>
+<dd>
+<p class="para">Fetches all rows from the database using sequential keys.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.fetchAssoc" class="link"><code class="literal">fetchAssoc()</code></a></span>
+<dd>
+<p class="para">Fetches all rows from the database using associative keys (defined by the first column).</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.fetchCol" class="link"><code class="literal">fetchCol()</code></a></span>
+<dd>
+<p class="para">Fetches the first column of all rows as a sequential array.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.fetchIndexInfo" class="link"><code class="literal">fetchIndexInfo()</code></a></span>
+<dd>
+<p class="para">Returns an array describing table indexes from the cache; if the cache entry is not available, queries the database for the index information.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.fetchOne" class="link"><code class="literal">fetchOne()</code></a></span>
+<dd>
+<p class="para">Fetches one row from the database.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.fetchPairs" class="link"><code class="literal">fetchPairs()</code></a></span>
+<dd>
+<p class="para">Fetches an associative array of all rows as key-value pairs (first  column is the key, second column is the value).</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.fetchPdo" class="link"><code class="literal">fetchPdo()</code></a></span>
+<dd>
+<p class="para">Fetches a PDOStatement result object.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.fetchSql" class="link"><code class="literal">fetchSql()</code></a></span>
+<dd>
+<p class="para">Builds the SQL statement and returns it as a string instead of  executing it.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.fetchTableCols" class="link"><code class="literal">fetchTableCols()</code></a></span>
+<dd>
+<p class="para">Returns an array describing table columns from the cache; if the cache entry is not available, queries the database for the column descriptions.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.fetchTableList" class="link"><code class="literal">fetchTableList()</code></a></span>
+<dd>
+<p class="para">Returns a list of database tables from the cache; if the cache entry is not available, queries the database for the list of tables.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.fetchValue" class="link"><code class="literal">fetchValue()</code></a></span>
+<dd>
+<p class="para">Fetches the very first value (i.e., first column of the first row).</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.getCache" class="link"><code class="literal">getCache()</code></a></span>
+<dd>
+<p class="para">Returns the cache object.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.getCacheKeyPrefix" class="link"><code class="literal">getCacheKeyPrefix()</code></a></span>
+<dd>
+<p class="para">Gets the connection-specific cache key prefix.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.getPdo" class="link"><code class="literal">getPdo()</code></a></span>
+<dd>
+<p class="para">Get the PDO connection object (connects to the database if needed).</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.getPdoMaster" class="link"><code class="literal">getPdoMaster()</code></a></span>
+<dd>
+<p class="para">Get the master PDO connection object (connects to the database if  needed).</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.getProfile" class="link"><code class="literal">getProfile()</code></a></span>
+<dd>
+<p class="para">Get the query profile array.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.insert" class="link"><code class="literal">insert()</code></a></span>
+<dd>
+<p class="para">Inserts a row of data into a table.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.lastInsertId" class="link"><code class="literal">lastInsertId()</code></a></span>
+<dd>
+<p class="para">Get the last auto-incremented insert ID from the database.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.locale" class="link"><code class="literal">locale()</code></a></span>
+<dd>
+<p class="para">Looks up class-specific locale strings based on a key.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.nextSequence" class="link"><code class="literal">nextSequence()</code></a></span>
+<dd>
+<p class="para">Gets the next number in a sequence; creates the sequence if it does not exist.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.query" class="link"><code class="literal">query()</code></a></span>
+<dd>
+<p class="para">Prepares and executes an SQL statement, optionally binding values to named parameters in the statement.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.quote" class="link"><code class="literal">quote()</code></a></span>
+<dd>
+<p class="para">Safely quotes a value for an SQL statement.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.quoteInto" class="link"><code class="literal">quoteInto()</code></a></span>
+<dd>
+<p class="para">Quotes a value and places into a piece of text at a placeholder; the placeholder is a question-mark.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.quoteMulti" class="link"><code class="literal">quoteMulti()</code></a></span>
+<dd>
+<p class="para">Quote multiple text-and-value pieces.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.quoteName" class="link"><code class="literal">quoteName()</code></a></span>
+<dd>
+<p class="para">Quotes a single identifier name (table, table alias, table column,  index, sequence).</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.quoteNamesIn" class="link"><code class="literal">quoteNamesIn()</code></a></span>
+<dd>
+<p class="para">Quotes all fully-qualified identifier names (&quot;table.col&quot;) in a string, typically an SQL snippet for a SELECT clause.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.rollback" class="link"><code class="literal">rollback()</code></a></span>
+<dd>
+<p class="para">Roll back a transaction and return to autocommit mode <em class="emphasis">on the master</em>.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.setCache" class="link"><code class="literal">setCache()</code></a></span>
+<dd>
+<p class="para">Injects a cache dependency for <code class="literal">$_cache</code>.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.setCacheKeyPrefix" class="link"><code class="literal">setCacheKeyPrefix()</code></a></span>
+<dd>
+<p class="para">Sets the connection-specific cache key prefix.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.setProfiling" class="link"><code class="literal">setProfiling()</code></a></span>
+<dd>
+<p class="para">Turns profiling on and off.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Adapter_MysqlReplicated.update" class="link"><code class="literal">update()</code></a></span>
+<dd>
+<p class="para">Updates a table with specified data based on a WHERE clause.</p></dd>
+
+</dt>
+
+
+</dl>
+
+
+</div>
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Sql_Adapter_MysqlReplicated">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_Sql_Adapter_MysqlReplicated">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Sql_Adapter_MysqlReplicated.Config">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_Sql_Adapter_MysqlReplicated</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Configuration</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

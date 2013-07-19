@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-18 10:33:39 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_View_Helper_Timestamp : Overview</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Overview</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_View_Helper_Timestamp">Prev</a></td>
+                <th width="60%" align="center">Solar_View_Helper_Timestamp</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_View_Helper_Timestamp.Config">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_View_Helper_Timestamp.Overview" class="section">
+
+<h1>Overview</h1>
+
+<p class="para">Helper for a formatted timestamp using <a href="http://php.net/date" class="link external">&raquo; date()</a> format codes.</p>
+
+<p class="para">Default format is &quot;Y-m-d H:i:s&quot;.</p>
+
+<p class="para">Note that this helper is timezone-aware.  For example, if all your input
+timestamps are in the GMT timezone, but you want to show them as being in the
+America/Chicago timezone, you can set these config keys:</p>
+
+<pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_View_Helper_Timestamp'</span><span style="color: #007700">][</span><span style="color: #DD0000">'tz_origin'</span><span style="color: #007700">] = </span><span style="color: #DD0000">'GMT'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_View_Helper_Timestamp'</span><span style="color: #007700">][</span><span style="color: #DD0000">'tz_output'</span><span style="color: #007700">] = </span><span style="color: #DD0000">'America/Chicago'</span><span style="color: #007700">;</span></span></code></pre>
+
+
+<p class="para">Then when you call call the timestamp helper, it will move the input time
+back by 5 hours (or by 6, during daylight savings time) and output that 
+instead of the GMT time.</p>
+
+<p class="para">This works for arbitrary timezones, so you can have your input times in any
+timezone and convert them to any other timezone.</p>
+
+<p class="para">Note that Solar_View_Helper_Date and Solar_View_Helper_Time descend from 
+this helper, so you only need to set the timezone configs in one place (i.e.,
+for this helper).</p>
+
+<div>
+<h2>Package</h2>
+
+<p class="para">This class is part of the <a href="package.Solar_View_Helper" class="link">Solar_View_Helper</a> package.</p>
+
+<p class="para">Inheritance:</p>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><a href="class.Solar_Base.Overview" class="link">Solar_Base</a>
+<ul class="itemizedlist"><li class="listitem"><p class="para"><a href="class.Solar_View_Helper.Overview" class="link">Solar_View_Helper</a>
+<ul class="itemizedlist"><li class="listitem"><p class="para">Solar_View_Helper_Timestamp</p></li>
+</ul></p></li>
+</ul></p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Configuration Keys</h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><a href="class.Solar_View_Helper_Timestamp.Config#class.Solar_View_Helper_Timestamp.Config.strftime" class="link"><code class="literal">strftime</code></a>: When true, uses strftime() instead of date() for formatting    dates. Default is false.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_View_Helper_Timestamp.Config#class.Solar_View_Helper_Timestamp.Config.format" class="link"><code class="literal">format</code></a>: The default output formatting using <a href="http://php.net/date" class="link external">&raquo; date()</a> codes.   When <code class="literal">strftime</code> is true, uses <a href="http://php.net/strftime" class="link external">&raquo; strftime()</a> codes instead.   Default is &#039;Y-m-d H:i:s&#039; (using date() format codes).</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_View_Helper_Timestamp.Config#class.Solar_View_Helper_Timestamp.Config.tz_origin" class="link"><code class="literal">tz_origin</code></a>: Consider all input timestamps as being from this timezone.   Default is the value of <a href="http://php.net/date_default_timezone_get" class="link external">&raquo; date_default_timezone_get()</a>.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_View_Helper_Timestamp.Config#class.Solar_View_Helper_Timestamp.Config.tz_output" class="link"><code class="literal">tz_output</code></a>: Output all timestamps after converting to this timezone.   Default is the value of <a href="http://php.net/date_default_timezone_get" class="link external">&raquo; date_default_timezone_get()</a>.</p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Constants</h2>
+
+<p class="para">None.</p>
+
+</div>
+
+<div>
+<h2>Public Properties</h2>
+
+<p class="para">The Solar_View_Helper_Timestamp class has no public properties; try the list of <a href="class.Solar_View_Helper_Timestamp.Properties" class="link">all properties</a>.</p>
+
+</div>
+
+<div>
+<h2>Public Methods</h2>
+
+<p class="para">These are all the public methods in the Solar_View_Helper_Timestamp class.</p>
+
+<p class="para">You can also view the list of <a href="class.Solar_View_Helper_Timestamp.Methods" class="link">all public, protected, and private methods</a>.</p>
+
+<dl>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_View_Helper_Timestamp.__construct" class="link"><code class="literal">__construct()</code></a></span>
+<dd>
+<p class="para">Constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_View_Helper_Timestamp.__destruct" class="link"><code class="literal">__destruct()</code></a></span>
+<dd>
+<p class="para">Default destructor; does nothing other than provide a safe fallback for calls to parent::__destruct().</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_View_Helper_Timestamp.dump" class="link"><code class="literal">dump()</code></a></span>
+<dd>
+<p class="para">Convenience method for getting a dump the whole object, or one of its properties, or an external variable.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_View_Helper_Timestamp.locale" class="link"><code class="literal">locale()</code></a></span>
+<dd>
+<p class="para">Looks up class-specific locale strings based on a key.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_View_Helper_Timestamp.timestamp" class="link"><code class="literal">timestamp()</code></a></span>
+<dd>
+<p class="para">Outputs a formatted timestamp using <a href="http://php.net/date" class="link external">&raquo; date()</a> format codes.</p></dd>
+
+</dt>
+
+
+</dl>
+
+
+</div>
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_View_Helper_Timestamp">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_View_Helper_Timestamp">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_View_Helper_Timestamp.Config">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_View_Helper_Timestamp</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Configuration</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

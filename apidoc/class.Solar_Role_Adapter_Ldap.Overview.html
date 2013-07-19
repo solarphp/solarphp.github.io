@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:29 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Role_Adapter_Ldap : Overview</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Overview</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Role_Adapter_Ldap">Prev</a></td>
+                <th width="60%" align="center">Solar_Role_Adapter_Ldap</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Role_Adapter_Ldap.Config">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Role_Adapter_Ldap.Overview" class="section">
+
+<h1>Overview</h1>
+
+<p class="para">Adapter to fetch roles from an LDAP server.</p>
+
+<div>
+<h2>Package</h2>
+
+<p class="para">This class is part of the <a href="package.Solar_Role" class="link">Solar_Role</a> package.</p>
+
+<p class="para">Inheritance:</p>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><a href="class.Solar_Base.Overview" class="link">Solar_Base</a>
+<ul class="itemizedlist"><li class="listitem"><p class="para"><a href="class.Solar_Role_Adapter.Overview" class="link">Solar_Role_Adapter</a>
+<ul class="itemizedlist"><li class="listitem"><p class="para">Solar_Role_Adapter_Ldap</p></li>
+</ul></p></li>
+</ul></p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Configuration Keys</h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><a href="class.Solar_Role_Adapter_Ldap.Config#class.Solar_Role_Adapter_Ldap.Config.cache" class="link"><code class="literal">cache</code></a>: A Solar_Cache dependency injection. Default is to create   a Solar_Cache_Adapter_Session object internal to this instance to    retain the role list.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Role_Adapter_Ldap.Config#class.Solar_Role_Adapter_Ldap.Config.url" class="link"><code class="literal">url</code></a>: URL to the LDAP server. Takes the format of &quot;ldaps://example.com:389&quot;.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Role_Adapter_Ldap.Config#class.Solar_Role_Adapter_Ldap.Config.basedn" class="link"><code class="literal">basedn</code></a>: The base DN for the LDAP search; example: &quot;o=my company,c=us&quot;.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Role_Adapter_Ldap.Config#class.Solar_Role_Adapter_Ldap.Config.filter" class="link"><code class="literal">filter</code></a>: An sprintf() filter string for the LDAP search; %s represents the username. Example: &quot;uid=%s&quot;.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Role_Adapter_Ldap.Config#class.Solar_Role_Adapter_Ldap.Config.attrib" class="link"><code class="literal">attrib</code></a>: Use these attributes to find role names.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Role_Adapter_Ldap.Config#class.Solar_Role_Adapter_Ldap.Config.binddn" class="link"><code class="literal">binddn</code></a>: Bind to the LDAP server as this distinguished name.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Role_Adapter_Ldap.Config#class.Solar_Role_Adapter_Ldap.Config.bindpw" class="link"><code class="literal">bindpw</code></a>: Bind to the LDAP server as with this password.</p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Constants</h2>
+
+<p class="para">None.</p>
+
+</div>
+
+<div>
+<h2>Public Properties</h2>
+
+<p class="para">The Solar_Role_Adapter_Ldap class has no public properties; try the list of <a href="class.Solar_Role_Adapter_Ldap.Properties" class="link">all properties</a>.</p>
+
+</div>
+
+<div>
+<h2>Public Methods</h2>
+
+<p class="para">These are all the public methods in the Solar_Role_Adapter_Ldap class.</p>
+
+<p class="para">You can also view the list of <a href="class.Solar_Role_Adapter_Ldap.Methods" class="link">all public, protected, and private methods</a>.</p>
+
+<dl>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Role_Adapter_Ldap.__call" class="link"><code class="literal">__call()</code></a></span>
+<dd>
+<p class="para">Provides magic &quot;isRoleName()&quot; to map to &quot;is(&#039;role_name&#039;)&quot;.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Role_Adapter_Ldap.__construct" class="link"><code class="literal">__construct()</code></a></span>
+<dd>
+<p class="para">Constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Role_Adapter_Ldap.__destruct" class="link"><code class="literal">__destruct()</code></a></span>
+<dd>
+<p class="para">Default destructor; does nothing other than provide a safe fallback for calls to parent::__destruct().</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Role_Adapter_Ldap.add" class="link"><code class="literal">add()</code></a></span>
+<dd>
+<p class="para">Appends a single role to the existing list of roles.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Role_Adapter_Ldap.addList" class="link"><code class="literal">addList()</code></a></span>
+<dd>
+<p class="para">Appends a list of roles to the existing list of roles.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Role_Adapter_Ldap.dump" class="link"><code class="literal">dump()</code></a></span>
+<dd>
+<p class="para">Convenience method for getting a dump the whole object, or one of its properties, or an external variable.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Role_Adapter_Ldap.fetch" class="link"><code class="literal">fetch()</code></a></span>
+<dd>
+<p class="para">Fetch roles for a user.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Role_Adapter_Ldap.getList" class="link"><code class="literal">getList()</code></a></span>
+<dd>
+<p class="para">Gets the list of all loaded roles for the user.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Role_Adapter_Ldap.is" class="link"><code class="literal">is()</code></a></span>
+<dd>
+<p class="para">Check to see if a user is in a role.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Role_Adapter_Ldap.isAll" class="link"><code class="literal">isAll()</code></a></span>
+<dd>
+<p class="para">Check to see if a user is in all of the listed roles.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Role_Adapter_Ldap.isAny" class="link"><code class="literal">isAny()</code></a></span>
+<dd>
+<p class="para">Check to see if a user is in any of the listed roles.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Role_Adapter_Ldap.load" class="link"><code class="literal">load()</code></a></span>
+<dd>
+<p class="para">Load the list of roles for the given user from the adapter.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Role_Adapter_Ldap.locale" class="link"><code class="literal">locale()</code></a></span>
+<dd>
+<p class="para">Looks up class-specific locale strings based on a key.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Role_Adapter_Ldap.reset" class="link"><code class="literal">reset()</code></a></span>
+<dd>
+<p class="para">Resets the role list to nothing.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Role_Adapter_Ldap.setList" class="link"><code class="literal">setList()</code></a></span>
+<dd>
+<p class="para">Sets the list, overriding what is there already.</p></dd>
+
+</dt>
+
+
+</dl>
+
+
+</div>
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Role_Adapter_Ldap">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_Role_Adapter_Ldap">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Role_Adapter_Ldap.Config">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_Role_Adapter_Ldap</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Configuration</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

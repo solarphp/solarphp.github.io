@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:38 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Uri_Public : Overview</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Overview</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Uri_Public">Prev</a></td>
+                <th width="60%" align="center">Solar_Uri_Public</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Uri_Public.Config">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Uri_Public.Overview" class="section">
+
+<h1>Overview</h1>
+
+<p class="para">Manipulates generates public URI strings.</p>
+
+<p class="para">This class is functionally identical to Solar_Uri, except that it
+automatically adds a prefix to the &quot;path&quot; portion of all URIs.  This
+makes it easy to work with URIs for public Solar resources.</p>
+
+<p class="para">Use the Solar_Uri_Public::$_config key for &#039;path&#039; to specify
+the path prefix leading to the public resource directory, if any.</p>
+
+<div>
+<h2>Package</h2>
+
+<p class="para">This class is part of the <a href="package.Solar_Uri" class="link">Solar_Uri</a> package.</p>
+
+<p class="para">Inheritance:</p>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><a href="class.Solar_Base.Overview" class="link">Solar_Base</a>
+<ul class="itemizedlist"><li class="listitem"><p class="para"><a href="class.Solar_Uri.Overview" class="link">Solar_Uri</a>
+<ul class="itemizedlist"><li class="listitem"><p class="para">Solar_Uri_Public</p></li>
+</ul></p></li>
+</ul></p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Configuration Keys</h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><a href="class.Solar_Uri_Public.Config#class.Solar_Uri_Public.Config.host" class="link"><code class="literal">host</code></a>: A host to use as default.  Generally needed only   for specific URI subclasses, for example Solar_Uri_Public.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Uri_Public.Config#class.Solar_Uri_Public.Config.path" class="link"><code class="literal">path</code></a>: A path prefix specifically for public resources, for example &#039;/public/&#039;.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Uri_Public.Config#class.Solar_Uri_Public.Config.uri" class="link"><code class="literal">uri</code></a>: Calls set() with this URI string at construct-time, instead   of loading from the current URI.</p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Constants</h2>
+
+<p class="para">None.</p>
+
+</div>
+
+<div>
+<h2>Public Properties</h2>
+
+<p class="para">These are all the public properties in the Solar_Uri_Public class.</p>
+
+<p class="para">You can also view the list of <a href="class.Solar_Uri_Public.Properties" class="link">all public, protected, and private properties</a>.</p>
+
+<dl>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Uri_Public.Properties#class.Solar_Uri_Public.Properties.format" class="link"><code class="literal">$format</code></a></span>
+<dd>
+<p class="para">The dot-format extension of the last path element (for example, the &quot;rss&quot; in &quot;feed.rss&quot;).</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Uri_Public.Properties#class.Solar_Uri_Public.Properties.fragment" class="link"><code class="literal">$fragment</code></a></span>
+<dd>
+<p class="para">The fragment portion (for example, the &quot;foo&quot; in &quot;#foo&quot;).</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Uri_Public.Properties#class.Solar_Uri_Public.Properties.host" class="link"><code class="literal">$host</code></a></span>
+<dd>
+<p class="para">The host specification (for example, &#039;example.com&#039;).</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Uri_Public.Properties#class.Solar_Uri_Public.Properties.pass" class="link"><code class="literal">$pass</code></a></span>
+<dd>
+<p class="para">The password, if any.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Uri_Public.Properties#class.Solar_Uri_Public.Properties.path" class="link"><code class="literal">$path</code></a></span>
+<dd>
+<p class="para">The path portion (for example, &#039;path/to/index.php&#039;).</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Uri_Public.Properties#class.Solar_Uri_Public.Properties.port" class="link"><code class="literal">$port</code></a></span>
+<dd>
+<p class="para">The port number (for example, &#039;80&#039;).</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Uri_Public.Properties#class.Solar_Uri_Public.Properties.scheme" class="link"><code class="literal">$scheme</code></a></span>
+<dd>
+<p class="para">The scheme (for example &#039;http&#039; or &#039;https&#039;).</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Uri_Public.Properties#class.Solar_Uri_Public.Properties.user" class="link"><code class="literal">$user</code></a></span>
+<dd>
+<p class="para">The username, if any.</p></dd>
+
+</dt>
+
+
+</dl>
+
+
+</div>
+
+<div>
+<h2>Public Methods</h2>
+
+<p class="para">These are all the public methods in the Solar_Uri_Public class.</p>
+
+<p class="para">You can also view the list of <a href="class.Solar_Uri_Public.Methods" class="link">all public, protected, and private methods</a>.</p>
+
+<dl>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Uri_Public.__construct" class="link"><code class="literal">__construct()</code></a></span>
+<dd>
+<p class="para">Constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Uri_Public.__destruct" class="link"><code class="literal">__destruct()</code></a></span>
+<dd>
+<p class="para">Default destructor; does nothing other than provide a safe fallback for calls to parent::__destruct().</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Uri_Public.__get" class="link"><code class="literal">__get()</code></a></span>
+<dd>
+<p class="para">Implements access to $_query <em class="emphasis">by reference</em> so that it appears to be  a public $query property.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Uri_Public.__set" class="link"><code class="literal">__set()</code></a></span>
+<dd>
+<p class="para">Implements the virtual $query property.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Uri_Public.__toString" class="link"><code class="literal">__toString()</code></a></span>
+<dd>
+<p class="para">Converts the URI object to a string and returns it.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Uri_Public.dump" class="link"><code class="literal">dump()</code></a></span>
+<dd>
+<p class="para">Convenience method for getting a dump the whole object, or one of its properties, or an external variable.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Uri_Public.get" class="link"><code class="literal">get()</code></a></span>
+<dd>
+<p class="para">Returns a URI based on the object properties.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Uri_Public.getPath" class="link"><code class="literal">getPath()</code></a></span>
+<dd>
+<p class="para">Returns the path array as a string, including the format.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Uri_Public.getQuery" class="link"><code class="literal">getQuery()</code></a></span>
+<dd>
+<p class="para">Returns the query portion as a string.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Uri_Public.locale" class="link"><code class="literal">locale()</code></a></span>
+<dd>
+<p class="para">Looks up class-specific locale strings based on a key.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Uri_Public.quick" class="link"><code class="literal">quick()</code></a></span>
+<dd>
+<p class="para">Returns a URI based on the specified string.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Uri_Public.set" class="link"><code class="literal">set()</code></a></span>
+<dd>
+<p class="para">Sets properties from a specified URI.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Uri_Public.setPath" class="link"><code class="literal">setPath()</code></a></span>
+<dd>
+<p class="para">Sets the Solar_Uri::$path array from a string.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Uri_Public.setQuery" class="link"><code class="literal">setQuery()</code></a></span>
+<dd>
+<p class="para">Sets the query string in the URI, for Solar_Uri::getQuery() and Solar_Uri::$query.</p></dd>
+
+</dt>
+
+
+</dl>
+
+
+</div>
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Uri_Public">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_Uri_Public">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Uri_Public.Config">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_Uri_Public</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Configuration</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

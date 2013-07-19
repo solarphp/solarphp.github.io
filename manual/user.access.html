@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:59 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">7.6. Access Control</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="user.roles">Prev</a> </td>
+          <th width="60%" align="center">Chapter 7. User Authentication, Roles, and Access Control</th>
+          <td width="20%" align="right"> <a accesskey="n" href="user.integration">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="7.6. Access Control">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="user.access"></a>7.6. Access Control</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        Now that we have identified the user and know his role assignments,
+        we can use that information to say which controllers and actions,
+        and optionally which objects, he has access to.
+    </p>
+      <p>
+        As with authentication and roles, we don't need to instantiate a
+        separate access-control object on our own. Instead, the registered <a class="link" href="http://solarphp.com/class/Solar_User" target="_top">Solar_User</a>
+        object has an <code class="literal">$access</code> property that it sets up
+        automatically.
+    </p>
+      <div class="sect2" title="7.6.1. Adapters">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="user.access.adapters"></a>7.6.1. Adapters</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            Solar provides different adapters allowing you to discover
+            access-control information from different backends. The current
+            adapters shipped with Solar are as follows:
+        </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>
+                    <a class="link" href="http://solarphp.com/class/Solar_Access_Adapter_File" target="_top">Solar_Access_Adapter_File</a>: reads access control list from a plain-text file.
+                </p>
+            </li>
+            <li class="listitem">
+              <p>
+                    <a class="link" href="http://solarphp.com/class/Solar_Access_Adapter_None" target="_top">Solar_Access_Adapter_None</a>: a null source; always reports that the user is denied access.
+                </p>
+            </li>
+            <li class="listitem">
+              <p>
+                    <a class="link" href="http://solarphp.com/class/Solar_Access_Adapter_Open" target="_top">Solar_Access_Adapter_Open</a>: another null source; always reports that the user is allowed access.
+                </p>
+            </li>
+            <li class="listitem">
+              <p>
+                    <a class="link" href="http://solarphp.com/class/Solar_Access_Adapter_Sql" target="_top">Solar_Access_Adapter_Sql</a>: selects user access controls from a database table.
+                </p>
+            </li>
+          </ul>
+        </div>
+        <div class="note" title="Note">
+          <table border="0" summary="Note">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">Note</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+    	        Note that these adapters are read-only. They do not create or
+                manage access control lists for you, they only look up which
+                the authorizations for a particular user and roles.
+            </p>
+                <p>
+                An authenticated identity will never change during the login
+                period. However, access controls might change during the same
+                session; e.g., being promoted from a moderator to an author
+                while logged in. For this reason, the access adapters re-read
+                the control lists from the storage backend on each new page
+                request.
+            </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <p>
+		    Solar uses a <a class="link" href="http://solarphp.com/class/Solar_Auth" target="_top">Solar_Access</a>
+		    factory to create the adapter instance, so you need to configure
+            the factory to create the kind of adapter you want to use for
+            access control discovery. You can do so in the config file like this:
+		</p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Access'</span><span style="color: #007700">] = array(
+    </span><span style="color: #DD0000">'adapter'    </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Solar_Access_Adapter_File'</span><span style="color: #007700">,
+);</span></span></code></pre>
+      </div>
+      <div class="sect2" title="7.6.2. Configuration">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="user.access.configuration"></a>7.6.2. Configuration</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+		    Now that we have told the factory what adapter to create, we need
+            to configure the adapter itself. Access adapters are much easier to 
+            configure than authentication adapters, but each has its own
+            settings.  You can look up the config keys for each of them
+            on the following pages:
+		</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>
+                    <a class="link" href="http://solarphp.com/class/Solar_Access_Adapter_File/Config" target="_top">File config keys</a>
+                </p>
+            </li>
+            <li class="listitem">
+              <p>
+                    <a class="link" href="http://solarphp.com/class/Solar_Access_Adapter_Sql/Config" target="_top">Sql config keys</a>
+                </p>
+            </li>
+          </ul>
+        </div>
+        <p>
+    	    For example, the configuration for a file-based access adapter to
+            use an access control list at
+            <code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/config/access.txt</code>
+            would look like this:
+    	</p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Access_Adapter_File'</span><span style="color: #007700">] = array(
+    </span><span style="color: #DD0000">'file'      </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"</span><span style="color: #0000BB">$system</span><span style="color: #DD0000">/config/access.txt"</span><span style="color: #007700">,
+);</span></span></code></pre>
+      </div>
+      <div class="sect2" title="7.6.3. List Format">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="user.access.list-format"></a>7.6.3. List Format</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+	        Access control lists have one row per entry, and each entry
+	        has five elements.
+	    </p>
+        <div class="variablelist">
+          <dl>
+            <dt>
+              <span class="term">
+                <code class="literal">flag</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    (string) Does this entry <code class="literal">'allow'</code>
+                    access, or <code class="literal">'deny'</code> it?
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">type</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    (string) Does this entry specify to a user
+                    <code class="literal">'handle'</code>, a user
+                    <code class="literal">'role'</code>, or the
+                    <code class="literal">'owner'</code> of a particular object? (More
+                    on "ownership access" in a later section.)
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">name</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        (string) If the entry type is <code class="literal">'handle'</code>,
+                        this identifies the user handle being controlled. There
+                        are two special values for this element:
+                        <code class="literal">'*'</code> means "all users" (even
+                        anonymous/unauthenticated users), and
+                        <code class="literal">'+'</code> means "all *authenticated* users".
+                    </p>
+              <p>
+                        (string) Alternatively, if the entry type is
+                        <code class="literal">'role'</code>, this identifies the user role
+                        being controlled. The special value <code class="literal">'*'</code>
+                        means "all roles".
+                    </p>
+              <p>
+                        (string) Finally, if the entry type is
+                        <code class="literal">'owner'</code>, this value has no effect.
+                        You can leave it blank, or put in a
+                        <code class="literal">'*'</code> if you want. (More
+                        on "ownership access" in a later section.)
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">class</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    (string) What class does this access control apply to?
+                    (Typically this is a page-controller class name.)
+                     The special value <code class="literal">'*'</code>
+                    means "all classes".
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">action</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    (string) What action name does this access control apply
+                    to?  (Typcially this is the name of a page-controller
+                    action.) The special value <code class="literal">'*'</code>
+                    means "all actions".
+                </p>
+            </dd>
+          </dl>
+        </div>
+        <p>
+            Here's an example of a file-based access control list:
+        </p>
+        <pre class="screen">
+# flag      type        name        class                   action
+# ----      ----        ----        -----                   ------
+
+# allow any user with an "admin" role access to all actions in all classes
+allow       role        admin       *                       *
+
+# allow all users access to the actionRead() method in all classes
+allow       handle      *           *                       read
+
+# allow only authenticated users access to actionComment() in all classes
+allow       handle      +           *                       comment
+
+# allow only authors to add new pages
+allow       role        author      Vendor_App_Page         add
+
+# allow any user with a "moderator" role acces to Vendor_App_Comments::actionDelete()
+allow       role        moderator   Vendor_App_Comments     delete
+
+# deny all users access to Vendor_App_Page::actionEdit() ...
+deny        handle      *           Vendor_App_Page         edit
+
+# ... except for user authenticated as "kornblum"
+allow       handle      kornblum    Vendor_App_Page         edit
+</pre>
+        <div class="note" title="Note">
+          <table border="0" summary="Note">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">Note</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+                Control lists are processed from top-to-bottom, with later
+                entries overriding previous ones.
+            </p>
+                <p>
+                Access controls are "deny by default", so if there's no
+                entry for it, the control will be reported as "deny".
+            </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="sect2" title="7.6.4. Usage">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="user.access.usage"></a>7.6.4. Usage</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+	        Let's say we are using the file-based access adapter to read from
+            a file with the above entries. Let's also say that the user
+            'kornblum' has just logged in; he has only one role in the system
+            ('moderator').
+        </p>
+        <p>
+            The <a class="link" href="http://solarphp.com/class/Solar_User" target="_top">Solar_User</a>
+            object, which has a
+            <a class="link" href="http://solarphp.com/class/Solar_Access_Adapter" target="_top">Solar_Access_Adapter</a>
+            instance inside it, automatically goes to access control file and
+            fetches the entries that apply to Kornblum. We can then use the
+            following
+            <a class="link" href="http://solarphp.com/class/Solar_Access_Adapter" target="_top">Solar_Access_Adapter</a>
+            methods to determine if Andy's should be allowed access to
+            particular pages and actions. (Remember, we use a
+            <a class="link" href="http://solarphp.com/class/Solar_User" target="_top">Solar_User</a> 
+            object instead of instantiating a separate role adapter instance.)
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$class </span><span style="color: #007700">= </span><span style="color: #DD0000">'Vendor_App_Page'</span><span style="color: #007700">;
+
+</span><span style="color: #0000BB">$user </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar_Registry</span><span style="color: #007700">::</span><span style="color: #0000BB">get</span><span style="color: #007700">(</span><span style="color: #DD0000">'user'</span><span style="color: #007700">);
+</span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">auth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">handle</span><span style="color: #007700">; </span><span style="color: #FF8000">// 'kornblum'
+
+</span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">access</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isAllowed</span><span style="color: #007700">(</span><span style="color: #0000BB">$class</span><span style="color: #007700">, </span><span style="color: #DD0000">'read'</span><span style="color: #007700">); </span><span style="color: #FF8000">// true
+</span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">access</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isAllowed</span><span style="color: #007700">(</span><span style="color: #0000BB">$class</span><span style="color: #007700">, </span><span style="color: #DD0000">'comment'</span><span style="color: #007700">); </span><span style="color: #FF8000">// true (if not logged in, false)
+</span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">access</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isAllowed</span><span style="color: #007700">(</span><span style="color: #0000BB">$class</span><span style="color: #007700">, </span><span style="color: #DD0000">'add'</span><span style="color: #007700">); </span><span style="color: #FF8000">// false (not an author)
+</span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">access</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isAllowed</span><span style="color: #007700">(</span><span style="color: #0000BB">$class</span><span style="color: #007700">, </span><span style="color: #DD0000">'edit'</span><span style="color: #007700">); </span><span style="color: #FF8000">// true
+</span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">access</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isAllowed</span><span style="color: #007700">(</span><span style="color: #0000BB">$class</span><span style="color: #007700">, </span><span style="color: #DD0000">'foobar'</span><span style="color: #007700">); </span><span style="color: #FF8000">// false (deny-by-default)</span></span></code></pre>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="user.roles">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="user">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="user.integration">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">7.5. Roles </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 7.7. Integration With Page Controllers</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

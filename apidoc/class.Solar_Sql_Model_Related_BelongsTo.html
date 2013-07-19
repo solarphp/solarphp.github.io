@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:57:08 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Sql_Model_Related_BelongsTo</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Solar_Sql_Model_Related_BelongsTo</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Sql_Model_Related.toArray">Prev</a></td>
+                <th width="60%" align="center">Classes</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Sql_Model_Related_BelongsTo.Overview">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Sql_Model_Related_BelongsTo" class="chapter">
+
+<h1>Solar_Sql_Model_Related_BelongsTo</h1><p><b>Table of Contents</b></p><ul class="chunklist chunklist_title">
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.Overview">Overview</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.Config">Configuration</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.Constants">Constants</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.Properties">Properties</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.Methods">Methods</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.__construct">Solar_Sql_Model_Related_BelongsTo::__construct()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.__destruct">Solar_Sql_Model_Related_BelongsTo::__destruct()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._buildConfig">Solar_Sql_Model_Related_BelongsTo::_buildConfig()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._collate">Solar_Sql_Model_Related_BelongsTo::_collate()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._emergeFromArrayAll">Solar_Sql_Model_Related_BelongsTo::_emergeFromArrayAll()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._emergeFromArrayOne">Solar_Sql_Model_Related_BelongsTo::_emergeFromArrayOne()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._exception">Solar_Sql_Model_Related_BelongsTo::_exception()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._fetchIntoArrayAll">Solar_Sql_Model_Related_BelongsTo::_fetchIntoArrayAll()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._fetchIntoArrayOne">Solar_Sql_Model_Related_BelongsTo::_fetchIntoArrayOne()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._fixEagerParams">Solar_Sql_Model_Related_BelongsTo::_fixEagerParams()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._fixFetchParams">Solar_Sql_Model_Related_BelongsTo::_fixFetchParams()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._fixForeignKey">Solar_Sql_Model_Related_BelongsTo::_fixForeignKey()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._fixRelatedCol">Solar_Sql_Model_Related_BelongsTo::_fixRelatedCol()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._getEmpty">Solar_Sql_Model_Related_BelongsTo::_getEmpty()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._getNativeBySelect">Solar_Sql_Model_Related_BelongsTo::_getNativeBySelect()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._getNativeByWherein">Solar_Sql_Model_Related_BelongsTo::_getNativeByWherein()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._modEagerFetch">Solar_Sql_Model_Related_BelongsTo::_modEagerFetch()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._postConfig">Solar_Sql_Model_Related_BelongsTo::_postConfig()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._postConstruct">Solar_Sql_Model_Related_BelongsTo::_postConstruct()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._preConfig">Solar_Sql_Model_Related_BelongsTo::_preConfig()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._setCols">Solar_Sql_Model_Related_BelongsTo::_setCols()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._setConditions">Solar_Sql_Model_Related_BelongsTo::_setConditions()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._setForeignClass">Solar_Sql_Model_Related_BelongsTo::_setForeignClass()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._setForeignModel">Solar_Sql_Model_Related_BelongsTo::_setForeignModel()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._setMerge">Solar_Sql_Model_Related_BelongsTo::_setMerge()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._setNativeBy">Solar_Sql_Model_Related_BelongsTo::_setNativeBy()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._setOrder">Solar_Sql_Model_Related_BelongsTo::_setOrder()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._setRelated">Solar_Sql_Model_Related_BelongsTo::_setRelated()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._setType">Solar_Sql_Model_Related_BelongsTo::_setType()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo._setWhereinMax">Solar_Sql_Model_Related_BelongsTo::_setWhereinMax()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.dump">Solar_Sql_Model_Related_BelongsTo::dump()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.fetch">Solar_Sql_Model_Related_BelongsTo::fetch()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.fetchEmpty">Solar_Sql_Model_Related_BelongsTo::fetchEmpty()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.fetchNew">Solar_Sql_Model_Related_BelongsTo::fetchNew()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.getForeignConditions">Solar_Sql_Model_Related_BelongsTo::getForeignConditions()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.getModel">Solar_Sql_Model_Related_BelongsTo::getModel()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.isInvalid">Solar_Sql_Model_Related_BelongsTo::isInvalid()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.isMany">Solar_Sql_Model_Related_BelongsTo::isMany()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.isOne">Solar_Sql_Model_Related_BelongsTo::isOne()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.load">Solar_Sql_Model_Related_BelongsTo::load()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.locale">Solar_Sql_Model_Related_BelongsTo::locale()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.modEagerFetch">Solar_Sql_Model_Related_BelongsTo::modEagerFetch()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.modEagerResult">Solar_Sql_Model_Related_BelongsTo::modEagerResult()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.newObject">Solar_Sql_Model_Related_BelongsTo::newObject()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.preSave">Solar_Sql_Model_Related_BelongsTo::preSave()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.save">Solar_Sql_Model_Related_BelongsTo::save()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.setNativeModel">Solar_Sql_Model_Related_BelongsTo::setNativeModel()</a></li>
+<li><a href="class.Solar_Sql_Model_Related_BelongsTo.toArray">Solar_Sql_Model_Related_BelongsTo::toArray()</a></li>
+</ul>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Sql_Model_Related.toArray">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Sql_Model_Related_BelongsTo.Overview">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_Sql_Model_Related::toArray()</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Overview</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

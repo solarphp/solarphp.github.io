@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:53 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">4.3. Native Model "Has One" Related Foreign Record</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="related.domain">Prev</a> </td>
+          <th width="60%" align="center">Chapter 4. Working With Related Models</th>
+          <td width="20%" align="right"> <a accesskey="n" href="related.has-many">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="4.3. Native Model &quot;Has One&quot; Related Foreign Record">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="related.has-one"></a>4.3. Native Model "Has One" Related Foreign Record</h2>
+          </div>
+        </div>
+      </div>
+      <div class="sect2" title="4.3.1. Setup">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="related.has-one.setup"></a>4.3.1. Setup</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            In our example domain, a blog entry "has one" summary record. This
+            is a kind of one-to-one relationship where the summary (foreign)
+            record is subordinate to the blog entry. To set up this kind of
+            relationship for a model, the code looks like this:
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #007700">class </span><span style="color: #0000BB">Acme_Model_Blogs </span><span style="color: #007700">extends </span><span style="color: #0000BB">Acme_Sql_Model
+</span><span style="color: #007700">{
+    protected function </span><span style="color: #0000BB">_setup</span><span style="color: #007700">()
+    {
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_hasOne</span><span style="color: #007700">(</span><span style="color: #DD0000">'summary'</span><span style="color: #007700">);
+    }
+}</span></span></code></pre>
+        <div class="note" title="Singular vs. Plural">
+          <table border="0" summary="Note: Singular vs. Plural">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">Singular vs. Plural</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+                The model system assumes all tables (and as a result all model
+                classes) are named in the plural. To facilitate some amount of
+                intuitive naming, the name of the has-one related is
+                assumed to be singular, and is inflected to plural when
+                looking for the associated catalog entry. You can change this
+                behavior using the relationship definition keys described
+                below.
+            </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="sect2" title="4.3.2. SQL for Lazy-Load">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="related.has-one.sql-lazy"></a>4.3.2. SQL for Lazy-Load</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            The above code creates a pseudo-property on each blog record called
+            <code class="literal">$summary</code> that gets lazy-loaded by a fetch from
+            the <code class="literal">summaries</code> entry in the model catalog.  That is,
+            each time you ask for a <code class="literal">$blog_record-&gt;summary</code>, the model
+            system will fetch the related summary record from the database
+            and place it in <code class="literal">$summary</code> for you. The SQL for
+            the lazy-load looks similar to this:
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000">SELECT summary.*
+FROM summaries AS summary
+WHERE summary.blog_id = {$blog_record-&gt;id}
+LIMIT 1</span></code></pre>
+        <div class="warning" title="Lazy vs. Eager Loading">
+          <table border="0" summary="Warning: Lazy vs. Eager Loading">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Warning]" src="images/warning.png" />
+              </td>
+              <th align="left">Lazy vs. Eager Loading</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+                Beware the dreaded N+1 problem! If you fetch a collection of
+                10 blog records and loop through them, displaying the
+                <code class="literal">$blog_record-&gt;summary-&gt;comment_count</code> each
+                time, you will generate 10 additional SELECT queries (one for
+                each related blog) for a total of 11 queries. To avoid this,
+                eager-fetch the related summary values when you fetch the blog
+                collection; more on eager fetching in a later section.
+            </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="sect2" title="4.3.3. Foreign Key">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="related.has-one.foreign-key"></a>4.3.3. Foreign Key</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            In a has-one relationship, the foreign key exists in the foreign
+            model/table. In our example domain, this means the foreign key for
+            the related blog is on the summaries table, and maps to the
+            primary key on the blogs table.
+        </p>
+        <div class="note" title="Foreign Column Naming">
+          <table border="0" summary="Note: Foreign Column Naming">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">Foreign Column Naming</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+                Each model defines for itself what it expects its foreign
+                column name to be when it is used as a foreign model in a
+                relationship. Native models then ask the foreign model what
+                the foreign model expects to use as a foreign column name.
+            </p>
+                <p>
+                By default, models define their expected foreign column name
+                as a singular form of their table name, appended with their
+                primary key. For example, if the model/table name is
+                "authors", and the primary key on the authors table is "id",
+                the authors model will default to saying its foreign column
+                should be called "author_id". You can change that value by
+                editing the foreign model setup to add
+                <code class="literal">$this-&gt;_foreign_col = 'something_else'</code>.
+            </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="sect2" title="4.3.4. Has One Or Null">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="related.has-one.or-null"></a>4.3.4. Has One Or Null</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            When the foreign data does not exist at the database, the Solar
+            model system will create a new related record for you in the main record
+            object when you attempt to get or set that related record.  Sometimes
+            this automatic record creation is not what you want.  In those
+            cases, you should define the relationship as <code class="literal">hasOneOrNull</code>.
+            In a has-one-or-null relationship, a <code class="literal">null</code> will
+            be placed in the related property instead of a new record object.
+            When you access it, you will need to check it yourself to see
+            if a record object is present.
+        </p>
+      </div>
+      <div class="sect2" title="4.3.5. Relationship Definition">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="related.has-one.definition"></a>4.3.5. Relationship Definition</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            Although the Solar model system makes some assumptions about how
+            tables and foreign keys are named, these assumptions are not
+            hard-coded. You can define every aspect of the foreign
+            relationship using an array of key-value pairs passed to the
+            <code class="literal">_hasOne()</code> method.
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+        $this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_hasOne</span><span style="color: #007700">(</span><span style="color: #DD0000">'name'</span><span style="color: #007700">, array(
+            </span><span style="color: #DD0000">'option' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'value'</span><span style="color: #007700">,
+            </span><span style="color: #FF8000">// ...
+        </span><span style="color: #007700">));</span></span></code></pre>
+        <div class="variablelist">
+          <dl>
+            <dt>
+              <span class="term">string <code class="literal">foreign_name</code></span>
+            </dt>
+            <dd>
+              <p>
+                        Normally, the model system expects the foreign model
+                        to be in the catalog uner the plural form of the
+                        related name. E.g., <code class="literal">{native} _hasOne('foreign')</code>
+                        means the catalog name 'foreigns', which will map to
+                        some model class.
+                    </p>
+              <p>
+                        Use the <code class="literal">foreign_name</code> option to
+                        specify a different catalog name for the foreign
+                        model. This allows you to name the relationship "foo"
+                        (and thereby the record property for the foreign) but
+                        use the catalog name "bar" to do the work. (The
+                        <code class="literal">foreign_class</code> option takes
+                        precedence over <code class="literal">foreign_name</code>.)
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">string <code class="literal">foreign_key</code></span>
+            </dt>
+            <dd>
+              <p>
+                        Normally, the model system expects the foreign key on
+                        the foreign table to be the same as the one defined
+                        by the native model's <code class="literal">foreign_col</code>
+                        value.
+                    </p>
+              <p>
+                        Use the <code class="literal">foreign_key</code> option to
+                        specify a different column in the foreign table. (This
+                        option will be ignored if a specific
+                        <code class="literal">native_col</code> or
+                        <code class="literal">foreign_col</code> option is set.)
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">array <code class="literal">cols</code></span>
+            </dt>
+            <dd>
+              <p>
+                    Fetch these columns for the related records.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">array <code class="literal">conditions</code></span>
+            </dt>
+            <dd>
+              <p>
+                    Additional conditions on the foreign table when fetching
+                    related records. These will be used as WHERE conditions,
+                    or as JOIN ON conditions, as appropriate for the kind of
+                    fetch being performed (e.g. lazy vs. eager fetch).
+                </p>
+            </dd>
+            <dt>
+              <span class="term">array <code class="literal">order</code></span>
+            </dt>
+            <dd>
+              <p>
+                    Additional ORDER clauses when fetching related records.
+                </p>
+            </dd>
+          </dl>
+        </div>
+        <div class="note" title="Note">
+          <table border="0" summary="Note">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">Note</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+            The following are some less common, but more advanced and more finely
+            grained, options for defining relationships:
+        </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="variablelist">
+          <dl>
+            <dt>
+              <span class="term">string <code class="literal">foreign_class</code></span>
+            </dt>
+            <dd>
+              <p>
+                    The class name of the foreign model. Default is the first
+                    matching class for the relationship name, as loaded from
+                    the parent class stack.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">string <code class="literal">foreign_alias</code></span>
+            </dt>
+            <dd>
+              <p>
+                    Aliases the foreign table using this name. Default is the
+                    relationship name.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">string <code class="literal">foreign_col</code></span>
+            </dt>
+            <dd>
+              <p>
+                    The name of the column to join with in the foreign table,
+                    matching against some column in the native table. This
+                    forms the foreign half of the relationship condition.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">string <code class="literal">native_col</code></span>
+            </dt>
+            <dd>
+              <p>
+                    The name of column to join with in the native table,
+                    matching against some column in the foreign table. This
+                    forms the native half of the relationship condition.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">string <code class="literal">native_by</code></span>
+            </dt>
+            <dd>
+              <p>
+                    The strategy to be used for connecting to native
+                    records when eager-fetching: 'wherein', meaning a "WHERE
+                    IN (...)" a list of native IDs, or 'select', meaning a
+                    join against a sub-SELECT.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">int <code class="literal">wherein_max</code></span>
+            </dt>
+            <dd>
+              <p>
+                    When picking a native-by strategy, use 'wherein' for up to
+                    this many records in the native result; after this point,
+                    use a 'select' strategy.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">string <code class="literal">merge</code></span>
+            </dt>
+            <dd>
+              <p>
+                    Indicates the strategy to use for merging joined foreign
+                    rows; 'server' means the database will do it via a single
+                    SELECT combined into the native fetch (only possible with
+                    to-one relationships), whereas 'client' means PHP will do
+                    it, using one additional SELECT for the relationship
+                    (always for to-many relationships, optionally for to-one
+                    relationships) and then merging the rows in a PHP loop.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="related.domain">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="related">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="related.has-many">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">4.2. Domain Description </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 4.4. Native Model "Has Many" Related Foreign Records</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

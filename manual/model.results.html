@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:51 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">3.5. Records and Collections</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="model.fetch">Prev</a> </td>
+          <th width="60%" align="center">Chapter 3. Working With Models</th>
+          <td width="20%" align="right"> <a accesskey="n" href="model.record">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="3.5. Records and Collections">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="model.results"></a>3.5. Records and Collections</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        The result of a <code class="literal">fetchOne()</code> call is a <a class="link" href="http://solarphp.com/class/Solar_Sql_Model_Record" target="_top">Solar_Sql_Model_Record</a> object.
+        Likewise, the result of a <code class="literal">fetchAll()</code> or <code class="literal">fetchAssoc()</code> call is a
+        <a class="link" href="http://solarphp.com/class/Solar_Sql_Model_Collection" target="_top">Solar_Sql_Model_Collection</a> object.
+    </p>
+      <div class="sect2" title="3.5.1. Record Objects">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="model.results.record"></a>3.5.1. Record Objects</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            The record object extends <a class="link" href="http://solarphp.com/class/Solar_Struct" target="_top">Solar_Struct</a>, which itself implements
+            <a class="link" href="http://php.net/ArrayAccess" target="_top">ArrayAccess</a>, <a class="link" href="http://php.net/Countable" target="_top">Countable</a>, and <a class="link" href="http://php.net/IteratorAggregate" target="_top">IteratorAggregate</a>. This
+            means that you can treat the record object much like an array
+            when it's convenient.
+            </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// a single blog record, blog.id = 1
+</span><span style="color: #0000BB">$item </span><span style="color: #007700">= </span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">blogs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetch</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">);
+
+</span><span style="color: #FF8000">// print the name and value of each property
+</span><span style="color: #007700">foreach (</span><span style="color: #0000BB">$item </span><span style="color: #007700">as </span><span style="color: #0000BB">$col </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$val</span><span style="color: #007700">) {
+    </span><span style="color: #0000BB">$label </span><span style="color: #007700">= </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$col</span><span style="color: #007700">);
+    </span><span style="color: #0000BB">$value </span><span style="color: #007700">= </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$val</span><span style="color: #007700">);
+    echo </span><span style="color: #DD0000">"</span><span style="color: #0000BB">$label</span><span style="color: #DD0000">: </span><span style="color: #0000BB">$value</span><span style="color: #DD0000">&lt;br /&gt;"</span><span style="color: #007700">;
+}
+
+</span><span style="color: #FF8000">// echo the ID as a property or as an array element
+</span><span style="color: #007700">echo </span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id </span><span style="color: #007700">. </span><span style="color: #DD0000">" is the same as " </span><span style="color: #007700">.  </span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">];</span></span></code></pre>
+        <p>
+        </p>
+        <p>
+            You can also call any methods that exist on the record object;
+            that would be the way to implement any record-level business
+            logic for your domain.
+        </p>
+      </div>
+      <div class="sect2" title="3.5.2. Collection Objects">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="model.results.collection"></a>3.5.2. Collection Objects</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            Like records, the collection object also extends <a class="link" href="http://solarphp.com/class/Solar_Struct" target="_top">Solar_Struct</a>. This
+            means that you can treat the collection much like an array
+            when it's convenient.
+            </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// a collection of blog records
+</span><span style="color: #0000BB">$list </span><span style="color: #007700">= </span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">blogs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">();
+
+</span><span style="color: #FF8000">// print the title of each blog entry.
+// note that $n is a sequential array key,
+// *not* the primary key value.
+</span><span style="color: #007700">foreach (</span><span style="color: #0000BB">$list </span><span style="color: #007700">as </span><span style="color: #0000BB">$n </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$blog</span><span style="color: #007700">) {
+    echo </span><span style="color: #DD0000">"Primary key ID " </span><span style="color: #007700">. </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$blog</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">)
+       . </span><span style="color: #DD0000">" is titled " </span><span style="color: #007700">. </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$blog</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title</span><span style="color: #007700">)
+       . </span><span style="color: #DD0000">'&lt;br /&gt;'</span><span style="color: #007700">;
+}
+
+</span><span style="color: #FF8000">// how many records are in the collection?
+</span><span style="color: #0000BB">$count </span><span style="color: #007700">= </span><span style="color: #0000BB">count</span><span style="color: #007700">(</span><span style="color: #0000BB">$list</span><span style="color: #007700">);
+
+</span><span style="color: #FF8000">// using fetchAssoc() will key the collection on the first
+// column of the results. in this case, becasue 'id' is the
+// first column, the array key and the primary key are the
+// same thing.
+</span><span style="color: #0000BB">$list </span><span style="color: #007700">= </span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">blogs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAssoc</span><span style="color: #007700">();
+foreach (</span><span style="color: #0000BB">$list </span><span style="color: #007700">as </span><span style="color: #0000BB">$key </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$blog</span><span style="color: #007700">) {
+    echo </span><span style="color: #DD0000">"Primary key ID " </span><span style="color: #007700">. </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$blog</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">)
+       . </span><span style="color: #DD0000">" is the same as the assoc key " </span><span style="color: #007700">. </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">)
+       . </span><span style="color: #DD0000">'&lt;br /&gt;'</span><span style="color: #007700">;
+}</span></span></code></pre>
+        <p>
+        </p>
+        <div class="note" title="Note">
+          <table border="0" summary="Note">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">Note</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+            Collections receive all the data for their record objects at
+            instantiation time, but they don't create a record object until
+            you ask for it.
+        </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <p>
+            The collection object has a few methods that let you get
+            information about the collection as a whole.
+        </p>
+        <div class="variablelist">
+          <dl>
+            <dt>
+              <span class="term">
+                <code class="literal">getPrimaryVals()</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Returns an array of the unique primary keys contained in
+                    this collection. Does not trigger record object creation;
+                    it uses the internal results data array only.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">getColVals(<em class="replaceable"><code>$colname</code></em>)</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Returns an array of all values for a single column in the
+                    collection. This *does* trigger record object creation,
+                    since the requested column may be calculated as a magic
+                    <code class="literal">__get()</code> in the record objects.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">getPagerInfo()</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Gets the array of pager information for the collection.
+                    These values are set when you use the
+                    <code class="literal">count_pages</code> parameter on your fetch,
+                    and are suitable for passing directly to
+                    <a class="link" href="http://solarphp.com/class/Solar_View_Helper_Pager" target="_top">Solar_View_Helper_Pager</a>
+                    (i.e., the helper for displaying pagination links). The
+                    pager info keys are described under <a class="link" href="http://solarphp.com/class/Solar_Sql_Model_Collection::getPagerInfo()" target="_top">Solar_Sql_Model_Collection::getPagerInfo()</a>.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="model.fetch">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="model">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="model.record">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">3.4. Fetching Data </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 3.6. Record Creation, Modification, and Saving</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:57:35 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_App_Hello : Properties</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Properties</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_App_Hello.Constants">Prev</a></td>
+                <th width="60%" align="center">Solar_App_Hello</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_App_Hello.Methods">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_App_Hello.Properties" class="section">
+
+<h1>Properties</h1>
+
+<p class="para">Properties existing in the <code class="literal">Solar_App_Hello</code> class.</p>
+
+<div>
+<h2>Public</h2>
+
+<p class="para">None.</p>
+
+</div>
+
+<div>
+<h2>Protected</h2>
+
+<div id="class.Solar_App_Hello.Properties._action">
+<h3><code class="literal">$_action</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The action being requested of (performed by) the controller.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._action" class="link">Solar_Controller_Page</a>.</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._action_default">
+<h3><code class="literal">$_action_default</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> Default action.</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._action_format">
+<h3><code class="literal">$_action_format</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> Tells which alternative output formats are supported by which actions.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._action_format" class="link">Solar_Controller_Page</a>.</p>
+
+<p class="para">Array format is &#039;action&#039; =&gt; array(&#039;format&#039;, &#039;format&#039;, &#039;format&#039;).</p>
+
+<p class="para">If an action is not listed, it will not respond to alternative formats.</p>
+
+<p class="para">Using a &#039;*&#039; as the action key means &quot;all actions allow this format&quot;.</p>
+
+<p class="para">For example ...</p>
+
+<pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$_action_format </span><span style="color: #007700">= array(
+    </span><span style="color: #FF8000">// multiple formats
+    </span><span style="color: #DD0000">'browse' </span><span style="color: #007700">=&gt; array(</span><span style="color: #DD0000">'rss'</span><span style="color: #007700">, </span><span style="color: #DD0000">'atom'</span><span style="color: #007700">)
+    </span><span style="color: #FF8000">// shorthand for just one format
+    </span><span style="color: #DD0000">'read'   </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'atom'</span><span style="color: #007700">,
+    </span><span style="color: #FF8000">// shorthand for all actions
+    </span><span style="color: #DD0000">'*'      </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'xml'
+</span><span style="color: #007700">);</span></span></code></pre>
+
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._charset">
+<h3><code class="literal">$_charset</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The character set to use when setting the Content-Type header.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._charset" class="link">Solar_Controller_Page</a>.</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._config">
+<h3><code class="literal">$_config</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> Collection point for configuration values.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Base.Properties#class.Solar_Base.Properties._config" class="link">Solar_Base</a>.</p>
+
+<p class="para">Note that you do not define config defaults in $_config directly.</p>
+
+<pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// DO NOT DO THIS
+</span><span style="color: #007700">protected </span><span style="color: #0000BB">$_config </span><span style="color: #007700">= array(
+    </span><span style="color: #DD0000">'foo' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'bar'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'baz' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'dib'</span><span style="color: #007700">,
+);</span></span></code></pre>
+
+
+<p class="para">Instead, define config defaults in a protected property named for the
+class, withan underscore prefix.</p>
+
+<p class="para">For exmple, a &quot;Vendor_Class_Name&quot; class would define the default 
+config array in &quot;$_Vendor_Class_Name&quot;.  This convention lets 
+child classes inherit parent config keys and values.</p>
+
+<pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// DO THIS INSTEAD
+</span><span style="color: #007700">protected </span><span style="color: #0000BB">$_Vendor_Class_Name </span><span style="color: #007700">= array(
+    </span><span style="color: #DD0000">'foo' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'bar'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'baz' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'dib'</span><span style="color: #007700">,
+);</span></span></code></pre>
+
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._controller">
+<h3><code class="literal">$_controller</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The short-name of this page-controller.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._controller" class="link">Solar_Controller_Page</a>.</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._errors">
+<h3><code class="literal">$_errors</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> An array of application error messages.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._errors" class="link">Solar_Controller_Page</a>.</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._format">
+<h3><code class="literal">$_format</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> Use this output format for views.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._format" class="link">Solar_Controller_Page</a>.</p>
+
+<p class="para">For example, say the action is &quot;read&quot;. In the default case, the format
+is empty, so  the _render() method will look for a view named 
+&quot;read.php&quot;. However, if the format is &quot;xml&quot;, the _render() method will
+look for a view named &quot;read.xml.php&quot;.</p>
+
+<p class="para">Has no effect on the layout script that _render() looks for.</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._format_default">
+<h3><code class="literal">$_format_default</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> What is the default output format?</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._format_default" class="link">Solar_Controller_Page</a>.</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._format_layout">
+<h3><code class="literal">$_format_layout</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> Which formats go with which layouts?</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._format_layout" class="link">Solar_Controller_Page</a>.</p>
+
+<p class="para">Empty/false/null means &quot;no layout&quot;, boolean true means &quot;the current or 
+default layout&quot;, and a string means that particular layout.</p>
+
+<p class="para">The default is that XHTML formats use the current layout, and all other
+explicit formats get no layout.</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._format_type">
+<h3><code class="literal">$_format_type</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> Maps format name keys to Content-Type values.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._format_type" class="link">Solar_Controller_Page</a>.</p>
+
+<p class="para">When $this-&gt;_format matches one of the keys, the controller will set
+the matching Content-Type header automatically in the response object.</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._front">
+<h3><code class="literal">$_front</code> </h3>
+
+<p class="para"><em class="emphasis">(Solar_Controller_Front)</em> The front-controller object (if any) that invoked this page-controller.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._front" class="link">Solar_Controller_Page</a>.</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._helper_class">
+<h3><code class="literal">$_helper_class</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> These helper classes will be added in the middle of the stack, between the Solar_View_Helper final fallbacks and the vendor+app specific  helpers.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._helper_class" class="link">Solar_Controller_Page</a>.</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._info">
+<h3><code class="literal">$_info</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> Request parameters collected from the URI pathinfo.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._info" class="link">Solar_Controller_Page</a>.</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._layout">
+<h3><code class="literal">$_layout</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The name of the layout to be rendered.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._layout" class="link">Solar_Controller_Page</a>.</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._layout_default">
+<h3><code class="literal">$_layout_default</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The default layout to use.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._layout_default" class="link">Solar_Controller_Page</a>.</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._layout_var">
+<h3><code class="literal">$_layout_var</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The name of the variable where content is placed in the layout.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._layout_var" class="link">Solar_Controller_Page</a>.</p>
+
+<p class="para">Default is &#039;layout_content&#039;.</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._process_key">
+<h3><code class="literal">$_process_key</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> Name of the form element that holds the process request value (such as &#039;Save&#039;, &#039;Next&#039;, &#039;Cancel&#039;, etc)</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._process_key" class="link">Solar_Controller_Page</a>.</p>
+
+<p class="para">Default is &#039;process&#039;, as in $_POST[&#039;process&#039;].</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._query">
+<h3><code class="literal">$_query</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> Request parameters collected from the URI query string.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._query" class="link">Solar_Controller_Page</a>.</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._request">
+<h3><code class="literal">$_request</code> </h3>
+
+<p class="para"><em class="emphasis">(Solar_Request)</em> Request environment details: get, post, etc.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._request" class="link">Solar_Controller_Page</a>.</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._response">
+<h3><code class="literal">$_response</code> </h3>
+
+<p class="para"><em class="emphasis">(Solar_Http_Response)</em> The response object with headers and body.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._response" class="link">Solar_Controller_Page</a>.</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._rewrite">
+<h3><code class="literal">$_rewrite</code> </h3>
+
+<p class="para"><em class="emphasis">(Solar_Uri_Rewrite)</em> The rewrite rules object.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._rewrite" class="link">Solar_Controller_Page</a>.</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._session">
+<h3><code class="literal">$_session</code> </h3>
+
+<p class="para"><em class="emphasis">(Solar_Session)</em> Session data, including read-once flashes.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._session" class="link">Solar_Controller_Page</a>.</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._view">
+<h3><code class="literal">$_view</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The name of the view to be rendered.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._view" class="link">Solar_Controller_Page</a>.</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._view_class">
+<h3><code class="literal">$_view_class</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The class used for view objects.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._view_class" class="link">Solar_Controller_Page</a>.</p>
+
+</div>
+
+<div id="class.Solar_App_Hello.Properties._view_object">
+<h3><code class="literal">$_view_object</code> </h3>
+
+<p class="para"><em class="emphasis">(Solar_View)</em> The object used for rendering views and layouts.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Controller_Page.Properties#class.Solar_Controller_Page.Properties._view_object" class="link">Solar_Controller_Page</a>.</p>
+
+</div>
+
+</div>
+
+<div>
+<h2>Private</h2>
+
+<p class="para">None.</p>
+
+</div>
+    
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_App_Hello.Constants">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_App_Hello">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_App_Hello.Methods">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Constants</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Methods</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

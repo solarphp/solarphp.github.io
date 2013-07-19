@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:57:06 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Sql_Model</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Solar_Sql_Model</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Sql_Adapter_Sqlite2.update">Prev</a></td>
+                <th width="60%" align="center">Classes</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Sql_Model.Overview">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Sql_Model" class="chapter">
+
+<h1>Solar_Sql_Model</h1><p><b>Table of Contents</b></p><ul class="chunklist chunklist_title">
+<li><a href="class.Solar_Sql_Model.Overview">Overview</a></li>
+<li><a href="class.Solar_Sql_Model.Config">Configuration</a></li>
+<li><a href="class.Solar_Sql_Model.Constants">Constants</a></li>
+<li><a href="class.Solar_Sql_Model.Properties">Properties</a></li>
+<li><a href="class.Solar_Sql_Model.Methods">Methods</a></li>
+<li><a href="class.Solar_Sql_Model.__call">Solar_Sql_Model::__call()</a></li>
+<li><a href="class.Solar_Sql_Model.__construct">Solar_Sql_Model::__construct()</a></li>
+<li><a href="class.Solar_Sql_Model.__destruct">Solar_Sql_Model::__destruct()</a></li>
+<li><a href="class.Solar_Sql_Model.__get">Solar_Sql_Model::__get()</a></li>
+<li><a href="class.Solar_Sql_Model._addFilter">Solar_Sql_Model::_addFilter()</a></li>
+<li><a href="class.Solar_Sql_Model._addRelated">Solar_Sql_Model::_addRelated()</a></li>
+<li><a href="class.Solar_Sql_Model._belongsTo">Solar_Sql_Model::_belongsTo()</a></li>
+<li><a href="class.Solar_Sql_Model._buildConfig">Solar_Sql_Model::_buildConfig()</a></li>
+<li><a href="class.Solar_Sql_Model._createTableAndIndexes">Solar_Sql_Model::_createTableAndIndexes()</a></li>
+<li><a href="class.Solar_Sql_Model._exception">Solar_Sql_Model::_exception()</a></li>
+<li><a href="class.Solar_Sql_Model._fetchNewData">Solar_Sql_Model::_fetchNewData()</a></li>
+<li><a href="class.Solar_Sql_Model._fetchResultSelect">Solar_Sql_Model::_fetchResultSelect()</a></li>
+<li><a href="class.Solar_Sql_Model._fixArrayName">Solar_Sql_Model::_fixArrayName()</a></li>
+<li><a href="class.Solar_Sql_Model._fixCache">Solar_Sql_Model::_fixCache()</a></li>
+<li><a href="class.Solar_Sql_Model._fixCalculateCols">Solar_Sql_Model::_fixCalculateCols()</a></li>
+<li><a href="class.Solar_Sql_Model._fixCols">Solar_Sql_Model::_fixCols()</a></li>
+<li><a href="class.Solar_Sql_Model._fixFetchParams">Solar_Sql_Model::_fixFetchParams()</a></li>
+<li><a href="class.Solar_Sql_Model._fixFilterClass">Solar_Sql_Model::_fixFilterClass()</a></li>
+<li><a href="class.Solar_Sql_Model._fixFilterCols">Solar_Sql_Model::_fixFilterCols()</a></li>
+<li><a href="class.Solar_Sql_Model._fixFilters">Solar_Sql_Model::_fixFilters()</a></li>
+<li><a href="class.Solar_Sql_Model._fixIndexInfo">Solar_Sql_Model::_fixIndexInfo()</a></li>
+<li><a href="class.Solar_Sql_Model._fixModelName">Solar_Sql_Model::_fixModelName()</a></li>
+<li><a href="class.Solar_Sql_Model._fixPrimaryCol">Solar_Sql_Model::_fixPrimaryCol()</a></li>
+<li><a href="class.Solar_Sql_Model._fixPropertyCols">Solar_Sql_Model::_fixPropertyCols()</a></li>
+<li><a href="class.Solar_Sql_Model._fixStack">Solar_Sql_Model::_fixStack()</a></li>
+<li><a href="class.Solar_Sql_Model._fixTableCols">Solar_Sql_Model::_fixTableCols()</a></li>
+<li><a href="class.Solar_Sql_Model._fixTableName">Solar_Sql_Model::_fixTableName()</a></li>
+<li><a href="class.Solar_Sql_Model._hasMany">Solar_Sql_Model::_hasMany()</a></li>
+<li><a href="class.Solar_Sql_Model._hasManyThrough">Solar_Sql_Model::_hasManyThrough()</a></li>
+<li><a href="class.Solar_Sql_Model._hasOne">Solar_Sql_Model::_hasOne()</a></li>
+<li><a href="class.Solar_Sql_Model._hasOneOrNull">Solar_Sql_Model::_hasOneOrNull()</a></li>
+<li><a href="class.Solar_Sql_Model._newCollection">Solar_Sql_Model::_newCollection()</a></li>
+<li><a href="class.Solar_Sql_Model._newRecord">Solar_Sql_Model::_newRecord()</a></li>
+<li><a href="class.Solar_Sql_Model._postConfig">Solar_Sql_Model::_postConfig()</a></li>
+<li><a href="class.Solar_Sql_Model._postConstruct">Solar_Sql_Model::_postConstruct()</a></li>
+<li><a href="class.Solar_Sql_Model._postSetup">Solar_Sql_Model::_postSetup()</a></li>
+<li><a href="class.Solar_Sql_Model._preConfig">Solar_Sql_Model::_preConfig()</a></li>
+<li><a href="class.Solar_Sql_Model._preSetup">Solar_Sql_Model::_preSetup()</a></li>
+<li><a href="class.Solar_Sql_Model._setCollectionPagerInfo">Solar_Sql_Model::_setCollectionPagerInfo()</a></li>
+<li><a href="class.Solar_Sql_Model._setup">Solar_Sql_Model::_setup()</a></li>
+<li><a href="class.Solar_Sql_Model.countPages">Solar_Sql_Model::countPages()</a></li>
+<li><a href="class.Solar_Sql_Model.delete">Solar_Sql_Model::delete()</a></li>
+<li><a href="class.Solar_Sql_Model.dump">Solar_Sql_Model::dump()</a></li>
+<li><a href="class.Solar_Sql_Model.fetch">Solar_Sql_Model::fetch()</a></li>
+<li><a href="class.Solar_Sql_Model.fetchAll">Solar_Sql_Model::fetchAll()</a></li>
+<li><a href="class.Solar_Sql_Model.fetchAllAsArray">Solar_Sql_Model::fetchAllAsArray()</a></li>
+<li><a href="class.Solar_Sql_Model.fetchAssoc">Solar_Sql_Model::fetchAssoc()</a></li>
+<li><a href="class.Solar_Sql_Model.fetchAssocAsArray">Solar_Sql_Model::fetchAssocAsArray()</a></li>
+<li><a href="class.Solar_Sql_Model.fetchCol">Solar_Sql_Model::fetchCol()</a></li>
+<li><a href="class.Solar_Sql_Model.fetchNew">Solar_Sql_Model::fetchNew()</a></li>
+<li><a href="class.Solar_Sql_Model.fetchOne">Solar_Sql_Model::fetchOne()</a></li>
+<li><a href="class.Solar_Sql_Model.fetchOneAsArray">Solar_Sql_Model::fetchOneAsArray()</a></li>
+<li><a href="class.Solar_Sql_Model.fetchPairs">Solar_Sql_Model::fetchPairs()</a></li>
+<li><a href="class.Solar_Sql_Model.fetchValue">Solar_Sql_Model::fetchValue()</a></li>
+<li><a href="class.Solar_Sql_Model.free">Solar_Sql_Model::free()</a></li>
+<li><a href="class.Solar_Sql_Model.getAffectedRows">Solar_Sql_Model::getAffectedRows()</a></li>
+<li><a href="class.Solar_Sql_Model.getConditions">Solar_Sql_Model::getConditions()</a></li>
+<li><a href="class.Solar_Sql_Model.getPaging">Solar_Sql_Model::getPaging()</a></li>
+<li><a href="class.Solar_Sql_Model.getPrimary">Solar_Sql_Model::getPrimary()</a></li>
+<li><a href="class.Solar_Sql_Model.getRelated">Solar_Sql_Model::getRelated()</a></li>
+<li><a href="class.Solar_Sql_Model.insert">Solar_Sql_Model::insert()</a></li>
+<li><a href="class.Solar_Sql_Model.isInherit">Solar_Sql_Model::isInherit()</a></li>
+<li><a href="class.Solar_Sql_Model.locale">Solar_Sql_Model::locale()</a></li>
+<li><a href="class.Solar_Sql_Model.newCollection">Solar_Sql_Model::newCollection()</a></li>
+<li><a href="class.Solar_Sql_Model.newRecord">Solar_Sql_Model::newRecord()</a></li>
+<li><a href="class.Solar_Sql_Model.newSelect">Solar_Sql_Model::newSelect()</a></li>
+<li><a href="class.Solar_Sql_Model.serializeCols">Solar_Sql_Model::serializeCols()</a></li>
+<li><a href="class.Solar_Sql_Model.setPaging">Solar_Sql_Model::setPaging()</a></li>
+<li><a href="class.Solar_Sql_Model.unserializeCols">Solar_Sql_Model::unserializeCols()</a></li>
+<li><a href="class.Solar_Sql_Model.update">Solar_Sql_Model::update()</a></li>
+</ul>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Sql_Adapter_Sqlite2.update">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Sql_Model.Overview">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_Sql_Adapter_Sqlite2::update()</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Overview</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

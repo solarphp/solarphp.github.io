@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:54 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">4.8. Creating, Modifying, and Saving Relateds</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="related.eager">Prev</a> </td>
+          <th width="60%" align="center">Chapter 4. Working With Related Models</th>
+          <td width="20%" align="right"> <a accesskey="n" href="views">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="4.8. Creating, Modifying, and Saving Relateds">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="related.record-collection"></a>4.8. Creating, Modifying, and Saving Relateds</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        Let's say you fetch a blog record and want to work with its related
+        records and collections. All you need to do is attempt to get or set
+        the related property; if it exists at the database, it will be
+        populate for you, but if it does not, you will get a fresh new record
+        or collection to work with.
+    </p>
+      <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">/**
+ * @var Solar_Sql_Model_Catalog $model
+ */
+
+// get the blog item
+</span><span style="color: #0000BB">$item </span><span style="color: #007700">= </span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">blogs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetch</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">);
+
+</span><span style="color: #FF8000">// look at its related summary record. this will
+// create a new summary record on-the-fly if one
+// does not already exist.
+</span><span style="color: #007700">echo </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">summary</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">last_comment_at</span><span style="color: #007700">);
+
+</span><span style="color: #FF8000">// loop through its comments collection. this will
+// create a new empty collection if one does not
+// already exist.
+</span><span style="color: #007700">if (</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">comments</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isEmpty</span><span style="color: #007700">()) {
+    echo </span><span style="color: #DD0000">"No comments."</span><span style="color: #007700">;
+} else {
+    foreach (</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">comments </span><span style="color: #007700">as </span><span style="color: #0000BB">$n </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$comment</span><span style="color: #007700">) {
+        echo </span><span style="color: #DD0000">"Comment </span><span style="color: #0000BB">$n</span><span style="color: #DD0000"> is by "
+           </span><span style="color: #007700">. </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$comment</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">author</span><span style="color: #007700">)
+           . </span><span style="color: #DD0000">"&lt;br /&gt;"</span><span style="color: #007700">;
+    }
+}</span></span></code></pre>
+      <p>
+        However, a belongs-to related will *not* automatically populate
+        itself. Because the related record is the superior one, and the native
+        record is subordinate, you will need to create and attach the
+        belongs-to on your own.
+    </p>
+      <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">/**
+ * @var Solar_Sql_Model_Catalog $model
+ */
+
+// get the blog item
+</span><span style="color: #0000BB">$item </span><span style="color: #007700">= </span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">blogs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetch</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">);
+
+</span><span style="color: #FF8000">// blog belongsTo author ... do we have an author here?
+</span><span style="color: #007700">if (! </span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">author</span><span style="color: #007700">) {
+    </span><span style="color: #0000BB">$author </span><span style="color: #007700">= </span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">authors</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchByHandle</span><span style="color: #007700">(</span><span style="color: #DD0000">'pmjones'</span><span style="color: #007700">);
+    </span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">author </span><span style="color: #007700">= </span><span style="color: #0000BB">$author</span><span style="color: #007700">;
+}</span></span></code></pre>
+      <p>
+        For has-many collections, you can append to them directly instead of
+        fetching a new record from the related model and attaching it.
+    </p>
+      <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">/**
+ * @var Solar_Sql_Model_Catalog $model
+ * @var Acme_Model_Blog_Record $item
+ */
+</span><span style="color: #007700">if (! </span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">comments</span><span style="color: #007700">) {
+    </span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setNewRelated</span><span style="color: #007700">(</span><span style="color: #DD0000">'comments'</span><span style="color: #007700">);
+}
+
+</span><span style="color: #FF8000">// you could do this to add a new comment:
+</span><span style="color: #0000BB">$comment </span><span style="color: #007700">= </span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">comments</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchNew</span><span style="color: #007700">();
+</span><span style="color: #0000BB">$comment</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">body </span><span style="color: #007700">= </span><span style="color: #DD0000">"A new comment."</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">comments</span><span style="color: #007700">[] = </span><span style="color: #0000BB">$comment</span><span style="color: #007700">;
+
+</span><span style="color: #FF8000">// but this may be easier:
+</span><span style="color: #0000BB">$comment </span><span style="color: #007700">= </span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">comments</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">appendNew</span><span style="color: #007700">(array(
+    </span><span style="color: #DD0000">'body' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"A new comment."</span><span style="color: #007700">,
+));</span></span></code></pre>
+      <p>
+        To save a record and all its subordinate records and collections,
+        invoke the <code class="literal">save()</code> method on that record.  This
+        will *not* save superior belongs-to records; those, you must save
+        on your own.
+    </p>
+      <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">/**
+ * @var Acme_Model_Blog_Record $item
+ */
+
+// set a value on the related summary record
+</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">summary</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">last_comment_at </span><span style="color: #007700">= </span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d H:i:s'</span><span style="color: #007700">);
+
+</span><span style="color: #FF8000">// save the blog record, including all subordinate
+// has-one, has-many, and has-many-through relateds
+</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">save</span><span style="color: #007700">();
+
+</span><span style="color: #FF8000">// the $item-&gt;author property will not be saved;
+// it is a superior belongs-to related, not a subordinate</span></span></code></pre>
+      <div class="sect2" title="4.8.1. Automatic Foreign Key Management">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="related.record-collection.foreign-keys"></a>4.8.1. Automatic Foreign Key Management</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            For has-one and has-many relateds, the Solar model system will
+            automatically set the proper foreign keys in the related records
+            and collections for you when you save the record.
+        </p>
+        <p>
+            However, when you have a new belongs-to related, you must save it
+            yourself before you attempt to save the subordinate record.
+            This is because the superior record to which the subordinate
+            record belongs does not have a primary key yet. If you try to
+            save a record where the record it belongs to does not exist in
+            the database, it will throw an exception.
+        </p>
+        <p>
+            Finally, for has-many-through relationships, the Solar model
+            system manages the association mapping table for you. All you need
+            to do is add to the foreign collection on the record. New items in
+            the collection that don't exist yet will be created if necessary.
+            Items removed from the collection will be removed from the
+            mapping, but not from the foreign table.
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">/**
+ * @var Solar_Sql_Model_Catalog $model
+ * @var Acme_Model_Blog_Record $item
+ */
+
+// get all the existing tags
+</span><span style="color: #0000BB">$tags </span><span style="color: #007700">= </span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">tags</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">();
+
+</span><span style="color: #FF8000">// add the first three tags in the tags table
+// to the blog item
+</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">tags</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">] = </span><span style="color: #0000BB">$tags</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">];
+</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">tags</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">] = </span><span style="color: #0000BB">$tags</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">];
+</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">tags</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">] = </span><span style="color: #0000BB">$tags</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">];
+
+</span><span style="color: #FF8000">// save the blog item; solar will manage the taggings table
+// for you automatically, adding and removing mappings in
+// that table as needed.
+</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">save</span><span style="color: #007700">();</span></span></code></pre>
+      </div>
+      <div class="sect2" title="4.8.2. Independent Operation">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="related.record-collection.independent"></a>4.8.2. Independent Operation</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            You don't have to operate on relateds through the record if you
+            don't want to. You can always do a model fetch on your own and
+            work with that record or collection independently. However,
+            you will need to manage foreign keys yourself.
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">/**
+ * @var Solar_Sql_Model_Catalog $model
+ */
+
+// the blog ID to work with
+</span><span style="color: #0000BB">$blog_id </span><span style="color: #007700">= </span><span style="color: #0000BB">1</span><span style="color: #007700">;
+
+</span><span style="color: #FF8000">// get the comments on the blog ID
+</span><span style="color: #0000BB">$comments </span><span style="color: #007700">= </span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">comments</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">(array(
+    </span><span style="color: #DD0000">'where' </span><span style="color: #007700">=&gt; array(
+        </span><span style="color: #DD0000">'blog_id = ?' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$blog_id</span><span style="color: #007700">,
+    ),
+));
+
+</span><span style="color: #FF8000">// add a new comment
+</span><span style="color: #0000BB">$comments</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">appendNew</span><span style="color: #007700">(array(
+    </span><span style="color: #DD0000">'body' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'This is my new comment.'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'blog_id' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$blog_id</span><span style="color: #007700">,
+));
+
+</span><span style="color: #FF8000">// save the collection
+</span><span style="color: #0000BB">$comments</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">save</span><span style="color: #007700">();</span></span></code></pre>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="related.eager">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="related">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="views">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">4.7. Eager Fetching </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> Chapter 5. Views and Layouts</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

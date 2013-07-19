@@ -1,0 +1,13 @@
+/**
+ * Homepage overrides
+ */
+    body#home-page div#local {
+        display: none;
+    }
+
+    body#home-page div#main {
+        width: 100%;
+        padding-top: 12px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }

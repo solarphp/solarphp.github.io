@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:56:06 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">A.5. Universal Configuration</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="appendix-standards.constructor">Prev</a> </td>
+          <th width="60%" align="center">Appendix A. Project Standards</th>
+          <td width="20%" align="right"> <a accesskey="n" href="appendix-standards.system">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="A.5. Universal Configuration">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="appendix-standards.config"></a>A.5. Universal Configuration</h2>
+          </div>
+        </div>
+      </div>
+      <div class="sect2" title="A.5.1. Config File Settings">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="appendix-standards.config.file"></a>A.5.1. Config File Settings</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            Now, if your config file has an 'Solar_Example' group in it, those
+            values will override any of the default values set by your class
+            definition. Say your config file looks something like this:
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$config </span><span style="color: #007700">= array();
+</span><span style="color: #FF8000">// ...
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Example'</span><span style="color: #007700">][</span><span style="color: #DD0000">'opt_3'</span><span style="color: #007700">] = </span><span style="color: #DD0000">'dib'</span><span style="color: #007700">;
+</span><span style="color: #FF8000">// ...
+</span><span style="color: #007700">return </span><span style="color: #0000BB">$config</span><span style="color: #007700">;</span></span></code></pre>
+        <p>
+            When you instantiate the Solar_Example object, the config file
+            values will override the default values, leaving all others in
+            place:
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$example </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">factory</span><span style="color: #007700">(</span><span style="color: #DD0000">'Solar_Example'</span><span style="color: #007700">);
+</span><span style="color: #FF8000">/**
+ * 
+ * The values of $example-&gt;_config are now:
+ * 
+ * 'opt_1' =&gt; 'foo'
+ * 'opt_2' =&gt; 'bar'
+ * 'opt_3' =&gt; 'dib' // from the config file
+ */</span></span></code></pre>
+      </div>
+      <div class="sect2" title="A.5.2. Instantiation Settings">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="appendix-standards.base-class.instance-settings"></a>A.5.2. Instantiation Settings</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            Finally, if you specify a configuration array as the second parameter of
+            <a class="link" href="http://solarphp.com/class/Solar/factory()" target="_top">Solar::factory()</a>,
+            those values override both the default values of the
+            class definition and the Solar.config.php values.
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$config </span><span style="color: #007700">= array(</span><span style="color: #DD0000">'opt_2' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'gir'</span><span style="color: #007700">);
+</span><span style="color: #0000BB">$example </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">factory</span><span style="color: #007700">(</span><span style="color: #DD0000">'Solar_Example'</span><span style="color: #007700">, </span><span style="color: #0000BB">$config</span><span style="color: #007700">);
+</span><span style="color: #FF8000">/**
+ * The values of $example-&gt;_config are now:
+ * 
+ * 'opt_1' =&gt; 'foo' // as defined by the class
+ * 'opt_2' =&gt; 'gir' // from the Solar::factory() instantiation config
+ * 'opt_3' =&gt; 'dib' // from the config file
+ */</span></span></code></pre>
+      </div>
+      <div class="sect2" title="A.5.3. Order of Precedence">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="appendix-standards.base-class.config-precedence"></a>A.5.3. Order of Precedence</h3>
+            </div>
+          </div>
+        </div>
+        <p>All of this is to say that the order of precedence for config values looks like this:</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>The values start as defined by the class,</p>
+            </li>
+            <li class="listitem">
+              <p>And are overwritten by any config file values,</p>
+            </li>
+            <li class="listitem">
+              <p>And are again overwritten by values set at instantiation time</p>
+            </li>
+          </ul>
+        </div>
+        <p>Note that values not changed remain the same, so if you leave one out, it's not overwritten to be null.</p>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="appendix-standards.constructor">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="appendix-standards">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="appendix-standards.system">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">A.4. Universal Constructor </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> A.6. Project System</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

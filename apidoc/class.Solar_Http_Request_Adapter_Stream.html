@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:56:41 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Http_Request_Adapter_Stream</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Solar_Http_Request_Adapter_Stream</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Http_Request_Adapter_Curl.setVersion">Prev</a></td>
+                <th width="60%" align="center">Classes</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Http_Request_Adapter_Stream.Overview">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Http_Request_Adapter_Stream" class="chapter">
+
+<h1>Solar_Http_Request_Adapter_Stream</h1><p><b>Table of Contents</b></p><ul class="chunklist chunklist_title">
+<li><a href="class.Solar_Http_Request_Adapter_Stream.Overview">Overview</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.Config">Configuration</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.Constants">Constants</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.Properties">Properties</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.Methods">Methods</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.__construct">Solar_Http_Request_Adapter_Stream::__construct()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.__destruct">Solar_Http_Request_Adapter_Stream::__destruct()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.__toString">Solar_Http_Request_Adapter_Stream::__toString()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream._buildConfig">Solar_Http_Request_Adapter_Stream::_buildConfig()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream._exception">Solar_Http_Request_Adapter_Stream::_exception()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream._fetch">Solar_Http_Request_Adapter_Stream::_fetch()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream._parseCookie">Solar_Http_Request_Adapter_Stream::_parseCookie()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream._postConfig">Solar_Http_Request_Adapter_Stream::_postConfig()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream._postConstruct">Solar_Http_Request_Adapter_Stream::_postConstruct()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream._preConfig">Solar_Http_Request_Adapter_Stream::_preConfig()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream._prepareContext">Solar_Http_Request_Adapter_Stream::_prepareContext()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream._prepareRequest">Solar_Http_Request_Adapter_Stream::_prepareRequest()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.dump">Solar_Http_Request_Adapter_Stream::dump()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.fetch">Solar_Http_Request_Adapter_Stream::fetch()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.fetchAll">Solar_Http_Request_Adapter_Stream::fetchAll()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.fetchRaw">Solar_Http_Request_Adapter_Stream::fetchRaw()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.getContent">Solar_Http_Request_Adapter_Stream::getContent()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.getOptions">Solar_Http_Request_Adapter_Stream::getOptions()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.locale">Solar_Http_Request_Adapter_Stream::locale()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.setBasicAuth">Solar_Http_Request_Adapter_Stream::setBasicAuth()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.setCharset">Solar_Http_Request_Adapter_Stream::setCharset()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.setContent">Solar_Http_Request_Adapter_Stream::setContent()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.setContentType">Solar_Http_Request_Adapter_Stream::setContentType()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.setCookie">Solar_Http_Request_Adapter_Stream::setCookie()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.setCookies">Solar_Http_Request_Adapter_Stream::setCookies()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.setHeader">Solar_Http_Request_Adapter_Stream::setHeader()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.setMaxRedirects">Solar_Http_Request_Adapter_Stream::setMaxRedirects()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.setMethod">Solar_Http_Request_Adapter_Stream::setMethod()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.setProxy">Solar_Http_Request_Adapter_Stream::setProxy()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.setReferer">Solar_Http_Request_Adapter_Stream::setReferer()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.setSslCafile">Solar_Http_Request_Adapter_Stream::setSslCafile()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.setSslCapath">Solar_Http_Request_Adapter_Stream::setSslCapath()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.setSslLocalCert">Solar_Http_Request_Adapter_Stream::setSslLocalCert()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.setSslPassphrase">Solar_Http_Request_Adapter_Stream::setSslPassphrase()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.setSslVerifyPeer">Solar_Http_Request_Adapter_Stream::setSslVerifyPeer()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.setTimeout">Solar_Http_Request_Adapter_Stream::setTimeout()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.setUri">Solar_Http_Request_Adapter_Stream::setUri()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.setUserAgent">Solar_Http_Request_Adapter_Stream::setUserAgent()</a></li>
+<li><a href="class.Solar_Http_Request_Adapter_Stream.setVersion">Solar_Http_Request_Adapter_Stream::setVersion()</a></li>
+</ul>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Http_Request_Adapter_Curl.setVersion">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Http_Request_Adapter_Stream.Overview">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_Http_Request_Adapter_Curl::setVersion()</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Overview</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:57:33 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Access_Adapter_Sql : Properties</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Properties</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Access_Adapter_Sql.Constants">Prev</a></td>
+                <th width="60%" align="center">Solar_Access_Adapter_Sql</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Access_Adapter_Sql.Methods">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Access_Adapter_Sql.Properties" class="section">
+
+<h1>Properties</h1>
+
+<p class="para">Properties existing in the <code class="literal">Solar_Access_Adapter_Sql</code> class.</p>
+
+<div>
+<h2>Public</h2>
+
+<div id="class.Solar_Access_Adapter_Sql.Properties.list">
+<h3><code class="literal">$list</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> The access list for a handle and roles.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Access_Adapter.Properties#class.Solar_Access_Adapter.Properties.list" class="link">Solar_Access_Adapter</a>.</p>
+
+</div>
+
+</div>
+
+<div>
+<h2>Protected</h2>
+
+<div id="class.Solar_Access_Adapter_Sql.Properties._Solar_Access_Adapter">
+<h3><code class="literal">$_Solar_Access_Adapter</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> Default configuration values.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Access_Adapter.Properties#class.Solar_Access_Adapter.Properties._Solar_Access_Adapter" class="link">Solar_Access_Adapter</a>.</p>
+
+</div>
+
+<div id="class.Solar_Access_Adapter_Sql.Properties._Solar_Access_Adapter_Sql">
+<h3><code class="literal">$_Solar_Access_Adapter_Sql</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> Default configuration values.</p>
+
+</div>
+
+<div id="class.Solar_Access_Adapter_Sql.Properties._auth">
+<h3><code class="literal">$_auth</code> </h3>
+
+<p class="para"><em class="emphasis">(Solar_Auth_Adapter)</em> A Solar_Auth object representing the current user.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Access_Adapter.Properties#class.Solar_Access_Adapter.Properties._auth" class="link">Solar_Access_Adapter</a>.</p>
+
+</div>
+
+<div id="class.Solar_Access_Adapter_Sql.Properties._config">
+<h3><code class="literal">$_config</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> Collection point for configuration values.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Base.Properties#class.Solar_Base.Properties._config" class="link">Solar_Base</a>.</p>
+
+<p class="para">Note that you do not define config defaults in $_config directly.</p>
+
+<pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// DO NOT DO THIS
+</span><span style="color: #007700">protected </span><span style="color: #0000BB">$_config </span><span style="color: #007700">= array(
+    </span><span style="color: #DD0000">'foo' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'bar'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'baz' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'dib'</span><span style="color: #007700">,
+);</span></span></code></pre>
+
+
+<p class="para">Instead, define config defaults in a protected property named for the
+class, withan underscore prefix.</p>
+
+<p class="para">For exmple, a &quot;Vendor_Class_Name&quot; class would define the default 
+config array in &quot;$_Vendor_Class_Name&quot;.  This convention lets 
+child classes inherit parent config keys and values.</p>
+
+<pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// DO THIS INSTEAD
+</span><span style="color: #007700">protected </span><span style="color: #0000BB">$_Vendor_Class_Name </span><span style="color: #007700">= array(
+    </span><span style="color: #DD0000">'foo' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'bar'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'baz' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'dib'</span><span style="color: #007700">,
+);</span></span></code></pre>
+
+
+</div>
+
+<div id="class.Solar_Access_Adapter_Sql.Properties._owner_method">
+<h3><code class="literal">$_owner_method</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> Default configuration values.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Access_Adapter.Properties#class.Solar_Access_Adapter.Properties._owner_method" class="link">Solar_Access_Adapter</a>.</p>
+
+<p class="para">An array of key-value pairs to map object
+class to a method in that class to determine if a user is the owner
+of that object. The key is the class name, the value is the method
+name within that class.</p>
+
+</div>
+
+<div id="class.Solar_Access_Adapter_Sql.Properties._role">
+<h3><code class="literal">$_role</code> </h3>
+
+<p class="para"><em class="emphasis">(Solar_Role_Adapter)</em> A Solar_Role object representing the current user.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Access_Adapter.Properties#class.Solar_Access_Adapter.Properties._role" class="link">Solar_Access_Adapter</a>.</p>
+
+</div>
+
+</div>
+
+<div>
+<h2>Private</h2>
+
+<p class="para">None.</p>
+
+</div>
+    
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Access_Adapter_Sql.Constants">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_Access_Adapter_Sql">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Access_Adapter_Sql.Methods">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Constants</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Methods</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:57:06 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Sql_Adapter_Oracle</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Solar_Sql_Adapter_Oracle</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Sql_Adapter_MysqlReplicated.update">Prev</a></td>
+                <th width="60%" align="center">Classes</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Sql_Adapter_Oracle.Overview">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Sql_Adapter_Oracle" class="chapter">
+
+<h1>Solar_Sql_Adapter_Oracle</h1><p><b>Table of Contents</b></p><ul class="chunklist chunklist_title">
+<li><a href="class.Solar_Sql_Adapter_Oracle.Overview">Overview</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.Config">Configuration</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.Constants">Constants</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.Properties">Properties</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.Methods">Methods</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.__construct">Solar_Sql_Adapter_Oracle::__construct()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.__destruct">Solar_Sql_Adapter_Oracle::__destruct()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._addProfile">Solar_Sql_Adapter_Oracle::_addProfile()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._bind">Solar_Sql_Adapter_Oracle::_bind()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._buildConfig">Solar_Sql_Adapter_Oracle::_buildConfig()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._buildDsn">Solar_Sql_Adapter_Oracle::_buildDsn()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._checkIdentifier">Solar_Sql_Adapter_Oracle::_checkIdentifier()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._checkIdentifierColumn">Solar_Sql_Adapter_Oracle::_checkIdentifierColumn()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._checkIdentifierPart">Solar_Sql_Adapter_Oracle::_checkIdentifierPart()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._createSequence">Solar_Sql_Adapter_Oracle::_createSequence()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._dropIndex">Solar_Sql_Adapter_Oracle::_dropIndex()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._dropSequence">Solar_Sql_Adapter_Oracle::_dropSequence()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._exception">Solar_Sql_Adapter_Oracle::_exception()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._fetchIndexInfo">Solar_Sql_Adapter_Oracle::_fetchIndexInfo()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._fetchTableCols">Solar_Sql_Adapter_Oracle::_fetchTableCols()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._fetchTableList">Solar_Sql_Adapter_Oracle::_fetchTableList()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._getCacheKey">Solar_Sql_Adapter_Oracle::_getCacheKey()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._getDefault">Solar_Sql_Adapter_Oracle::_getDefault()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._getTypeSizeScope">Solar_Sql_Adapter_Oracle::_getTypeSizeScope()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._modAutoincPrimary">Solar_Sql_Adapter_Oracle::_modAutoincPrimary()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._modIndexName">Solar_Sql_Adapter_Oracle::_modIndexName()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._modSelect">Solar_Sql_Adapter_Oracle::_modSelect()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._modSequenceName">Solar_Sql_Adapter_Oracle::_modSequenceName()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._nextSequence">Solar_Sql_Adapter_Oracle::_nextSequence()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._postConfig">Solar_Sql_Adapter_Oracle::_postConfig()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._postConnect">Solar_Sql_Adapter_Oracle::_postConnect()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._postConstruct">Solar_Sql_Adapter_Oracle::_postConstruct()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._preConfig">Solar_Sql_Adapter_Oracle::_preConfig()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._prepare">Solar_Sql_Adapter_Oracle::_prepare()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._quoteName">Solar_Sql_Adapter_Oracle::_quoteName()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._quoteNamesIn">Solar_Sql_Adapter_Oracle::_quoteNamesIn()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._select">Solar_Sql_Adapter_Oracle::_select()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._selectCompound">Solar_Sql_Adapter_Oracle::_selectCompound()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._selectSingle">Solar_Sql_Adapter_Oracle::_selectSingle()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._selectSingleFrom">Solar_Sql_Adapter_Oracle::_selectSingleFrom()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._setDsn">Solar_Sql_Adapter_Oracle::_setDsn()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._setup">Solar_Sql_Adapter_Oracle::_setup()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._splitSchemaIdent">Solar_Sql_Adapter_Oracle::_splitSchemaIdent()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._sqlColdef">Solar_Sql_Adapter_Oracle::_sqlColdef()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle._sqlCreateTable">Solar_Sql_Adapter_Oracle::_sqlCreateTable()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.addColumn">Solar_Sql_Adapter_Oracle::addColumn()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.begin">Solar_Sql_Adapter_Oracle::begin()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.commit">Solar_Sql_Adapter_Oracle::commit()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.connect">Solar_Sql_Adapter_Oracle::connect()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.createIndex">Solar_Sql_Adapter_Oracle::createIndex()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.createSequence">Solar_Sql_Adapter_Oracle::createSequence()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.createTable">Solar_Sql_Adapter_Oracle::createTable()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.delete">Solar_Sql_Adapter_Oracle::delete()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.disconnect">Solar_Sql_Adapter_Oracle::disconnect()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.dropColumn">Solar_Sql_Adapter_Oracle::dropColumn()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.dropIndex">Solar_Sql_Adapter_Oracle::dropIndex()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.dropSequence">Solar_Sql_Adapter_Oracle::dropSequence()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.dropTable">Solar_Sql_Adapter_Oracle::dropTable()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.dump">Solar_Sql_Adapter_Oracle::dump()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.fetchAll">Solar_Sql_Adapter_Oracle::fetchAll()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.fetchAssoc">Solar_Sql_Adapter_Oracle::fetchAssoc()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.fetchCol">Solar_Sql_Adapter_Oracle::fetchCol()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.fetchIndexInfo">Solar_Sql_Adapter_Oracle::fetchIndexInfo()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.fetchOne">Solar_Sql_Adapter_Oracle::fetchOne()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.fetchPairs">Solar_Sql_Adapter_Oracle::fetchPairs()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.fetchPdo">Solar_Sql_Adapter_Oracle::fetchPdo()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.fetchSql">Solar_Sql_Adapter_Oracle::fetchSql()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.fetchTableCols">Solar_Sql_Adapter_Oracle::fetchTableCols()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.fetchTableList">Solar_Sql_Adapter_Oracle::fetchTableList()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.fetchValue">Solar_Sql_Adapter_Oracle::fetchValue()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.getCache">Solar_Sql_Adapter_Oracle::getCache()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.getCacheKeyPrefix">Solar_Sql_Adapter_Oracle::getCacheKeyPrefix()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.getPdo">Solar_Sql_Adapter_Oracle::getPdo()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.getProfile">Solar_Sql_Adapter_Oracle::getProfile()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.insert">Solar_Sql_Adapter_Oracle::insert()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.lastInsertId">Solar_Sql_Adapter_Oracle::lastInsertId()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.locale">Solar_Sql_Adapter_Oracle::locale()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.nextSequence">Solar_Sql_Adapter_Oracle::nextSequence()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.query">Solar_Sql_Adapter_Oracle::query()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.quote">Solar_Sql_Adapter_Oracle::quote()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.quoteInto">Solar_Sql_Adapter_Oracle::quoteInto()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.quoteMulti">Solar_Sql_Adapter_Oracle::quoteMulti()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.quoteName">Solar_Sql_Adapter_Oracle::quoteName()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.quoteNamesIn">Solar_Sql_Adapter_Oracle::quoteNamesIn()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.rollback">Solar_Sql_Adapter_Oracle::rollback()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.setCache">Solar_Sql_Adapter_Oracle::setCache()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.setCacheKeyPrefix">Solar_Sql_Adapter_Oracle::setCacheKeyPrefix()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.setProfiling">Solar_Sql_Adapter_Oracle::setProfiling()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Oracle.update">Solar_Sql_Adapter_Oracle::update()</a></li>
+</ul>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Sql_Adapter_MysqlReplicated.update">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Sql_Adapter_Oracle.Overview">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_Sql_Adapter_MysqlReplicated::update()</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Overview</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

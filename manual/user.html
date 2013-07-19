@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:58 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">Chapter 7. User Authentication, Roles, and Access Control</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="form.view.locale">Prev</a> </td>
+          <th width="60%" align="center">Part I. Getting Started</th>
+          <td width="20%" align="right"> <a accesskey="n" href="user.intro">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="chapter" title="Chapter 7. User Authentication, Roles, and Access Control">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title"><a id="user"></a>Chapter 7. User Authentication, Roles, and Access Control</h2>
+          </div>
+        </div>
+      </div>
+      <div class="toc">
+        <p>
+          <b>Table of Contents</b>
+        </p>
+        <dl>
+          <dt>
+            <span class="sect1">
+              <a href="user.intro">7.1. Introduction</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="sect1">
+              <a href="user.object">7.2. The Solar_User Object</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="sect1">
+              <a href="user.auth-process">7.3. Authentication Processing</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect2">
+                  <a href="user.auth-process#user.auth-process.adapters">7.3.1. Adapters</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="user.auth-process#user.auth.config-general">7.3.2. General Adapter Configuration</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="user.auth-process#user.auth-process.config-specific">7.3.3. Adapter-Specific Configuration</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="user.auth-process#user.auth-process.handling">7.3.4. Handling Authentication Attempts</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="user.auth-process#user.auth-process.usage">7.3.5. Usage</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="sect1">
+              <a href="user.auth-forms">7.4. Authentication Forms</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="sect1">
+              <a href="user.roles">7.5. Roles</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect2">
+                  <a href="user.roles#user.roles.adapters">7.5.1. Adapters</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="user.roles#user.roles.configuration">7.5.2. Configuration</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="user.roles#user.roles.usage">7.5.3. Usage</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="sect1">
+              <a href="user.access">7.6. Access Control</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect2">
+                  <a href="user.access#user.access.adapters">7.6.1. Adapters</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="user.access#user.access.configuration">7.6.2. Configuration</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="user.access#user.access.list-format">7.6.3. List Format</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="user.access#user.access.usage">7.6.4. Usage</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="sect1">
+              <a href="user.integration">7.7. Integration With Page Controllers</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect2">
+                  <a href="user.integration#user.integration.catch-all">7.7.1. Catch-All Access Control</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="user.integration#user.integration.intra-action">7.7.2. Intra-Action Access Control</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="sect1">
+              <a href="user.ownership">7.8. Ownership Access</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect2">
+                  <a href="user.ownership#user.ownership.prepare">7.8.1. Preparing Your Content Objects</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="user.ownership#user.ownership.recognize">7.8.2. Configure Access To Recognize Ownership</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="user.ownership#user.ownership.entry">7.8.3. Access Control List Entries</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="user.ownership#user.ownership.integration">7.8.4. Integration With Controllers</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="form.view.locale">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="pt01">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="user.intro">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">6.9. Locale Strings </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 7.1. Introduction</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

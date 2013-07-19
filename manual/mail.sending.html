@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:56:04 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">9.4. Sending Messages</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="mail.attachments">Prev</a> </td>
+          <th width="60%" align="center">Chapter 9. Mail</th>
+          <td width="20%" align="right"> <a accesskey="n" href="pt02">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="9.4. Sending Messages">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="mail.sending"></a>9.4. Sending Messages</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+		Now that we have a message to send, let's actually get it out there. To send the message, 
+		we need to pick what kind of "transport" we're going to use, then send the message through 
+		that transport.
+	</p>
+      <div class="sect2" title="9.4.1. Using a Transport">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="mail.sending.transport"></a>9.4.1. Using a Transport</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+        	Solar comes with two <code class="literal">Solar_Mail_Transport</code> adapters: the Phpmail one, which uses 
+			<a class="link" href="http://php.net/manual/en/function.mail.php" target="_top">mail()</a> 
+			internally, and an SMTP factory-adapter one, which takes a little more setup but is a 
+			lot more robust.
+        </p>
+        <div class="sect3" title="9.4.1.1. The PHP mail() Transport">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h4 class="title"><a id="mail.sending.transport.php-mail"></a>9.4.1.1. The PHP mail() Transport</h4>
+              </div>
+            </div>
+          </div>
+          <p>
+		    	Easy one first: the mail()-based adapter.
+		    </p>
+          <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$mail </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">factory</span><span style="color: #007700">(</span><span style="color: #DD0000">'Solar_Mail_Message'</span><span style="color: #007700">);
+</span><span style="color: #FF8000">// .. build the message ...
+
+// build a transport and send the message
+</span><span style="color: #0000BB">$transport </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">factory</span><span style="color: #007700">(</span><span style="color: #DD0000">'Solar_Mail_Transport'</span><span style="color: #007700">, array(
+    </span><span style="color: #DD0000">'adapter' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Solar_Mail_Transport_Adapter_Phpmail'
+</span><span style="color: #007700">));
+
+</span><span style="color: #0000BB">$transport</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">send</span><span style="color: #007700">(</span><span style="color: #0000BB">$mail</span><span style="color: #007700">);
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+        </div>
+        <div class="sect3" title="9.4.1.2. The Solar_Smtp Transport">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h4 class="title"><a id="mail.sending.transport.solar-smtp"></a>9.4.1.2. The Solar_Smtp Transport</h4>
+              </div>
+            </div>
+          </div>
+          <p>
+		    	The SMTP factory-adapter is a little more complicated, but still not too hard. 
+				We need to build an <a class="link" href="http://solarphp.com/apidoc/class.Solar_Smtp.Overview" target="_top">SMTP connection object</a>, 
+				then tell the SMTP transport adapter to use it, then send the message.
+		    </p>
+          <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$mail </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">factory</span><span style="color: #007700">(</span><span style="color: #DD0000">'Solar_Mail_Message'</span><span style="color: #007700">);
+</span><span style="color: #FF8000">// ...
+
+// build an SMTP connection object
+</span><span style="color: #0000BB">$smtp </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">factory</span><span style="color: #007700">(</span><span style="color: #DD0000">'Solar_Smtp'</span><span style="color: #007700">, array(
+    </span><span style="color: #DD0000">'adapter' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Solar_Smtp_Adapter_NoAuth'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'host'    </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'mail.example.com'</span><span style="color: #007700">,
+));
+
+</span><span style="color: #FF8000">// build a transport and send the message
+</span><span style="color: #0000BB">$transport </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">factory</span><span style="color: #007700">(</span><span style="color: #DD0000">'Solar_Mail_Transport'</span><span style="color: #007700">, array(
+    </span><span style="color: #DD0000">'adapter' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Solar_Mail_Transport_Adapter_Smtp'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'smtp'    </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$smtp</span><span style="color: #007700">,
+));
+
+</span><span style="color: #0000BB">$transport</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">send</span><span style="color: #007700">(</span><span style="color: #0000BB">$mail</span><span style="color: #007700">);
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+          <p>
+				The SMTP connection object is itself a factory, and has adapters for various kinds of authentication:
+				</p>
+          <div class="itemizedlist">
+            <ul class="itemizedlist" type="disc">
+              <li class="listitem">
+                <p>
+                  <a class="link" href="http://solarphp.com/apidoc/class.Solar_Smtp_Adapter_NoAuth.Overview" target="_top">none (the default)</a>
+                </p>
+              </li>
+              <li class="listitem">
+                <p>
+                  <a class="link" href="http://solarphp.com/apidoc/class.Solar_Smtp_Adapter_PlainAuth.Overview" target="_top">plain</a>
+                </p>
+              </li>
+              <li class="listitem">
+                <p>
+                  <a class="link" href="http://solarphp.com/apidoc/class.Solar_Smtp_Adapter_LoginAuth.Overview" target="_top">login</a>
+                </p>
+              </li>
+              <li class="listitem">
+                <p>
+                  <a class="link" href="http://solarphp.com/apidoc/class.Solar_Smtp_Adapter_CramMd5Auth.Overview" target="_top">CRAM-MD5</a>
+                </p>
+              </li>
+            </ul>
+          </div>
+          <p>
+			</p>
+        </div>
+      </div>
+      <div class="sect2" title="9.4.2. Transport Dependency-Injection">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="mail.sending.transport-di"></a>9.4.2. Transport Dependency-Injection</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+        	Instead of building a transport every time you send an email, you can configure a 
+			transport for the mail message as a dependency injection. Then the mail message will 
+			be able to "send itself" using that injected transport. For <code class="literal">Solar_Mail_Message</code>, 
+			the config key for the transport injection is transport.
+        </p>
+        <div class="sect3" title="9.4.2.1. Injecting From Config Array">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h4 class="title"><a id="mail.sending.transport-di.config-array"></a>9.4.2.1. Injecting From Config Array</h4>
+              </div>
+            </div>
+          </div>
+          <p>
+		    	The easiest way of dependency injection is to pass a config array for the transport. 
+				Here's an example of injecting the PHP <a class="link" href="http://php.net/manual/en/function.mail.php" target="_top">mail()</a> 
+				adapter into the mail message.
+		    </p>
+          <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// create a message object, and inject a transport config
+</span><span style="color: #0000BB">$mail </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">factory</span><span style="color: #007700">(</span><span style="color: #DD0000">'Solar_Mail_Message'</span><span style="color: #007700">, array(
+    </span><span style="color: #DD0000">'transport' </span><span style="color: #007700">=&gt; array(
+        </span><span style="color: #DD0000">'adapter' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Solar_Mail_Transport_Adapter_Phpmail'</span><span style="color: #007700">,
+    )
+));
+
+</span><span style="color: #FF8000">// ... compose the message ...
+
+// now tell the email to "send itself".
+// this uses the injected transport.
+</span><span style="color: #0000BB">$mail</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">send</span><span style="color: #007700">();
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+          <p>
+				Here's a more complex example, using the <code class="literal">Solar_Smtp</code> factory-adapter transport with plain 
+				authentication. Note that the transport itself uses a dependency injection for the 
+				<code class="literal">Solar_Smtp</code> object under the 'smtp' key.
+			</p>
+          <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// create a message object, and inject a transport config
+</span><span style="color: #0000BB">$mail </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">factory</span><span style="color: #007700">(</span><span style="color: #DD0000">'Solar_Mail_Message'</span><span style="color: #007700">, array(
+    </span><span style="color: #DD0000">'transport' </span><span style="color: #007700">=&gt; array(
+        </span><span style="color: #DD0000">'adapter' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Solar_Mail_Transport_Adapter_Smtp'</span><span style="color: #007700">,
+        </span><span style="color: #DD0000">'smtp' </span><span style="color: #007700">=&gt; array(
+            </span><span style="color: #DD0000">'adapter'  </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Solar_Smtp_Adapter_PlainAuth'</span><span style="color: #007700">,
+            </span><span style="color: #DD0000">'username' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'pmjones'</span><span style="color: #007700">,
+            </span><span style="color: #DD0000">'password' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'secret'</span><span style="color: #007700">,
+            </span><span style="color: #DD0000">'host'     </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'mail.example.com'</span><span style="color: #007700">,
+        ),
+    )
+));
+
+</span><span style="color: #FF8000">// ... compose the message ...
+
+// now tell the email to "send itself".
+// this uses the injected transport.
+</span><span style="color: #0000BB">$mail</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">send</span><span style="color: #007700">();
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+          <p>
+				This is quite convenient, especially since you can set up those arrays in your config 
+				file in advance, making them the default configs each time you create a <code class="literal">Solar_Mail_Message</code> 
+				object. In that case, you can use the class names instead of the full configuration arrays.
+			</p>
+          <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Mail_Message'</span><span style="color: #007700">] = array(
+    </span><span style="color: #DD0000">'transport' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Solar_Mail_Transport_Adapter_Smtp'</span><span style="color: #007700">,
+);
+
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Mail_Transport_Adapter_Smtp'</span><span style="color: #007700">] = array(
+    </span><span style="color: #DD0000">'transport' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Solar_Smtp_Adapter_PlainAuth'</span><span style="color: #007700">,
+);
+
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Smtp_Adapter_PlainAuth'</span><span style="color: #007700">] = array(
+    </span><span style="color: #DD0000">'adapter'  </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Solar_Smtp_Adapter_PlainAuth'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'username' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'pmjones'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'password' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'secret'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'host'     </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'mail.example.com'</span><span style="color: #007700">,
+);
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+          <p>
+				Using the config-file-centered process instead of the logic-centered process means 
+				that you can have all your settings in one place for use throughout your application. 
+				You can even change adapters from the config file without changing any of the 
+				mail-sending code, as long as you keep the same registry names.
+			</p>
+        </div>
+        <div class="sect3" title="9.4.2.2. Injecting From the Registry">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h4 class="title"><a id="mail.sending.transport-di.registry"></a>9.4.2.2. Injecting From the Registry</h4>
+              </div>
+            </div>
+          </div>
+          <p>
+		    	The only problem with injection using a config array is that the dependency objects 
+				get created anew each time you create a <code class="literal">Solar_Mail_Message</code>. 
+				Sometimes it's better to use registry objects for the dependency, so you don't use 
+				up resources re-creating identical objects over and over again.
+		    </p>
+          <p>
+				You can register the transport and SMTP objects in your bootstrap file or 
+				<a class="link" href="http://solarphp.com/apidoc/class.Solar_Controller_Page._setup" target="_top"><code class="literal">Solar_Controller_Page::_setup()</code></a> 
+				so they are available throughout the application:
+			</p>
+          <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// build a Solar_Smtp object
+</span><span style="color: #0000BB">$smtp </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">factory</span><span style="color: #007700">(</span><span style="color: #DD0000">'Solar_Smtp'</span><span style="color: #007700">, array(
+    </span><span style="color: #DD0000">'adapter'  </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Solar_Smtp_Adapter_PlainAuth'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'username' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'pmjones'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'password' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'secret'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'host'     </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'mail.example.com'</span><span style="color: #007700">,
+));
+
+</span><span style="color: #FF8000">// register it as 'smtp'
+</span><span style="color: #0000BB">Solar_Registry</span><span style="color: #007700">::</span><span style="color: #0000BB">set</span><span style="color: #007700">(</span><span style="color: #DD0000">'smtp'</span><span style="color: #007700">, </span><span style="color: #0000BB">$smtp</span><span style="color: #007700">);
+
+</span><span style="color: #FF8000">// build a Solar_Mail_Transport object with the SMTP object injected
+</span><span style="color: #0000BB">$transport </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">factory</span><span style="color: #007700">(</span><span style="color: #DD0000">'Solar_Mail_Transport'</span><span style="color: #007700">, array(
+    </span><span style="color: #DD0000">'adapter' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Solar_Mail_Transport_Adapter_Smtp'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'smtp'    </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'smtp'</span><span style="color: #007700">, </span><span style="color: #FF8000">// uses the registered 'smtp' object
+</span><span style="color: #007700">);
+
+</span><span style="color: #FF8000">// register the transport as 'mail-transport'
+</span><span style="color: #0000BB">Solar_Registry</span><span style="color: #007700">::</span><span style="color: #0000BB">set</span><span style="color: #007700">(</span><span style="color: #DD0000">'mail-transport'</span><span style="color: #007700">, </span><span style="color: #0000BB">$transport</span><span style="color: #007700">);
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+          <p>
+			Now when you create a new mail message, you can tell it that there's a transport 
+			already available, and call <a class="link" href="http://solarphp.com/apidoc/class.Solar_Mail_Message.send" target="_top">send()</a> 
+			directly on the message.
+		</p>
+          <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$mail </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">factory</span><span style="color: #007700">(</span><span style="color: #DD0000">'Solar_Mail_Message'</span><span style="color: #007700">, array(
+    </span><span style="color: #DD0000">'transport' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'mail-transport'</span><span style="color: #007700">,
+));
+
+</span><span style="color: #FF8000">// ... build the message, and then:
+</span><span style="color: #0000BB">$mail</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">send</span><span style="color: #007700">();
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+          <p>
+			If you want to, you can put it all of this config information in the Solar config file. 
+			Then you can lazy-load the objects from the registry, and they will automatically have 
+			all the right settings. The various dependency objects will be lazy-loaded automatically for you.
+		</p>
+          <p>
+			In your Solar.config.php file:
+		</p>
+          <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// configure SMTP
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Smtp'</span><span style="color: #007700">] = array(
+    </span><span style="color: #DD0000">'adapter'  </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Solar_Smtp_Adapter_PlainAuth'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'username' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'pmjones'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'password' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'secret'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'host'     </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'mail.example.com'</span><span style="color: #007700">,
+);
+
+</span><span style="color: #FF8000">// configure mail transport
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Mail_Transport'</span><span style="color: #007700">] = array(
+    </span><span style="color: #DD0000">'adapter' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Solar_Mail_Transport_Adapter_Smtp'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'smtp'    </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'smtp'</span><span style="color: #007700">,
+);
+
+</span><span style="color: #FF8000">// tell all mail messages to use the registered 'mail-transport'
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Mail_Message'</span><span style="color: #007700">][</span><span style="color: #DD0000">'transport'</span><span style="color: #007700">] = </span><span style="color: #DD0000">'mail-transport'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+          <p>
+				Then all you have to do in your setup logic is register class names instead of objects ...
+			</p>
+          <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+Solar_Registry</span><span style="color: #007700">::</span><span style="color: #0000BB">set</span><span style="color: #007700">(</span><span style="color: #DD0000">'smtp'</span><span style="color: #007700">, </span><span style="color: #DD0000">'Solar_Smtp'</span><span style="color: #007700">);
+</span><span style="color: #0000BB">Solar_Registry</span><span style="color: #007700">::</span><span style="color: #0000BB">set</span><span style="color: #007700">(</span><span style="color: #DD0000">'mail-transport'</span><span style="color: #007700">, </span><span style="color: #DD0000">'Solar_Mail_Transport'</span><span style="color: #007700">);
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+          <p>
+				... which will cause those objects to be created only at the moment they are first 
+				called as depndencies, and the same object will be reused every time you pull it from the registry.
+			
+			</p>
+          <p>
+				Now you can send an email message very simply:
+			</p>
+          <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// create and build a message
+</span><span style="color: #0000BB">$mail </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">factory</span><span style="color: #007700">(</span><span style="color: #DD0000">'Solar_Mail_Message'</span><span style="color: #007700">);
+</span><span style="color: #FF8000">// ...
+
+// send the message; this creates the SMTP and mail-transport objects
+// from the config-file settings, and sends the message trough the
+// registered transport.
+</span><span style="color: #0000BB">$mail</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">send</span><span style="color: #007700">();
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="mail.attachments">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="mail">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="pt02">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">9.3. Message Attachments </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> Part II. Appendices</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

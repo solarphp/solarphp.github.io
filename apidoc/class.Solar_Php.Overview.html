@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:28 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Php : Overview</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Overview</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Php">Prev</a></td>
+                <th width="60%" align="center">Solar_Php</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Php.Config">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Php.Overview" class="section">
+
+<h1>Overview</h1>
+
+<p class="para">Lets you execute a Solar-based script in a separate PHP process, then get back its exit code, last line, and output.</p>
+
+<p class="para">Intended use is for documentation and testing, where you don&#039;t want the
+classes loaded in the main environment to interact with the classes in the
+current environment.</p>
+
+<p class="para">An example to run <code class="literal">echo &quot;hello world!&quot;</code> in a separate process:</p>
+
+<pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #007700">require_once </span><span style="color: #DD0000">'Solar.php'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">start</span><span style="color: #007700">();
+
+</span><span style="color: #0000BB">$ini </span><span style="color: #007700">= array(
+    </span><span style="color: #DD0000">'include_path'    </span><span style="color: #007700">=&gt;  </span><span style="color: #DD0000">'/path/to/lib'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'error_reporting' </span><span style="color: #007700">=&gt;  </span><span style="color: #0000BB">E_ALL </span><span style="color: #007700">| </span><span style="color: #0000BB">E_STRICT</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'error_display'   </span><span style="color: #007700">=&gt;  </span><span style="color: #0000BB">1</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'html_errors'     </span><span style="color: #007700">=&gt;  </span><span style="color: #0000BB">0</span><span style="color: #007700">,
+);
+
+</span><span style="color: #0000BB">$php </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">factory</span><span style="color: #007700">(</span><span style="color: #DD0000">'Solar_Php'</span><span style="color: #007700">);
+
+</span><span style="color: #0000BB">$php</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setIniFile</span><span style="color: #007700">(</span><span style="color: #0000BB">false</span><span style="color: #007700">)
+    -&gt;</span><span style="color: #0000BB">setIniArray</span><span style="color: #007700">(</span><span style="color: #0000BB">$ini</span><span style="color: #007700">)
+    -&gt;</span><span style="color: #0000BB">runSolarCode</span><span style="color: #007700">(</span><span style="color: #DD0000">'echo "hello world!\n"'</span><span style="color: #007700">);
+
+</span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">stop</span><span style="color: #007700">();</span></span></code></pre>
+
+
+<div>
+<h2>Package</h2>
+
+<p class="para">This class is part of the <a href="package.Solar" class="link">Solar</a> package.</p>
+
+<p class="para">Inheritance:</p>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><a href="class.Solar_Base.Overview" class="link">Solar_Base</a>
+<ul class="itemizedlist"><li class="listitem"><p class="para">Solar_Php</p></li>
+</ul></p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Configuration Keys</h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><a href="class.Solar_Php.Config#class.Solar_Php.Config.php" class="link"><code class="literal">php</code></a>: Command to invoke the PHP binary.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Php.Config#class.Solar_Php.Config.ini_file" class="link"><code class="literal">ini_file</code></a>: Which php.ini file to use; if null, use the default php.ini file.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Php.Config#class.Solar_Php.Config.ini_set" class="link"><code class="literal">ini_set</code></a>: Override php.ini settings with these settings instead. The element key is the .ini setting name, and the element  value is the .ini value to use.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Php.Config#class.Solar_Php.Config.solar_config" class="link"><code class="literal">solar_config</code></a>: When calling Solar::start(), use this as the config value.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Php.Config#class.Solar_Php.Config.echo" class="link"><code class="literal">echo</code></a>: Whether or not to echo the process output as it goes.</p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Constants</h2>
+
+<p class="para">None.</p>
+
+</div>
+
+<div>
+<h2>Public Properties</h2>
+
+<p class="para">The Solar_Php class has no public properties; try the list of <a href="class.Solar_Php.Properties" class="link">all properties</a>.</p>
+
+</div>
+
+<div>
+<h2>Public Methods</h2>
+
+<p class="para">These are all the public methods in the Solar_Php class.</p>
+
+<p class="para">You can also view the list of <a href="class.Solar_Php.Methods" class="link">all public, protected, and private methods</a>.</p>
+
+<dl>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Php.__construct" class="link"><code class="literal">__construct()</code></a></span>
+<dd>
+<p class="para">Constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Php.__destruct" class="link"><code class="literal">__destruct()</code></a></span>
+<dd>
+<p class="para">Default destructor; does nothing other than provide a safe fallback for calls to parent::__destruct().</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Php.addArgv" class="link"><code class="literal">addArgv()</code></a></span>
+<dd>
+<p class="para">Add a command-line argument for the code.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Php.dump" class="link"><code class="literal">dump()</code></a></span>
+<dd>
+<p class="para">Convenience method for getting a dump the whole object, or one of its properties, or an external variable.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Php.getExitCode" class="link"><code class="literal">getExitCode()</code></a></span>
+<dd>
+<p class="para">Gets the exit code from the separate process.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Php.getLastLine" class="link"><code class="literal">getLastLine()</code></a></span>
+<dd>
+<p class="para">Gets the last line of output from the separate process.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Php.getOutput" class="link"><code class="literal">getOutput()</code></a></span>
+<dd>
+<p class="para">Gets all lines of output from the separate process.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Php.locale" class="link"><code class="literal">locale()</code></a></span>
+<dd>
+<p class="para">Looks up class-specific locale strings based on a key.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Php.run" class="link"><code class="literal">run()</code></a></span>
+<dd>
+<p class="para">Runs the named file as the PHP code for the process.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Php.runCode" class="link"><code class="literal">runCode()</code></a></span>
+<dd>
+<p class="para">Runs the given string as the PHP code for the process.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Php.runSolar" class="link"><code class="literal">runSolar()</code></a></span>
+<dd>
+<p class="para">Runs a file as a Solar script.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Php.runSolarCode" class="link"><code class="literal">runSolarCode()</code></a></span>
+<dd>
+<p class="para">Runs a code string as a Solar script.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Php.setArgv" class="link"><code class="literal">setArgv()</code></a></span>
+<dd>
+<p class="para">Set all command-line arguments for the code at one time; clears all previous argument values.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Php.setEcho" class="link"><code class="literal">setEcho()</code></a></span>
+<dd>
+<p class="para">Turns execution process output on and off.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Php.setIniArray" class="link"><code class="literal">setIniArray()</code></a></span>
+<dd>
+<p class="para">Sets an array of php.ini values, overriding the php.ini file.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Php.setIniFile" class="link"><code class="literal">setIniFile()</code></a></span>
+<dd>
+<p class="para">Sets the location of the php.ini file to use.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Php.setIniVal" class="link"><code class="literal">setIniVal()</code></a></span>
+<dd>
+<p class="para">Sets one php.ini value, overriding the php.ini file.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Php.setPhp" class="link"><code class="literal">setPhp()</code></a></span>
+<dd>
+<p class="para">Sets the PHP command to call at the command line.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Php.setSolarConfig" class="link"><code class="literal">setSolarConfig()</code></a></span>
+<dd>
+<p class="para">When calling Solar::start() in the new process, use this as the $config value.</p></dd>
+
+</dt>
+
+
+</dl>
+
+
+</div>
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Php">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_Php">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Php.Config">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_Php</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Configuration</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

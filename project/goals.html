@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:54:38 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Goals</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-localright.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+</head>
+<body id="project-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <h1>Project Goals</h1>
+
+<h2>Clear and Consistent</h2>
+
+<p><strong>Solar classes should be easy to comprehend and consistently implemented.</strong></p>
+
+<p>Nobody wants to learn how to use another system; most developers prefer to
+spend their time writing their own tools, not conforming to someone else's
+ideas. I think that is because most code is written without taking the
+audience into consideration (the "audience" being other developers).</p>
+
+<p>Because reading code from other developers is a learning experience, all Solar
+classes are written as a teaching experience. This means that Solar classes
+are written as simply and clearly as possible without any tricky or obtuse
+techniques.</p>
+
+<p>Solar classes consistently use shared implementation ideas and are written
+according to a common style guide. Each component in the project "looks" and
+"feels" like it is part of an overarching and consistent design. (The book
+<a href="http://en.wikipedia.org/wiki/The_Mythical_Man-Month">The Mythical Man-Month</a>
+calls this aspect "conceptual integrity".)</p>
+
+<p>Finally, Solar classes are named and structured according the vocabulary established by
+<a href="http://www.martinfowler.com/eaaCatalog/">Patterns of Enterprise Application Architecture</a>.
+This means that anyone familiar with design pattern terminology should be able
+to quickly discern which classes perform which functions.</p>
+
+<h2>Teaching/Learning Community</h2>
+
+<p><strong>The community of Solar users should be respectful and cordial to encourage
+problem-solving and idea exchange, not ego-boosting, point-scoring, or
+one-upmanship.</strong></p>
+
+<p>The social aspect of development is often overlooked or under-rated. In Solar,
+we recognize that support and encouragement from other developers is a good
+and necessary component of successful projects. Again, this is because all
+development is a learning experience, so we should foster a teaching
+environment for that experience.</p>
+
+<p>Thus, while providing a mailing list and wiki for collaboration, we want to
+maintain a polite and cordial atmosphere both for established developers and
+for new users. The primary social rule in all public communication around
+Solar is to <a href="/project/be-nice">be nice</a>.</p>
+
+<h2>Global Collaboration</h2>
+
+<p><strong>Solar classes should be fully name-spaced, self-contained, and localizable.</strong></p>
+
+<p>Although English is the de-facto language of developers worldwide, end-users
+don't want to see English-only labels, buttons, and text. Solar classes come
+with easy built-in text localization so that it's easy to translate into
+languages other than English.</p>
+
+<p>Solar is probably not the only PHP class library you are going to use. Because
+Solar classes are always named with a <code>Solar_</code> prefix, you never need to worry
+about name conflicts or collisions from other libraries. Similarly, any
+classes you build for yourself should have a unique namespace prefix (often
+called the <code>Vendor_</code> prefix in the documentation).</p>
+
+<p>Solar-based applications should be self-contained; this means no external
+dependencies, and all internal dependencies should resolve themselves. In
+practice, this means that all Solar classes are distributed in a single
+package.</p>
+
+<h2>Separation of Concerns</h2>
+
+<p><strong>Solar classes should adhere to model, view, and controller separation.</strong></p>
+
+<p>Only one Solar class generates output in the normal course of execution: the
+Solar_View class. Other Solar classes may access, manipulate, and return data,
+but they may not output it; output is solely in the realm of the "view" in a
+model/view/controller application, and Solar_View is the only "view" class in
+the standard Solar distribution.</p>
+
+<p>In addition, this makes it easy to write applications that are theme-aware.
+Because all output passes through a template, the template can be modified to
+present the data in any way preferred by the developer.</p>
+
+<p>(Note that we said "in the normal course of execution" above; exceptions and
+various debug tools will generate output, but of course that's not the normal
+course. :-)</p>
+
+<h2>Useful Documentation</h2>
+
+<p><strong>Solar classes should be well-documented; this means real narrative
+documentation on how to use Solar, not just class descriptions.</strong></p>
+
+<p>Because developers generally find it less-rewarding, initially, to spend time
+learning someone else's code, all Solar packages will have extensive
+end-user documentation. Solar classes also have extensive inline comments to
+guide the reader while examining code, and we aim to provide extensive
+narrative documentation as well via this site.</p>
+
+<h2>Solid Implementation</h2>
+
+<ul>
+<li><p>Runs cleanly under <a href="http://php.net">PHP 5</a> with E_ALL and E_STRICT error
+reporting;</p></li>
+<li><p>Class- and object-oriented, not function-oriented, with full name-space
+separation;</p></li>
+<li><p>Provides easy-to-use secure-programming elements and a secure foundation
+to work from;</p></li>
+<li><p>Provides a common means for loading, instantiating, and configuring
+classes automatically;</p></li>
+<li><p>Provides a common configuration system for Solar classes and for
+applications built on Solar components;</p></li>
+<li><p>Provides basic library class components (authentication, database, cache,
+log, debug, forms, validation, etc) commonly used in web applications;</p></li>
+<li><p>Provides easy application distribution in shared environments.</p></li>
+</ul>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+<ul class="clearfix">
+    <li><a href="/project/about">About</a></li>
+<li><a href="/project/download">Download</a></li>
+<li class="active"><a href="/project/goals">Goals</a></li>
+<li><a href="/project/similar">Similar Projects</a></li>
+<li><a href="/project/mailing-list">Mailing Lists and IRC</a></li>
+<li><a href="/project/be-nice">Be Nice!</a></li>
+<li><a href="/project/gophp5">Go PHP 5</a></li>
+<li><a href="/project/committers">Become A Committer</a></li>
+</ul>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li class="active"><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

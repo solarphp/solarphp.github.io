@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:56:01 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">8.7. Make One Or More Models</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="commands.help">Prev</a> </td>
+          <th width="60%" align="center">Chapter 8. Command-Line Tools</th>
+          <td width="20%" align="right"> <a accesskey="n" href="commands.make-app">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="8.7. Make One Or More Models">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="commands.make-model"></a>8.7. Make One Or More Models</h2>
+          </div>
+        </div>
+      </div>
+      <div class="cmdsynopsis">
+        <p><code class="command">./script/solar make-model</code>   <em class="replaceable"><code>Vendor_Model_TableName</code></em>  [--table=<em class="replaceable"><code>table_name</code></em>] [--extends=<em class="replaceable"><code>Vendor_Model_ParentClass</code></em>] [--connect=<em class="replaceable"><code>true|false</code></em>]</p>
+      </div>
+      <div class="sect2" title="8.7.1. Make One Model">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="commands.make-model.default"></a>8.7.1. Make One Model</h3>
+            </div>
+          </div>
+        </div>
+        <div class="cmdsynopsis">
+          <p><code class="command">./script/solar make-model</code>   <em class="replaceable"><code>Vendor_Model_TableName</code></em> </p>
+        </div>
+        <p>
+            The above command creates one model class set using the
+            default SQL database connection, and picks the table name from the
+            class name. In the above command, it would look for
+            <code class="literal">table_name</code> in the database; implicitly, the
+            command converts studly-caps to underscores. It also uses the
+            <code class="literal">Vendor_Sql_Model</code> class set as the parent class
+            set.
+        </p>
+        <pre class="screen">$ <strong class="userinput"><code>./script/solar make-model <em class="replaceable"><code>Vendor_Model_TableName</code></em></code></strong>
+Making model '<em class="replaceable"><code>Vendor_Model_TableName</code></em>'.
+Will write to '<em class="replaceable"><code>SYSTEM</code></em>/include/'.
+Using table '<em class="replaceable"><code>table_name</code></em>'.
+Not using inheritance.
+Making class directory ... done.
+Writing model class ... done.
+Writing record class ... done.
+Writing collection class ... done.
+Connecting to database for metadata ...connected.
+Fetching table cols ... done.
+Fetching index info ... done.
+Writing metadata class ... done.
+Creating locale directory ... done.
+Saving locale file for en_US ... done.
+Done.
+$</pre>
+        <p>
+            What is going on here?
+        </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>
+                    The command creates three classes and their respective
+                    directory: <code class="literal">Vendor_Model_TableName</code> (the 
+                    model mapper class), <code class="literal">Vendor_Model_TableName_Record</code>
+                    (the model record class), <code class="literal">Vendor_Model_TableName_Collection</code>
+                    (the class for a collection of model records).
+                </p>
+            </li>
+            <li class="listitem">
+              <p>
+                    The command then connects to the database to retrieve
+                    column and index information on the table. This metadata
+                    is then stored in a
+                    <code class="literal">Vendor_Model_TableName_Metadata</code> class.
+                    If you call <span class="command"><strong>make-model</strong></span> again, this
+                    metadata class will be overwritten, so do not modify it
+                    yourself. (You can tell the command not to connect by
+                    passing <code class="literal">--connect=false</code>.)
+                </p>
+            </li>
+            <li class="listitem">
+              <p>
+                    Finally, using the metadata, the command builds an initial
+                    locale file for the model.
+                </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="sect2" title="8.7.2. Specify a Table Name">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="commands.make-model.table"></a>8.7.2. Specify a Table Name</h3>
+            </div>
+          </div>
+        </div>
+        <div class="cmdsynopsis">
+          <p><code class="command">./script/solar make-model</code>   <em class="replaceable"><code>Vendor_Model_OtherName</code></em>   --table=<em class="replaceable"><code>table_name</code></em> </p>
+        </div>
+        <p>
+            The above command creates one model class set using the default
+            SQL database connection, and uses an explicitly-identified table name
+            from the database.
+        </p>
+      </div>
+      <div class="sect2" title="8.7.3. Specify a Parent Class">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="commands.make-model.extends"></a>8.7.3. Specify a Parent Class</h3>
+            </div>
+          </div>
+        </div>
+        <div class="cmdsynopsis">
+          <p><code class="command">./script/solar make-model</code>   <em class="replaceable"><code>Vendor_Model_TableName</code></em>   --extends=<em class="replaceable"><code>Vendor_Model_ParentClass</code></em> </p>
+        </div>
+        <p>
+            The above command creates one model class set using the
+            default SQL database connection, and uses an implicitly-identified
+            table taken from the class name.
+        </p>
+        <p>
+            However, instead of using <code class="literal">Vendor_Sql_Model</code>
+            as its parent class set, it uses <code class="literal">Vendor_Model_ParentClass</code>
+            for its parentage.  By default, this means the created model
+            will use the same table as <code class="literal">Vendor_Model_ParentClass</code>,
+            and it will enable <a class="link" href="model.sti" title="3.9. Single Table Inheritance">single-table inheritance</a>.
+        </p>
+      </div>
+      <div class="sect2" title="8.7.4. Make Several Models At Once">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="commands.make-model.several"></a>8.7.4. Make Several Models At Once</h3>
+            </div>
+          </div>
+        </div>
+        <div class="cmdsynopsis">
+          <p><code class="command">./script/solar make-model</code>   <em class="replaceable"><code>Vendor_Model</code></em>_* </p>
+        </div>
+        <p>
+            The trailing <code class="literal">_*</code> wildcard in the above command
+            creates one model class set for each table in the default SQL
+            database connection. The table names will be used for the class
+            name suffixes. For example, if there are tables
+            <code class="literal">foo</code> and <code class="literal">zim_gir</code> in the
+            database, the command will create
+            <code class="literal">Vendor_Model_Foo</code> and
+            <code class="literal">Vendor_Model_ZimGir</code> model class sets.
+        </p>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="commands.help">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="commands">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="commands.make-app">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">8.6. Get Help </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 8.8. Make A Web Application Page</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

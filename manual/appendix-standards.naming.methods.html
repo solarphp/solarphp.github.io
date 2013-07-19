@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:56:07 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">B.3. Methods</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="appendix-standards.naming.classes">Prev</a> </td>
+          <th width="60%" align="center">Appendix B. Naming Conventions</th>
+          <td width="20%" align="right"> <a accesskey="n" href="appendix-standards.naming.globals">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="B.3. Methods">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="appendix-standards.naming.methods"></a>B.3. Methods</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        When reasonable, methods in Solar classes conform to these names when
+        they perform these related functions:
+    </p>
+      <table id="id36155586">
+        <caption>Table B.1. Conventional Method Names</caption>
+        <thead>
+          <tr>
+                <th>Method Name</th>
+                <th>Usage</th>
+                <th>Examples</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr>
+                <td><code class="literal">delete</code></td>
+                <td>deletes data from storage (instead of remove/destroy)</td>
+                <td><code class="literal">$table-&gt;delete($where)</code></td>
+            </tr>
+          <tr>
+                <td><code class="literal">fetch</code> or <code class="literal">fetchOne</code></td>
+                <td>returns one entry from storage (instead of get/find/retrieve)</td>
+                <td><code class="literal">$cache-&gt;fetch($id)</code></td>
+            </tr>
+          <tr>
+                <td><code class="literal">fetchBy</code> or <code class="literal">fetchOneBy</code></td>
+                <td>returns one entry from storage, using alternative or additional criteria named in the method (instead of fetchWith/fetchFor)</td>
+                <td><code class="literal">$table-&gt;fetchByName($name)</code></td>
+            </tr>
+          <tr>
+                <td><code class="literal">fetchAll</code></td>
+                <td>returns multiple entries from storage</td>
+                <td><code class="literal">$table-&gt;fetchAll()</code></td>
+            </tr>
+          <tr>
+                <td><code class="literal">fetchAllBy</code></td>
+                <td>returns multiple entries from storage, using alternative or additional criteria named in the method</td>
+                <td><code class="literal">$table-&gt;fetchAllByName($name)</code></td>
+            </tr>
+          <tr>
+                <td><code class="literal">fix</code></td>
+                <td>modifies a config value, parameter, or property to conform to a standard format or structure</td>
+                <td><code class="literal">$fetch-&gt;fixParams()</code></td>
+            </tr>
+          <tr>
+                <td><code class="literal">get</code></td>
+                <td>gets the value of a property</td>
+                <td><code class="literal">$obj-&gt;getProperty()</code></td>
+            </tr>
+          <tr>
+                <td><code class="literal">has</code> or <code class="literal">exists</code></td>
+                <td>checks to see if a value or property exists, returns boolean true or false</td>
+                <td><code class="literal">$session-&gt;hasFlash()</code></td>
+            </tr>
+          <tr>
+                <td><code class="literal">insert</code></td>
+                <td>inserts new data in storage (instead of add/new/save)</td>
+                <td><code class="literal">$table-&gt;insert($data)</code></td>
+            </tr>
+          <tr>
+                <td><code class="literal">is</code></td>
+                <td>the method returns boolean true/false</td>
+                <td><code class="literal">$cache-&gt;isActive()</code></td>
+            </tr>
+          <tr>
+                <td><code class="literal">load</code></td>
+                <td>loads property values from an external source</td>
+                <td><code class="literal">$role-&gt;load($handle)</code></td>
+            </tr>
+          <tr>
+                <td><code class="literal">sanitize</code></td>
+                <td>forces a value to match a known format</td>
+                <td><code class="literal">$filter-&gt;sanitizeFloat($value)</code></td>
+            </tr>
+          <tr>
+                <td><code class="literal">save</code></td>
+                <td>updates existing data or inserts new data in storage (instead of replace)</td>
+                <td><code class="literal">$cache-&gt;save($id, $data)</code></td>
+            </tr>
+          <tr>
+                <td><code class="literal">set</code></td>
+                <td>sets the value of a property</td>
+                <td><code class="literal">$obj-&gt;setProperty($value)</code></td>
+            </tr>
+          <tr>
+                <td><code class="literal">update</code></td>
+                <td>updates existing data in storage (instead of save/change)</td>
+                <td><code class="literal">$table-&gt;update($data, $where)</code></td>
+            </tr>
+          <tr>
+                <td><code class="literal">validate</code></td>
+                <td>checks that a value matches a known format, returns boolean true/false</td>
+                <td><code class="literal">$filter-&gt;validateFloat($value)</code></td>
+            </tr>
+        </tbody>
+      </table>
+      <p>
+        These names are not set in stone, but are used when reasonable.
+    </p>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="appendix-standards.naming.classes">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="appendix-naming">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="appendix-standards.naming.globals">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">B.2. Vendor and Class Names </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> B.4. Global Variables and Functions</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

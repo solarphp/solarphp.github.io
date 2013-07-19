@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:56 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">6.2. Controller Logic</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="form.intro">Prev</a> </td>
+          <th width="60%" align="center">Chapter 6. Models and Forms</th>
+          <td width="20%" align="right"> <a accesskey="n" href="form.object">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="6.2. Controller Logic">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="form.controller"></a>6.2. Controller Logic</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        There is a standard pattern you can use for controller
+        logic when working with forms and model records. We can see this
+        pattern in the blog demo controller:
+    </p>
+      <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">/**
+ * @var Solar_Sql_Model_Catalog $_model A model catalog instance.
+ */
+</span><span style="color: #007700">public function </span><span style="color: #0000BB">actionEdit</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">)
+{
+    </span><span style="color: #FF8000">// was an ID specified?
+    </span><span style="color: #007700">if (! </span><span style="color: #0000BB">$id</span><span style="color: #007700">) {
+        return </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_error</span><span style="color: #007700">(</span><span style="color: #DD0000">'ERR_NO_ID_SPECIFIED'</span><span style="color: #007700">);
+    }
+
+    </span><span style="color: #FF8000">// fetch one blog article by ID
+    </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">item </span><span style="color: #007700">= </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">blogs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetch</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">);
+
+    </span><span style="color: #FF8000">// did the blog article exist?
+    </span><span style="color: #007700">if (! </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">item</span><span style="color: #007700">) {
+        return </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_error</span><span style="color: #007700">(</span><span style="color: #DD0000">'ERR_NO_SUCH_ITEM'</span><span style="color: #007700">);
+    }
+
+    </span><span style="color: #FF8000">// did the user click the save button?
+    </span><span style="color: #007700">if (</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_isProcess</span><span style="color: #007700">(</span><span style="color: #DD0000">'save'</span><span style="color: #007700">)) {
+        </span><span style="color: #FF8000">// look for $_POST['blog'] in the request,
+        // load into the record, and save it.
+        </span><span style="color: #0000BB">$data </span><span style="color: #007700">= </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_request</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">post</span><span style="color: #007700">(</span><span style="color: #DD0000">'blog'</span><span style="color: #007700">);
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">load</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">);
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">save</span><span style="color: #007700">();
+    }
+
+    </span><span style="color: #FF8000">// get form hints from the record
+    </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">form </span><span style="color: #007700">= </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">newForm</span><span style="color: #007700">();
+}</span></span></code></pre>
+      <p>
+        In narrative language, the pattern is as follows:
+    </p>
+      <div class="itemizedlist">
+        <ul class="itemizedlist" type="disc">
+          <li class="listitem">
+            <p>
+            Make sure we have enough information to fetch a record (e.g.,
+            the primary-key value).
+        </p>
+          </li>
+          <li class="listitem">
+            <p>
+            Attempt the fetch the record, and make sure we actually found it.
+        </p>
+          </li>
+          <li class="listitem">
+            <p>
+            Check to see if the incoming request is the result of a submit
+            button being pressed via the <code class="function">_isProcess()</code>
+            method. The looks for a <code class="literal">process</code> key in the
+            incoming request data and checks its value. (Incidentally, this
+            means you can use one action method to process the results of
+            different kinds of submit buttons: preview, save, cancel, etc.)
+        </p>
+          </li>
+          <li class="listitem">
+            <p>
+            Retrieve data from the incoming request, load it into the record,
+            and save the record. Note that the record does its own filtering
+            (sanitize and validate). If you like, you can check the result of
+            the <code class="function">save()</code> call; it will be
+            <code class="literal">true</code> if the save succeeded, or
+            <code class="literal">false</code> if it failed for any reason (e.g.,
+            invalid data).
+        </p>
+          </li>
+          <li class="listitem">
+            <p>
+            Finally, regardless of the status of the record, we ask it to
+            generate a new form object for you via the
+            <code class="function">newForm()</code> method. The form object will
+            reflect the current state of the record, including any
+            invalidation messages for the record properties.
+        </p>
+          </li>
+        </ul>
+      </div>
+      <p>
+        As you can see, the controller does not deal with the form object
+        much at all. Instead, it deals with the record object, then asks the
+        record to generate a form object based on that record's properties,
+        and retains the form object as <code class="literal">$form</code>.
+    </p>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="form.intro">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="form">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="form.object">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">6.1. Introduction </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 6.3. The Form Object</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

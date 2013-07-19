@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:56:00 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">8.3. Link Vendor Source</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="commands.make-vendor">Prev</a> </td>
+          <th width="60%" align="center">Chapter 8. Command-Line Tools</th>
+          <td width="20%" align="right"> <a accesskey="n" href="commands.link-public">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="8.3. Link Vendor Source">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="commands.link-vendor"></a>8.3. Link Vendor Source</h2>
+          </div>
+        </div>
+      </div>
+      <div class="cmdsynopsis">
+        <p><code class="command">./script/solar link-vendor</code>   <em class="replaceable"><code>VendorName</code></em> </p>
+      </div>
+      <p>
+        The <span class="command"><strong>link-vendor</strong></span> command creates a series of
+        standard symbolic links in a Solar system for a given vendor. If you
+        copy the vendor files from another project into your
+        <code class="filename">source</code> directory, they won't be accessible via
+        the <code class="filename">include</code> directory, nor will the public assets
+        be available via <code class="filename">docroot/public</code>. This command
+        creates the symbolic links for you so they will be accessible. (Vendor
+        linking happens automatically as part of the
+        <span class="command"><strong>make-vendor</strong></span> command.)
+    </p>
+      <div class="sect2" title="8.3.1. Example">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="commands.link-vendor.example"></a>8.3.1. Example</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            To link a vendor source into a Solar system, issue the
+            following command:
+        </p>
+        <pre class="screen">$ <strong class="userinput"><code>./script/solar link-vendor <em class="replaceable"><code>VendorName</code></em></code></strong>
+Making links for vendor '<em class="replaceable"><code>VendorName</code></em>' ...
+    Making link 'include/<em class="replaceable"><code>VendorName</code></em>' ... done.
+    Making link 'include/Test/<em class="replaceable"><code>VendorName</code></em>' ... done.
+    Making link 'include/Mock/<em class="replaceable"><code>VendorName</code></em>' ... done.
+    Making link 'include/Fixture/<em class="replaceable"><code>VendorName</code></em>' ... done.
+    Making link 'script/<em class="replaceable"><code>vendor-name</code></em>' ... done.
+... done.
+Making public symlinks for '<em class="replaceable"><code>VendorName</code></em>' ...
+    Making public directory docroot/public/<em class="replaceable"><code>VendorName</code></em>/Controller ... done.
+    Making public symlink for <em class="replaceable"><code>VendorName</code></em>_Controller_Bread ... done.
+    Making public symlink for <em class="replaceable"><code>VendorName</code></em>_Controller_Page ... done.
+... done.
+Remember to add '<em class="replaceable"><code>VendorName</code></em>_App' to the ['Solar_Controller_Front']['classes'] element in your config file so that it finds your apps.
+Remember to add '<em class="replaceable"><code>VendorName</code></em>_Model' to the ['Solar_Sql_Model_Catalog']['classes'] element in your config file so that it finds your models.
+$</pre>
+        <p>
+            What is going on here?
+        </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>
+                    The command creates symbolic links from the
+                    <code class="filename">source/</code> directory to the
+                    <code class="filename">include/</code> directory, including test
+                    cases, test mocks, and test fixtures. It also creates a
+                    link so that
+                    <code class="filename">script/<em class="replaceable"><code>vendor-name</code></em></code>
+                    commands are available.
+                </p>
+            </li>
+            <li class="listitem">
+              <p>
+                    Next, the command links the <code class="filename">Public/</code>
+                    direcory in all PHP classes for the vendor to the 
+                    <code class="filename">docroot/public</code> directory, so that
+                    public assets for a class are available via the web.
+                </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="commands.make-vendor">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="commands">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="commands.link-public">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">8.2. Make Vendor Source </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 8.4. Link Public Assets</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

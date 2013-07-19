@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:54:40 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">1.4. Configure the System</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="blog-demo.vendor">Prev</a> </td>
+          <th width="60%" align="center">Chapter 1. Quick-Start Blog Demo</th>
+          <td width="20%" align="right"> <a accesskey="n" href="blog-demo.model">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="1.4. Configure the System">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="blog-demo.config"></a>1.4. Configure the System</h2>
+          </div>
+        </div>
+      </div>
+      <div class="orderedlist">
+        <ol class="orderedlist" type="1">
+          <li class="listitem">
+            <p>
+            Open the
+            <code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/config.php</code>
+            file. You will add elements to the <code class="literal">$config</code>
+            array inside this file before the return statement at the end of
+            the file.
+        </p>
+          </li>
+          <li class="listitem">
+            <p>
+            
+            Find the entry for the front controller and tell it what your
+            application class prefixes will be via the
+            <code class="literal">'classes'</code> key.
+            
+            </p>
+            <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// front controller
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Controller_Front'</span><span style="color: #007700">] = array(
+    </span><span style="color: #DD0000">'classes' </span><span style="color: #007700">=&gt; array(</span><span style="color: #DD0000">'Acme_App'</span><span style="color: #007700">, </span><span style="color: #DD0000">'Solar_App'</span><span style="color: #007700">),
+    </span><span style="color: #FF8000">// ...
+    </span><span style="color: #DD0000">'explain' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">true</span><span style="color: #007700">,
+);</span></span></code></pre>
+            <p>
+            
+            </p>
+            <div class="note" title="Note">
+              <table border="0" summary="Note">
+                <tr>
+                  <td rowspan="2" align="center" valign="top" width="25">
+                    <img alt="[Note]" src="images/note.png" />
+                  </td>
+                  <th align="left">Note</th>
+                </tr>
+                <tr>
+                  <td align="left" valign="top">
+                    <p>
+                Having Solar_App as part of the class stack allows Solar to
+                look in both Acme and Solar for the first matching app name.
+            </p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <p>
+            
+        </p>
+          </li>
+          <li class="listitem">
+            <p>
+            
+            Find the entry for the model catalog and tell it what your
+            application class prefixes will be.
+            
+            </p>
+            <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// model catalog
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Sql_Model_Catalog'</span><span style="color: #007700">][</span><span style="color: #DD0000">'classes'</span><span style="color: #007700">] = array(</span><span style="color: #DD0000">'Acme_Model'</span><span style="color: #007700">);</span></span></code></pre>
+            <p>
+            
+        </p>
+          </li>
+          <li class="listitem">
+            <p>
+                Add new <code class="literal">$config</code> keys to tell Solar what SQL
+                adapter to use, and to configure that adapter.
+            </p>
+            <p>
+                For SQLite, use the following.
+                
+                </p>
+            <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// the SQL adapter class to use
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Sql'</span><span style="color: #007700">][</span><span style="color: #DD0000">'adapter'</span><span style="color: #007700">] = </span><span style="color: #DD0000">'Solar_Sql_Adapter_Sqlite'</span><span style="color: #007700">;
+
+</span><span style="color: #FF8000">// configure the SQL adapter class
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Sql_Adapter_Sqlite'</span><span style="color: #007700">] = array(
+    </span><span style="color: #DD0000">'name' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"</span><span style="color: #0000BB">$system</span><span style="color: #DD0000">/sqlite/acme.sq3"</span><span style="color: #007700">,  </span><span style="color: #FF8000">// the database file to use
+</span><span style="color: #007700">);</span></span></code></pre>
+            <p>
+                
+                </p>
+            <div class="note" title="Note">
+              <table border="0" summary="Note">
+                <tr>
+                  <td rowspan="2" align="center" valign="top" width="25">
+                    <img alt="[Note]" src="images/note.png" />
+                  </td>
+                  <th align="left">Note</th>
+                </tr>
+                <tr>
+                  <td align="left" valign="top">
+                    <p>
+                    The <code class="literal">$system</code> variable is defined at the
+                    top of the <code class="filename">SYSTEM/config.php</code> file and is
+                    the same as the <em class="replaceable"><code>SYSTEM</code></em>
+                    directory.
+                </p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <p>
+            </p>
+            <p>
+                For MySQL, use the following.
+                
+                </p>
+            <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// the SQL adapter class to use
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Sql'</span><span style="color: #007700">][</span><span style="color: #DD0000">'adapter'</span><span style="color: #007700">] = </span><span style="color: #DD0000">'Solar_Sql_Adapter_Mysql'</span><span style="color: #007700">;
+
+</span><span style="color: #FF8000">// configure the SQL adapter class
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Sql_Adapter_Mysql'</span><span style="color: #007700">] = array(
+    </span><span style="color: #DD0000">'host' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">, </span><span style="color: #FF8000">// the database server host
+    </span><span style="color: #DD0000">'name' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'database'</span><span style="color: #007700">,  </span><span style="color: #FF8000">// the database name
+    </span><span style="color: #DD0000">'user' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'username'</span><span style="color: #007700">,  </span><span style="color: #FF8000">// authenticate as this user
+    </span><span style="color: #DD0000">'pass' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'password'</span><span style="color: #007700">,  </span><span style="color: #FF8000">// authenticate with this password
+</span><span style="color: #007700">);</span></span></code></pre>
+            <p>
+                
+                </p>
+            <div class="note" title="Note">
+              <table border="0" summary="Note">
+                <tr>
+                  <td rowspan="2" align="center" valign="top" width="25">
+                    <img alt="[Note]" src="images/note.png" />
+                  </td>
+                  <th align="left">Note</th>
+                </tr>
+                <tr>
+                  <td align="left" valign="top">
+                    <p>
+                    For PostgreSQL, substitute
+                    <code class="literal">Solar_Sql_Adapter_Pgsql</code> for the adapter
+                    class name and the config key.
+                </p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <p>
+            </p>
+          </li>
+        </ol>
+      </div>
+      <p>
+        By the end of this process, the end of your config file should
+        look something like this:
+            
+        </p>
+      <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">/**
+ * project overrides
+ */
+
+// front controller
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Controller_Front'</span><span style="color: #007700">] = array(
+    </span><span style="color: #DD0000">'classes' </span><span style="color: #007700">=&gt; array(</span><span style="color: #DD0000">'Acme_App'</span><span style="color: #007700">, </span><span style="color: #DD0000">'Solar_App'</span><span style="color: #007700">),
+    </span><span style="color: #DD0000">'disable' </span><span style="color: #007700">=&gt; array(),
+    </span><span style="color: #DD0000">'default' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'hello'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'rewrite' </span><span style="color: #007700">=&gt; array(),
+    </span><span style="color: #DD0000">'routing' </span><span style="color: #007700">=&gt; array(),
+    </span><span style="color: #DD0000">'explain' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">true</span><span style="color: #007700">,
+);
+
+</span><span style="color: #FF8000">// model catalog
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Sql_Model_Catalog'</span><span style="color: #007700">][</span><span style="color: #DD0000">'classes'</span><span style="color: #007700">] = array(</span><span style="color: #DD0000">'Acme_Model'</span><span style="color: #007700">);
+
+</span><span style="color: #FF8000">// the SQL adapter class to use
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Sql'</span><span style="color: #007700">][</span><span style="color: #DD0000">'adapter'</span><span style="color: #007700">] = </span><span style="color: #DD0000">'Solar_Sql_Adapter_Sqlite'</span><span style="color: #007700">;
+
+</span><span style="color: #FF8000">// configure the SQL adapter class
+</span><span style="color: #0000BB">$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Sql_Adapter_Sqlite'</span><span style="color: #007700">] = array(
+    </span><span style="color: #DD0000">'name' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">"</span><span style="color: #0000BB">$system</span><span style="color: #DD0000">/sqlite/acme.sq3"</span><span style="color: #007700">,  </span><span style="color: #FF8000">// the database file to use
+</span><span style="color: #007700">);
+
+</span><span style="color: #FF8000">/**
+ * done!
+ */
+</span><span style="color: #007700">return </span><span style="color: #0000BB">$config</span><span style="color: #007700">;</span></span></code></pre>
+      <p>
+        
+    </p>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="blog-demo.vendor">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="blog-demo">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="blog-demo.model">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">1.3. Make a Vendor Space </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 1.5. Make a Model From a Database Table</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

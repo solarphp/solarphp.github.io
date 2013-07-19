@@ -1,0 +1,557 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 10:06:19 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Sql_Model : Properties</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Properties</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Sql_Model.Constants">Prev</a></td>
+                <th width="60%" align="center">Solar_Sql_Model</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Sql_Model.Methods">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Sql_Model.Properties" class="section">
+
+<h1>Properties</h1>
+
+<p class="para">Properties existing in the <code class="literal">Solar_Sql_Model</code> class.</p>
+
+<div>
+<h2>Public</h2>
+
+<p class="para">None.</p>
+
+</div>
+
+<div>
+<h2>Protected</h2>
+
+<div id="class.Solar_Sql_Model.Properties._Solar_Sql_Model">
+<h3><code class="literal">$_Solar_Sql_Model</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> Default configuration values.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._affected_rows">
+<h3><code class="literal">$_affected_rows</code> </h3>
+
+<p class="para"><em class="emphasis">(int)</em> The number of rows affected by the last INSERT, UPDATE, or DELETE.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._array_name">
+<h3><code class="literal">$_array_name</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> When a record from this model is part of an form element array, use this name as the array key for it; by default, this is the singular of the model name.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._cache">
+<h3><code class="literal">$_cache</code> </h3>
+
+<p class="para"><em class="emphasis">(Solar_Sql_Model_Cache)</em> A Solar_Sql_Model_Cache object.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._cache_class">
+<h3><code class="literal">$_cache_class</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The class to use for the cache object.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._calculate_cols">
+<h3><code class="literal">$_calculate_cols</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> A list of column names that don&#039;t exist in the table, but should be calculated by the model as-needed.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._catalog">
+<h3><code class="literal">$_catalog</code> </h3>
+
+<p class="para"><em class="emphasis">(Solar_Sql_Model_Catalog)</em> A Solar_Sql_Model_Catalog dependency object.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._class">
+<h3><code class="literal">$_class</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The results of get_class($this) so we don&#039;t call get_class() all the  time.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._collection_class">
+<h3><code class="literal">$_collection_class</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The final fallback class for collections of records.</p>
+
+<p class="para">Default is Solar_Sql_Model_Collection.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._collection_prototype">
+<h3><code class="literal">$_collection_prototype</code> </h3>
+
+<p class="para"><em class="emphasis">(Solar_Sql_Model_Record)</em> A blank instance of the Collection class for this model.</p>
+
+<p class="para">We keep this so we don&#039;t keep looking for a collection class once we
+know what the proper class is.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._config">
+<h3><code class="literal">$_config</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> Collection point for configuration values.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Base.Properties#class.Solar_Base.Properties._config" class="link">Solar_Base</a>.</p>
+
+<p class="para">Note that you do not define config defaults in $_config directly.</p>
+
+<pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// DO NOT DO THIS
+</span><span style="color: #007700">protected </span><span style="color: #0000BB">$_config </span><span style="color: #007700">= array(
+    </span><span style="color: #DD0000">'foo' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'bar'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'baz' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'dib'</span><span style="color: #007700">,
+);</span></span></code></pre>
+
+
+<p class="para">Instead, define config defaults in a protected property named for the
+class, withan underscore prefix.</p>
+
+<p class="para">For exmple, a &quot;Vendor_Class_Name&quot; class would define the default 
+config array in &quot;$_Vendor_Class_Name&quot;.  This convention lets 
+child classes inherit parent config keys and values.</p>
+
+<pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// DO THIS INSTEAD
+</span><span style="color: #007700">protected </span><span style="color: #0000BB">$_Vendor_Class_Name </span><span style="color: #007700">= array(
+    </span><span style="color: #DD0000">'foo' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'bar'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'baz' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'dib'</span><span style="color: #007700">,
+);</span></span></code></pre>
+
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._created_col">
+<h3><code class="literal">$_created_col</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The column name for &#039;created&#039; timestamps; default is &#039;created&#039;.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._fetch_cols">
+<h3><code class="literal">$_fetch_cols</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> Only fetch these columns from the table.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._filter_class">
+<h3><code class="literal">$_filter_class</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The class to use for filter chains.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._filters">
+<h3><code class="literal">$_filters</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> Filters to validate and sanitize column data.</p>
+
+<p class="para">Default is to use validate<em class="emphasis">() and sanitize</em>() methods in the filter
+class, but if the method exists locally, it will be used instead.</p>
+
+<p class="para">The filters apply only to Record objects from the model; if you use
+the model insert() and update() methods directly, the filters are not
+applied.</p>
+
+<p class="para">Example usage follows; note that &quot;_validate&quot; and &quot;_sanitize&quot; refer
+to internal (protected) filtering methods that have access to the
+entire data set being filtered.</p>
+
+<pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// filter 'col_1' to have only alpha chars, with a max length of
+// 32 chars
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_filters</span><span style="color: #007700">[</span><span style="color: #DD0000">'col_1'</span><span style="color: #007700">][] = </span><span style="color: #DD0000">'sanitizeStringAlpha'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_filters</span><span style="color: #007700">[</span><span style="color: #DD0000">'col_1'</span><span style="color: #007700">][] = array(</span><span style="color: #DD0000">'validateMaxLength'</span><span style="color: #007700">, </span><span style="color: #0000BB">32</span><span style="color: #007700">);
+
+</span><span style="color: #FF8000">// filter 'col_2' to have only numeric chars, validate as an
+// integer, in a range of -10 to +10.
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_filters</span><span style="color: #007700">[</span><span style="color: #DD0000">'col_2'</span><span style="color: #007700">][] = </span><span style="color: #DD0000">'sanitizeNumeric'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_filters</span><span style="color: #007700">[</span><span style="color: #DD0000">'col_2'</span><span style="color: #007700">][] = </span><span style="color: #DD0000">'validateInteger'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_filters</span><span style="color: #007700">[</span><span style="color: #DD0000">'col_2'</span><span style="color: #007700">][] = array(</span><span style="color: #DD0000">'validateRange'</span><span style="color: #007700">, -</span><span style="color: #0000BB">10</span><span style="color: #007700">, +</span><span style="color: #0000BB">10</span><span style="color: #007700">);
+
+</span><span style="color: #FF8000">// filter 'handle' to have only alpha-numeric chars, with a length
+// of 6-14 chars, and unique in the table.
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_filters</span><span style="color: #007700">[</span><span style="color: #DD0000">'handle'</span><span style="color: #007700">][] = </span><span style="color: #DD0000">'sanitizeStringAlnum'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_filters</span><span style="color: #007700">[</span><span style="color: #DD0000">'handle'</span><span style="color: #007700">][] = array(</span><span style="color: #DD0000">'validateRangeLength'</span><span style="color: #007700">, </span><span style="color: #0000BB">6</span><span style="color: #007700">, </span><span style="color: #0000BB">14</span><span style="color: #007700">);
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_filters</span><span style="color: #007700">[</span><span style="color: #DD0000">'handle'</span><span style="color: #007700">][] = </span><span style="color: #DD0000">'validateUnique'</span><span style="color: #007700">;
+
+</span><span style="color: #FF8000">// filter 'email' to have only emails-allowed chars, validate as an
+// email address, and be unique in the table.
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_filters</span><span style="color: #007700">[</span><span style="color: #DD0000">'email'</span><span style="color: #007700">][] = </span><span style="color: #DD0000">'sanitizeStringEmail'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_filters</span><span style="color: #007700">[</span><span style="color: #DD0000">'email'</span><span style="color: #007700">][] = </span><span style="color: #DD0000">'validateEmail'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_filters</span><span style="color: #007700">[</span><span style="color: #DD0000">'email'</span><span style="color: #007700">][] = </span><span style="color: #DD0000">'validateUnique'</span><span style="color: #007700">;
+
+</span><span style="color: #FF8000">// filter 'passwd' to be not-blank, and should match any existing
+// 'passwd_confirm' value.
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_filters</span><span style="color: #007700">[</span><span style="color: #DD0000">'passwd'</span><span style="color: #007700">][] = </span><span style="color: #DD0000">'validateNotBlank'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_filters</span><span style="color: #007700">[</span><span style="color: #DD0000">'passwd'</span><span style="color: #007700">][] = </span><span style="color: #DD0000">'validateConfirm'</span><span style="color: #007700">;</span></span></code></pre>
+
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._foreign_col">
+<h3><code class="literal">$_foreign_col</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> Other models that relate to this model should use this as the  foreign-key column name.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._index_info">
+<h3><code class="literal">$_index_info</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> The index specification array for all indexes on this table.</p>
+
+<p class="para">Used only in auto-creation.</p>
+
+<p class="para">The array should be in this format ...</p>
+
+<pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// the index type: 'normal' or 'unique'
+</span><span style="color: #0000BB">$type </span><span style="color: #007700">= </span><span style="color: #DD0000">'normal'</span><span style="color: #007700">;
+
+</span><span style="color: #FF8000">// index on a single column:
+// CREATE INDEX idx_name ON table_name (col_name)
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_index_info</span><span style="color: #007700">[</span><span style="color: #DD0000">'idx_name'</span><span style="color: #007700">] = array(
+    </span><span style="color: #DD0000">'type' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$type</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'cols' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'col_name'
+</span><span style="color: #007700">);
+
+</span><span style="color: #FF8000">// index on multiple columns:
+// CREATE INDEX idx_name ON table_name (col_1, col_2, ... col_N)
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_index_info</span><span style="color: #007700">[</span><span style="color: #DD0000">'idx_name'</span><span style="color: #007700">] = array(
+    </span><span style="color: #DD0000">'type' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$type</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'cols' </span><span style="color: #007700">=&gt; array(</span><span style="color: #DD0000">'col_1'</span><span style="color: #007700">, </span><span style="color: #DD0000">'col_2'</span><span style="color: #007700">, ..., </span><span style="color: #DD0000">'col_N'</span><span style="color: #007700">)
+);
+
+</span><span style="color: #FF8000">// easy shorthand for an index on a single column,
+// giving the index the same name as the column:
+// CREATE INDEX col_name ON table_name (col_name)
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_index_info</span><span style="color: #007700">[</span><span style="color: #DD0000">'col_name'</span><span style="color: #007700">] = </span><span style="color: #0000BB">$type</span><span style="color: #007700">;</span></span></code></pre>
+
+
+<p class="para">The $type may be &#039;normal&#039; or &#039;unique&#039;.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._inflect">
+<h3><code class="literal">$_inflect</code> </h3>
+
+<p class="para"><em class="emphasis">(Solar_Inflect)</em> The registered Solar_Inflect object.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._inherit_base">
+<h3><code class="literal">$_inherit_base</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The base model this class is inherited from, in single-table  inheritance.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._inherit_col">
+<h3><code class="literal">$_inherit_col</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The column name that tracks single-table inheritance; default is &#039;inherit&#039;.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._inherit_name">
+<h3><code class="literal">$_inherit_name</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> When inheritance is turned on, the class name value for this class in $_inherit_col.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._model_name">
+<h3><code class="literal">$_model_name</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The model name is the short form of the class name; this is generally a plural.</p>
+
+<p class="para">When inheritance is enabled, the default is the $_inherit_name value,
+otherwise, the default is the $_table_name.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._order">
+<h3><code class="literal">$_order</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> By default, order by this column when fetching rows.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._paging">
+<h3><code class="literal">$_paging</code> </h3>
+
+<p class="para"><em class="emphasis">(int)</em> The default number of rows per page when selecting.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._primary_col">
+<h3><code class="literal">$_primary_col</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The column name for the primary key.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._record_class">
+<h3><code class="literal">$_record_class</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The final fallback class for an individual record.</p>
+
+<p class="para">Default is Solar_Sql_Model_Record.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._record_prototype">
+<h3><code class="literal">$_record_prototype</code> </h3>
+
+<p class="para"><em class="emphasis">(Solar_Sql_Model_Record)</em> A blank instance of the Record class for this model.</p>
+
+<p class="para">We keep this so we don&#039;t keep looking for a record class once we know
+what the proper class is.  Not used when inheritance is in effect.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._related">
+<h3><code class="literal">$_related</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> Relationships to other Model classes.</p>
+
+<p class="para">Keyed on a &quot;virtual&quot; column name, which will be used as a property
+name in returned records.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._select_class">
+<h3><code class="literal">$_select_class</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The class to use for building SELECT statements.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._sequence_cols">
+<h3><code class="literal">$_sequence_cols</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> A list of column names that use sequence values.</p>
+
+<p class="para">When the column is present in a data array, but its value is null,
+a sequence value will automatically be added.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._serialize_cols">
+<h3><code class="literal">$_serialize_cols</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> A list of column names on which to apply serialize() and unserialize() automatically.</p>
+
+<p class="para">Will be unserialized by the Record class as the values are loaded,
+then re-serialized just before insert/update in the Model class.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._sql">
+<h3><code class="literal">$_sql</code> </h3>
+
+<p class="para"><em class="emphasis">(Solar_Sql_Adapter)</em> A Solar_Sql dependency object.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._stack">
+<h3><code class="literal">$_stack</code> </h3>
+
+<p class="para"><em class="emphasis">(Solar_Class_Stack)</em> A Solar_Class_Stack object for fallback hierarchy.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._table_cols">
+<h3><code class="literal">$_table_cols</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> The column specification array for all columns in this table.</p>
+
+<p class="para">Used in auto-creation, and for sync-checks.</p>
+
+<p class="para">Will be overridden by _fixTableCols() when it reads the table info, so 
+you don&#039;t <em class="emphasis">have</em> to enter anything here ... but if it&#039;s empty, you 
+won&#039;t get auto-creation.</p>
+
+<p class="para">Each element in this array looks like this...</p>
+
+<pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$_table_cols </span><span style="color: #007700">= array(
+    </span><span style="color: #DD0000">'col_name' </span><span style="color: #007700">=&gt; array(
+        </span><span style="color: #DD0000">'name'    </span><span style="color: #007700">=&gt; (string) </span><span style="color: #0000BB">the col_name</span><span style="color: #007700">, </span><span style="color: #0000BB">same </span><span style="color: #007700">as </span><span style="color: #0000BB">the key
+        </span><span style="color: #DD0000">'type'    </span><span style="color: #007700">=&gt; (string) </span><span style="color: #0000BB">char</span><span style="color: #007700">, </span><span style="color: #0000BB">varchar</span><span style="color: #007700">, </span><span style="color: #0000BB">date</span><span style="color: #007700">, </span><span style="color: #0000BB">etc
+        </span><span style="color: #DD0000">'size'    </span><span style="color: #007700">=&gt; (int) </span><span style="color: #0000BB">column size
+        </span><span style="color: #DD0000">'scope'   </span><span style="color: #007700">=&gt; (int) </span><span style="color: #0000BB">decimal places
+        </span><span style="color: #DD0000">'default' </span><span style="color: #007700">=&gt; (string) default </span><span style="color: #0000BB">value
+        </span><span style="color: #DD0000">'require' </span><span style="color: #007700">=&gt; (bool) </span><span style="color: #0000BB">is this a required </span><span style="color: #007700">(</span><span style="color: #0000BB">non</span><span style="color: #007700">-</span><span style="color: #0000BB">null</span><span style="color: #007700">) </span><span style="color: #0000BB">column</span><span style="color: #007700">?
+        </span><span style="color: #DD0000">'primary' </span><span style="color: #007700">=&gt; (bool) </span><span style="color: #0000BB">is this part of the primary key</span><span style="color: #007700">?
+        </span><span style="color: #DD0000">'autoinc' </span><span style="color: #007700">=&gt; (bool) </span><span style="color: #0000BB">auto</span><span style="color: #007700">-</span><span style="color: #0000BB">incremented</span><span style="color: #007700">?
+     ),
+);</span></span></code></pre>
+
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._table_name">
+<h3><code class="literal">$_table_name</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The table name.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._updated_col">
+<h3><code class="literal">$_updated_col</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The column name for &#039;updated&#039; timestamps; default is &#039;updated&#039;.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._xmlstruct_class">
+<h3><code class="literal">$_xmlstruct_class</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> The class to use for $_xmlstruct_cols conversion objects.</p>
+
+</div>
+
+<div id="class.Solar_Sql_Model.Properties._xmlstruct_cols">
+<h3><code class="literal">$_xmlstruct_cols</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> A list of column names storing XML strings to convert back and forth to Solar_Struct_Xml objects.</p>
+
+</div>
+
+</div>
+
+<div>
+<h2>Private</h2>
+
+<p class="para">None.</p>
+
+</div>
+    
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Sql_Model.Constants">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_Sql_Model">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Sql_Model.Methods">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Constants</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Methods</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

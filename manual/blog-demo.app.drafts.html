@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:54:41 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">1.10. Browse All Draft Articles</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="blog-demo.app.read">Prev</a> </td>
+          <th width="60%" align="center">Chapter 1. Quick-Start Blog Demo</th>
+          <td width="20%" align="right"> <a accesskey="n" href="blog-demo.app.edit">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="1.10. Browse All Draft Articles">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="blog-demo.app.drafts"></a>1.10. Browse All Draft Articles</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        We have a list of public articles; let's create a list of draft
+        articles. This will be very similar to the <code class="literal">index</code>
+        action and view.
+    </p>
+      <div class="sect2" title="1.10.1. The &quot;Drafts&quot; Action Method">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="blog-demo.app.drafts.action"></a>1.10.1. The "Drafts" Action Method</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            
+            Open the <code class="filename">Blog.php</code> page controller
+            class file. (In this example we use the <span class="command"><strong>vim</strong></span>
+            editor, but you can use anything you like.)
+        
+            </p>
+        <pre class="screen">$ <strong class="userinput"><code>vim Blog.php</code></strong></pre>
+        <p>
+        
+        </p>
+        <p>
+            Add the following PHP code to the class.
+        
+            </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+    </span><span style="color: #007700">public function </span><span style="color: #0000BB">actionDrafts</span><span style="color: #007700">()
+    {
+        </span><span style="color: #FF8000">// draft blog articles in ascending order, all result pages
+        </span><span style="color: #0000BB">$fetch </span><span style="color: #007700">= array(
+            </span><span style="color: #DD0000">'where' </span><span style="color: #007700">=&gt; array(</span><span style="color: #DD0000">'blogs.status = ?' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'draft'</span><span style="color: #007700">),
+            </span><span style="color: #DD0000">'order' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'blogs.created ASC'</span><span style="color: #007700">,
+            </span><span style="color: #DD0000">'page'  </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'all'</span><span style="color: #007700">,
+        );
+    
+        </span><span style="color: #FF8000">// fetch all matching records
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">list </span><span style="color: #007700">= </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">blogs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">(</span><span style="color: #0000BB">$fetch</span><span style="color: #007700">);
+    }</span></span></code></pre>
+        <p>
+        
+        </p>
+      </div>
+      <div class="sect2" title="1.10.2. The &quot;Drafts&quot; View Script">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="blog-demp.app.drafts.view"></a>1.10.2. The "Drafts" View Script</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            Create a view called <code class="filename">drafts.php</code> for the
+            <code class="literal">actionDrafts()</code> method.
+            
+            </p>
+        <pre class="screen">$ <strong class="userinput"><code>vim Blog/View/drafts.php</code></strong></pre>
+        <p>
+        </p>
+        <p>
+            Enter the following code in the new <code class="filename">drafts.php</code>
+            view script.
+            
+            </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+    $title </span><span style="color: #007700">= </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getTextRaw</span><span style="color: #007700">(</span><span style="color: #DD0000">'TITLE_DRAFTS'</span><span style="color: #007700">);
+    </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">head</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">setTitle</span><span style="color: #007700">(</span><span style="color: #0000BB">$title</span><span style="color: #007700">);
+</span><span style="color: #0000BB">?&gt;
+</span>
+&lt;h2&gt;<span style="color: #0000BB">&lt;?php </span><span style="color: #007700">echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getText</span><span style="color: #007700">(</span><span style="color: #DD0000">'HEADING_DRAFTS'</span><span style="color: #007700">); </span><span style="color: #0000BB">?&gt;</span>&lt;/h2&gt;
+
+<span style="color: #0000BB">&lt;?php </span><span style="color: #007700">if (! </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">list</span><span style="color: #007700">): </span><span style="color: #0000BB">?&gt;
+</span>
+    &lt;p&gt;<span style="color: #0000BB">&lt;?php </span><span style="color: #007700">echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getText</span><span style="color: #007700">(</span><span style="color: #DD0000">'ERR_NO_RECORDS'</span><span style="color: #007700">); </span><span style="color: #0000BB">?&gt;</span>&lt;/p&gt;
+
+<span style="color: #0000BB">&lt;?php </span><span style="color: #007700">else: </span><span style="color: #0000BB">?&gt;
+</span>
+    &lt;ul&gt;
+    
+    <span style="color: #0000BB">&lt;?php </span><span style="color: #007700">foreach (</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">list </span><span style="color: #007700">as </span><span style="color: #0000BB">$item</span><span style="color: #007700">): </span><span style="color: #0000BB">?&gt;
+</span>        &lt;li&gt;<span style="color: #0000BB">&lt;?php
+            </span><span style="color: #007700">echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">escape</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title</span><span style="color: #007700">);
+            echo </span><span style="color: #DD0000">"&amp;nbsp;&amp;nbsp;"</span><span style="color: #007700">;
+            echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">action</span><span style="color: #007700">(
+                </span><span style="color: #DD0000">"</span><span style="color: #007700">{</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">controller</span><span style="color: #007700">}</span><span style="color: #DD0000">/edit/</span><span style="color: #007700">{</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">}</span><span style="color: #DD0000">"</span><span style="color: #007700">,
+                </span><span style="color: #DD0000">'ACTION_EDIT'
+            </span><span style="color: #007700">);
+        </span><span style="color: #0000BB">?&gt;</span>&lt;/li&gt;
+    
+    <span style="color: #0000BB">&lt;?php </span><span style="color: #007700">endforeach; </span><span style="color: #0000BB">?&gt;
+</span>    
+    &lt;/ul&gt;
+    
+<span style="color: #0000BB">&lt;?php </span><span style="color: #007700">endif; </span><span style="color: #0000BB">?&gt;
+</span>
+&lt;p&gt;<span style="color: #0000BB">&lt;?php </span><span style="color: #007700">echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">action</span><span style="color: #007700">(
+    </span><span style="color: #DD0000">"</span><span style="color: #007700">{</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">controller</span><span style="color: #007700">}</span><span style="color: #DD0000">/add"</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'ACTION_ADD'
+</span><span style="color: #007700">); </span><span style="color: #0000BB">?&gt;</span>&lt;/p&gt;</span></code></pre>
+        <p>
+        </p>
+        <p>
+            This view shows a list of draft articles stored in
+            <code class="literal">$this-&gt;list</code> along with a link to edit each one.
+            At the bottom of the page is a link to add a new article.
+        </p>
+        <p>
+            You should now be able to browse to
+            <a class="link" href="http://localhost/index.php/blog/drafts" target="_top">http://localhost/index.php/blog/drafts</a>
+            to see this page.
+        </p>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="blog-demo.app.read">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="blog-demo">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="blog-demo.app.edit">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">1.9. Read One Article </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 1.11. Edit One Article</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

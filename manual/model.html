@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:51 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">Chapter 3. Working With Models</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="dispatch-cycle.page-controller">Prev</a> </td>
+          <th width="60%" align="center">Part I. Getting Started</th>
+          <td width="20%" align="right"> <a accesskey="n" href="model.intro">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="chapter" title="Chapter 3. Working With Models">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title"><a id="model"></a>Chapter 3. Working With Models</h2>
+          </div>
+        </div>
+      </div>
+      <div class="toc">
+        <p>
+          <b>Table of Contents</b>
+        </p>
+        <dl>
+          <dt>
+            <span class="sect1">
+              <a href="model.intro">3.1. Introduction</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="sect1">
+              <a href="model.components">3.2. Major Components and Patterns</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="sect1">
+              <a href="model.catalog">3.3. The Model Catalog</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect2">
+                  <a href="model.catalog#model.catalog.instance">3.3.1. Creating A Catalog Instance</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="model.catalog#model.catalog.retrieve">3.3.2. Retrieving A Model From The Catalog</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="sect1">
+              <a href="model.fetch">3.4. Fetching Data</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect2">
+                  <a href="model.fetch#model.fetch.methods">3.4.1. Fetch Methods</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="model.fetch#model.fetch.params">3.4.2. Fetch Parameters</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="model.fetch#model.fetch.magic">3.4.3. Magic Fetch Methods</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="sect1">
+              <a href="model.results">3.5. Records and Collections</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect2">
+                  <a href="model.results#model.results.record">3.5.1. Record Objects</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="model.results#model.results.collection">3.5.2. Collection Objects</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="sect1">
+              <a href="model.record">3.6. Record Creation, Modification, and Saving</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect2">
+                  <a href="model.record#model.record.create">3.6.1. Creating a New Record</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="model.record#model.record.modify">3.6.2. Modifying A Record</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="model.record#model.record.save">3.6.3. Saving A Record</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="sect1">
+              <a href="model.filters">3.7. Record Filters</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect2">
+                  <a href="model.filters#model.filters.auto">3.7.1. Automatic Filters</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="model.filters#model.filters.add">3.7.2. Adding Filters</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="model.filters#model.filters.sanitize">3.7.3. Available "Sanitize" Filters</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="model.filters#model.filters.validate">3.7.4. Available "Validate" Filters</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="sect1">
+              <a href="model.columns">3.8. Special Column Processing</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect2">
+                  <a href="model.columns#model.columns.created">3.8.1. Created Timestamp</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="model.columns#model.columns.updated">3.8.2. Updated Timestamp</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="model.columns#model.columns.sequence">3.8.3. Auto-Sequence</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="model.columns#model.columns.serialize">3.8.4. PHP Serialize</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="model.columns#model.columns.xmlstruct">3.8.5. XML Structs</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="sect1">
+              <a href="model.sti">3.9. Single Table Inheritance</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect2">
+                  <a href="model.sti#model.sti.enable">3.9.1. Enable The Model</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="model.sti#model.sti.extend">3.9.2. Extend the Model</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="model.sti#model.sti.fetching">3.9.3. Fetching</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect2">
+                  <a href="model.sti#model.sti.create-save">3.9.4. Creating and Saving</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="dispatch-cycle.page-controller">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="pt01">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="model.intro">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">2.4. Page Controller </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 3.1. Introduction</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

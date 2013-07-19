@@ -1,0 +1,887 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 10:06:41 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Sql_Model_Record : Methods</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Methods</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Sql_Model_Record.Properties">Prev</a></td>
+                <th width="60%" align="center">Solar_Sql_Model_Record</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Sql_Model_Record.__construct">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Sql_Model_Record.Methods" class="section">
+
+<h1>Methods</h1>
+
+<p class="para">All methods in the <code class="literal">Solar_Sql_Model_Record</code> class.</p>
+
+<div>
+<h2>Public</h2>
+
+<dl>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.__construct" class="link"><code class="literal">__construct()</code></a></span>
+<dd>
+<p class="para">Constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.__destruct" class="link"><code class="literal">__destruct()</code></a></span>
+<dd>
+<p class="para">Default destructor; does nothing other than provide a safe fallback for calls to parent::__destruct().</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.__get" class="link"><code class="literal">__get()</code></a></span>
+<dd>
+<p class="para">Magic getter for record properties; automatically calls __getColName() methods when they exist.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.__isset" class="link"><code class="literal">__isset()</code></a></span>
+<dd>
+<p class="para">Checks if a data key is set.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.__set" class="link"><code class="literal">__set()</code></a></span>
+<dd>
+<p class="para">Magic setter for record properties; automatically calls __setColName() methods when they exist.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.__toString" class="link"><code class="literal">__toString()</code></a></span>
+<dd>
+<p class="para">Returns a string representation of the object.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.__unset" class="link"><code class="literal">__unset()</code></a></span>
+<dd>
+<p class="para">Sets a key in the data to null.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.addFilter" class="link"><code class="literal">addFilter()</code></a></span>
+<dd>
+<p class="para">Adds a column filter to this record instance.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.count" class="link"><code class="literal">count()</code></a></span>
+<dd>
+<p class="para">Countable: how many keys are there?</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.delete" class="link"><code class="literal">delete()</code></a></span>
+<dd>
+<p class="para">Deletes this record from the database.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.dump" class="link"><code class="literal">dump()</code></a></span>
+<dd>
+<p class="para">Convenience method for getting a dump of the record, or one of its properties, or an external variable.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.filter" class="link"><code class="literal">filter()</code></a></span>
+<dd>
+<p class="para">Filter the data.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.free" class="link"><code class="literal">free()</code></a></span>
+<dd>
+<p class="para">Frees memory used by this struct.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.getChanged" class="link"><code class="literal">getChanged()</code></a></span>
+<dd>
+<p class="para">Gets a list of all changed table columns.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.getInvalid" class="link"><code class="literal">getInvalid()</code></a></span>
+<dd>
+<p class="para">Returns the validation failure message for one or more properties, including the messages on related records and collections.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.getIterator" class="link"><code class="literal">getIterator()</code></a></span>
+<dd>
+<p class="para">IteratorAggregate: returns an external iterator for this struct.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.getKeys" class="link"><code class="literal">getKeys()</code></a></span>
+<dd>
+<p class="para">Returns all the keys for this struct.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.getModel" class="link"><code class="literal">getModel()</code></a></span>
+<dd>
+<p class="para">Returns the model from which the data originates.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.getPrimaryCol" class="link"><code class="literal">getPrimaryCol()</code></a></span>
+<dd>
+<p class="para">Gets the name of the primary-key column.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.getPrimaryVal" class="link"><code class="literal">getPrimaryVal()</code></a></span>
+<dd>
+<p class="para">Gets the value of the primary-key column.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.getSaveException" class="link"><code class="literal">getSaveException()</code></a></span>
+<dd>
+<p class="para">Returns the exception (if any) generated by the most-recent call to the save() method.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.getSqlStatus" class="link"><code class="literal">getSqlStatus()</code></a></span>
+<dd>
+<p class="para">Returns the SQL status of this record at the database.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.increment" class="link"><code class="literal">increment()</code></a></span>
+<dd>
+<p class="para">Increments the value of a column <em class="emphasis">immediately at the database</em> and retains the incremented value in the record.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.init" class="link"><code class="literal">init()</code></a></span>
+<dd>
+<p class="para">Initialize the record object.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.initNew" class="link"><code class="literal">initNew()</code></a></span>
+<dd>
+<p class="para">Initialize the record object as a &quot;new&quot; record; as with init(), this is effectively a &quot;first load&quot; method.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.isChanged" class="link"><code class="literal">isChanged()</code></a></span>
+<dd>
+<p class="para">Tells if the record, or a particular table-column in the record, has changed from its initial value.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.isDeleted" class="link"><code class="literal">isDeleted()</code></a></span>
+<dd>
+<p class="para">Has this record been deleted?</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.isDirty" class="link"><code class="literal">isDirty()</code></a></span>
+<dd>
+<p class="para">Is the struct dirty?</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.isInvalid" class="link"><code class="literal">isInvalid()</code></a></span>
+<dd>
+<p class="para">Is the record or one of its relateds invalid?</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.isNew" class="link"><code class="literal">isNew()</code></a></span>
+<dd>
+<p class="para">Is the record new?</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.load" class="link"><code class="literal">load()</code></a></span>
+<dd>
+<p class="para">Loads the struct with data from an array or another struct.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.locale" class="link"><code class="literal">locale()</code></a></span>
+<dd>
+<p class="para">Overrides normal locale() to use the <em class="emphasis">model</em> locale strings.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.newFilter" class="link"><code class="literal">newFilter()</code></a></span>
+<dd>
+<p class="para">Returns a new filter object with the filters from the record model.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.newForm" class="link"><code class="literal">newForm()</code></a></span>
+<dd>
+<p class="para">Returns a new Solar_Form object pre-populated with column properties, values, and filters ready for processing (all based on the model for this record).</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.newRelated" class="link"><code class="literal">newRelated()</code></a></span>
+<dd>
+<p class="para">Create a new record/collection related to this one and returns it.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.offsetExists" class="link"><code class="literal">offsetExists()</code></a></span>
+<dd>
+<p class="para">ArrayAccess: does the requested key exist?</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.offsetGet" class="link"><code class="literal">offsetGet()</code></a></span>
+<dd>
+<p class="para">ArrayAccess: get a key value.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.offsetSet" class="link"><code class="literal">offsetSet()</code></a></span>
+<dd>
+<p class="para">ArrayAccess: set a key value.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.offsetUnset" class="link"><code class="literal">offsetUnset()</code></a></span>
+<dd>
+<p class="para">ArrayAccess: unset a key.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.refresh" class="link"><code class="literal">refresh()</code></a></span>
+<dd>
+<p class="para">Refreshes data for this record from the database.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.save" class="link"><code class="literal">save()</code></a></span>
+<dd>
+<p class="para">Saves this record and all related records to the database, inserting or updating as needed.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.saveInTransaction" class="link"><code class="literal">saveInTransaction()</code></a></span>
+<dd>
+<p class="para">Perform a save() within a transaction, with automatic commit and rollback.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.setInvalid" class="link"><code class="literal">setInvalid()</code></a></span>
+<dd>
+<p class="para">Forces one property to be &quot;invalid&quot; and sets a validation failure message for it.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.setInvalids" class="link"><code class="literal">setInvalids()</code></a></span>
+<dd>
+<p class="para">Forces multiple properties to be &quot;invalid&quot; and sets validation failure message for them.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.setNewRelated" class="link"><code class="literal">setNewRelated()</code></a></span>
+<dd>
+<p class="para">Sets the related to be a new record/collection, but only if the related is empty.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.toArray" class="link"><code class="literal">toArray()</code></a></span>
+<dd>
+<p class="para">Converts the properties of this model Record or Collection to an array, including related models stored in properties and calculated columns.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.toString" class="link"><code class="literal">toString()</code></a></span>
+<dd>
+<p class="para">Returns a string representation of the struct.</p></dd>
+
+</dt>
+
+
+</dl>
+
+
+</div>
+
+<div>
+<h2>Protected</h2>
+
+<dl>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._buildConfig" class="link"><code class="literal">_buildConfig()</code></a></span>
+<dd>
+<p class="para">Builds and returns the default config for a class, including all configs inherited from its parents.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._exception" class="link"><code class="literal">_exception()</code></a></span>
+<dd>
+<p class="para">Convenience method for returning exceptions with localized text.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._fixRelatedData" class="link"><code class="literal">_fixRelatedData()</code></a></span>
+<dd>
+<p class="para">Make sure our related data values are the right value and type.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._free" class="link"><code class="literal">_free()</code></a></span>
+<dd>
+<p class="para">Recursively descends and calls free() on child structs.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._getInsertData" class="link"><code class="literal">_getInsertData()</code></a></span>
+<dd>
+<p class="para">Gather values to insert into the DB for a new record.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._getInvalid" class="link"><code class="literal">_getInvalid()</code></a></span>
+<dd>
+<p class="para">Support method to collect all validation failure messages for all properties and relateds.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._getUpdateData" class="link"><code class="literal">_getUpdateData()</code></a></span>
+<dd>
+<p class="para">Gather values to update into the DB.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._insert" class="link"><code class="literal">_insert()</code></a></span>
+<dd>
+<p class="para">Inserts the current record into the database, making calls to pre- and post-insert logic.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._load" class="link"><code class="literal">_load()</code></a></span>
+<dd>
+<p class="para">Overridable method to load the struct with array data.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._loadAccessMethodsList" class="link"><code class="literal">_loadAccessMethodsList()</code></a></span>
+<dd>
+<p class="para">Loads the access method list for a given class.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._modInsert" class="link"><code class="literal">_modInsert()</code></a></span>
+<dd>
+<p class="para">Modify the current record before it is inserted into the DB.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._modUpdate" class="link"><code class="literal">_modUpdate()</code></a></span>
+<dd>
+<p class="para">Modify the current record before it is updated into the DB.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._postConfig" class="link"><code class="literal">_postConfig()</code></a></span>
+<dd>
+<p class="para">A hook that activates after _buildConfig() in the constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._postConstruct" class="link"><code class="literal">_postConstruct()</code></a></span>
+<dd>
+<p class="para">Post-construction tasks to complete object construction.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._postDelete" class="link"><code class="literal">_postDelete()</code></a></span>
+<dd>
+<p class="para">User-defined post-delete logic.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._postFilter" class="link"><code class="literal">_postFilter()</code></a></span>
+<dd>
+<p class="para">User-defined logic executed after filters are applied to the record data.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._postInsert" class="link"><code class="literal">_postInsert()</code></a></span>
+<dd>
+<p class="para">User-defined post-insert logic.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._postSave" class="link"><code class="literal">_postSave()</code></a></span>
+<dd>
+<p class="para">User-defined post-save logic.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._postSaveRelated" class="link"><code class="literal">_postSaveRelated()</code></a></span>
+<dd>
+<p class="para">User-defined logic to execute after saving related records.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._postUpdate" class="link"><code class="literal">_postUpdate()</code></a></span>
+<dd>
+<p class="para">User-defined post-update logic.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._preConfig" class="link"><code class="literal">_preConfig()</code></a></span>
+<dd>
+<p class="para">A hook that activates before _buildConfig() in the constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._preDelete" class="link"><code class="literal">_preDelete()</code></a></span>
+<dd>
+<p class="para">User-defined pre-delete logic.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._preFilter" class="link"><code class="literal">_preFilter()</code></a></span>
+<dd>
+<p class="para">User-defined logic executed before filters are applied to the record data.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._preInsert" class="link"><code class="literal">_preInsert()</code></a></span>
+<dd>
+<p class="para">User-defined pre-insert logic.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._preSave" class="link"><code class="literal">_preSave()</code></a></span>
+<dd>
+<p class="para">User-defined pre-save logic.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._preSaveRelated" class="link"><code class="literal">_preSaveRelated()</code></a></span>
+<dd>
+<p class="para">User-defined logic to execute before saving related records.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._preUpdate" class="link"><code class="literal">_preUpdate()</code></a></span>
+<dd>
+<p class="para">User-defined pre-update logic.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._save" class="link"><code class="literal">_save()</code></a></span>
+<dd>
+<p class="para">Saves the current record, but only if the record is &quot;dirty&quot;.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._saveRelated" class="link"><code class="literal">_saveRelated()</code></a></span>
+<dd>
+<p class="para">Saves each related record.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._setAccessMethods" class="link"><code class="literal">_setAccessMethods()</code></a></span>
+<dd>
+<p class="para">Sets the access method lists for this instance.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._setIsDirty" class="link"><code class="literal">_setIsDirty()</code></a></span>
+<dd>
+<p class="para">Marks the struct as dirty.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._setSqlStatus" class="link"><code class="literal">_setSqlStatus()</code></a></span>
+<dd>
+<p class="para">Sets the SQL status of this record, resetting dirty/new/invalid as needed.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._toArray" class="link"><code class="literal">_toArray()</code></a></span>
+<dd>
+<p class="para">Support method for toArray().</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record._update" class="link"><code class="literal">_update()</code></a></span>
+<dd>
+<p class="para">Updates the current record at the database, making calls to pre- and post-update logic.</p></dd>
+
+</dt>
+
+
+</dl>
+
+
+</div>
+
+<div>
+<h2>Private</h2>
+
+<p class="para">None.</p>
+
+</div>
+    
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Sql_Model_Record.Properties">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_Sql_Model_Record">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Sql_Model_Record.__construct">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Properties</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Solar_Sql_Model_Record::__construct()</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

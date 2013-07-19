@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:54:40 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">1.3. Make a Vendor Space</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="blog-demo.install">Prev</a> </td>
+          <th width="60%" align="center">Chapter 1. Quick-Start Blog Demo</th>
+          <td width="20%" align="right"> <a accesskey="n" href="blog-demo.config">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="1.3. Make a Vendor Space">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="blog-demo.vendor"></a>1.3. Make a Vendor Space</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        In some other frameworks, you have a separate <code class="filename">app</code>
+        or <code class="filename">lib</code> path where you put your project-specific
+        files.  Solar is library- and namespace-oriented, so you put all
+        your non-Solar PHP files in the same place as the Solar ones, but under
+        a different "vendor" space.  In this demo tutorial, we will call our
+        vendor Acme.
+    </p>
+      <p>
+        At the command line, in the <em class="replaceable"><code>SYSTEM</code></em> directory,
+        issue the <span class="command"><strong>make-vendor</strong></span> command.  You will see output
+        similar to the following:
+            
+            </p>
+      <pre class="screen">$ <strong class="userinput"><code>./script/solar make-vendor Acme</code></strong>
+Making vendor source directories.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/acme/config.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/acme/docs.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/acme/script.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/acme/tests.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/acme/tests/Mock.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/acme/tests/Mock/Acme.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/acme/tests/Test.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/acme/tests/Test/Acme.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Cli/Help.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Cli/Help/Info.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Cli/Help/Locale.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Bread/Locale.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Bread/Public.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Bread/View.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Command/Info.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Command/Locale.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Page/Layout.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Page/Locale.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Page/Public.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Page/View.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Model.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Cli/Help.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Cli/Help/Info/options.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Bread.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Bread/Locale/en_US.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Bread/View/_item.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Bread/View/_list.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Bread/View/add.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Bread/View/browse.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Bread/View/delete.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Bread/View/edit.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Bread/View/read.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Bread/View/search.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Command.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Controller/Page.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Filter.php ... done.
+Making directory <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Sql ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Sql/Model.php ... done.
+Making directory <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Sql/Model ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Sql/Model/Collection.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Sql/Model/Metadata.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Sql/Model/Record.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/acme/config/default.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/acme/config/run-tests.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/Cli/Help/Info/help.txt ... done.
+Making links for vendor 'Acme' ...
+    Making link 'include/Acme' ... done.
+    Making link 'include/Test/Acme' ... done.
+    Making link 'include/Mock/Acme' ... done.
+    Making link 'script/acme' ... done.
+... done.
+Making public symlinks for 'Acme' ...
+    Making public directory docroot/public/Acme/Controller ... done.
+    Making public symlink for Acme_Controller_Bread ... done.
+    Making public symlink for Acme_Controller_Page ... done.
+... done.
+Remember to add 'Acme_App' to the ['Solar_Controller_Front']['classes'] element in your config file so that it finds your apps.
+Remember to add 'Acme_Model' to the ['Solar_Sql_Model_Catalog']['classes'] element in your config file so that it finds your models.
+$</pre>
+      <p>
+    
+    </p>
+      <div class="note" title="Note">
+        <table border="0" summary="Note">
+          <tr>
+            <td rowspan="2" align="center" valign="top" width="25">
+              <img alt="[Note]" src="images/note.png" />
+            </td>
+            <th align="left">Note</th>
+          </tr>
+          <tr>
+            <td align="left" valign="top">
+              <p>
+        What happens here is that Solar creates the
+        <code class="filename">source/acme</code> directory, with some basic
+        <code class="filename">Acme</code> library classes for models and controllers,
+        along with places for you to put view helpers, data filters, public
+        assets, documentation, tests, and so on. Then Solar creates an
+        <code class="filename">include/Acme</code> symlink pointing to that source.
+        This is so that you can have non-library files in the source
+        directory, but the include path will have only library files.
+    </p>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="blog-demo.install">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="blog-demo">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="blog-demo.config">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">1.2. Download and Install Solar </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 1.4. Configure the System</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

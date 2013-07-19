@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:50 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">2.1. Bootstrap and Configuration</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="dispatch-cycle">Prev</a> </td>
+          <th width="60%" align="center">Chapter 2. Dynamic Dispatch Cycle</th>
+          <td width="20%" align="right"> <a accesskey="n" href="dispatch-cycle.front-controller">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="2.1. Bootstrap and Configuration">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="dispatch-cycle.bootstrap-config"></a>2.1. Bootstrap and Configuration</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        When a client makes a request against a Solar system for a resource
+        that isn't in the filesystem, that request gets routed to the bootstrap
+        <code class="filename">index.php</code> script. The standard Solar system
+        bootstrap script is very small, but it does a lot:
+    </p>
+      <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// Solar system directory
+</span><span style="color: #0000BB">$system </span><span style="color: #007700">= </span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">__FILE__</span><span style="color: #007700">));
+
+</span><span style="color: #FF8000">// set the include-path
+</span><span style="color: #0000BB">set_include_path</span><span style="color: #007700">(</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$system</span><span style="color: #DD0000">/include"</span><span style="color: #007700">);
+
+</span><span style="color: #FF8000">// load Solar
+</span><span style="color: #007700">require_once </span><span style="color: #DD0000">'Solar.php'</span><span style="color: #007700">;
+
+</span><span style="color: #FF8000">// start Solar with system config file
+</span><span style="color: #0000BB">$config </span><span style="color: #007700">= </span><span style="color: #DD0000">"</span><span style="color: #0000BB">$system</span><span style="color: #DD0000">/config.php"</span><span style="color: #007700">;
+</span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">start</span><span style="color: #007700">(</span><span style="color: #0000BB">$config</span><span style="color: #007700">);
+
+</span><span style="color: #FF8000">// instantiate and run the front controller
+</span><span style="color: #0000BB">$front </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar_Registry</span><span style="color: #007700">::</span><span style="color: #0000BB">get</span><span style="color: #007700">(</span><span style="color: #DD0000">'controller_front'</span><span style="color: #007700">);
+</span><span style="color: #0000BB">$front</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">display</span><span style="color: #007700">();
+
+</span><span style="color: #FF8000">// Done!
+</span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">stop</span><span style="color: #007700">();</span></span></code></pre>
+      <p>
+        All the heavy lifting for the bootstrap is done by the
+        <code class="literal">Solar::start()</code> method.  This sets up the 
+        Solar system environment for us. Once that is done, it invokes
+        a front controller and tells the front controller to display the
+        result of its activity.
+    </p>
+      <p>
+        We'll talk more about the front controller in a moment. Before we do,
+        let's look at what <code class="literal">Solar::start()</code> does in more
+        depth, and how the configuration file is put together.
+    </p>
+      <div class="sect2" title="2.1.1. The Solar::start() Method">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="dispatch-cycle.bootstrap-config.solar-start"></a>2.1.1. The <code class="literal">Solar::start()</code> Method</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            In order, the <code class="literal">Solar::start()</code> method does these
+            things to set up the environment.
+        </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>
+                Loads the baseline classes needed for operations:
+                <code class="literal"><a class="link" href="http://solarphp.com/class/Solar_Base" target="_top">Solar_Base</a></code>,
+                <code class="literal"><a class="link" href="http://solarphp.com/class/Solar_Class" target="_top">Solar_Class</a></code>,
+                <code class="literal"><a class="link" href="http://solarphp.com/class/Solar_Config" target="_top">Solar_Config</a></code>, and
+                <code class="literal"><a class="link" href="http://solarphp.com/class/Solar_File" target="_top">Solar_File</a></code>.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Registers <code class="literal">Solar_Class::autoload()</code> as an SPL autoloader.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                As a security measure, cleans the superglobal arrays so that
+                variables don't get overwritten by incoming user values.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Calls <code class="literal">Solar_Config::load()</code> to read in
+                configuration values and make them available to classes for
+                self-configuration, and sets some values and configuration
+                for the <code class="literal">Solar</code> arch-class.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Calls <code class="literal">ini_set</code> using the values from the
+                <code class="literal">['Solar']['ini_set']</code> configuration key.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Makes <code class="literal"><a class="link" href="http://solarphp.com/class/Solar_Registry" target="_top">Solar_Registry</a></code>
+                entries for all items from the
+                <code class="literal">['Solar']['registry_set']</code> configuration
+                key.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                If they do not exist already, adds registry entries for the names <code class="literal">inflect</code>,
+                <code class="literal">locale</code>, <code class="literal">request</code>, and <code class="literal">response</code>.
+                These refer to instances of
+                <code class="literal"><a class="link" href="http://solarphp.com/class/Solar_Inflect" target="_top">Solar_Inflect</a></code>,
+                <code class="literal"><a class="link" href="http://solarphp.com/class/Solar_Locale" target="_top">Solar_Locale</a></code>,
+                <code class="literal"><a class="link" href="http://solarphp.com/class/Solar_Request" target="_top">Solar_Request</a></code>, and
+                <code class="literal"><a class="link" href="http://solarphp.com/class/Solar_Http_Response" target="_top">Solar_Http_Response</a></code>,
+                respectively.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Finally, run any "hook" scripts, functions, or methods specified
+                by the <code class="literal">['Solar']['start']</code> configuration key.
+                These let you specify behaviors and logic to be executed at
+                the end of the startup routine.
+            </p>
+            </li>
+          </ul>
+        </div>
+        <div class="note" title="What's A Registry? Isn't That A Lot Of Objects?">
+          <table border="0" summary="Note: What's A Registry? Isn't That A Lot Of Objects?">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">What's A Registry? Isn't That A Lot Of Objects?</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+                The registry is a place to store instances of objects so they can be
+                used by the system as a whole without having to pass them around
+                as parameters to methods.  Registry objects are stored and retrieved
+                using unique names; any object in the registry can be retrieved
+                using <code class="literal"><a class="link" href="http://solarphp.com/class/Solar_Registry::get()" target="_top">Solar_Registry::get()</a></code>.
+            </p>
+                <p>
+                Registry objects are lazy-loaded. That means you can define an
+                object to go into the registry, but it won't be instantiated
+                until you attempt to retrieve it. Thus, the fact that
+                <code class="literal">Solar::start()</code> defines several registry
+                entries incurs very little performance reduction by itself.
+            </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="sect2" title="2.1.2. Configuration">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="dispatch-cycle.bootstrap-config.configuration"></a>2.1.2. Configuration</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            The <code class="literal">Solar::start()</code> method takes one parameter,
+            a string indicating the path to a configuration file. In the
+            standard Solar system, this is the
+            <code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/config.php</code>
+            file.
+        </p>
+        <p>
+            The <code class="filename">config.php</code> file is like any other PHP
+            script. You can use the full range of PHP commands, build in
+            conditionals and loops, use includes, and so on. However,
+            <code class="literal">Solar::start()</code> expects the config file to
+            return an array; this is the configuration array.
+        </p>
+        <p>
+            In Solar, the classes read their own configurations out of this
+            array when they are instantiated, and set themselves up using the
+            values from that array as their defaults. For the classes to be
+            able to pick out their configurations, the config array elements
+            are keyed by class name; the element values are themselves arrays
+            that get passed to the class constructor.
+        </p>
+        <div class="note" title="Note">
+          <table border="0" summary="Note">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">Note</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+                There are nuances and extensions to the configuration
+                behaviors described here; for more information, consult the
+                API docs for the
+                <a class="link" href="http://solarphp.com/class/Solar::start()" target="_top">Solar::start()</a>
+                method and the
+                <a class="link" href="http://solarphp.com/class/Solar_Config" target="_top">Solar_Config</a>
+                class.
+            </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="dispatch-cycle">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="dispatch-cycle">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="dispatch-cycle.front-controller">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">Chapter 2. Dynamic Dispatch Cycle </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 2.2. Front Controller</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

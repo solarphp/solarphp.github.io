@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:57:06 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Sql_Adapter_Sqlite2</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Solar_Sql_Adapter_Sqlite2</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Sql_Adapter_Sqlite.update">Prev</a></td>
+                <th width="60%" align="center">Classes</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Sql_Adapter_Sqlite2.Overview">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Sql_Adapter_Sqlite2" class="chapter">
+
+<h1>Solar_Sql_Adapter_Sqlite2</h1><p><b>Table of Contents</b></p><ul class="chunklist chunklist_title">
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.Overview">Overview</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.Config">Configuration</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.Constants">Constants</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.Properties">Properties</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.Methods">Methods</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.__construct">Solar_Sql_Adapter_Sqlite2::__construct()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.__destruct">Solar_Sql_Adapter_Sqlite2::__destruct()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._addProfile">Solar_Sql_Adapter_Sqlite2::_addProfile()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._bind">Solar_Sql_Adapter_Sqlite2::_bind()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._buildConfig">Solar_Sql_Adapter_Sqlite2::_buildConfig()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._buildDsn">Solar_Sql_Adapter_Sqlite2::_buildDsn()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._checkIdentifier">Solar_Sql_Adapter_Sqlite2::_checkIdentifier()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._checkIdentifierColumn">Solar_Sql_Adapter_Sqlite2::_checkIdentifierColumn()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._checkIdentifierPart">Solar_Sql_Adapter_Sqlite2::_checkIdentifierPart()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._createSequence">Solar_Sql_Adapter_Sqlite2::_createSequence()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._dropIndex">Solar_Sql_Adapter_Sqlite2::_dropIndex()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._dropSequence">Solar_Sql_Adapter_Sqlite2::_dropSequence()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._exception">Solar_Sql_Adapter_Sqlite2::_exception()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._fetchIndexInfo">Solar_Sql_Adapter_Sqlite2::_fetchIndexInfo()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._fetchTableCols">Solar_Sql_Adapter_Sqlite2::_fetchTableCols()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._fetchTableList">Solar_Sql_Adapter_Sqlite2::_fetchTableList()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._getCacheKey">Solar_Sql_Adapter_Sqlite2::_getCacheKey()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._getTypeSizeScope">Solar_Sql_Adapter_Sqlite2::_getTypeSizeScope()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._modAutoincPrimary">Solar_Sql_Adapter_Sqlite2::_modAutoincPrimary()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._modIndexName">Solar_Sql_Adapter_Sqlite2::_modIndexName()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._modSelect">Solar_Sql_Adapter_Sqlite2::_modSelect()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._modSequenceName">Solar_Sql_Adapter_Sqlite2::_modSequenceName()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._nextSequence">Solar_Sql_Adapter_Sqlite2::_nextSequence()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._postConfig">Solar_Sql_Adapter_Sqlite2::_postConfig()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._postConnect">Solar_Sql_Adapter_Sqlite2::_postConnect()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._postConstruct">Solar_Sql_Adapter_Sqlite2::_postConstruct()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._preConfig">Solar_Sql_Adapter_Sqlite2::_preConfig()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._prepare">Solar_Sql_Adapter_Sqlite2::_prepare()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._quoteName">Solar_Sql_Adapter_Sqlite2::_quoteName()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._quoteNamesIn">Solar_Sql_Adapter_Sqlite2::_quoteNamesIn()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._select">Solar_Sql_Adapter_Sqlite2::_select()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._selectCompound">Solar_Sql_Adapter_Sqlite2::_selectCompound()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._selectSingle">Solar_Sql_Adapter_Sqlite2::_selectSingle()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._selectSingleFrom">Solar_Sql_Adapter_Sqlite2::_selectSingleFrom()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._setDsn">Solar_Sql_Adapter_Sqlite2::_setDsn()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._setup">Solar_Sql_Adapter_Sqlite2::_setup()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._splitSchemaIdent">Solar_Sql_Adapter_Sqlite2::_splitSchemaIdent()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._sqlColdef">Solar_Sql_Adapter_Sqlite2::_sqlColdef()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2._sqlCreateTable">Solar_Sql_Adapter_Sqlite2::_sqlCreateTable()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.addColumn">Solar_Sql_Adapter_Sqlite2::addColumn()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.begin">Solar_Sql_Adapter_Sqlite2::begin()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.commit">Solar_Sql_Adapter_Sqlite2::commit()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.connect">Solar_Sql_Adapter_Sqlite2::connect()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.createIndex">Solar_Sql_Adapter_Sqlite2::createIndex()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.createSequence">Solar_Sql_Adapter_Sqlite2::createSequence()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.createTable">Solar_Sql_Adapter_Sqlite2::createTable()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.delete">Solar_Sql_Adapter_Sqlite2::delete()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.disconnect">Solar_Sql_Adapter_Sqlite2::disconnect()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.dropColumn">Solar_Sql_Adapter_Sqlite2::dropColumn()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.dropIndex">Solar_Sql_Adapter_Sqlite2::dropIndex()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.dropSequence">Solar_Sql_Adapter_Sqlite2::dropSequence()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.dropTable">Solar_Sql_Adapter_Sqlite2::dropTable()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.dump">Solar_Sql_Adapter_Sqlite2::dump()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.fetchAll">Solar_Sql_Adapter_Sqlite2::fetchAll()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.fetchAssoc">Solar_Sql_Adapter_Sqlite2::fetchAssoc()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.fetchCol">Solar_Sql_Adapter_Sqlite2::fetchCol()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.fetchIndexInfo">Solar_Sql_Adapter_Sqlite2::fetchIndexInfo()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.fetchOne">Solar_Sql_Adapter_Sqlite2::fetchOne()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.fetchPairs">Solar_Sql_Adapter_Sqlite2::fetchPairs()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.fetchPdo">Solar_Sql_Adapter_Sqlite2::fetchPdo()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.fetchSql">Solar_Sql_Adapter_Sqlite2::fetchSql()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.fetchTableCols">Solar_Sql_Adapter_Sqlite2::fetchTableCols()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.fetchTableList">Solar_Sql_Adapter_Sqlite2::fetchTableList()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.fetchValue">Solar_Sql_Adapter_Sqlite2::fetchValue()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.getCache">Solar_Sql_Adapter_Sqlite2::getCache()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.getCacheKeyPrefix">Solar_Sql_Adapter_Sqlite2::getCacheKeyPrefix()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.getPdo">Solar_Sql_Adapter_Sqlite2::getPdo()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.getProfile">Solar_Sql_Adapter_Sqlite2::getProfile()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.insert">Solar_Sql_Adapter_Sqlite2::insert()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.lastInsertId">Solar_Sql_Adapter_Sqlite2::lastInsertId()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.locale">Solar_Sql_Adapter_Sqlite2::locale()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.nextSequence">Solar_Sql_Adapter_Sqlite2::nextSequence()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.query">Solar_Sql_Adapter_Sqlite2::query()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.quote">Solar_Sql_Adapter_Sqlite2::quote()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.quoteInto">Solar_Sql_Adapter_Sqlite2::quoteInto()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.quoteMulti">Solar_Sql_Adapter_Sqlite2::quoteMulti()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.quoteName">Solar_Sql_Adapter_Sqlite2::quoteName()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.quoteNamesIn">Solar_Sql_Adapter_Sqlite2::quoteNamesIn()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.rollback">Solar_Sql_Adapter_Sqlite2::rollback()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.setCache">Solar_Sql_Adapter_Sqlite2::setCache()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.setCacheKeyPrefix">Solar_Sql_Adapter_Sqlite2::setCacheKeyPrefix()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.setProfiling">Solar_Sql_Adapter_Sqlite2::setProfiling()</a></li>
+<li><a href="class.Solar_Sql_Adapter_Sqlite2.update">Solar_Sql_Adapter_Sqlite2::update()</a></li>
+</ul>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Sql_Adapter_Sqlite.update">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Sql_Adapter_Sqlite2.Overview">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_Sql_Adapter_Sqlite::update()</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Overview</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

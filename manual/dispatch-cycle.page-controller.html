@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:50 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">2.4. Page Controller</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="dispatch-cycle.rewrite-rules">Prev</a> </td>
+          <th width="60%" align="center">Chapter 2. Dynamic Dispatch Cycle</th>
+          <td width="20%" align="right"> <a accesskey="n" href="model">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="2.4. Page Controller">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="dispatch-cycle.page-controller"></a>2.4. Page Controller</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        At this point, the front controller has instantiated a page controller
+        and called the <code class="literal">fetch()</code> method on it. The
+        page controller now looks at the remainder of the URI, sets itself up,
+        performs some action based on that URI, and then renders the results
+        of that action into a response object. It returns that response object
+        back to the front controller when done.
+    </p>
+      <p>
+        
+        The page controller is the most complex part of the dispatch process,
+        and has three distinct phases of operation:
+        
+        </p>
+      <div class="itemizedlist">
+        <ul class="itemizedlist" type="disc">
+          <li class="listitem">
+            <p>Setup and loading,</p>
+          </li>
+          <li class="listitem">
+            <p>running the action, and</p>
+          </li>
+          <li class="listitem">
+            <p>rendering the results.</p>
+          </li>
+        </ul>
+      </div>
+      <p>
+        
+    </p>
+      <div class="sect2" title="2.4.1. Setup and Loading">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="dispatch-cycle.page-controller.setup-loading"></a>2.4.1. Setup and Loading</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            The <code class="literal">__construct()</code> method calls a
+            <code class="literal">_setup()</code> method as its last command; you can
+            place customized setup code there. This setup code will be
+            executed before loading the page controller with information from
+            the URI.
+        </p>
+        <p>
+            When the front controller calls the <code class="literal">fetch()</code>
+            method on the page controller, it passes the remainder of the
+            request URI. (The front controller will have stripped off the
+            first path-info element, since it has been used already to
+            determine which page controller to instantiate.)  The first
+            thing the <code class="literal">fetch()</code> method does is to load up
+            the properties of the page controller object based on the
+            URI.
+        </p>
+        <div class="variablelist">
+          <dl>
+            <dt>
+              <span class="term">
+                <code class="literal">$_controller</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    This is the name of the page controller as taken from the
+                    URI; is set by the front controller when the page 
+                    controller is instantiated. For example, the
+                    URI path <code class="literal">/blog/read/123/foo</code> would result in
+                    <code class="literal">$_controller = 'blog'</code> in a page controller
+                    class of <code class="literal">Vendor_App_Blog</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">$_action</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The first remaining element in the URI after the
+                    front controller has stripped off the page controller
+                    name. For example, the URI path
+                    <code class="literal">/blog/read/123/foo</code> would result in
+                    <code class="literal">$_action = 'read'</code>. This translates into
+                    the page controller calling the
+                    <code class="literal">actionRead()</code> method.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">$_info</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    This is an array of the remaining path-info elements after
+                    the action. For example, the URI path
+                    <code class="literal">/blog/read/123/foo</code> would result in
+                    <code class="literal">$_info = array('123', 'foo')</code>. These will
+                    be passed to the action method as parameters via <a class="link" href="http://php.net/call_user_func_array" target="_top">call_user_func_array()</a>,
+                    so you don't need to access them directly.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">$_format</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        This is the value of the format extension on the last
+                        path-info element of the URI, but only if that format
+                        will be recognized by the action method. If the format
+                        is not recognized, it will be appended to the last
+                        $_info element instead. (You can tell a method to
+                        recognize a particular format extension using the
+                        <code class="literal">$_action_format</code>) array, where the
+                        key is the action name and the value is an array of
+                        recognized format extensions).
+                    </p>
+              <p>
+                        For example, take a URI of
+                        <code class="literal">/blog/read/123/foo.rss</code>. If
+                        <code class="literal">$_action_format['read'] = array('rss')</code>,
+                        that means the
+                        <code class="literal">actionRead()</code> method should
+                        recognize the <code class="literal">rss</code> request, and so
+                        you will get <code class="literal">$_format = 'rss'</code>. But,
+                        if <code class="literal">$_action_format</code> does not have
+                        that entry, <code class="literal">$_format</code> will be empty,
+                        and the <code class="literal">actionRead()</code> will be passed
+                        parameters of <code class="literal">('123', 'foo.rss')</code>
+                        instead of just <code class="literal">('123', 'foo')</code>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">$_layout</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    This specifies what layout template name to use in the 2-step
+                    view process.  When <code class="literal">$_format</code> is non-empty,
+                    <code class="literal">$_layout</code> will be set to null automatically.
+                    This is to indicate that a non-standard format is being
+                    requested, such as XML or RSS; the views for these non-standard
+                    requests generally do not need a layout wrapped around them.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">$_query</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    This is an array of the query terms and values from the
+                    incoming URI. For example, the query string
+                    <code class="literal">?foo=bar&amp;baz=dib</code>
+                    would become
+                    <code class="literal">$_query = array('foo' =&gt; 'bar', 'baz' =&gt; 'dib')</code>.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="sect2" title="2.4.2. Running the Action">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="dispatch-cycle.page-controller.action"></a>2.4.2. Running the Action</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            Here is a brief outline of what occurs when running the requested action:
+        </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>
+                The <code class="literal">_preRun()</code> method is invoked, which
+                may change the properties as loaded by the above setup
+                logic.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                The <code class="literal">_preAction()</code> hook runs. (In the
+                next step, the action method might
+                <code class="literal">_forward()</code> to other actions, so this
+                hook will execute each time forwarding occurs.)
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                The action method itself runs, using
+                <code class="literal">$_action</code> to determine which method that
+                should be, and using the parameters from the URI as stored
+                in <code class="literal">$_info</code>. (This is where the center of
+                the logic for the action is written by the developer.) For example,
+                given a URI of "/blog/read/123/foo", the system will
+                end up calling <code class="literal">Vendor_App_Blog::actionRead('123', 'foo')</code>.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                The <code class="literal">_postAction()</code> hook runs. (In the
+                previous step, the action method might have called
+                <code class="literal">_forward()</code> to other actions, so this
+                hook will execute each time forwarding occurs.)
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Finally, the <code class="literal">_postRun()</code> method is
+                invoked, which may change the results of the properties as
+                manipulated by the action(s).
+            </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="sect2" title="2.4.3. Rendering the Results">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="dispatch-cycle.page-controller.render"></a>2.4.3. Rendering the Results</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            Here is a brief outline of what occurs when rendering the results
+            of the requested action:
+        </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>
+                The <code class="literal">_setViewObject()</code> method sets up a <a class="link" href="http://solarphp.com/class/Solar_View" target="_top">Solar_View</a>
+                object for the rendering process. In doing so, it adds the
+                template path stack for views and a stack of class prefixes
+                for view helpers. It also injects some special variables into
+                the view, to wit: <code class="literal">$controller_class</code>,
+                <code class="literal">$controller</code>, <code class="literal">$action</code>,
+                <code class="literal">$layout</code>, <code class="literal">$format</code>, and
+                <code class="literal">$errors</code>.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                After the view object is set up, the rendering process calls
+                the <code class="literal">_preRender</code> method so you can modify
+                the view object or the page controller properties before
+                rendering occurs.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                The page controller assigns all of its own public properties
+                to the view object, so they are available within the template.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                If a view template name has been set in the
+                <code class="literal">$_view</code> property, the page controller calls
+                <code class="literal">fetch()</code> on the view object using that
+                template name. This processes
+                the template and returns its output. The output is captured
+                into the page controller's
+                <code class="literal">$_response-&gt;content</code> property. (This is
+                the first step of the two-step view process.)
+                </p>
+              <div class="note" title="Note">
+                <table border="0" summary="Note">
+                  <tr>
+                    <td rowspan="2" align="center" valign="top" width="25">
+                      <img alt="[Note]" src="images/note.png" />
+                    </td>
+                    <th align="left">Note</th>
+                  </tr>
+                  <tr>
+                    <td align="left" valign="top">
+                      <p>
+                        By default, the value of <code class="literal">$_view</code> will be
+                        the same as the action method; e.g., if the action method
+                        is "actionFooBar", then <code class="literal">$_view</code> will be
+                        "fooBar".  This means the template script should be named
+                        <code class="filename">fooBar.php</code>.
+                    </p>
+                      <p>
+                        If a recognized format has been specified, the format
+                        extension comes before the <code class="literal">.php</code>
+                        part. For example, if
+                        <code class="literal">$_format = 'rss'</code>, the render
+                        process will look for a template called
+                        <code class="filename">fooBar.rss.php</code>. This means you
+                        can use the same action method to build a response for
+                        many different views of the same data.
+                    </p>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <p>
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                After the view (if any) has been rendered, and if a layout
+                template name has been set in the <code class="literal">$_layout</code>
+                property, the page controller will re-use the view object
+                (with all its variables and helpers) to render the layout. It
+                does so by setting the template path stack to use the layout
+                templates, and injecting the existing
+                <code class="literal">$_response-&gt;content</code> into the proper
+                location in the layout. The result then replaces the existing
+                <code class="literal">$_response-&gt;content</code>, thus accomplishing
+                the second step of the two-step view process.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                The render process now sets the content type of the
+                <code class="literal">$_response</code> object based on the value of
+                <code class="literal">$_format</code> and the mappings of the
+                <code class="literal">$_format_type</code> array.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Finally, the rendering process calls the
+                <code class="literal">_postRender()</code> method, so that the contents
+                of the <code class="literal">$_response</code> object can be manipulated
+                as needed by the developer.
+            </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="sect2" title="2.4.4. Returning the Response">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="dispatch-cycle.page-controller.return"></a>2.4.4. Returning the Response</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            The page controller portion of the dispatch cycle is now complete.
+            It returns the <code class="literal">$_response</code> object to the front
+            controller, which returns it to the bootstrap script, which sends
+            it the client by <span class="command"><strong>echo</strong></span>ing it.
+        </p>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="dispatch-cycle.rewrite-rules">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="dispatch-cycle">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="model">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">2.3. Rewrite Rules </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> Chapter 3. Working With Models</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

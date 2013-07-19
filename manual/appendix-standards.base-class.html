@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:56:05 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">A.3. Base Class</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="appendix-standards.style">Prev</a> </td>
+          <th width="60%" align="center">Appendix A. Project Standards</th>
+          <td width="20%" align="right"> <a accesskey="n" href="appendix-standards.constructor">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="A.3. Base Class">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="appendix-standards.base-class"></a>A.3. Base Class</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        The <a class="link" href="http://solarphp.com/class/Solar_Base" target="_top">Solar_Base</a>
+        class is a lightweight base class from which all other Solar classes
+        descend (not including exceptions, which descend from the <a class="link" href="http://solarphp.com/class/Solar_Exception" target="_top">Solar_Exception</a>
+        class). This base class provides ...
+    </p>
+      <div class="itemizedlist">
+        <ul class="itemizedlist" type="disc">
+          <li class="listitem">
+            <p>
+            A standard <a class="link" href="http://solarphp.com/class/Solar_Base/__construct()" target="_top">__construct()</a>
+            method that reads from the config file, then combines the
+            instantiation-time <a class="link" href="appendix-standards.constructor" title="A.4. Universal Constructor"> constructor
+            parameters</a> with the default config values for the class.
+        </p>
+          </li>
+          <li class="listitem">
+            <p>
+            A <a class="link" href="http://solarphp.com/class/Solar_Base/$_config" target="_top">$_config</a>
+            property to collect configuration values for the class and its
+            parents.
+        </p>
+          </li>
+          <li class="listitem">
+            <p>
+            An <a class="link" href="http://solarphp.com/class/Solar_Base/_exception()" target="_top">_exception()</a>
+            method for finding and returning exceptions with localized message
+            text.
+        </p>
+          </li>
+          <li class="listitem">
+            <p>
+            A <a class="link" href="http://solarphp.com/class/Solar_Base/locale()" target="_top">locale()</a>
+            method for finding and returning localized text strings.
+        </p>
+          </li>
+        </ul>
+      </div>
+      <div class="sect2" title="A.3.1. Extending the Base Class">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="appendix-standards.base-class.extending"></a>A.3.1. Extending the Base Class</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            When you extend from the Solar_Base class, make sure the only
+            constructor parameter is <code class="literal">$config = null</code> (this
+            is how it receives instantiation-time configuration values) and
+            that it calls the parent constructor at some point (with the
+            $config parameter passed up the chain).
+        </p>
+        <p>For example:</p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #007700">class </span><span style="color: #0000BB">Solar_Example </span><span style="color: #007700">extends </span><span style="color: #0000BB">Solar_Base </span><span style="color: #007700">{
+
+    </span><span style="color: #FF8000">// default config values
+    </span><span style="color: #007700">protected </span><span style="color: #0000BB">$_Solar_Example </span><span style="color: #007700">= array(
+        </span><span style="color: #DD0000">'opt_1' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'foo'</span><span style="color: #007700">,
+        </span><span style="color: #DD0000">'opt_2' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'bar'</span><span style="color: #007700">,
+        </span><span style="color: #DD0000">'opt_3' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'baz'
+    </span><span style="color: #007700">);
+    
+    </span><span style="color: #FF8000">// constructor
+    </span><span style="color: #007700">public function </span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">$config </span><span style="color: #007700">= </span><span style="color: #0000BB">null</span><span style="color: #007700">)
+    {
+        </span><span style="color: #FF8000">// pre-parent setup code
+        // ...
+
+        // parent construction
+        </span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">$config</span><span style="color: #007700">);
+
+        </span><span style="color: #FF8000">// post-parent setup
+        // ...
+    </span><span style="color: #007700">}
+}</span></span></code></pre>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="appendix-standards.style">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="appendix-standards">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="appendix-standards.constructor">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">A.2. Style Guide </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> A.4. Universal Constructor</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

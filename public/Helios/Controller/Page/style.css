@@ -1,0 +1,432 @@
+/* TYPOGRAPHY OVERRIDES */
+	a,
+	a:link 
+	a:active {
+		color: blue;
+		background-color: transparent;
+		text-decoration: underline;
+	}
+	a:visited {
+		color: purple;
+		background-color: transparent;
+	}
+	a:hover {
+        color: white;
+        background-color: transparent;
+		text-decoration: transparent;
+	}
+    
+	pre {
+        font-family: "Courier New", Courier, monospace;
+		font-size: 12px;
+		line-height: 18px;
+		margin: 12px;
+		padding: 12px;
+		background-color: #eeeeee;
+		border: 1px solid #660000;
+		overflow: auto;
+        font-weight: bold;
+	}
+	
+    code {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 12px;
+        white-space: pre;
+        font-weight: bold;
+		background-color: #eeeeee;
+    }
+
+/* SITE SPECIFIC LAYOUT */
+
+    body {
+        margin: 0;
+        padding: 0;
+        background: #640203 url(/public/Helios/Controller/Page/images/back_grade.jpg) repeat-x;
+        text-align: center;
+    }
+    
+    div#page {
+        width: 968px;
+        
+        margin:  0 auto;
+        padding: 0 0 10px;
+        
+        text-align: left;
+        position: relative;
+        background: #833535 url(/public/Helios/Controller/Page/images/edge_grade.jpg) repeat-x;
+    }
+    
+    /* HEADER */
+        div#header {
+            width: 948px;
+            margin: 0 10px 0 10px;
+            /*padding: 40px 20px;*/
+            
+            color: white;
+            
+            text-align: left;
+            
+        	background: #000 url(/public/Helios/Controller/Page/images/solar_header_fade.jpg) no-repeat;
+        	height: 200px;
+        	border-bottom: 1px solid white;
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+        }
+        
+        div#branding {
+            float: left;
+            width: 40%;
+            
+            margin: 0;
+            padding: 10px 0 10px 20px;
+            
+            text-align: left;
+        }
+        
+        div#search {
+            float: right;
+            width: 49%;
+            
+            margin: 0;
+            padding: 16px 20px 0 0;
+            
+            text-align: right;
+        }
+        
+    /* END HEADER */
+    
+    
+    /* CONTENT */
+        div#content {
+            width: 948px;
+            background-color: #fff;
+            margin: 0 10px 0 10px;
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+        }
+        
+        /* MAIN */
+            div#main {
+                padding-top: 48px;
+                padding-left: 48px;
+                padding-right: 24px;
+                width: 664px;
+                background-color: white;
+                border-top: 1px solid white;
+            }
+            
+            div#main h1 {
+                color: #d88301;
+                border-bottom: 1px solid #ccc;
+                margin-left: -24px;
+            }
+            
+            div#main h2 {
+                color: #003663;           
+            }
+            
+            div#main a,
+            div#main a:link,
+            div#main a:active,
+            div#main a:visited {
+                color: #440000;
+                text-decoration: none;
+                border-bottom: 1px solid #440000;
+            }
+            
+            div#main a:hover {
+                border-bottom: 1px dotted #440000;
+            }
+            
+        /* END MAIN */
+        
+        /* LOCAL */
+            div#local * {
+                margin: 0;
+                padding: 0;
+                border: 0;
+            }
+            
+            div#local {
+                padding-top: 40px;
+                width: 212px;
+                background-color: #f1ece7;
+            }
+            
+            div#local ul {
+                border-top: 1px solid white;
+            }
+            
+            div#local li {
+                list-style: none;
+                clear: both;
+            }
+            
+            div#local a,
+            div#local a:link,
+            div#local a:active,
+            div#local a:visited {
+                background-color: #f1ece7;
+                color: #660000;
+                font-size: 12px;
+                font-weight: bold;
+                padding: 6px;
+                vertical-align: middle;
+                float: left;
+                border-top: 0;
+                border-bottom: 1px solid white;
+                width: 200px;
+                text-decoration: none;
+            }
+
+            div#local a:hover {
+                text-decoration: underline;
+            }
+
+            div#local li.active a,
+            div#local li.active a:link,
+            div#local li.active a:active,
+            div#local li.active a:visited,
+            div#local li.active a:hover {
+                background: #640203 url(/public/Helios/Controller/Page/images/local_link_grade.jpg) repeat-x;
+                color: #fddd9a;
+            }
+
+        /* NAV */
+            div#nav {
+                top: 0;
+                width: 948px;
+                height: 42px;
+                border: none;
+                padding: 0 0 0 0;
+                margin: 0 0 0 0;
+                display: block;
+                background: #640203 url(/public/Helios/Controller/Page/images/topnav_grade_off.png) repeat-x;
+            }
+            
+            div#nav ul {
+                border: none;
+            }
+            
+            div#nav ul li {
+                /*border: 1px solid green;*/
+                /*padding: 16px;*/
+                margin: 0 0 0 0;
+                border-right: none;                            
+            }
+
+            div#nav ul li.active {
+                background: #640203 url(/public/Helios/Controller/Page/images/topnav_grade_on.png) repeat-x;
+            }
+            
+            div#nav a,
+            div#nav a:link,
+            div#nav a:active,
+            div#nav a:visited {
+                
+                font-family: "Lucida Sans", Tahoma, Helvetica;
+                color: #fddd9a;
+                font-size: 12px;
+                border: none;
+                background: none;
+                padding: 16px 24px;
+                text-decoration: none;            
+            }
+            
+            div#nav a:hover {
+                text-decoration: underline;
+            }
+            
+            div#nav ul li.active a,
+            div#nav ul li.active a:link,
+            div#nav ul li.active a:active,
+            div#nav ul li.active a:visited {
+                text-decoration: none;
+            }
+
+            div#nav ul li.active a:hover {
+                text-decoration: underline;
+            }
+            
+        /* SUB */
+            div#sub {
+                
+            }
+        /* END SUB */
+        
+    /* END CONTENT */
+    
+    
+    /* FOOTER */
+        div#footer {
+            width: 948px;
+            margin: 0 10px 0 10px;
+            border: 1px solid white;
+            color: #ccc;
+            background: #000 url(/public/Helios/Controller/Page/images/footer_grade.png) repeat-x;
+        }
+        
+        div#footer p {
+            font-size: 0.8em;
+            
+            margin: 0;
+            padding: 15px;
+        }
+        
+        div#footer a {
+            color: white;
+        }
+    /* END FOOTER */
+/* END LAYOUT */
+
+/* UL.SUBNAV */
+    ul.subnav {
+        margin: 0;
+        padding: 0;
+        
+        font-size: 0.8em;
+        list-style: none;
+    }
+    ul.subnav li {
+        margin: 0 0 1em 0;
+        padding: 0;
+        list-style: none;
+    }
+    ul.subnav li a,
+    ul.subnav li a:link,
+    ul.subnav li a:visited,
+    ul.subnav li a:active {
+        text-decoration: none;
+        font-weight: bold;
+        color: black;
+    }
+    ul.subnav li a:hover {
+        text-decoration: underline;
+    }
+    ul.subnav li strong {
+        padding: 0 0 0 12px;
+        background: url("../i/subnav-highlight.gif") left top no-repeat transparent;
+    }
+    ul.subnav li strong a,
+    ul.subnav li strong a:link,
+    ul.subnav li strong a:visited,
+    ul.subnav li strong a:active {
+        color: white;
+        background-color: black;
+    }
+/* END UL.SUBNAV */
+
+/**
+ * Highlights
+ */
+div#highlights table td.download p.download-button a {
+    text-decoration: none;
+    border: none;
+}
+
+div#highlights table td.download p.download-button {
+    margin-bottom: 0;
+    margin-top: 16px;
+    text-align: center;
+}
+
+div#highlights table td.download p.download-version {
+    font-size: 12px;
+    text-align: center;
+    color: #8a7a6a;
+}
+
+div#highlights * {
+    margin: 0;
+    padding: 0;
+    border: none;
+    color: #8a7a6a;
+}
+
+div#highlights {
+    clear: both;
+    background-color: white;
+}
+
+div#highlights h2 {
+    font-size: 24px;
+    font-weight: normal;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+div#highlights p,
+div#highlights li {
+    font-size: 14px;
+    margin-bottom: 8px;
+    line-height: 1.2em;
+}
+
+div#highlights ul {
+    margin-left: 24px;
+}
+
+div#highlights table {
+	border: 1px solid white;
+	border-collapse: collapse;
+	margin-top: 36px;
+	margin-bottom: 6px;
+}
+
+div#highlights table td {
+    background: #f1ece8 url(/public/Helios/Controller/Page/images/promobox_off.jpg) repeat-x;
+	padding: 18px;
+
+	border-left: 1px solid #fff;
+	border-right: 1px solid #fff;
+	width: 25%;
+	vertical-align: top;
+	font-family: "Trebuchet MS", Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+div#highlights table td.first {
+    border-right: none;
+}
+
+div#highlights table td.download {
+    background: #e3ded8 url(/public/Helios/Controller/Page/images/promobox_on.jpg) repeat-x;
+    border: 1px solid #d1c8be;
+}
+
+/* METHOD SYNOPIS */
+div.method-synopsis	{
+    border: 1px solid #cccccc;
+    margin: 12px 0px;
+    padding: 4px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+/**
+ * Manual listing tweaks
+ */
+    body#manual-page div#main div#chapter-toc ol {
+        margin-top: 6px;
+        list-style-type: upper-roman;
+    }
+
+    body#manual-page div#main div#chapter-toc ol ol {
+        margin-top: 6px;
+        list-style-type: decimal;
+    }
+
+
+/**
+ * Authentication form
+ */
+div#auth {
+    font-size: 80%;
+    float: right;
+    margin-top: -16px;
+    margin-right: 6px;
+    display: inline;
+    clear: none;
+    font-weight: normal;
+    text-align: right;
+}

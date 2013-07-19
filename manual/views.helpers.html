@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:55 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">5.5. View Helpers</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="views.formats">Prev</a> </td>
+          <th width="60%" align="center">Chapter 5. Views and Layouts</th>
+          <td width="20%" align="right"> <a accesskey="n" href="views.layouts">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="5.5. View Helpers">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="views.helpers"></a>5.5. View Helpers</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+		There are many view helpers available in Solar. This chapter and
+		chapter one introduced you to a few of them, such as
+		<code class="literal">Solar_View_Helper_Head</code>, <code class="literal">Solar_View_Helper_GetText</code>,
+		<code class="literal">Solar_View_Helper_GetTextRaw</code>, <code class="literal">Solar_View_Helper_Escape</code>, and
+		<code class="literal">Solar_View_Helper_Action</code>. The best place to learn about each helper
+		available to Solar is the API documentation:
+		<a class="link" href="http://solarphp.com/package/Solar_View_Helper" target="_top">http://solarphp.com/package/Solar_View_Helper</a>.
+	</p>
+      <div class="note" title="Note">
+        <table border="0" summary="Note">
+          <tr>
+            <td rowspan="2" align="center" valign="top" width="25">
+              <img alt="[Note]" src="images/note.png" />
+            </td>
+            <th align="left">Note</th>
+          </tr>
+          <tr>
+            <td align="left" valign="top">
+              <p>
+			One of the most important view helpers you should use
+			extensively is <code class="literal">Solar_View_Helper_Escape</code>.
+		</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <p>
+		Additionally, Solar makes it easy to write your own helpers.
+		Let's write our own helper that formats a 10 digit number into a standard formatted phone
+		number. We want to go from <code class="literal">1235551212</code> to <code class="literal">(123) 555-1212</code>.
+	</p>
+      <p>
+		First, we need a location for our new helper. By default, Solar
+		expects to find view helpers in two places:
+	</p>
+      <div class="orderedlist">
+        <ol class="orderedlist" type="1">
+          <li class="listitem">
+            <p><code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/View/Helper</code> (because our vendor name is Acme)</p>
+          </li>
+          <li class="listitem">
+            <p>
+              <code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/source/solar/Solar/View/Helper</code>
+            </p>
+          </li>
+        </ol>
+      </div>
+      <p>
+		Additionally, you can add locations to the class stack where
+		Solar looks for helpers by editing the config file. For example, adding the
+		following to <code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/config.php</code>
+	</p>
+      <pre class="programlisting"><code><span style="color: #000000">$config['Solar_View']['helper_class'] = array('Acme_App_Helper');</span></code></pre>
+      <p>would change the class stack to this:</p>
+      <p>
+		</p>
+      <div class="orderedlist">
+        <ol class="orderedlist" type="1">
+          <li class="listitem">
+            <p>Acme_View_Helper</p>
+          </li>
+          <li class="listitem">
+            <p>Acme_App_Helper</p>
+          </li>
+          <li class="listitem">
+            <p>Solar_View_Helper</p>
+          </li>
+        </ol>
+      </div>
+      <p>
+		For simplicity sake, we will use the default Acme_View_Helper.
+	</p>
+      <p>
+		Create a new folder called <code class="filename">View</code> in the 
+		<code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme</code> folder.
+	</p>
+      <pre class="screen">$ <strong class="userinput"><code>cd <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme</code></strong>
+$ <strong class="userinput"><code>mkdir View</code></strong></pre>
+      <p>
+        Create another folder called <code class="filename">Helper</code> in the 
+        <code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/View</code> folder.
+	</p>
+      <pre class="screen">$ <strong class="userinput"><code>mkdir Helper</code></strong></pre>
+      <p>Change to the <code class="filename">Helper</code> directory and create a file called <code class="filename">Phone.php</code>.</p>
+      <pre class="screen">$ <strong class="userinput"><code>cd Helper</code></strong>
+$ <strong class="userinput"><code>vim Phone.php</code></strong></pre>
+      <p>Add the following code the the <code class="filename">Phone.php</code> file and save.</p>
+      <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">/**
+ * View helper to take a 10 digit number and 
+ * convert to (###) ###-####
+ *
+ */
+</span><span style="color: #007700">class </span><span style="color: #0000BB">Acme_View_Helper_Phone </span><span style="color: #007700">extends </span><span style="color: #0000BB">Solar_View_Helper </span><span style="color: #007700">{
+    
+    </span><span style="color: #FF8000">/**
+    * Returns a formatted phone number.
+    * @param string|int $number Unformatted number
+    * @return string The formatted number
+    */
+    </span><span style="color: #007700">public function </span><span style="color: #0000BB">phone</span><span style="color: #007700">(</span><span style="color: #0000BB">$number</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)
+    {
+        if (! </span><span style="color: #0000BB">$number</span><span style="color: #007700">) {
+            return;
+        }
+        </span><span style="color: #FF8000">// Add your own validation logic here
+        
+        </span><span style="color: #0000BB">$code </span><span style="color: #007700">= </span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$number</span><span style="color: #007700">, </span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">3</span><span style="color: #007700">);
+        </span><span style="color: #0000BB">$prefix </span><span style="color: #007700">= </span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$number</span><span style="color: #007700">, </span><span style="color: #0000BB">3</span><span style="color: #007700">, </span><span style="color: #0000BB">3</span><span style="color: #007700">);
+        </span><span style="color: #0000BB">$line </span><span style="color: #007700">= </span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$number</span><span style="color: #007700">, </span><span style="color: #0000BB">6</span><span style="color: #007700">, </span><span style="color: #0000BB">4</span><span style="color: #007700">);
+        
+        return </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_view</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">escape</span><span style="color: #007700">(</span><span style="color: #DD0000">"(</span><span style="color: #0000BB">$code</span><span style="color: #DD0000">) </span><span style="color: #0000BB">$prefix</span><span style="color: #DD0000">-</span><span style="color: #0000BB">$line</span><span style="color: #DD0000">"</span><span style="color: #007700">);
+    }
+}
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+      <p>
+		Now let's test it and see if it works. Keep in mind that this
+		helper has no validation logic. 
+	</p>
+      <p>
+		Open the <code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/App/Blog/View/index.php</code> 
+		view script and add the following to the bottom. 
+	</p>
+      <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php </span><span style="color: #007700">echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">phone</span><span style="color: #007700">(</span><span style="color: #DD0000">'1235551212'</span><span style="color: #007700">); </span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+      <p>
+		Save the file and view the blog home page. You should see
+		<code class="literal">(123) 555-1212</code> printed at the bottom.
+	</p>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="views.formats">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="views">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="views.layouts">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">5.4. Alternate Formats </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 5.6. Layouts</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

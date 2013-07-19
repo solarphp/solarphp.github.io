@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 10:05:00 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Session : Methods</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Methods</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Session.Properties">Prev</a></td>
+                <th width="60%" align="center">Solar_Session</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Session.__construct">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Session.Methods" class="section">
+
+<h1>Methods</h1>
+
+<p class="para">All methods in the <code class="literal">Solar_Session</code> class.</p>
+
+<div>
+<h2>Public</h2>
+
+<dl>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.__construct" class="link"><code class="literal">__construct()</code></a></span>
+<dd>
+<p class="para">Constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.__destruct" class="link"><code class="literal">__destruct()</code></a></span>
+<dd>
+<p class="para">Default destructor; does nothing other than provide a safe fallback for calls to parent::__destruct().</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.__get" class="link"><code class="literal">__get()</code></a></span>
+<dd>
+<p class="para">Magic get for store and flash as a temporary measure.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.add" class="link"><code class="literal">add()</code></a></span>
+<dd>
+<p class="para">Appends a normal value to a key; this will start the session if needed.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.addFlash" class="link"><code class="literal">addFlash()</code></a></span>
+<dd>
+<p class="para">Appends a flash value to a key; this will start the session if needed.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.delete" class="link"><code class="literal">delete()</code></a></span>
+<dd>
+<p class="para">Deletes a key from the store, removing it entirely.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.deleteFlash" class="link"><code class="literal">deleteFlash()</code></a></span>
+<dd>
+<p class="para">Deletes a flash key, removing it entirely.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.dump" class="link"><code class="literal">dump()</code></a></span>
+<dd>
+<p class="para">Convenience method for getting a dump the whole object, or one of its properties, or an external variable.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.get" class="link"><code class="literal">get()</code></a></span>
+<dd>
+<p class="para">Gets a normal value by key, or an alternative default value if the key does not exist.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.getClass" class="link"><code class="literal">getClass()</code></a></span>
+<dd>
+<p class="para">Gets the current class segment for $_SESSION.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.getFlash" class="link"><code class="literal">getFlash()</code></a></span>
+<dd>
+<p class="para">Gets a flash value by key, thereby removing the value.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.has" class="link"><code class="literal">has()</code></a></span>
+<dd>
+<p class="para">Whether or not the session currently has a particular data key stored.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.hasFlash" class="link"><code class="literal">hasFlash()</code></a></span>
+<dd>
+<p class="para">Whether or not the session currently has a particular flash key stored.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.isLoaded" class="link"><code class="literal">isLoaded()</code></a></span>
+<dd>
+<p class="para">Tells if the session segment is loaded or not.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.isStarted" class="link"><code class="literal">isStarted()</code></a></span>
+<dd>
+<p class="para">Has a session been started yet?</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.lazyStart" class="link"><code class="literal">lazyStart()</code></a></span>
+<dd>
+<p class="para">Lazy-start the session (i.e., only if a session cookie from the client already exists).</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.load" class="link"><code class="literal">load()</code></a></span>
+<dd>
+<p class="para">Loads the session segment with store and flash values for the current class.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.locale" class="link"><code class="literal">locale()</code></a></span>
+<dd>
+<p class="para">Looks up class-specific locale strings based on a key.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.regenerateId" class="link"><code class="literal">regenerateId()</code></a></span>
+<dd>
+<p class="para">Regenerates the session ID.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.reset" class="link"><code class="literal">reset()</code></a></span>
+<dd>
+<p class="para">Resets (clears) all normal keys and values.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.resetAll" class="link"><code class="literal">resetAll()</code></a></span>
+<dd>
+<p class="para">Resets both &quot;normal&quot; and &quot;flash&quot; values.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.resetFlash" class="link"><code class="literal">resetFlash()</code></a></span>
+<dd>
+<p class="para">Resets (clears) all flash keys and values.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.set" class="link"><code class="literal">set()</code></a></span>
+<dd>
+<p class="para">Sets a normal value by key; this will start the session if needed.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.setClass" class="link"><code class="literal">setClass()</code></a></span>
+<dd>
+<p class="para">Sets the class segment for $_SESSION; unloads existing store and flash values.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.setFlash" class="link"><code class="literal">setFlash()</code></a></span>
+<dd>
+<p class="para">Sets a flash value by key; this will start the session if needed.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session.start" class="link"><code class="literal">start()</code></a></span>
+<dd>
+<p class="para">Starts the session; automatically sends a P3P header if one is defined (and it is, by default).</p></dd>
+
+</dt>
+
+
+</dl>
+
+
+</div>
+
+<div>
+<h2>Protected</h2>
+
+<dl>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session._buildConfig" class="link"><code class="literal">_buildConfig()</code></a></span>
+<dd>
+<p class="para">Builds and returns the default config for a class, including all configs inherited from its parents.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session._exception" class="link"><code class="literal">_exception()</code></a></span>
+<dd>
+<p class="para">Convenience method for returning exceptions with localized text.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session._postConfig" class="link"><code class="literal">_postConfig()</code></a></span>
+<dd>
+<p class="para">A hook that activates after _buildConfig() in the constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session._postConstruct" class="link"><code class="literal">_postConstruct()</code></a></span>
+<dd>
+<p class="para">Post-construction tasks to complete object construction.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Session._preConfig" class="link"><code class="literal">_preConfig()</code></a></span>
+<dd>
+<p class="para">A hook that activates before _buildConfig() in the constructor.</p></dd>
+
+</dt>
+
+
+</dl>
+
+
+</div>
+
+<div>
+<h2>Private</h2>
+
+<p class="para">None.</p>
+
+</div>
+    
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Session.Properties">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_Session">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Session.__construct">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Properties</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Solar_Session::__construct()</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

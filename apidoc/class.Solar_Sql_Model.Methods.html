@@ -1,0 +1,788 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 10:06:19 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Sql_Model : Methods</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Methods</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Sql_Model.Properties">Prev</a></td>
+                <th width="60%" align="center">Solar_Sql_Model</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Sql_Model.__call">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Sql_Model.Methods" class="section">
+
+<h1>Methods</h1>
+
+<p class="para">All methods in the <code class="literal">Solar_Sql_Model</code> class.</p>
+
+<div>
+<h2>Public</h2>
+
+<dl>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.__call" class="link"><code class="literal">__call()</code></a></span>
+<dd>
+<p class="para">Magic call implements &quot;fetchOneBy...()&quot; and &quot;fetchAllBy...()&quot; for columns listed in the method name.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.__construct" class="link"><code class="literal">__construct()</code></a></span>
+<dd>
+<p class="para">Constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.__destruct" class="link"><code class="literal">__destruct()</code></a></span>
+<dd>
+<p class="para">Default destructor; does nothing other than provide a safe fallback for calls to parent::__destruct().</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.__get" class="link"><code class="literal">__get()</code></a></span>
+<dd>
+<p class="para">Read-only access to protected model properties.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.countPages" class="link"><code class="literal">countPages()</code></a></span>
+<dd>
+<p class="para">Fetches count and pages of available records.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.delete" class="link"><code class="literal">delete()</code></a></span>
+<dd>
+<p class="para">Deletes rows from the model table and deletes cache entries.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.dump" class="link"><code class="literal">dump()</code></a></span>
+<dd>
+<p class="para">Convenience method for getting a dump the whole object, or one of its properties, or an external variable.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.fetch" class="link"><code class="literal">fetch()</code></a></span>
+<dd>
+<p class="para">Fetches a record or collection by primary key value(s).</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.fetchAll" class="link"><code class="literal">fetchAll()</code></a></span>
+<dd>
+<p class="para">Fetches a collection of all records by arbitrary parameters.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.fetchAllAsArray" class="link"><code class="literal">fetchAllAsArray()</code></a></span>
+<dd>
+<p class="para">Fetches an array of rows by arbitrary parameters.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.fetchAssoc" class="link"><code class="literal">fetchAssoc()</code></a></span>
+<dd>
+<p class="para">The same as fetchAll(), except the record collection is keyed on the first column of the results (instead of being a strictly sequential array.)</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.fetchAssocAsArray" class="link"><code class="literal">fetchAssocAsArray()</code></a></span>
+<dd>
+<p class="para">The same as fetchAssoc(), except it returns an array, not a collection.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.fetchCol" class="link"><code class="literal">fetchCol()</code></a></span>
+<dd>
+<p class="para">Fetches a sequential array of values from the model, using only the first column of the results.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.fetchNew" class="link"><code class="literal">fetchNew()</code></a></span>
+<dd>
+<p class="para">Returns a new record with default values.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.fetchOne" class="link"><code class="literal">fetchOne()</code></a></span>
+<dd>
+<p class="para">Fetches one record by arbitrary parameters.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.fetchOneAsArray" class="link"><code class="literal">fetchOneAsArray()</code></a></span>
+<dd>
+<p class="para">The same as fetchOne(), but returns an array instead of a record object.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.fetchPairs" class="link"><code class="literal">fetchPairs()</code></a></span>
+<dd>
+<p class="para">Fetches an array of key-value pairs from the model, where the first column is the key and the second column is the value.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.fetchValue" class="link"><code class="literal">fetchValue()</code></a></span>
+<dd>
+<p class="para">Fetches a single value from the model (i.e., the first column of the  first record of the returned page set).</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.free" class="link"><code class="literal">free()</code></a></span>
+<dd>
+<p class="para">Call this before you unset the instance so that you release the memory from all the internal child objects.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.getAffectedRows" class="link"><code class="literal">getAffectedRows()</code></a></span>
+<dd>
+<p class="para">Returns the number of rows affected by the last INSERT, UPDATE, or DELETE.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.getConditions" class="link"><code class="literal">getConditions()</code></a></span>
+<dd>
+<p class="para">Returns a WHERE clause array of conditions to use when fetching from this model; e.g., single-table inheritance.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.getPaging" class="link"><code class="literal">getPaging()</code></a></span>
+<dd>
+<p class="para">Gets the number of records per page.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.getPrimary" class="link"><code class="literal">getPrimary()</code></a></span>
+<dd>
+<p class="para">Returns the fully-qualified primary key name.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.getRelated" class="link"><code class="literal">getRelated()</code></a></span>
+<dd>
+<p class="para">Gets the control object for a named relationship.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.insert" class="link"><code class="literal">insert()</code></a></span>
+<dd>
+<p class="para">Inserts one row to the model table and deletes cache entries.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.isInherit" class="link"><code class="literal">isInherit()</code></a></span>
+<dd>
+<p class="para">Does this model have single-table inheritance values?</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.locale" class="link"><code class="literal">locale()</code></a></span>
+<dd>
+<p class="para">Looks up class-specific locale strings based on a key.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.newCollection" class="link"><code class="literal">newCollection()</code></a></span>
+<dd>
+<p class="para">Returns the appropriate collection object for this model.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.newRecord" class="link"><code class="literal">newRecord()</code></a></span>
+<dd>
+<p class="para">Returns the appropriate record object, honoring inheritance.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.newSelect" class="link"><code class="literal">newSelect()</code></a></span>
+<dd>
+<p class="para">Returns a new Solar_Sql_Select tool, with the proper SQL object injected automatically.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.serializeCols" class="link"><code class="literal">serializeCols()</code></a></span>
+<dd>
+<p class="para">Serializes data values in-place based on $this-&gt;_serialize_cols and $this-&gt;_xmlstruct_cols.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.setPaging" class="link"><code class="literal">setPaging()</code></a></span>
+<dd>
+<p class="para">Sets the number of records per page.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.unserializeCols" class="link"><code class="literal">unserializeCols()</code></a></span>
+<dd>
+<p class="para">Un-serializes data values in-place based on $this-&gt;_serialize_cols and $this-&gt;_xmlstruct_cols.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.update" class="link"><code class="literal">update()</code></a></span>
+<dd>
+<p class="para">Updates rows in the model table and deletes cache entries.</p></dd>
+
+</dt>
+
+
+</dl>
+
+
+</div>
+
+<div>
+<h2>Protected</h2>
+
+<dl>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._addFilter" class="link"><code class="literal">_addFilter()</code></a></span>
+<dd>
+<p class="para">Adds a column filter.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._addRelated" class="link"><code class="literal">_addRelated()</code></a></span>
+<dd>
+<p class="para">Support method for adding relations.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._belongsTo" class="link"><code class="literal">_belongsTo()</code></a></span>
+<dd>
+<p class="para">Adds a named belongs-to relationship.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._buildConfig" class="link"><code class="literal">_buildConfig()</code></a></span>
+<dd>
+<p class="para">Builds and returns the default config for a class, including all configs inherited from its parents.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._createTableAndIndexes" class="link"><code class="literal">_createTableAndIndexes()</code></a></span>
+<dd>
+<p class="para">Creates the table and indexes in the database using $this-&gt;_table_cols and $this-&gt;_index_info.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._exception" class="link"><code class="literal">_exception()</code></a></span>
+<dd>
+<p class="para">Convenience method for returning exceptions with localized text.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._fetchNewData" class="link"><code class="literal">_fetchNewData()</code></a></span>
+<dd>
+<p class="para">Support method to generate the data for a new, blank record.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._fetchResultSelect" class="link"><code class="literal">_fetchResultSelect()</code></a></span>
+<dd>
+<p class="para">Returns a data result and the select used to fetch the data.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._fixArrayName" class="link"><code class="literal">_fixArrayName()</code></a></span>
+<dd>
+<p class="para">Fixes the array-name for this model.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._fixCache" class="link"><code class="literal">_fixCache()</code></a></span>
+<dd>
+<p class="para">Fixes the cache class name.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._fixCalculateCols" class="link"><code class="literal">_fixCalculateCols()</code></a></span>
+<dd>
+<p class="para">Fix $_calculate_cols to make it look like $_table_cols.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._fixCols" class="link"><code class="literal">_fixCols()</code></a></span>
+<dd>
+<p class="para">Fixes column info arrays to have a base set of keys.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._fixFetchParams" class="link"><code class="literal">_fixFetchParams()</code></a></span>
+<dd>
+<p class="para">Converts and cleans-up fetch params from arrays to instances of Solar_Sql_Model_Params_Fetch.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._fixFilterClass" class="link"><code class="literal">_fixFilterClass()</code></a></span>
+<dd>
+<p class="para">Fix the $_filter_class property.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._fixFilterCols" class="link"><code class="literal">_fixFilterCols()</code></a></span>
+<dd>
+<p class="para">Adds filters for a given set of columns.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._fixFilters" class="link"><code class="literal">_fixFilters()</code></a></span>
+<dd>
+<p class="para">Fixes the $_filters array property.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._fixIndexInfo" class="link"><code class="literal">_fixIndexInfo()</code></a></span>
+<dd>
+<p class="para">Fixes $this-&gt;_index_info listings.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._fixModelName" class="link"><code class="literal">_fixModelName()</code></a></span>
+<dd>
+<p class="para">Fixes the model-name and table-alias for user input to this model.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._fixPrimaryCol" class="link"><code class="literal">_fixPrimaryCol()</code></a></span>
+<dd>
+<p class="para">Sets $_primary_col if not already set.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._fixPropertyCols" class="link"><code class="literal">_fixPropertyCols()</code></a></span>
+<dd>
+<p class="para">Fixes up special column indicator properties, and post-sets the $_inherit_name value based on the existence of the inheritance column.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._fixStack" class="link"><code class="literal">_fixStack()</code></a></span>
+<dd>
+<p class="para">Fixes the stack of parent classes for the model.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._fixTableCols" class="link"><code class="literal">_fixTableCols()</code></a></span>
+<dd>
+<p class="para">Fixes table column definitions in $_table_cols.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._fixTableName" class="link"><code class="literal">_fixTableName()</code></a></span>
+<dd>
+<p class="para">Loads table name into $this-&gt;_table_name, and pre-sets the value of $this-&gt;_inherit_name based on the class name.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._hasMany" class="link"><code class="literal">_hasMany()</code></a></span>
+<dd>
+<p class="para">Adds a named has-many relationship.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._hasManyThrough" class="link"><code class="literal">_hasManyThrough()</code></a></span>
+<dd>
+<p class="para">Adds a named has-many through relationship.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._hasOne" class="link"><code class="literal">_hasOne()</code></a></span>
+<dd>
+<p class="para">Adds a named has-one relationship.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._hasOneOrNull" class="link"><code class="literal">_hasOneOrNull()</code></a></span>
+<dd>
+<p class="para">Adds a named has-one-or-none relationship.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._newCollection" class="link"><code class="literal">_newCollection()</code></a></span>
+<dd>
+<p class="para">Returns a new collection object for this model only.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._newRecord" class="link"><code class="literal">_newRecord()</code></a></span>
+<dd>
+<p class="para">Returns a new record object for this model only.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._postConfig" class="link"><code class="literal">_postConfig()</code></a></span>
+<dd>
+<p class="para">A hook that activates after _buildConfig() in the constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._postConstruct" class="link"><code class="literal">_postConstruct()</code></a></span>
+<dd>
+<p class="para">Post-construction tasks to complete object construction.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._postSetup" class="link"><code class="literal">_postSetup()</code></a></span>
+<dd>
+<p class="para">Complete the setup of this model.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._preConfig" class="link"><code class="literal">_preConfig()</code></a></span>
+<dd>
+<p class="para">A hook that activates before _buildConfig() in the constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._preSetup" class="link"><code class="literal">_preSetup()</code></a></span>
+<dd>
+<p class="para">Establish state of this object prior to _setup().</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._setCollectionPagerInfo" class="link"><code class="literal">_setCollectionPagerInfo()</code></a></span>
+<dd>
+<p class="para">Sets the pager info in a collection, calling countPages() along the way.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model._setup" class="link"><code class="literal">_setup()</code></a></span>
+<dd>
+<p class="para">User-defined setup.</p></dd>
+
+</dt>
+
+
+</dl>
+
+
+</div>
+
+<div>
+<h2>Private</h2>
+
+<p class="para">None.</p>
+
+</div>
+    
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Sql_Model.Properties">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_Sql_Model">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Sql_Model.__call">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Properties</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Solar_Sql_Model::__call()</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

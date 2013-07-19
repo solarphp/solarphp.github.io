@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:58 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">7.4. Authentication Forms</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="user.auth-process">Prev</a> </td>
+          <th width="60%" align="center">Chapter 7. User Authentication, Roles, and Access Control</th>
+          <td width="20%" align="right"> <a accesskey="n" href="user.roles">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="7.4. Authentication Forms">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="user.auth-forms"></a>7.4. Authentication Forms</h2>
+          </div>
+          <div>
+            <div class="author">
+              <h3 class="author"><span class="firstname">Jon</span> <span class="surname">Elofson</span></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>
+		In order to allow users to log in to the system, you will likely need an HTML
+        form on your page to accept the user's handle and password. The form
+        helper
+		(<a class="link" href="http://solarphp.com/class/Solar_View_Helper_Form" target="_top">Solar_View_Helper_Form</a>) 
+		available to Solar_View makes light work of adding the form to any view or layout.
+	</p>
+      <div class="note" title="Note">
+        <table border="0" summary="Note">
+          <tr>
+            <td rowspan="2" align="center" valign="top" width="25">
+              <img alt="[Note]" src="images/note.png" />
+            </td>
+            <th align="left">Note</th>
+          </tr>
+          <tr>
+            <td align="left" valign="top">
+              <p>
+			Please review the chapter on <a class="link" href="http://solarphp.com/manual/views" target="_top">Views and Layouts</a> 
+			for more information on working with views and layouts.
+		</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <p>
+	    The logic for the authentication form goes something like this:
+	</p>
+      <div class="figure">
+        <a id="id36151647"></a>
+        <p class="title">
+          <b>Figure 7.1. Authentication logic when using an HTML form</b>
+        </p>
+        <div class="figure-contents">
+          <div class="mediaobject">
+            <img src="figures/user/form_logic.png" alt="The logic involved in the authentication process using an HTML form" />
+            <div class="caption">
+              <p>
+    					If the user is not logged in, the login form is
+                        displayed. If the user is logged in, you may see a
+                        welcome message, and then a logout form with a "Sign
+                        Out" button. Below the login or logout form may be a
+                        status message, such as "Welcome back!" or "Your
+                        username and password did not match. Please try
+                        again.".
+    			    </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br class="figure-break" />
+      <p>
+	    The code to represent this logic in your view might look like the
+        following. (Assume that the public property <code class="literal">$user</code>
+        is a <a class="link" href="http://solarphp.com/class/Solar_User" target="_top">Solar_User</a>
+        object available to the view.)
+	</p>
+      <pre class="programlisting"><code><span style="color: #000000">&lt;div id="user"&gt;
+<span style="color: #0000BB">&lt;?php
+    
+    </span><span style="color: #007700">if (</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">auth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isValid</span><span style="color: #007700">()) {
+    
+        </span><span style="color: #FF8000">// the user is logged in, show a logout form
+        
+        </span><span style="color: #007700">echo </span><span style="color: #DD0000">"&lt;div&gt;\n"
+           </span><span style="color: #007700">. </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getText</span><span style="color: #007700">(</span><span style="color: #DD0000">'TEXT_AUTH_USERNAME'</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"
+           </span><span style="color: #007700">. </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">escape</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">auth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">handle</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"
+           </span><span style="color: #007700">. </span><span style="color: #DD0000">"&lt;/div&gt;\n"</span><span style="color: #007700">;
+        
+        echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">form</span><span style="color: #007700">()
+                  -&gt;</span><span style="color: #0000BB">addProcess</span><span style="color: #007700">(</span><span style="color: #DD0000">'logout'</span><span style="color: #007700">)
+                  -&gt;</span><span style="color: #0000BB">decorateAsDivs</span><span style="color: #007700">()
+                  -&gt;</span><span style="color: #0000BB">fetch</span><span style="color: #007700">();
+
+    } else {
+    
+        </span><span style="color: #FF8000">// the user is not logged in, show a login form
+        
+        </span><span style="color: #007700">echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">form</span><span style="color: #007700">()
+                  -&gt;</span><span style="color: #0000BB">text</span><span style="color: #007700">(array(
+                      </span><span style="color: #DD0000">'name'    </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'handle'</span><span style="color: #007700">,
+                      </span><span style="color: #DD0000">'label'   </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'LABEL_HANDLE'</span><span style="color: #007700">,
+                  ))
+                  -&gt;</span><span style="color: #0000BB">password</span><span style="color: #007700">(array(
+                      </span><span style="color: #DD0000">'name'    </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'passwd'</span><span style="color: #007700">,
+                      </span><span style="color: #DD0000">'label'   </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'LABEL_PASSWD'</span><span style="color: #007700">,
+                  ))
+                  -&gt;</span><span style="color: #0000BB">addProcess</span><span style="color: #007700">(</span><span style="color: #DD0000">'login'</span><span style="color: #007700">)
+                  -&gt;</span><span style="color: #0000BB">decorateAsDivs</span><span style="color: #007700">()
+                  -&gt;</span><span style="color: #0000BB">fetch</span><span style="color: #007700">();
+    }
+    
+    </span><span style="color: #FF8000">// always show the authentication status
+    </span><span style="color: #0000BB">$status </span><span style="color: #007700">= </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">auth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getStatusText</span><span style="color: #007700">();
+    if (</span><span style="color: #0000BB">$status</span><span style="color: #007700">) {
+        echo </span><span style="color: #DD0000">'&lt;div class="status"&gt;'
+           </span><span style="color: #007700">. </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">escape</span><span style="color: #007700">(</span><span style="color: #0000BB">$status</span><span style="color: #007700">)
+           . </span><span style="color: #DD0000">"&lt;/div&gt;\n"</span><span style="color: #007700">;
+    }
+</span><span style="color: #0000BB">?&gt;
+</span>&lt;/div&gt;</span></code></pre>
+      <p>
+		So, if the user is logged in
+        (as noted by the result of the <code class="literal">$this-&gt;user-&gt;auth-&gt;isValid()</code> call), then a "Signed in
+        as ..." message will appear with a "Sign Out" button below.
+        Additionally, any status messages such as "Welcome back!" will appear
+        below the logout button.  (These status messages are automatically
+        generated by the <a class="link" href="http://solarphp.com/class/Solar_Auth" target="_top">Solar_Auth</a>
+        adapter based on the success or failure of its automated login and
+        logout processing.)
+	</p>
+      <p>
+		If, however, the user is not logged in, or the authentication attempt
+        failed, then a login form will appear with any status messages below.
+        See the images below as examples.
+	</p>
+      <div class="screenshot">
+        <div class="mediaobject">
+          <img src="figures/user/login_success.png" alt="Shows a successful login" />
+          <div class="caption">
+            <p>
+					The image above shows a successful login. Note the welcome
+                    message above the form, and the status message below.
+				</p>
+          </div>
+        </div>
+      </div>
+      <div class="screenshot">
+        <div class="mediaobject">
+          <img src="figures/user/login_failed.png" alt="Shows a failed login" />
+          <div class="caption">
+            <p>The image above shows a failed login. Note the status message below the form.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="user.auth-process">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="user">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="user.roles">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">7.3. Authentication Processing </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 7.5. Roles</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

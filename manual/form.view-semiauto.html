@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:57 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">6.7. Semi-Automatic View Presentation</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="form.view.decorate">Prev</a> </td>
+          <th width="60%" align="center">Chapter 6. Models and Forms</th>
+          <td width="20%" align="right"> <a accesskey="n" href="form.view.custom">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="6.7. Semi-Automatic View Presentation">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="form.view-semiauto"></a>6.7. Semi-Automatic View Presentation</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        The <code class="function">auto()</code> method is useful for displaying all
+        the elements in a form object at once, but frequently we need to show
+        only some of the elements, sometimes as part of a fieldset or a group.
+        For this, we will need to use other <code class="function">form()</code> helper
+        methods instead of the <code class="function">auto()</code> method, and
+        retrieve individual elements from the form object.
+    </p>
+      <p>
+        For this section, let's imagine we have a form object from a
+        hypothetical <code class="literal">Acme_Model_Users_Record</code> with the
+        following elements:
+    </p>
+      <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">form</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">elements</span><span style="color: #007700">[</span><span style="color: #DD0000">'user[handle]'</span><span style="color: #007700">]      = array(...);
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">form</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">elements</span><span style="color: #007700">[</span><span style="color: #DD0000">'user[moniker]'</span><span style="color: #007700">]     = array(...);
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">form</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">elements</span><span style="color: #007700">[</span><span style="color: #DD0000">'user[name_first]'</span><span style="color: #007700">]  = array(...);
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">form</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">elements</span><span style="color: #007700">[</span><span style="color: #DD0000">'user[name_middle]'</span><span style="color: #007700">] = array(...);
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">form</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">elements</span><span style="color: #007700">[</span><span style="color: #DD0000">'user[name_last]'</span><span style="color: #007700">]   = array(...);
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">form</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">elements</span><span style="color: #007700">[</span><span style="color: #DD0000">'user[email]'</span><span style="color: #007700">]       = array(...);
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">form</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">elements</span><span style="color: #007700">[</span><span style="color: #DD0000">'user[phone]'</span><span style="color: #007700">]       = array(...);</span></span></code></pre>
+      <div class="sect2" title="6.7.1. Fieldsets">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="form.view-semiauto.fieldsets"></a>6.7.1. Fieldsets</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            Let's imagine that it is a requirement for this view that we present
+            the name portions in a fieldset, and the contact portions in a
+            separate fieldset.
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #007700">echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">form</span><span style="color: #007700">()
+          -&gt;</span><span style="color: #0000BB">meta</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">form</span><span style="color: #007700">)
+          -&gt;</span><span style="color: #0000BB">beginFieldset</span><span style="color: #007700">(</span><span style="color: #DD0000">'LEGEND_NAME'</span><span style="color: #007700">)
+          -&gt;</span><span style="color: #0000BB">addElements</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">form</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getElements</span><span style="color: #007700">(</span><span style="color: #DD0000">'user[name_'</span><span style="color: #007700">))
+          -&gt;</span><span style="color: #0000BB">endFieldset</span><span style="color: #007700">()
+          -&gt;</span><span style="color: #0000BB">beginFieldset</span><span style="color: #007700">(</span><span style="color: #DD0000">'LEGEND_CONTACT'</span><span style="color: #007700">)
+          -&gt;</span><span style="color: #0000BB">addElements</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">form</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getElements</span><span style="color: #007700">(array(
+                </span><span style="color: #DD0000">'user[email]'</span><span style="color: #007700">,
+                </span><span style="color: #DD0000">'user[phone]'</span><span style="color: #007700">,
+            )))
+          -&gt;</span><span style="color: #0000BB">endFieldset</span><span style="color: #007700">()
+          -&gt;</span><span style="color: #0000BB">addProcess</span><span style="color: #007700">(</span><span style="color: #DD0000">'save'</span><span style="color: #007700">)
+          -&gt;</span><span style="color: #0000BB">fetch</span><span style="color: #007700">();</span></span></code></pre>
+        <p>
+            The <code class="function">meta()</code> method gets the form status, the
+            form tag attributes, and the feedback for the form as a whole (i.e.
+            the top-level feedback messages like "Success" or "Failure".)
+        </p>
+        <p>
+            The <code class="function">beginFieldset()</code> and <code class="function">endFieldset()</code>
+            methods add opening and closing fieldset tags, respectively.
+        </p>
+        <p>
+            The <code class="function">addElements()</code> method adds only the elements
+            listed. The complementary 
+            <a class="link" href="http://solarphp.com/class/Solar_Form::getElements()" target="_top">Solar_Form::getElements()</a> 
+            method retrieves
+            elements from the form object. If you pass a string argument, it will
+            return all elements whose name begins with that string; if you pass an
+            array of element names, it will return only those elements.
+        </p>
+        <p>
+            The output generated by that view script code will look something
+            like the following.
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000">&lt;form method="post" enctype="multipart/form-data"&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;LEGEND_NAME&lt;/legend&gt;
+        &lt;dl class="list"&gt;
+            &lt;dt class="user-name_first"&gt;
+                &lt;label for="user-name_first" class="user-name_first"&gt;LABEL_NAME_FIRST&lt;/label&gt;
+            &lt;/dt&gt;
+            &lt;dd class="user-name_first"&gt;
+                &lt;input type="text" name="user[name_first]" value="" id="user-name_first" 
+                    class="input-text user-name_first"
+                /&gt;
+            &lt;/dd&gt;
+            &lt;dt class="user-name_middle"&gt;
+                &lt;label for="user-name_middle" class="user-name_middle"&gt;LABEL_NAME_MIDDLE&lt;/label&gt;
+            &lt;/dt&gt;
+            &lt;dd class="user-name_middle"&gt;
+                &lt;input type="text" name="user[name_middle]" value="" id="user-name_middle" 
+                    class="input-text user-name_middle"
+                /&gt;
+            &lt;/dd&gt;
+            &lt;dt class="user-name_last"&gt;
+                &lt;label for="user-name_last" class="user-name_last"&gt;LABEL_NAME_LAST&lt;/label&gt;
+            &lt;/dt&gt;
+            &lt;dd class="user-name_last"&gt;
+                &lt;input type="text" name="user[name_last]" value="" id="user-name_last" 
+                    class="input-text user-name_last" 
+                /&gt;
+            &lt;/dd&gt;
+        &lt;/dl&gt;
+    &lt;/fieldset&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;LEGEND_CONTACT&lt;/legend&gt;
+        &lt;dl class="list"&gt;
+            &lt;dt class="user-email"&gt;
+                &lt;label for="user-email" class="user-email"&gt;Email&lt;/label&gt;
+            &lt;/dt&gt;
+            &lt;dd class="user-email"&gt;
+                &lt;input type="text" name="user[email]" value="" id="user-email" 
+                    class="input-text user-email"
+                /&gt;
+            &lt;/dd&gt;
+            &lt;dt class="user-phone"&gt;
+                &lt;label for="user-phone" class="user-phone"&gt;LABEL_PHONE&lt;/label&gt;
+            &lt;/dt&gt;
+            &lt;dd class="user-phone"&gt;
+                &lt;input type="text" name="user[phone]" value="" id="user-phone" 
+                    class="input-text user-phone" 
+                /&gt;
+            &lt;/dd&gt;
+        &lt;/dl&gt;
+    &lt;/fieldset&gt;
+    &lt;dl class="list"&gt;
+        &lt;dt class="process-save"&gt;
+            
+        &lt;/dt&gt;
+        &lt;dd class="process-save"&gt;
+            &lt;input type="submit" name="process" value="Save" id="process-save" 
+                class="input-submit process-save"
+            /&gt;
+        &lt;/dd&gt;
+    &lt;/dl&gt;
+&lt;/form&gt;</span></code></pre>
+      </div>
+      <div class="sect2" title="6.7.2. Element Groups">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="form.view-semiauto.groups"></a>6.7.2. Element Groups</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            Whereas a fieldset is a series of separate elements with their
+            own labels, a group is a series of elements under a single
+            label.  Let's say we want to have the name elements grouped
+            under one label:
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #007700">echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">form</span><span style="color: #007700">()
+          -&gt;</span><span style="color: #0000BB">meta</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">form</span><span style="color: #007700">)
+          -&gt;</span><span style="color: #0000BB">beginGroup</span><span style="color: #007700">(</span><span style="color: #DD0000">'LABEL_NAME'</span><span style="color: #007700">)
+          -&gt;</span><span style="color: #0000BB">addElements</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">form</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getElements</span><span style="color: #007700">(</span><span style="color: #DD0000">'user[name_'</span><span style="color: #007700">))
+          -&gt;</span><span style="color: #0000BB">endGroup</span><span style="color: #007700">()
+          -&gt;</span><span style="color: #0000BB">addProcess</span><span style="color: #007700">(</span><span style="color: #DD0000">'save'</span><span style="color: #007700">)
+          -&gt;</span><span style="color: #0000BB">fetch</span><span style="color: #007700">();</span></span></code></pre>
+        <p>
+            That view script code will generate output similar to the
+            following:
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000">&lt;form method="post" enctype="multipart/form-data"&gt;
+    &lt;dl class="list"&gt;
+        &lt;dt class="label"&gt;
+            &lt;label&gt;LABEL_NAME&lt;/label&gt;
+        &lt;/dt&gt;
+        &lt;dd class="value"&gt;
+            &lt;input type="text" name="user[name_first]" value="" id="user-name_first" 
+                class="input-text user-name_first" 
+            /&gt;
+            &lt;input type="text" name="user[name_middle]" value="" id="user-name_middle" 
+                class="input-text user-name_middle" 
+            /&gt;
+            &lt;input type="text" name="user[name_last]" value="" id="user-name_last" 
+                class="input-text user-name_last" 
+            /&gt;
+        &lt;/dd&gt;
+        &lt;dt class="process-save"&gt;
+            
+        &lt;/dt&gt;
+        &lt;dd class="process-save"&gt;
+            &lt;input type="submit" name="process" value="Save" id="process-save" 
+                class="input-submit process-save" 
+            /&gt;
+        &lt;/dd&gt;
+    &lt;/dl&gt;
+&lt;/form&gt;</span></code></pre>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="form.view.decorate">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="form">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="form.view.custom">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">6.6. View Decoration </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 6.8. Custom Record Elements</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

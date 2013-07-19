@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:57:48 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Auth_Adapter_Ini : Config</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Configuration</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Auth_Adapter_Ini.Overview">Prev</a></td>
+                <th width="60%" align="center">Solar_Auth_Adapter_Ini</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Auth_Adapter_Ini.Constants">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Auth_Adapter_Ini.Config" class="section">
+
+<h1>Configuration</h1>
+
+<p class="para">Configuration keys for the <code class="literal">Solar_Auth_Adapter_Ini</code> class.</p>
+
+<div id="class.Solar_Auth_Adapter_Ini.Config.expire">
+<h2><code class="literal">expire</code> </h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para">(<em class="emphasis">int</em>) Authentication lifetime in seconds; zero is   forever.  Default is 14400 (4 hours). If this value is greater than   the non-zero PHP ini setting for <code class="literal">session.cookie_lifetime</code>, it will   throw an exception.</p></li>
+<li class="listitem"><p class="para">Default: <code class="literal">14400</code></p></li>
+</ul>
+
+</div>
+
+<div id="class.Solar_Auth_Adapter_Ini.Config.idle">
+<h2><code class="literal">idle</code> </h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para">(<em class="emphasis">int</em>) Maximum allowed idle time in seconds; zero is   forever.  Default is 1440 (24 minutes). If this value is greater than   the the PHP ini setting for <code class="literal">session.gc_maxlifetime</code>, it will throw   an exception.</p></li>
+<li class="listitem"><p class="para">Default: <code class="literal">1440</code></p></li>
+</ul>
+
+</div>
+
+<div id="class.Solar_Auth_Adapter_Ini.Config.allow">
+<h2><code class="literal">allow</code> </h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para">(<em class="emphasis">bool</em>) Whether or not to allow automatic login/logout at start()   time. Default true.</p></li>
+<li class="listitem"><p class="para">Default: <code class="literal">true</code></p></li>
+</ul>
+
+</div>
+
+<div id="class.Solar_Auth_Adapter_Ini.Config.cache">
+<h2><code class="literal">cache</code> </h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para">(<em class="emphasis">dependency</em>) A Solar_Cache dependency to store user data. Default is   to create a Solar_Cache_Adapter_Session object internal to this    instance.</p></li>
+<li class="listitem"><p class="para">Default: <code class="literal">array (
+&#039;adapter&#039; =&gt; &#039;Solar_Cache_Adapter_Session&#039;,
+&#039;prefix&#039; =&gt; &#039;Solar_Auth_Adapter&#039;,
+)</code></p></li>
+</ul>
+
+</div>
+
+<div id="class.Solar_Auth_Adapter_Ini.Config.source">
+<h2><code class="literal">source</code> </h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para">(<em class="emphasis">string</em>) The source for auth credentials, &#039;get&#039; (via the   for GET request vars) or &#039;post&#039; (via the POST request vars).   Default is &#039;post&#039;.</p></li>
+<li class="listitem"><p class="para">Default: <code class="literal">&#039;post&#039;</code></p></li>
+</ul>
+
+</div>
+
+<div id="class.Solar_Auth_Adapter_Ini.Config.source_handle">
+<h2><code class="literal">source_handle</code> </h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para">(<em class="emphasis">string</em>) Username key in the credential array source,   default &#039;handle&#039;.</p></li>
+<li class="listitem"><p class="para">Default: <code class="literal">&#039;handle&#039;</code></p></li>
+</ul>
+
+</div>
+
+<div id="class.Solar_Auth_Adapter_Ini.Config.source_passwd">
+<h2><code class="literal">source_passwd</code> </h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para">(<em class="emphasis">string</em>) Password key in the credential array source,   default &#039;passwd&#039;.</p></li>
+<li class="listitem"><p class="para">Default: <code class="literal">&#039;passwd&#039;</code></p></li>
+</ul>
+
+</div>
+
+<div id="class.Solar_Auth_Adapter_Ini.Config.source_redirect">
+<h2><code class="literal">source_redirect</code> </h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para">(<em class="emphasis">string</em>) Element key in the credential array source to indicate   where to redirect on successful login or logout, default &#039;redirect&#039;.</p></li>
+<li class="listitem"><p class="para">Default: <code class="literal">&#039;redirect&#039;</code></p></li>
+</ul>
+
+</div>
+
+<div id="class.Solar_Auth_Adapter_Ini.Config.source_process">
+<h2><code class="literal">source_process</code> </h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para">(<em class="emphasis">string</em>) Element key in the credential array source to indicate   how to process the request, default &#039;process&#039;.</p></li>
+<li class="listitem"><p class="para">Default: <code class="literal">&#039;process&#039;</code></p></li>
+</ul>
+
+</div>
+
+<div id="class.Solar_Auth_Adapter_Ini.Config.process_login">
+<h2><code class="literal">process_login</code> </h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para">(<em class="emphasis">string</em>) The source_process element value indicating a login request;   default is the &#039;PROCESS_LOGIN&#039; locale key value.</p></li>
+<li class="listitem"><p class="para">Default: <code class="literal">null</code></p></li>
+</ul>
+
+</div>
+
+<div id="class.Solar_Auth_Adapter_Ini.Config.process_logout">
+<h2><code class="literal">process_logout</code> </h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para">(<em class="emphasis">string</em>) The source_process element value indicating a logout request;   default is the &#039;PROCESS_LOGOUT&#039; locale key value.</p></li>
+<li class="listitem"><p class="para">Default: <code class="literal">null</code></p></li>
+</ul>
+
+</div>
+
+<div id="class.Solar_Auth_Adapter_Ini.Config.login_callback">
+<h2><code class="literal">login_callback</code> </h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para">(<em class="emphasis">callback</em>) A callback to execute as part of the login process, whether or not login was successful.</p></li>
+<li class="listitem"><p class="para">Default: <code class="literal">null</code></p></li>
+</ul>
+
+</div>
+
+<div id="class.Solar_Auth_Adapter_Ini.Config.logout_callback">
+<h2><code class="literal">logout_callback</code> </h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para">(<em class="emphasis">callback</em>) A callback to execute as part of the logout process.</p></li>
+<li class="listitem"><p class="para">Default: <code class="literal">null</code></p></li>
+</ul>
+
+</div>
+
+<div id="class.Solar_Auth_Adapter_Ini.Config.file">
+<h2><code class="literal">file</code> </h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para">(<em class="emphasis">string</em>) Path to .ini file.</p></li>
+<li class="listitem"><p class="para">Default: <code class="literal">null</code></p></li>
+</ul>
+
+</div>
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Auth_Adapter_Ini.Overview">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_Auth_Adapter_Ini">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Auth_Adapter_Ini.Constants">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Overview</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Constants</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:10 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Log_Adapter_Multi : Overview</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Overview</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Log_Adapter_Multi">Prev</a></td>
+                <th width="60%" align="center">Solar_Log_Adapter_Multi</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Log_Adapter_Multi.Config">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Log_Adapter_Multi.Overview" class="section">
+
+<h1>Overview</h1>
+
+<p class="para">Log adapter to save one event in multiple logs.</p>
+
+<pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// config for a multiple log
+</span><span style="color: #0000BB">$config </span><span style="color: #007700">= array(
+    </span><span style="color: #DD0000">'adapter' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Solar_Log_Adapter_Multi'</span><span style="color: #007700">, </span><span style="color: #FF8000">// could also be a dependency object?
+    </span><span style="color: #DD0000">'adapters' </span><span style="color: #007700">=&gt; array(
+        array(
+            </span><span style="color: #DD0000">'adapter' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Solar_Log_Adapter_File'</span><span style="color: #007700">,
+            </span><span style="color: #DD0000">'events' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'*'</span><span style="color: #007700">,
+            </span><span style="color: #DD0000">'format' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">null</span><span style="color: #007700">,
+            </span><span style="color: #DD0000">'file' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'/path/to/file.log'</span><span style="color: #007700">,
+        ),
+        array(
+            </span><span style="color: #DD0000">'adapter' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Solar_Log_Adapter_Echo'</span><span style="color: #007700">,
+            </span><span style="color: #DD0000">'events' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'debug'</span><span style="color: #007700">,
+            </span><span style="color: #DD0000">'format' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">null</span><span style="color: #007700">,
+        ),
+        array(
+            </span><span style="color: #DD0000">'adapter' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Solar_Log_Adapter_Sql'</span><span style="color: #007700">,
+            </span><span style="color: #DD0000">'events' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'warning, severe, critical'</span><span style="color: #007700">,
+            </span><span style="color: #DD0000">'sql'    </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'sql'</span><span style="color: #007700">,
+            </span><span style="color: #DD0000">'table'  </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'table_name'</span><span style="color: #007700">,
+            </span><span style="color: #DD0000">'%t'     </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'ts'</span><span style="color: #007700">,
+            </span><span style="color: #DD0000">'%e'     </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'evt'</span><span style="color: #007700">,
+            </span><span style="color: #DD0000">'%m'     </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'msg'</span><span style="color: #007700">,
+        ),
+    ),
+);
+</span><span style="color: #0000BB">$log </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">factory</span><span style="color: #007700">(</span><span style="color: #DD0000">'Solar_Log'</span><span style="color: #007700">, </span><span style="color: #0000BB">$config</span><span style="color: #007700">);</span></span></code></pre>
+
+
+<div>
+<h2>Package</h2>
+
+<p class="para">This class is part of the <a href="package.Solar_Log" class="link">Solar_Log</a> package.</p>
+
+<p class="para">Inheritance:</p>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><a href="class.Solar_Base.Overview" class="link">Solar_Base</a>
+<ul class="itemizedlist"><li class="listitem"><p class="para"><a href="class.Solar_Log_Adapter.Overview" class="link">Solar_Log_Adapter</a>
+<ul class="itemizedlist"><li class="listitem"><p class="para">Solar_Log_Adapter_Multi</p></li>
+</ul></p></li>
+</ul></p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Configuration Keys</h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><a href="class.Solar_Log_Adapter_Multi.Config#class.Solar_Log_Adapter_Multi.Config.events" class="link"><code class="literal">events</code></a>: The event types this instance   should recognize; a comma-separated string of events, or   a sequential array.  Default is all events (&#039;*&#039;).</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Log_Adapter_Multi.Config#class.Solar_Log_Adapter_Multi.Config.microtime" class="link"><code class="literal">microtime</code></a>: Use timestamps with decimal microseconds.  Default false.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Log_Adapter_Multi.Config#class.Solar_Log_Adapter_Multi.Config.adapters" class="link"><code class="literal">adapters</code></a>: An array of arrays, where each sub-array   is a separate adapter configuration.</p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Constants</h2>
+
+<p class="para">None.</p>
+
+</div>
+
+<div>
+<h2>Public Properties</h2>
+
+<p class="para">The Solar_Log_Adapter_Multi class has no public properties; try the list of <a href="class.Solar_Log_Adapter_Multi.Properties" class="link">all properties</a>.</p>
+
+</div>
+
+<div>
+<h2>Public Methods</h2>
+
+<p class="para">These are all the public methods in the Solar_Log_Adapter_Multi class.</p>
+
+<p class="para">You can also view the list of <a href="class.Solar_Log_Adapter_Multi.Methods" class="link">all public, protected, and private methods</a>.</p>
+
+<dl>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Log_Adapter_Multi.__construct" class="link"><code class="literal">__construct()</code></a></span>
+<dd>
+<p class="para">Constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Log_Adapter_Multi.__destruct" class="link"><code class="literal">__destruct()</code></a></span>
+<dd>
+<p class="para">Default destructor; does nothing other than provide a safe fallback for calls to parent::__destruct().</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Log_Adapter_Multi.dump" class="link"><code class="literal">dump()</code></a></span>
+<dd>
+<p class="para">Convenience method for getting a dump the whole object, or one of its properties, or an external variable.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Log_Adapter_Multi.getEvents" class="link"><code class="literal">getEvents()</code></a></span>
+<dd>
+<p class="para">Gets the list of events this adapter recognizes.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Log_Adapter_Multi.locale" class="link"><code class="literal">locale()</code></a></span>
+<dd>
+<p class="para">Looks up class-specific locale strings based on a key.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Log_Adapter_Multi.save" class="link"><code class="literal">save()</code></a></span>
+<dd>
+<p class="para">Saves (writes) an event and message to the log.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Log_Adapter_Multi.setEvents" class="link"><code class="literal">setEvents()</code></a></span>
+<dd>
+<p class="para">Sets the list of events this adapter recognizes.</p></dd>
+
+</dt>
+
+
+</dl>
+
+
+</div>
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Log_Adapter_Multi">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_Log_Adapter_Multi">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Log_Adapter_Multi.Config">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_Log_Adapter_Multi</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Configuration</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

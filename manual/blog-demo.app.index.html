@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:54:41 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">1.8. Browse All Public Articles</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="blog-demo.app.setup">Prev</a> </td>
+          <th width="60%" align="center">Chapter 1. Quick-Start Blog Demo</th>
+          <td width="20%" align="right"> <a accesskey="n" href="blog-demo.app.read">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="1.8. Browse All Public Articles">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="blog-demo.app.index"></a>1.8. Browse All Public Articles</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        Now that we have a basic application class prepared, we can start
+        adding action methods and view scripts.  We'll start with an index
+        of published blog articles.
+    </p>
+      <div class="sect2" title="1.8.1. The &quot;Index&quot; Action Method">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="blog-demo.app.index.action"></a>1.8.1. The "Index" Action Method</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            Change to the
+            <code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/App/</code>
+            directory and open the <code class="filename">Blog.php</code> page controller
+            class file. (In this example we use the <span class="command"><strong>vim</strong></span>
+            editor, but you can use anything you like.)
+        
+            </p>
+        <pre class="screen">$ <strong class="userinput"><code>cd <em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/App/</code></strong>
+$ <strong class="userinput"><code>vim Blog.php</code></strong></pre>
+        <p>
+        
+        </p>
+        <p>
+            Add the following PHP code at the top of the class inside the
+            <code class="literal">actionIndex()</code> method.
+        
+            </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+    </span><span style="color: #007700">public function </span><span style="color: #0000BB">actionIndex</span><span style="color: #007700">()
+    {
+        </span><span style="color: #FF8000">// public blog articles in descending order, all result pages
+        </span><span style="color: #0000BB">$fetch </span><span style="color: #007700">= array(
+            </span><span style="color: #DD0000">'where' </span><span style="color: #007700">=&gt; array(</span><span style="color: #DD0000">'blogs.status = ?' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'public'</span><span style="color: #007700">),
+            </span><span style="color: #DD0000">'order' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'blogs.created DESC'</span><span style="color: #007700">,
+            </span><span style="color: #DD0000">'page'  </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'all'</span><span style="color: #007700">,
+        );
+    
+        </span><span style="color: #FF8000">// fetch all matching records
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">list </span><span style="color: #007700">= </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">blogs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">(</span><span style="color: #0000BB">$fetch</span><span style="color: #007700">);
+    }</span></span></code></pre>
+        <p>
+        
+        </p>
+        <p>
+            
+            A bit of explanation:
+            
+            </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>
+                    The <code class="literal">$fetch</code> array is a series of clause
+                    definitions to say what records we want to retrieve. There are
+                    keys for each part of an SQL SELECT command:
+                    <code class="literal">cols</code>, <code class="literal">where</code>,
+                    <code class="literal">join</code>, <code class="literal">group</code>,
+                    <code class="literal">having</code>, <code class="literal">order</code>, and
+                    <code class="literal">limit</code>. In addition, there are other
+                    keys related to model fetches, such as
+                    <code class="literal">page</code> and <code class="literal">paging</code> to
+                    indicate which page-number of results to retrieve and how
+                    many results per page.
+                </p>
+            </li>
+            <li class="listitem">
+              <p>
+                    The <code class="literal">$this-&gt;list</code> property is populated by a
+                    call to the blogs model. In this case, we fetch all records (a
+                    "collection") that match our <code class="literal">$fetch</code>
+                    parameters.
+                </p>
+            </li>
+          </ul>
+        </div>
+        <p>
+            
+            </p>
+        <div class="note" title="Note">
+          <table border="0" summary="Note">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">Note</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+                Public properties of the controller are automatically assigned
+                to the view at render-time.  You don't need to assign them yourself.
+            </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <p>
+        
+        </p>
+      </div>
+      <div class="sect2" title="1.8.2. The &quot;Index&quot; View Script">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="blog-demp.app.index.view"></a>1.8.2. The "Index" View Script</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            
+            By default, Solar page controllers expect to render a view script
+            named for the action being invoked. As such, we need to create a
+            view called <code class="filename">index.php</code> for the
+            <code class="literal">actionIndex()</code> method.
+            
+            </p>
+        <pre class="screen">$ <strong class="userinput"><code>vim Blog/View/index.php</code></strong></pre>
+        <p>
+            
+            </p>
+        <div class="note" title="View Inheritance">
+          <table border="0" summary="Note: View Inheritance">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">View Inheritance</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>Page controller view scripts are inherited from their parent
+                controllers. Thus, an <code class="filename">index.php</code> view
+                script from a parent controller will be used if no such
+                view script exists for the current page controller.</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <p>
+            
+        </p>
+        <p>
+            Enter the following code to replace whatever else might be there.
+            
+            </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+    $title </span><span style="color: #007700">= </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getTextRaw</span><span style="color: #007700">(</span><span style="color: #DD0000">'TITLE_INDEX'</span><span style="color: #007700">);
+    </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">head</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">setTitle</span><span style="color: #007700">(</span><span style="color: #0000BB">$title</span><span style="color: #007700">);
+</span><span style="color: #0000BB">?&gt;
+</span>
+&lt;h2&gt;<span style="color: #0000BB">&lt;?php </span><span style="color: #007700">echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getText</span><span style="color: #007700">(</span><span style="color: #DD0000">'HEADING_INDEX'</span><span style="color: #007700">); </span><span style="color: #0000BB">?&gt;</span>&lt;/h2&gt;
+
+<span style="color: #0000BB">&lt;?php </span><span style="color: #007700">if (! </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">list</span><span style="color: #007700">): </span><span style="color: #0000BB">?&gt;
+</span>
+    &lt;p&gt;<span style="color: #0000BB">&lt;?php </span><span style="color: #007700">echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getText</span><span style="color: #007700">(</span><span style="color: #DD0000">'ERR_NO_RECORDS'</span><span style="color: #007700">); </span><span style="color: #0000BB">?&gt;</span>&lt;/p&gt;
+
+<span style="color: #0000BB">&lt;?php </span><span style="color: #007700">else: </span><span style="color: #0000BB">?&gt;
+</span>
+    &lt;ul&gt;
+    
+    <span style="color: #0000BB">&lt;?php </span><span style="color: #007700">foreach (</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">list </span><span style="color: #007700">as </span><span style="color: #0000BB">$item</span><span style="color: #007700">): </span><span style="color: #0000BB">?&gt;
+</span>        &lt;li&gt;<span style="color: #0000BB">&lt;?php
+            </span><span style="color: #007700">echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">escape</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title</span><span style="color: #007700">);
+            echo </span><span style="color: #DD0000">"&amp;nbsp;&amp;nbsp;"</span><span style="color: #007700">;
+            echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">action</span><span style="color: #007700">(
+                </span><span style="color: #DD0000">"</span><span style="color: #007700">{</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">controller</span><span style="color: #007700">}</span><span style="color: #DD0000">/read/</span><span style="color: #007700">{</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">}</span><span style="color: #DD0000">"</span><span style="color: #007700">,
+                </span><span style="color: #DD0000">'ACTION_READ'
+            </span><span style="color: #007700">);
+        </span><span style="color: #0000BB">?&gt;</span>&lt;/li&gt;
+    
+    <span style="color: #0000BB">&lt;?php </span><span style="color: #007700">endforeach; </span><span style="color: #0000BB">?&gt;
+</span>    
+    &lt;/ul&gt;
+<span style="color: #0000BB">&lt;?php </span><span style="color: #007700">endif; </span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+        <p>
+        </p>
+        <p>
+            
+            Essentially, this view takes the collection of records in
+            <code class="literal">$this-&gt;list</code> and presents them as an unordered
+            list, with a link to read each one.
+            
+            </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>
+                    Public properties from the page controller become
+                    properties of the view object. For example,
+                    <code class="literal">$this-&gt;list</code> refers to the
+                    <code class="literal">$list</code> property from the page
+                    controller.
+                </p>
+            </li>
+            <li class="listitem">
+              <p>
+                    The page controller creates a few view properties
+                    automatically for you. They are
+                    <code class="literal">$this-&gt;controller_class</code>,
+                    <code class="literal">$this-&gt;controller</code>,
+                    <code class="literal">$this-&gt;action</code>,
+                    <code class="literal">$this-&gt;layout</code>, and
+                    <code class="literal">$this-&gt;errors</code>.
+                </p>
+            </li>
+            <li class="listitem">
+              <p>
+                    All variables not prefixed with <code class="literal">$this</code>
+                    are local to the view script itself. That way, it's easy
+                    to tell what is from the controller, and what is created
+                    by the view.
+                </p>
+            </li>
+            <li class="listitem">
+              <p>
+                    The methods <code class="literal">$this-&gt;getTextRaw()</code>,
+                    <code class="literal">$this-&gt;head()</code>,
+                    <code class="literal">$this-getText()</code>,
+                    <code class="literal">$this-&gt;escape()</code>, and
+                    <code class="literal">$this-&gt;action()</code> are called "helpers".
+                    They encapsulate common bits of code that are used over
+                    and over within views. You can see all the available
+                    helpers in the <a class="link" href="http://solarphp.com/package/Solar_View_Helper" target="_top">Solar_View_Helper</a>
+                    and <a class="link" href="http://solarphp.com/package/Solar_View_Helper_Form" target="_top">Solar_View_Helper_Form</a>
+                    packages.
+                </p>
+            </li>
+            <li class="listitem">
+              <p>
+                    The use of all-capital text strings instead of literal
+                    text is to prepare for localization later.
+                </p>
+            </li>
+          </ul>
+        </div>
+        <p>
+        </p>
+        <p>
+            You should now be able to browse to
+            <a class="link" href="http://localhost/index.php/blog" target="_top">http://localhost/index.php/blog</a>
+            and see a listing of exactly one public blog article.
+        </p>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="blog-demo.app.setup">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="blog-demo">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="blog-demo.app.read">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">1.7. Basic Application Setup </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 1.9. Read One Article</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:54 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">4.7. Eager Fetching</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="related.has-many-through">Prev</a> </td>
+          <th width="60%" align="center">Chapter 4. Working With Related Models</th>
+          <td width="20%" align="right"> <a accesskey="n" href="related.record-collection">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="4.7. Eager Fetching">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="related.eager"></a>4.7. Eager Fetching</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        Let's say you fetch a collection of 10 blog records, and attempt to
+        display the author name and a summary datapoint using the lazy-loading
+        feature of the model system:
+    </p>
+      <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">/**
+ * @var Solar_Sql_Model_Catalog $model
+ */
+
+</span><span style="color: #0000BB">$list </span><span style="color: #007700">= </span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">blogs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">(array(
+    </span><span style="color: #DD0000">'page'   </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">1</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'paging' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">10</span><span style="color: #007700">,
+));
+
+foreach (</span><span style="color: #0000BB">$list </span><span style="color: #007700">as </span><span style="color: #0000BB">$item</span><span style="color: #007700">) {
+    echo </span><span style="color: #DD0000">"Blog ID# " </span><span style="color: #007700">. </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">)
+       . </span><span style="color: #DD0000">" by "      </span><span style="color: #007700">. </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">author</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">)
+       . </span><span style="color: #DD0000">" has "     </span><span style="color: #007700">. </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">summary</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">comment_count</span><span style="color: #007700">)
+       . </span><span style="color: #DD0000">" comments&lt;br /&gt;"</span><span style="color: #007700">;
+}</span></span></code></pre>
+      <p>
+        This will result in a massive 21 queries. The first query is for the
+        original list of blog entries. However, when we get to the loop, we
+        issue one query to get that blog entry's author, and another query to
+        get that blog entry's summary record. That's two queries per loop
+        iteration over the ten blog entries, for an additional 20 queries.
+        This behavior is called the "N+1" problem, where "1" is the original
+        query, and the "N" is all the extra individual lazy-load queries.
+    </p>
+      <p>
+        Lazy-loading related data is convenient, but if you know in advance
+        that you're going to need certain related data, you should eager-fetch
+        it to reduce the number of queries involved.  To perform an eager
+        fetch, specify the names of the relateds you want to retrieve:
+    </p>
+      <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">/**
+ * @var Solar_Sql_Model_Catalog $model
+ */
+
+</span><span style="color: #0000BB">$list </span><span style="color: #007700">= </span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">blogs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">(array(
+    </span><span style="color: #DD0000">'page'   </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">1</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'paging' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">10</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'eager'  </span><span style="color: #007700">=&gt; array(</span><span style="color: #DD0000">'author'</span><span style="color: #007700">, </span><span style="color: #DD0000">'summary'</span><span style="color: #007700">), </span><span style="color: #FF8000">// eager fetch
+</span><span style="color: #007700">));
+
+foreach (</span><span style="color: #0000BB">$list </span><span style="color: #007700">as </span><span style="color: #0000BB">$item</span><span style="color: #007700">) {
+    echo </span><span style="color: #DD0000">"Blog ID# " </span><span style="color: #007700">. </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">)
+       . </span><span style="color: #DD0000">" by "      </span><span style="color: #007700">. </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">author</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">)
+       . </span><span style="color: #DD0000">" has "     </span><span style="color: #007700">. </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">summary</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">comment_count</span><span style="color: #007700">)
+       . </span><span style="color: #DD0000">" comments&lt;br /&gt;"</span><span style="color: #007700">;
+}</span></span></code></pre>
+      <p>
+        Now only one query will be issued.  Because <code class="literal">author</code>
+        and <code class="literal">summary</code> are to-one relationships, the Solar
+        model system will <code class="literal">LEFT JOIN</code> them to the blogs
+        query, merging the data into a single result set at the database,
+        and then emerge the related data into their own objects in PHP.
+    </p>
+      <p>
+        While to-one relateds are joined into the original result set,
+        to-many relateds generate one additional query per relationship.
+        This is *not* the same as N+1; no matter how many records are in the
+        original result set, there will be only one additional query for 
+        each to-many related. For example, to also get the tags and comments
+        on the blog listing, you would do the following:
+    </p>
+      <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">/**
+ * @var Solar_Sql_Model_Catalog $model
+ */
+
+</span><span style="color: #0000BB">$list </span><span style="color: #007700">= </span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">blogs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">(array(
+    </span><span style="color: #DD0000">'page'   </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">1</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'paging' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">10</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'eager'  </span><span style="color: #007700">=&gt; array(</span><span style="color: #DD0000">'author'</span><span style="color: #007700">, </span><span style="color: #DD0000">'summary'</span><span style="color: #007700">, </span><span style="color: #DD0000">'comments'</span><span style="color: #007700">, </span><span style="color: #DD0000">'tags'</span><span style="color: #007700">),
+));</span></span></code></pre>
+      <p>
+        This generates a total of three queries: one for the blogs
+        listing with author and summary joined in, one for all comments
+        on the blog result sets, and one for all tags on the blog result
+        set.  (If we had done this by lazy-loading each of the relateds
+        in a loop across the blogs result set, there would have been a 
+        total of 41 queries: the original blog query, plus 10 each for the
+        author, summary, comments, and tags.)
+    </p>
+      <div class="sect2" title="4.7.1. Setting Conditions for Eager Fetches">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="related.eager.conditions"></a>4.7.1. Setting Conditions for Eager Fetches</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            At times you may want to have additional conditions on the related
+            model to narrow down your query. For example, let's say you want
+            fetch all tags that belong to a certain blog. You can achieve this
+            by setting the eager-fetch more explicitly:
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">/**
+ * @var Solar_Sql_Model_Catalog $model
+ */
+
+</span><span style="color: #0000BB">$list </span><span style="color: #007700">= </span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">tags</span><span style="color: #007700">&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">(array(
+    </span><span style="color: #DD0000">'page'   </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">1</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'paging' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">10</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'eager'  </span><span style="color: #007700">=&gt; array(
+        </span><span style="color: #DD0000">'blogs' </span><span style="color: #007700">=&gt; array(
+            </span><span style="color: #DD0000">'join_type' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'inner'</span><span style="color: #007700">,
+            </span><span style="color: #DD0000">'conditions' </span><span style="color: #007700">=&gt; array(
+                </span><span style="color: #DD0000">'blog_id = 1'</span><span style="color: #007700">,   </span><span style="color: #FF8000">// refers to taggings.blog_id in this case
+                //'condition2',
+                //...
+            </span><span style="color: #007700">)
+        )
+    )
+));</span></span></code></pre>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="related.has-many-through">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="related">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="related.record-collection">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">4.6. Native Model "Has Many" Related Foreign Records "Through" An Association </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 4.8. Creating, Modifying, and Saving Relateds</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

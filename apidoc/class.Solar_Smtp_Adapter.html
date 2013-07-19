@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:57:04 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Smtp_Adapter</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Solar_Smtp_Adapter</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Smtp.locale">Prev</a></td>
+                <th width="60%" align="center">Classes</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Smtp_Adapter.Overview">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Smtp_Adapter" class="chapter">
+
+<h1>Solar_Smtp_Adapter</h1><p><b>Table of Contents</b></p><ul class="chunklist chunklist_title">
+<li><a href="class.Solar_Smtp_Adapter.Overview">Overview</a></li>
+<li><a href="class.Solar_Smtp_Adapter.Config">Configuration</a></li>
+<li><a href="class.Solar_Smtp_Adapter.Constants">Constants</a></li>
+<li><a href="class.Solar_Smtp_Adapter.Properties">Properties</a></li>
+<li><a href="class.Solar_Smtp_Adapter.Methods">Methods</a></li>
+<li><a href="class.Solar_Smtp_Adapter.__construct">Solar_Smtp_Adapter::__construct()</a></li>
+<li><a href="class.Solar_Smtp_Adapter.__destruct">Solar_Smtp_Adapter::__destruct()</a></li>
+<li><a href="class.Solar_Smtp_Adapter._buildConfig">Solar_Smtp_Adapter::_buildConfig()</a></li>
+<li><a href="class.Solar_Smtp_Adapter._ehlo">Solar_Smtp_Adapter::_ehlo()</a></li>
+<li><a href="class.Solar_Smtp_Adapter._exception">Solar_Smtp_Adapter::_exception()</a></li>
+<li><a href="class.Solar_Smtp_Adapter._expect">Solar_Smtp_Adapter::_expect()</a></li>
+<li><a href="class.Solar_Smtp_Adapter._postConfig">Solar_Smtp_Adapter::_postConfig()</a></li>
+<li><a href="class.Solar_Smtp_Adapter._postConstruct">Solar_Smtp_Adapter::_postConstruct()</a></li>
+<li><a href="class.Solar_Smtp_Adapter._preConfig">Solar_Smtp_Adapter::_preConfig()</a></li>
+<li><a href="class.Solar_Smtp_Adapter._recv">Solar_Smtp_Adapter::_recv()</a></li>
+<li><a href="class.Solar_Smtp_Adapter._send">Solar_Smtp_Adapter::_send()</a></li>
+<li><a href="class.Solar_Smtp_Adapter.auth">Solar_Smtp_Adapter::auth()</a></li>
+<li><a href="class.Solar_Smtp_Adapter.connect">Solar_Smtp_Adapter::connect()</a></li>
+<li><a href="class.Solar_Smtp_Adapter.data">Solar_Smtp_Adapter::data()</a></li>
+<li><a href="class.Solar_Smtp_Adapter.disconnect">Solar_Smtp_Adapter::disconnect()</a></li>
+<li><a href="class.Solar_Smtp_Adapter.dump">Solar_Smtp_Adapter::dump()</a></li>
+<li><a href="class.Solar_Smtp_Adapter.getCrlf">Solar_Smtp_Adapter::getCrlf()</a></li>
+<li><a href="class.Solar_Smtp_Adapter.getLog">Solar_Smtp_Adapter::getLog()</a></li>
+<li><a href="class.Solar_Smtp_Adapter.helo">Solar_Smtp_Adapter::helo()</a></li>
+<li><a href="class.Solar_Smtp_Adapter.isConnected">Solar_Smtp_Adapter::isConnected()</a></li>
+<li><a href="class.Solar_Smtp_Adapter.locale">Solar_Smtp_Adapter::locale()</a></li>
+<li><a href="class.Solar_Smtp_Adapter.mail">Solar_Smtp_Adapter::mail()</a></li>
+<li><a href="class.Solar_Smtp_Adapter.noop">Solar_Smtp_Adapter::noop()</a></li>
+<li><a href="class.Solar_Smtp_Adapter.quit">Solar_Smtp_Adapter::quit()</a></li>
+<li><a href="class.Solar_Smtp_Adapter.rcpt">Solar_Smtp_Adapter::rcpt()</a></li>
+<li><a href="class.Solar_Smtp_Adapter.resetLog">Solar_Smtp_Adapter::resetLog()</a></li>
+<li><a href="class.Solar_Smtp_Adapter.rset">Solar_Smtp_Adapter::rset()</a></li>
+<li><a href="class.Solar_Smtp_Adapter.setCrlf">Solar_Smtp_Adapter::setCrlf()</a></li>
+<li><a href="class.Solar_Smtp_Adapter.vrfy">Solar_Smtp_Adapter::vrfy()</a></li>
+</ul>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Smtp.locale">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Smtp_Adapter.Overview">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_Smtp::locale()</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Overview</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

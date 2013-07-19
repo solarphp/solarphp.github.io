@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 10:04:59 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Service_Akismet : _prepareData</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Solar_Service_Akismet::_prepareData()</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Service_Akismet._preConfig">Prev</a></td>
+                <th width="60%" align="center">Solar_Service_Akismet</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Service_Akismet.commentCheck">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Service_Akismet._prepareData" class="section">
+
+<h1>Solar_Service_Akismet::_prepareData()</h1>
+
+<div class="methodsynopsis dc-description">
+    <span class="modifier">protected</span>
+    <span class="type">void</span>
+     <span class="methodname">Solar_Service_Akismet::_prepareData</span> 
+         ( <span class="methodparam"><span class="type">array</span>  <span class="parameter">$$data</span></span>
+    
+ )</div>
+
+
+<p class="para">Prepares the comment, spam, or ham comment data <em class="emphasis">by reference</em> for submission to Akismet.</p>
+
+<div>
+<h2>Parameters</h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><em class="emphasis">(array)</em> <code class="literal">&amp;$data</code>: The data to prepare <em class="emphasis">by reference</em>.</p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Returns</h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><em class="emphasis">(void)</em></p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Description</h2>
+
+<p class="para">Prepares the comment, spam, or ham comment data <em class="emphasis">by reference</em> for submission to Akismet.</p>
+
+<p class="para">The $data keys are:</p>
+
+<dl>
+
+
+<dt>
+
+<span class="term"><code class="literal">blog</code></span>
+<dd>
+<p class="para">The front page or home URL of the instance making the
+request. For a blog or wiki this would be the front page. Must be a 
+full URI, including &#039;http://&#039;. Default is the config value for
+<code class="literal">blog</code>.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><code class="literal">user_ip</code></span>
+<dd>
+<p class="para">IP address of the comment submitter.  Default is the
+server REMOTE_ADDR value.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><code class="literal">user_agent</code></span>
+<dd>
+<p class="para">User agent information.  Default is the server 
+HTTP_USER_AGENT value.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><code class="literal">referrer</code> (note spelling)</span>
+<dd>
+<p class="para">Default is the HTTP_REFERER value.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><code class="literal">permalink</code></span>
+<dd>
+<p class="para">The permanent location of the entry the comment was submitted to.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><code class="literal">comment_type</code></span>
+<dd>
+<p class="para">May be blank, &#039;comment&#039;, &#039;trackback&#039;, &#039;pingback&#039;, or any other value 
+(e.g., &#039;registration&#039;).  Default blank.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><code class="literal">comment_author</code></span>
+<dd>
+<p class="para">Submitted name with the comment.  Default blank. Leaving blank is 
+highly likely to result in a &quot;spam&quot; result.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><code class="literal">comment_author_email</code></span>
+<dd>
+<p class="para">Submitted email address</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><code class="literal">comment_author_url</code></span>
+<dd>
+<p class="para">Commenter URL.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><code class="literal">comment_content</code></span>
+<dd>
+<p class="para">The content that was submitted.</p></dd>
+
+</dt>
+
+
+</dl>
+
+
+</div>
+    
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Service_Akismet._preConfig">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_Service_Akismet">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Service_Akismet.commentCheck">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_Service_Akismet::_preConfig()</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Solar_Service_Akismet::commentCheck()</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

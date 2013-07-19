@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 10:02:04 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Http_Request_Adapter : Properties</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Properties</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Http_Request_Adapter.Constants">Prev</a></td>
+                <th width="60%" align="center">Solar_Http_Request_Adapter</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Http_Request_Adapter.Methods">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Http_Request_Adapter.Properties" class="section">
+
+<h1>Properties</h1>
+
+<p class="para">Properties existing in the <code class="literal">Solar_Http_Request_Adapter</code> class.</p>
+
+<div>
+<h2>Public</h2>
+
+<div id="class.Solar_Http_Request_Adapter.Properties.content">
+<h3><code class="literal">$content</code> </h3>
+
+<p class="para"><em class="emphasis">(string|array)</em> Content to send along with the request.</p>
+
+<p class="para">If an array, will be encoded with http_build_query() at fetch() time.</p>
+
+</div>
+
+</div>
+
+<div>
+<h2>Protected</h2>
+
+<div id="class.Solar_Http_Request_Adapter.Properties._Solar_Http_Request_Adapter">
+<h3><code class="literal">$_Solar_Http_Request_Adapter</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> Default configuration values.</p>
+
+</div>
+
+<div id="class.Solar_Http_Request_Adapter.Properties._charset">
+<h3><code class="literal">$_charset</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The character-set for the body content.</p>
+
+</div>
+
+<div id="class.Solar_Http_Request_Adapter.Properties._config">
+<h3><code class="literal">$_config</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> Collection point for configuration values.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Base.Properties#class.Solar_Base.Properties._config" class="link">Solar_Base</a>.</p>
+
+<p class="para">Note that you do not define config defaults in $_config directly.</p>
+
+<pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// DO NOT DO THIS
+</span><span style="color: #007700">protected </span><span style="color: #0000BB">$_config </span><span style="color: #007700">= array(
+    </span><span style="color: #DD0000">'foo' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'bar'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'baz' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'dib'</span><span style="color: #007700">,
+);</span></span></code></pre>
+
+
+<p class="para">Instead, define config defaults in a protected property named for the
+class, withan underscore prefix.</p>
+
+<p class="para">For exmple, a &quot;Vendor_Class_Name&quot; class would define the default 
+config array in &quot;$_Vendor_Class_Name&quot;.  This convention lets 
+child classes inherit parent config keys and values.</p>
+
+<pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// DO THIS INSTEAD
+</span><span style="color: #007700">protected </span><span style="color: #0000BB">$_Vendor_Class_Name </span><span style="color: #007700">= array(
+    </span><span style="color: #DD0000">'foo' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'bar'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'baz' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'dib'</span><span style="color: #007700">,
+);</span></span></code></pre>
+
+
+</div>
+
+<div id="class.Solar_Http_Request_Adapter.Properties._content_type">
+<h3><code class="literal">$_content_type</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The content-type for the body content.</p>
+
+</div>
+
+<div id="class.Solar_Http_Request_Adapter.Properties._cookies">
+<h3><code class="literal">$_cookies</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> Additional cookies to send with the request.</p>
+
+</div>
+
+<div id="class.Solar_Http_Request_Adapter.Properties._headers">
+<h3><code class="literal">$_headers</code> </h3>
+
+<p class="para"><em class="emphasis">(array)</em> Additional headers to send with the request.</p>
+
+</div>
+
+<div id="class.Solar_Http_Request_Adapter.Properties._max_redirects">
+<h3><code class="literal">$_max_redirects</code> </h3>
+
+<p class="para"><em class="emphasis">(int)</em> The maximum number of redirects to allow.</p>
+
+</div>
+
+<div id="class.Solar_Http_Request_Adapter.Properties._method">
+<h3><code class="literal">$_method</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The HTTP method to use for the request (GET, POST, etc).</p>
+
+</div>
+
+<div id="class.Solar_Http_Request_Adapter.Properties._proxy">
+<h3><code class="literal">$_proxy</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> Pass all HTTP requests through this proxy.</p>
+
+</div>
+
+<div id="class.Solar_Http_Request_Adapter.Properties._referer">
+<h3><code class="literal">$_referer</code> </h3>
+
+<p class="para"><em class="emphasis">(Solar_Uri)</em> The URI this request came from (if any).</p>
+
+</div>
+
+<div id="class.Solar_Http_Request_Adapter.Properties._ssl_cafile">
+<h3><code class="literal">$_ssl_cafile</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> Location of Certificate Authority file on local filesystem which should be used with the $_ssl_verify_peer  option to authenticate the identity of the remote peer.</p>
+
+</div>
+
+<div id="class.Solar_Http_Request_Adapter.Properties._ssl_capath">
+<h3><code class="literal">$_ssl_capath</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> If $_ssl_cafile is not specified or if the certificate is not found there, this directory path is searched for a suitable certificate.</p>
+
+<p class="para">The path must be a correctly hashed certificate directory.</p>
+
+</div>
+
+<div id="class.Solar_Http_Request_Adapter.Properties._ssl_local_cert">
+<h3><code class="literal">$_ssl_local_cert</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> Path to local certificate file on filesystem.</p>
+
+<p class="para">This must be a PEM encoded
+file which contains your certificate and private key. It can optionally
+contain the certificate chain of issuers.</p>
+
+</div>
+
+<div id="class.Solar_Http_Request_Adapter.Properties._ssl_passphrase">
+<h3><code class="literal">$_ssl_passphrase</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> Passphrase with which the $_ssl_local_cert file was encoded.</p>
+
+</div>
+
+<div id="class.Solar_Http_Request_Adapter.Properties._ssl_verify_peer">
+<h3><code class="literal">$_ssl_verify_peer</code> </h3>
+
+<p class="para"><em class="emphasis">(bool)</em> Require verification of SSL certificate used?</p>
+
+</div>
+
+<div id="class.Solar_Http_Request_Adapter.Properties._timeout">
+<h3><code class="literal">$_timeout</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> Let the request time out after this many seconds.</p>
+
+</div>
+
+<div id="class.Solar_Http_Request_Adapter.Properties._uri">
+<h3><code class="literal">$_uri</code> </h3>
+
+<p class="para"><em class="emphasis">(Solar_Uri)</em> The URI for the request.</p>
+
+</div>
+
+<div id="class.Solar_Http_Request_Adapter.Properties._user_agent">
+<h3><code class="literal">$_user_agent</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The User-Agent header value to send.</p>
+
+</div>
+
+<div id="class.Solar_Http_Request_Adapter.Properties._version">
+<h3><code class="literal">$_version</code> </h3>
+
+<p class="para"><em class="emphasis">(string)</em> The HTTP protocol version to use (1.0 or 1.1).</p>
+
+</div>
+
+</div>
+
+<div>
+<h2>Private</h2>
+
+<p class="para">None.</p>
+
+</div>
+    
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Http_Request_Adapter.Constants">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_Http_Request_Adapter">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Http_Request_Adapter.Methods">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Constants</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Methods</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

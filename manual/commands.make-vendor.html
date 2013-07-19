@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:56:00 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">8.2. Make Vendor Source</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="commands.intro">Prev</a> </td>
+          <th width="60%" align="center">Chapter 8. Command-Line Tools</th>
+          <td width="20%" align="right"> <a accesskey="n" href="commands.link-vendor">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="8.2. Make Vendor Source">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="commands.make-vendor"></a>8.2. Make Vendor Source</h2>
+          </div>
+        </div>
+      </div>
+      <div class="cmdsynopsis">
+        <p><code class="command">./script/solar make-vendor</code>   <em class="replaceable"><code>VendorName</code></em> </p>
+      </div>
+      <p>
+        The <span class="command"><strong>make-vendor</strong></span> command creates all the basic
+        source files for a new vendor space inside a Solar system. The
+        idea is, when you start a new project, you will use a new vendor
+        space for the controllers, models, views, and other components of
+        the application. You can have as many vendors as you like, so long as
+        their names are different.
+    </p>
+      <div class="sect2" title="8.2.1. Example">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="commands.make-vendor.example"></a>8.2.1. Example</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            To create a new vendor space inside a Solar system, issue the
+            following command:
+        </p>
+        <pre class="screen">$ <strong class="userinput"><code>./script/solar make-vendor <em class="replaceable"><code>VendorName</code></em></code></strong>
+Making vendor source directories.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/config.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/docs.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/script.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/tests.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/tests/Mock.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/tests/Mock/<em class="replaceable"><code>VendorName</code></em>.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/tests/Test.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/tests/Test/<em class="replaceable"><code>VendorName</code></em>.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Cli/Help.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Cli/Help/Info.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Cli/Help/Locale.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Controller/Bread/Locale.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Controller/Bread/Public.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Controller/Bread/View.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Controller/Command/Info.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Controller/Command/Locale.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Controller/Page/Layout.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Controller/Page/Locale.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Controller/Page/Public.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Controller/Page/View.
+Creating <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Model.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Cli/Help.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Cli/Help/Info/options.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Controller/Bread.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Controller/Bread/Locale/en_US.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Controller/Bread/View/_item.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Controller/Bread/View/_list.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Controller/Bread/View/add.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Controller/Bread/View/browse.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Controller/Bread/View/delete.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Controller/Bread/View/edit.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Controller/Bread/View/read.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Controller/Bread/View/search.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Controller/Command.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Controller/Page.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Filter.php ... done.
+Making directory <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Sql ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Sql/Model.php ... done.
+Making directory <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Sql/Model ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Sql/Model/Collection.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Sql/Model/Metadata.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Sql/Model/Record.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/config/default.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/config/run-tests.php ... done.
+Writing <em class="replaceable"><code>SYSTEM</code></em>/source/<em class="replaceable"><code>vendor-name</code></em>/<em class="replaceable"><code>VendorName</code></em>/Cli/Help/Info/help.txt ... done.
+Making links for vendor '<em class="replaceable"><code>VendorName</code></em>' ...
+    Making link 'include/<em class="replaceable"><code>VendorName</code></em>' ... done.
+    Making link 'include/Test/<em class="replaceable"><code>VendorName</code></em>' ... done.
+    Making link 'include/Mock/<em class="replaceable"><code>VendorName</code></em>' ... done.
+    Making link 'script/<em class="replaceable"><code>vendor-name</code></em>' ... done.
+... done.
+Making public symlinks for '<em class="replaceable"><code>VendorName</code></em>' ...
+    Making public directory docroot/public/<em class="replaceable"><code>VendorName</code></em>/Controller ... done.
+    Making public symlink for <em class="replaceable"><code>VendorName</code></em>_Controller_Bread ... done.
+    Making public symlink for <em class="replaceable"><code>VendorName</code></em>_Controller_Page ... done.
+... done.
+Remember to add '<em class="replaceable"><code>VendorName</code></em>_App' to the ['Solar_Controller_Front']['classes'] element in your config file so that it finds your apps.
+Remember to add '<em class="replaceable"><code>VendorName</code></em>_Model' to the ['Solar_Sql_Model_Catalog']['classes'] element in your config file so that it finds your models.
+$</pre>
+        <p>
+            What is going on here?
+        </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>
+                    The command creates a new source directory for
+                    <em class="replaceable"><code>vendor-name</code></em> and adds some standard
+                    directories therein: <code class="filename">config</code> for default
+                    configuration files, <code class="filename">docs</code> for
+                    documentation files, <code class="filename">script</code> for the
+                    <em class="replaceable"><code>vendor-name</code></em> command-line interface,
+                    <code class="filename">tests</code> for integration tests, and of
+                    course the
+                    <code class="filename"><em class="replaceable"><code>VendorName</code></em></code>
+                    directory for PHP classes.
+                </p>
+            </li>
+            <li class="listitem">
+              <p>
+                    The command creates a series of baseline classes and
+                    directories for <em class="replaceable"><code>VendorName</code></em> PHP code:
+                    a minimal page controller, a boilerplace browse/read/edit/add/delete ("BREAD")
+                    controller, a base class for <em class="replaceable"><code>VendorName</code></em>-specific
+                    models, directories for view helpers and concrete model classes,
+                    and so on.
+                </p>
+            </li>
+            <li class="listitem">
+              <p>
+                    Finally, the command creates symbolic links from the source
+                    directory to other locations in the Solar system, so that
+                    when source files change, you don't need to copy them out
+                    to the rest of the system.
+                </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="commands.intro">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="commands">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="commands.link-vendor">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">8.1. Introduction </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 8.3. Link Vendor Source</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

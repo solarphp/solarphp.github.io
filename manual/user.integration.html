@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:59 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">7.7. Integration With Page Controllers</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="user.access">Prev</a> </td>
+          <th width="60%" align="center">Chapter 7. User Authentication, Roles, and Access Control</th>
+          <td width="20%" align="right"> <a accesskey="n" href="user.ownership">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="7.7. Integration With Page Controllers">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="user.integration"></a>7.7. Integration With Page Controllers</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        At this point, we have a way to authenticate a user's identity, a
+        way to find out his role assignments, and a way to discover what
+        portions of the system he is allowed to access.  Now we want to use
+        that knowledge in a page controller.
+    </p>
+      <div class="note" title="Note">
+        <table border="0" summary="Note">
+          <tr>
+            <td rowspan="2" align="center" valign="top" width="25">
+              <img alt="[Note]" src="images/note.png" />
+            </td>
+            <th align="left">Note</th>
+          </tr>
+          <tr>
+            <td align="left" valign="top">
+              <p>
+        Because there are lots of different ways to deal with access
+        control, and because most of the approaches end up being
+        application-specific, we will only outline two alternatives
+        herein.
+    </p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="sect2" title="7.7.1. Catch-All Access Control">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="user.integration.catch-all"></a>7.7.1. Catch-All Access Control</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            One way to implement access control is to check the user's access
+            automatically as part of the page-controller dispatch cycle, and
+            pre-emptively change the requested action to something else. This
+            approach makes access checks automatic before each action.
+        </p>
+        <p>
+            Here is what the code for the catch-all approach might look like:
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #007700">abstract class </span><span style="color: #0000BB">Vendor_Controller_Page </span><span style="color: #007700">extends </span><span style="color: #0000BB">Solar_Controller_Page
+</span><span style="color: #007700">{
+    public </span><span style="color: #0000BB">$user</span><span style="color: #007700">;
+    
+    protected function </span><span style="color: #0000BB">_setup</span><span style="color: #007700">()
+    {
+        </span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">_setup</span><span style="color: #007700">();
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">user </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar_Registry</span><span style="color: #007700">::</span><span style="color: #0000BB">get</span><span style="color: #007700">(</span><span style="color: #DD0000">'user'</span><span style="color: #007700">);
+    }
+    
+    protected function </span><span style="color: #0000BB">_preAction</span><span style="color: #007700">()
+    {
+        </span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">_preAction</span><span style="color: #007700">();
+        if (! </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">access</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isAllowed</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">, </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_action</span><span style="color: #007700">)) {
+            </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_action </span><span style="color: #007700">= </span><span style="color: #DD0000">'forbidden'</span><span style="color: #007700">;
+        }
+    }
+    
+    public function </span><span style="color: #0000BB">actionForbidden</span><span style="color: #007700">()
+    {
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_view </span><span style="color: #007700">= </span><span style="color: #0000BB">null</span><span style="color: #007700">;
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_response</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setStatusCode</span><span style="color: #007700">(</span><span style="color: #0000BB">403</span><span style="color: #007700">);
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_response</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setContent</span><span style="color: #007700">(</span><span style="color: #DD0000">'Access denied.'</span><span style="color: #007700">);
+    }
+}</span></span></code></pre>
+        <p>
+            In the above code, we extend the <a class="link" href="http://solarphp.com/class/Solar_Controller_Page" target="_top">Solar_Controller_Page</a> class
+            with a class specific to our particular vendor. The following bits
+            of logic are implemented:
+        </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>
+                As part of construction, the <code class="function">_setup()</code>
+                method retrieves the registered <a class="link" href="http://solarphp.com/class/Solar_User" target="_top">Solar_User</a> object so we have
+                authentication, role, and access-control information for the
+                current user. (Recall that instantiating the
+                <code class="literal">Solar_User</code> object also handles
+                authentication attempts for us.)
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                The <code class="function">_preAction()</code> runs before each
+                inidividual action. As part of that logic, it checks to see if
+                the current user is allowed access to the current class and
+                action. If not, it changes the value of
+                <code class="literal">$this-&gt;_action</code> so that the user will be
+                directed to the <code class="function">actionForbidden()</code> method,
+                instead of the one he's not allowed to access.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                The <code class="function">actionForbidden()</code> method turns off
+                the view and layout, sets the response code to "403
+                Forbidden", and forcibly resets the resonse content.
+                (Alternatively, you could create a
+                <code class="filename">forbidden.php</code> view instead of setting
+                the response content directly.)
+            </p>
+            </li>
+          </ul>
+        </div>
+        <p>
+            Now when a user tries to access a controller and action that he
+            doesn't have access to, he will get a "403 Forbidden" response.
+        </p>
+      </div>
+      <div class="sect2" title="7.7.2. Intra-Action Access Control">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="user.integration.intra-action"></a>7.7.2. Intra-Action Access Control</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            The above approach is straighforward, but doesn't allow for much
+            nuance. Sometimes you need to check access permissions as part of
+            an action that is already being executed. As such, you may wish to
+            create a special method that checks access controls and call it
+            from within your actions. For example:
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #007700">abstract class </span><span style="color: #0000BB">Vendor_Controller_Page </span><span style="color: #007700">extends </span><span style="color: #0000BB">Solar_Controller_Page
+</span><span style="color: #007700">{
+    public </span><span style="color: #0000BB">$user</span><span style="color: #007700">;
+    
+    protected function </span><span style="color: #0000BB">_setup</span><span style="color: #007700">()
+    {
+        </span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">_setup</span><span style="color: #007700">();
+        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">user </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar_Registry</span><span style="color: #007700">::</span><span style="color: #0000BB">get</span><span style="color: #007700">(</span><span style="color: #DD0000">'user'</span><span style="color: #007700">);
+    }
+    
+    protected function </span><span style="color: #0000BB">_isUserAllowed</span><span style="color: #007700">()
+    {
+        if (</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">access</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isAllowed</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">, </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_action</span><span style="color: #007700">)) {
+            return </span><span style="color: #0000BB">true</span><span style="color: #007700">;
+        } else {
+            </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_error</span><span style="color: #007700">(</span><span style="color: #DD0000">'Access denied.'</span><span style="color: #007700">);
+            </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_response</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setStatusCode</span><span style="color: #007700">(</span><span style="color: #0000BB">403</span><span style="color: #007700">);
+            return </span><span style="color: #0000BB">false</span><span style="color: #007700">;
+        }
+    }
+}
+
+class </span><span style="color: #0000BB">Vendor_App_Foo </span><span style="color: #007700">extends </span><span style="color: #0000BB">Vendor_Controller_Page
+</span><span style="color: #007700">{
+    public function </span><span style="color: #0000BB">actionFoo</span><span style="color: #007700">()
+    {
+        </span><span style="color: #FF8000">// ... perform preliminary logic ...
+        
+        // check access
+        </span><span style="color: #007700">if (! </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_isUserAllowed</span><span style="color: #007700">()) {
+            return;
+        }
+        
+        </span><span style="color: #FF8000">// ... rest of the action here ...
+    </span><span style="color: #007700">}
+}</span></span></code></pre>
+        <p>
+            In this approach, we do two things. First, we extend the
+            <a class="link" href="http://solarphp.com/class/Solar_Controller_Page" target="_top">Solar_Controller_Page</a> class with a class
+            specific to our particular vendor, and implement the following bits
+            of logic:
+        </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>
+                As part of construction, the <code class="function">_setup()</code>
+                method retrieves the registered <a class="link" href="http://solarphp.com/class/Solar_User" target="_top">Solar_User</a> object so we have
+                authentication, role, and access-control information for the
+                current user. (Recall that instantiating the
+                <code class="literal">Solar_User</code> object also handles
+                authentication attempts for us.)
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                The <code class="function">_isUserAllowed()</code> method checks the
+                current class and action to see if the user is allowed access.
+                If so, it returns true, but if not, it calls the
+                <a class="link" href="http://solarphp.com/class/Solar_Controller_Page::_error()" target="_top">Solar_Controller_Page::_error()</a> method and sets the response
+                status code to "403 Forbidden."
+            </p>
+            </li>
+          </ul>
+        </div>
+        <p>
+            After the base page-controller class is in place, we modify our
+            page-controller <code class="function">actionBar()</code> to check user
+            permissions in the middle of its logic. If the user is allowed,
+            processing continues. If not, we exit the action and let the page
+            controller render the error page automatically as a result of
+            calling <code class="function">_error()</code> in the
+            <code class="function">_isUserAllowed()</code> method.
+        </p>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="user.access">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="user">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="user.ownership">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">7.6. Access Control </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 7.8. Ownership Access</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

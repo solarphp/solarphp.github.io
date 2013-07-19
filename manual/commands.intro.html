@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:56:00 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">8.1. Introduction</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="commands">Prev</a> </td>
+          <th width="60%" align="center">Chapter 8. Command-Line Tools</th>
+          <td width="20%" align="right"> <a accesskey="n" href="commands.make-vendor">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="8.1. Introduction">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="commands.intro"></a>8.1. Introduction</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        Solar comes with a series of command-line tools that automate various
+        tasks for you within a Solar system.  The available commands are:
+    </p>
+      <div class="sect2" title="8.1.1. Vendor-Related Commands">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="commands.intro.vendor"></a>8.1.1. Vendor-Related Commands</h3>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <dl>
+            <dt>
+              <span class="term">
+                <span class="command">
+                  <strong>make-vendor</strong>
+                </span>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Creates a vendor source directory and various initial
+                    library classes.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <span class="command">
+                  <strong>link-vendor</strong>
+                </span>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Creates symbolic links from a vendor source directory
+                    to other standard locations in the Solar system.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <span class="command">
+                  <strong>unlink-vendor</strong>
+                </span>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Removes symbolic links to a vendor source directory
+                    from standard locations in the Solar system.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <span class="command">
+                  <strong>link-public</strong>
+                </span>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Creates symbolic links from public assets in a vendor
+                    source directory to the Solar system document root.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <span class="command">
+                  <strong>help</strong>
+                </span>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Shows the list of commands for a vendor, or the help text
+                    for a specific vendor command.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="sect2" title="8.1.2. Project-Related Commands">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="commands.intro.project"></a>8.1.2. Project-Related Commands</h3>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <dl>
+            <dt>
+              <span class="term">
+                <span class="command">
+                  <strong>make-model</strong>
+                </span>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Creates a set of model classes from a database table.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <span class="command">
+                  <strong>make-app</strong>
+                </span>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Creates a set of web application classes and files,
+                    optionally generating browse/read/edit/add/delete
+                    boilerplate code using a specific model.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <span class="command">
+                  <strong>make-cli</strong>
+                </span>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Creates a series of CLI command classes and files.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="sect2" title="8.1.3. Test-Related Commands">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="commands.intro.test"></a>8.1.3. Test-Related Commands</h3>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <dl>
+            <dt>
+              <span class="term">
+                <span class="command">
+                  <strong>make-tests</strong>
+                </span>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Creates a series of test classes and methods for a
+                    vendor or class, and its descendants.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <span class="command">
+                  <strong>run-tests</strong>
+                </span>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Runs the tests for a class and its descendants.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="sect2" title="8.1.4. Documentation-Related Commands">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="commands.intro.documentation"></a>8.1.4. Documentation-Related Commands</h3>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <dl>
+            <dt>
+              <span class="term">
+                <span class="command">
+                  <strong>make-docs</strong>
+                </span>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Builds a set of wiki-like documentation files from the API
+                    comments embedded in class files.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <span class="command">
+                  <strong>make-docbook</strong>
+                </span>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Converts wiki-like documentation files to DocBook files.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="commands">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="commands">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="commands.make-vendor">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">Chapter 8. Command-Line Tools </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 8.2. Make Vendor Source</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

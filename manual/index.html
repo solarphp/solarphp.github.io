@@ -1,0 +1,747 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:54:42 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">The Solar Framework for PHP</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> <a accesskey="n" href="pt01">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div xml:lang="en" class="book" title="The Solar Framework for PHP" lang="en">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="manual"></a>The Solar Framework for PHP</h1>
+          </div>
+          <div>
+            <p class="copyright">Copyright © 2009-2010 
+                Solar Framework for PHP
+                (<a class="link" href="http://solarphp.com" target="_top">http://solarphp.com</a>)
+            </p>
+          </div>
+          <div>
+            <p class="pubdate">2010-11-09</p>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="toc">
+        <p>
+          <b>Table of Contents</b>
+        </p>
+        <dl>
+          <dt>
+            <span class="part">
+              <a href="pt01">I. Getting Started</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="chapter">
+                  <a href="blog-demo">1. Quick-Start Blog Demo</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect1">
+                      <a href="blog-demo.intro">1.1. Introduction</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="blog-demo.install">1.2. Download and Install Solar</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="blog-demo.vendor">1.3. Make a Vendor Space</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="blog-demo.config">1.4. Configure the System</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="blog-demo.model">1.5. Make a Model From a Database Table</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="blog-demo.app">1.6. Make a Basic Application</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="blog-demo.app.setup">1.7. Basic Application Setup</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="blog-demo.app.index">1.8. Browse All Public Articles</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="blog-demo.app.read">1.9. Read One Article</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="blog-demo.app.drafts">1.10. Browse All Draft Articles</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="blog-demo.app.edit">1.11. Edit One Article</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="blog-demo.app.add">1.12. Add One New Article</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="blog-demo.app.delete">1.13. Delete One Article</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="blog-demo.locale">1.14. Set Locale Strings</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="blog-demo.vhost">1.15. Cleaner URIs with a Virtual Host</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+              <dt>
+                <span class="chapter">
+                  <a href="dispatch-cycle">2. Dynamic Dispatch Cycle</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect1">
+                      <a href="dispatch-cycle.bootstrap-config">2.1. Bootstrap and Configuration</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="dispatch-cycle.front-controller">2.2. Front Controller</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="dispatch-cycle.rewrite-rules">2.3. Rewrite Rules</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="dispatch-cycle.page-controller">2.4. Page Controller</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+              <dt>
+                <span class="chapter">
+                  <a href="model">3. Working With Models</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect1">
+                      <a href="model.intro">3.1. Introduction</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="model.components">3.2. Major Components and Patterns</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="model.catalog">3.3. The Model Catalog</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="model.fetch">3.4. Fetching Data</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="model.results">3.5. Records and Collections</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="model.record">3.6. Record Creation, Modification, and Saving</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="model.filters">3.7. Record Filters</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="model.columns">3.8. Special Column Processing</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="model.sti">3.9. Single Table Inheritance</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+              <dt>
+                <span class="chapter">
+                  <a href="related">4. Working With Related Models</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect1">
+                      <a href="related.intro">4.1. Introduction</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="related.domain">4.2. Domain Description</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="related.has-one">4.3. Native Model "Has One" Related Foreign Record</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="related.has-many">4.4. Native Model "Has Many" Related Foreign Records</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="related.belongs-to">4.5. Native Model "Belongs To" Related Foreign Model</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="related.has-many-through">4.6. Native Model "Has Many" Related Foreign Records "Through" An Association</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="related.eager">4.7. Eager Fetching</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="related.record-collection">4.8. Creating, Modifying, and Saving Relateds</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+              <dt>
+                <span class="chapter">
+                  <a href="views">5. Views and Layouts</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect1">
+                      <a href="views.intro">5.1. Introduction</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="views.location">5.2. Location of Views and Layouts</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="views.nested">5.3. Nested Views and Partials</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="views.formats">5.4. Alternate Formats</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="views.helpers">5.5. View Helpers</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="views.layouts">5.6. Layouts</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+              <dt>
+                <span class="chapter">
+                  <a href="form">6. Models and Forms</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect1">
+                      <a href="form.intro">6.1. Introduction</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="form.controller">6.2. Controller Logic</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="form.object">6.3. The Form Object</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="form.elements">6.4. Form Elements</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="form.view">6.5. View Presentation</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="form.view.decorate">6.6. View Decoration</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="form.view-semiauto">6.7. Semi-Automatic View Presentation</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="form.view.custom">6.8. Custom Record Elements</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="form.view.locale">6.9. Locale Strings</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+              <dt>
+                <span class="chapter">
+                  <a href="user">7. User Authentication, Roles, and Access Control</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect1">
+                      <a href="user.intro">7.1. Introduction</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="user.object">7.2. The Solar_User Object</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="user.auth-process">7.3. Authentication Processing</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="user.auth-forms">7.4. Authentication Forms</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="user.roles">7.5. Roles</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="user.access">7.6. Access Control</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="user.integration">7.7. Integration With Page Controllers</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="user.ownership">7.8. Ownership Access</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+              <dt>
+                <span class="chapter">
+                  <a href="commands">8. Command-Line Tools</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect1">
+                      <a href="commands.intro">8.1. Introduction</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="commands.make-vendor">8.2. Make Vendor Source</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="commands.link-vendor">8.3. Link Vendor Source</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="commands.link-public">8.4. Link Public Assets</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="commands.unlink-vendor">8.5. Unlink Vendor Source</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="commands.help">8.6. Get Help</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="commands.make-model">8.7. Make One Or More Models</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="commands.make-app">8.8. Make A Web Application Page</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="commands.make-cli">8.9. Make A CLI Command</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="commands.make-tests">8.10. Make A Test Suite</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="commands.run-tests">8.11. Run A Test Suite</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="commands.make-docs">8.12. Make Wiki-Like Documentation</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="commands.make-docbook">8.13. Make DocBook Files</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+              <dt>
+                <span class="chapter">
+                  <a href="mail">9. Mail</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect1">
+                      <a href="mail.intro">9.1. Introduction</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="mail.composing">9.2. Composing Messages</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="mail.attachments">9.3. Message Attachments</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="mail.sending">9.4. Sending Messages</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+            </dl>
+          </dd>
+          <dt>
+            <span class="part">
+              <a href="pt02">II. Appendices</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="appendix">
+                  <a href="appendix-standards">A. Project Standards</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect1">
+                      <a href="appendix-standards.intro">A.1. Introduction</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="appendix-standards.style">A.2. Style Guide</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="appendix-standards.base-class">A.3. Base Class</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="appendix-standards.constructor">A.4. Universal Constructor</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="appendix-standards.config">A.5. Universal Configuration</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="appendix-standards.system">A.6. Project System</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+              <dt>
+                <span class="appendix">
+                  <a href="appendix-naming">B. Naming Conventions</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect1">
+                      <a href="appendix-naming.intro">B.1. Introduction</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="appendix-standards.naming.classes">B.2. Vendor and Class Names</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="appendix-standards.naming.methods">B.3. Methods</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="appendix-standards.naming.globals">B.4. Global Variables and Functions</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="appendix-standards.naming.session-vars">B.5. Session Variables</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="appendix-standards.naming.config-keys">B.6. Configuration Keys</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="appendix-standards.naming.locale-files">B.7. Locale Files</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="appendix-standards.naming.locale-keys">B.8. Locale Translation Keys</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="appendix-standards.naming.exceptions">B.9. Exceptions</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect1">
+                      <a href="appendix-standards.naming.models">B.10. Model Classes</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+      <div class="list-of-figures">
+        <p>
+          <b>List of Figures</b>
+        </p>
+        <dl>
+          <dt>5.1. <a href="views.layouts#id36147979">
+		A graphical representation of a layout containing several sub-layouts. 
+	</a></dt>
+          <dt>7.1. <a href="user.auth-forms#id36151647">Authentication logic when using an HTML form</a></dt>
+        </dl>
+      </div>
+      <div class="list-of-tables">
+        <p>
+          <b>List of Tables</b>
+        </p>
+        <dl>
+          <dt>3.1. <a href="model.filters#id36144240">Filters Added Automatically In Models</a></dt>
+          <dt>3.2. <a href="model.sti#id36145227">Example Single Table Inheritance Data</a></dt>
+          <dt>B.1. <a href="appendix-standards.naming.methods#id36155586">Conventional Method Names</a></dt>
+          <dt>B.2. <a href="appendix-standards.naming.locale-keys#id36156017">Conventional Translation Key Prefixes</a></dt>
+        </dl>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> <a accesskey="n" href="pt01">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top"> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right" valign="top"> Part I. Getting Started</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:55 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">5.1. Introduction</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="views">Prev</a> </td>
+          <th width="60%" align="center">Chapter 5. Views and Layouts</th>
+          <td width="20%" align="right"> <a accesskey="n" href="views.location">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="5.1. Introduction">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="views.intro"></a>5.1. Introduction</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        View and layout scripts are responsible for displaying content in
+        the browser, typically as, but not limited to (X)HTML. Views are
+        generally specific to a controller action. For example, an action
+        method such as <code class="literal">actionIndex()</code> would display its
+        output in a view called <code class="filename">index.php</code>. Layouts,
+        on the other hand, are typically shared by the entire application
+        and wrap around a controller's view. A layout usually contains the
+        header, footer, navigation, and the content area where the
+        controller's view output is displayed.
+    </p>
+      <div class="sect2" title="5.1.1. Assumptions">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="views.intro.assumptions"></a>5.1.1. Assumptions</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+        	This chapter builds on the blog demo from chapter one and assumes that you 
+        	</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>have a working Solar system installed,</p>
+            </li>
+            <li class="listitem">
+              <p>understand the basic configuration, and</p>
+            </li>
+            <li class="listitem">
+              <p>have the blog demo from chapter one setup and working.</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+        </p>
+      </div>
+      <div class="sect2" title="5.1.2. Notes">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="views.intro.notes"></a>5.1.2. Notes</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+        	</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>All URLs in this chapter use the "cleaner" URLs as outlined at the 
+	        		end of chapter one. If you are not using the clean URLs, remember that 
+	        		<a class="link" href="http://localhost/blog/read/1" target="_top">http://localhost/blog/read/1</a> is equivalent to 
+	        		<a class="link" href="http://localhost/index.php/blog/read/1" target="_top">http://localhost/index.php/blog/read/1</a>.</p>
+            </li>
+            <li class="listitem">
+              <p>All examples are based on the localhost domain. Adjust your code accordingly.</p>
+            </li>
+            <li class="listitem">
+              <p><code class="filename"><em class="replaceable"><code>SYSTEM</code></em></code> refers to the location where Solar is installed.</p>
+            </li>
+            <li class="listitem">
+              <p><code class="literal">vim</code> may be shown as the text editor. Use whichever editor you are comfortable with.</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+        </p>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="views">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="views">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="views.location">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">Chapter 5. Views and Layouts </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 5.2. Location of Views and Layouts</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

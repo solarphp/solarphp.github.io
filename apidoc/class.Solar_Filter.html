@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:56:33 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Filter</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Solar_Filter</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_File.tmp">Prev</a></td>
+                <th width="60%" align="center">Classes</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Filter.Overview">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Filter" class="chapter">
+
+<h1>Solar_Filter</h1><p><b>Table of Contents</b></p><ul class="chunklist chunklist_title">
+<li><a href="class.Solar_Filter.Overview">Overview</a></li>
+<li><a href="class.Solar_Filter.Config">Configuration</a></li>
+<li><a href="class.Solar_Filter.Constants">Constants</a></li>
+<li><a href="class.Solar_Filter.Properties">Properties</a></li>
+<li><a href="class.Solar_Filter.Methods">Methods</a></li>
+<li><a href="class.Solar_Filter.__call">Solar_Filter::__call()</a></li>
+<li><a href="class.Solar_Filter.__construct">Solar_Filter::__construct()</a></li>
+<li><a href="class.Solar_Filter.__destruct">Solar_Filter::__destruct()</a></li>
+<li><a href="class.Solar_Filter._applyChain">Solar_Filter::_applyChain()</a></li>
+<li><a href="class.Solar_Filter._buildConfig">Solar_Filter::_buildConfig()</a></li>
+<li><a href="class.Solar_Filter._chainLocale">Solar_Filter::_chainLocale()</a></li>
+<li><a href="class.Solar_Filter._exception">Solar_Filter::_exception()</a></li>
+<li><a href="class.Solar_Filter._isWhitelisted">Solar_Filter::_isWhitelisted()</a></li>
+<li><a href="class.Solar_Filter._postConfig">Solar_Filter::_postConfig()</a></li>
+<li><a href="class.Solar_Filter._postConstruct">Solar_Filter::_postConstruct()</a></li>
+<li><a href="class.Solar_Filter._preConfig">Solar_Filter::_preConfig()</a></li>
+<li><a href="class.Solar_Filter._setup">Solar_Filter::_setup()</a></li>
+<li><a href="class.Solar_Filter.addChainFilter">Solar_Filter::addChainFilter()</a></li>
+<li><a href="class.Solar_Filter.addChainFilters">Solar_Filter::addChainFilters()</a></li>
+<li><a href="class.Solar_Filter.addFilterClass">Solar_Filter::addFilterClass()</a></li>
+<li><a href="class.Solar_Filter.applyChain">Solar_Filter::applyChain()</a></li>
+<li><a href="class.Solar_Filter.dataKeyExists">Solar_Filter::dataKeyExists()</a></li>
+<li><a href="class.Solar_Filter.dump">Solar_Filter::dump()</a></li>
+<li><a href="class.Solar_Filter.free">Solar_Filter::free()</a></li>
+<li><a href="class.Solar_Filter.getChainInvalid">Solar_Filter::getChainInvalid()</a></li>
+<li><a href="class.Solar_Filter.getData">Solar_Filter::getData()</a></li>
+<li><a href="class.Solar_Filter.getDataKey">Solar_Filter::getDataKey()</a></li>
+<li><a href="class.Solar_Filter.getFilter">Solar_Filter::getFilter()</a></li>
+<li><a href="class.Solar_Filter.getFilterClass">Solar_Filter::getFilterClass()</a></li>
+<li><a href="class.Solar_Filter.getRequire">Solar_Filter::getRequire()</a></li>
+<li><a href="class.Solar_Filter.locale">Solar_Filter::locale()</a></li>
+<li><a href="class.Solar_Filter.newFilter">Solar_Filter::newFilter()</a></li>
+<li><a href="class.Solar_Filter.resetChain">Solar_Filter::resetChain()</a></li>
+<li><a href="class.Solar_Filter.setChainLocaleObject">Solar_Filter::setChainLocaleObject()</a></li>
+<li><a href="class.Solar_Filter.setChainRequire">Solar_Filter::setChainRequire()</a></li>
+<li><a href="class.Solar_Filter.setChainWhitelist">Solar_Filter::setChainWhitelist()</a></li>
+<li><a href="class.Solar_Filter.setData">Solar_Filter::setData()</a></li>
+<li><a href="class.Solar_Filter.setFilterClass">Solar_Filter::setFilterClass()</a></li>
+<li><a href="class.Solar_Filter.setRequire">Solar_Filter::setRequire()</a></li>
+</ul>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_File.tmp">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Filter.Overview">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_File::tmp()</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Overview</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

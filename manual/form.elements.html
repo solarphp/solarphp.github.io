@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:57 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">6.4. Form Elements</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="form.object">Prev</a> </td>
+          <th width="60%" align="center">Chapter 6. Models and Forms</th>
+          <td width="20%" align="right"> <a accesskey="n" href="form.view">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="6.4. Form Elements">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="form.elements"></a>6.4. Form Elements</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        The individual elements describing the input portions
+        of the form are arguably the most important part of the form
+        object.  They are stored as an associative array in the
+        <a class="link" href="http://solarphp.com/class/Solar_Form::$elements" target="_top">Solar_Form::$elements</a> property.
+    </p>
+      <p>
+        Likewise, each element in the <code class="literal">$elements</code> property
+        is itself an array describing that element.  The descriptor array
+        keys are:
+    </p>
+      <div class="variablelist">
+        <dl>
+          <dt>
+            <span class="term">
+              <code class="literal">name</code>
+            </span>
+          </dt>
+          <dd>
+            <p>
+                The name of the element, to be used as the name attribute for
+                the element in the form.
+            </p>
+          </dd>
+          <dt>
+            <span class="term">
+              <code class="literal">type</code>
+            </span>
+          </dt>
+          <dd>
+            <p>
+                The type of element, corresponding to a view helper. E.g.,
+                <code class="literal">select</code> would use a
+                <code class="literal">formSelect</code> helper, resulting in an
+                <code class="literal">&lt;select /&gt;</code> tag. The
+                <code class="function">newForm()</code> is able to pick a reasonable
+                type for the element based on the kind of record property;
+                char and varchar columns get <code class="literal">input</code> types,
+                columns that use <code class="literal">ValidateInList</code> or
+                <code class="literal">ValidateInKeys</code> filters get
+                <code class="literal">select</code> types, booleans get
+                <code class="literal">checkbox</code> types, and so on.
+            </p>
+          </dd>
+          <dt>
+            <span class="term">
+              <code class="literal">label</code>
+            </span>
+          </dt>
+          <dd>
+            <p>
+                A short label to be placed in a &lt;label&gt; tag associated with
+                the element.
+            </p>
+          </dd>
+          <dt>
+            <span class="term">
+              <code class="literal">descr</code>
+            </span>
+          </dt>
+          <dd>
+            <p>
+                A longer piece of narrative text describing the element; this
+                could be used as a tooltip, as help text, or something
+                similar.
+            </p>
+          </dd>
+          <dt>
+            <span class="term">
+              <code class="literal">value</code>
+            </span>
+          </dt>
+          <dd>
+            <p>
+                The current value of the element.
+            </p>
+          </dd>
+          <dt>
+            <span class="term">
+              <code class="literal">require</code>
+            </span>
+          </dt>
+          <dd>
+            <p>
+                A boolean indicating if the element is required to be
+                non-blank. The <code class="function">newForm()</code> method knows
+                that if a table column is <code class="literal">NOT NULL</code>, it
+                should set the element as required.
+            </p>
+          </dd>
+          <dt>
+            <span class="term">
+              <code class="literal">options</code>
+            </span>
+          </dt>
+          <dd>
+            <p>
+                An array of key-value pairs where the key is the option value, and
+                the value is the option label text.  This is used for select
+                and radio types so they know what options to present.
+            </p>
+          </dd>
+          <dt>
+            <span class="term">
+              <code class="literal">attribs</code>
+            </span>
+          </dt>
+          <dd>
+            <p>
+                An array of key-value pairs where the key is an XHTML
+                attribute name, and the value is the attribute value.
+            </p>
+          </dd>
+          <dt>
+            <span class="term">
+              <code class="literal">invalid</code>
+            </span>
+          </dt>
+          <dd>
+            <p>
+                An array of messages regarding why the element value is
+                invalid (if at all).
+            </p>
+          </dd>
+        </dl>
+      </div>
+      <div class="sect2" title="6.4.1. Element Names">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="form.elements.name"></a>6.4.1. Element Names</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            Each element corresponds to what its key will be in the
+            <code class="literal">$_POST</code> array (or, if you are using the GET
+            method, the $_GET array -- generally not recommended but sometimes
+            necessary). The element names mimic an array format, where the
+            primary name matches the singular model name, and the keys match
+            the properties of the model record. However, the names are in fact
+            a flat list of strings; they just *look* like array keys.
+        </p>
+        <p>
+            For example, given an <code class="literal">Acme_Model_Blogs_Record</code>,
+            we will see these element names in the form object returned by
+            the <code class="function">newForm()</code> method.
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$form</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">elements</span><span style="color: #007700">[</span><span style="color: #DD0000">'blog[title]'</span><span style="color: #007700">]  = array(...); </span><span style="color: #FF8000">// $_POST['blog']['title']
+</span><span style="color: #0000BB">$form</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">elements</span><span style="color: #007700">[</span><span style="color: #DD0000">'blog[body]'</span><span style="color: #007700">]   = array(...); </span><span style="color: #FF8000">// $_POST['blog']['body']
+</span><span style="color: #0000BB">$form</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">elements</span><span style="color: #007700">[</span><span style="color: #DD0000">'blog[status]'</span><span style="color: #007700">] = array(...); </span><span style="color: #FF8000">// $_POST['blog']['status']</span></span></code></pre>
+        <div class="note" title="Note">
+          <table border="0" summary="Note">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">Note</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+            The <code class="function">newForm()</code> method automatically leaves
+            out "special" columns (primary, created, updated, inherit, etc.)
+            by default.
+        </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <p>
+            These names are also used in the form as the element name.
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000">&lt;input name="blog[title]" ... /&gt;
+&lt;textarea name="blog[body]"&gt;...&lt;/textarea&gt;
+&lt;select name="blog[status]"&gt;...&lt;/select&gt;</span></code></pre>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="form.object">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="form">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="form.view">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">6.3. The Form Object </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 6.5. View Presentation</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

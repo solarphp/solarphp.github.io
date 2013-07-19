@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:30 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Service_Akismet : Overview</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Overview</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Service_Akismet">Prev</a></td>
+                <th width="60%" align="center">Solar_Service_Akismet</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Service_Akismet.Config">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Service_Akismet.Overview" class="section">
+
+<h1>Overview</h1>
+
+<p class="para">Acts as an interface to the Akismet spam-checking service.</p>
+
+<p class="para"><a href="http://akismet.com" class="link external">&raquo; http://akismet.com</a></p>
+
+<p class="para">You will need to register for an Akismet API key to use the service. Once
+you have that, you can use the service like so:</p>
+
+<pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$akismet </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">factory</span><span style="color: #007700">(</span><span style="color: #DD0000">'Solar_Service_Akismet'</span><span style="color: #007700">, array(
+    </span><span style="color: #DD0000">'key'  </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'apikeyvalue'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'blog' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'http://example.com'</span><span style="color: #007700">,
+));
+
+</span><span style="color: #0000BB">$comment </span><span style="color: #007700">= array(
+    </span><span style="color: #DD0000">'permalink'             </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'http://example.net/blog/read/1'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'comment_type'          </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'comment'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'comment_author'        </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'nobody'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'comment_author_email'  </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'nobody@example.com'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'comment_author_url'    </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'http://example.org/nobody.html'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'comment_content'       </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'The comment text.'</span><span style="color: #007700">,
+);
+
+</span><span style="color: #0000BB">$is_spam </span><span style="color: #007700">= </span><span style="color: #0000BB">$akismet</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">commentCheck</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">);</span></span></code></pre>
+
+
+<div>
+<h2>Package</h2>
+
+<p class="para">This class is part of the <a href="package.Solar_Service" class="link">Solar_Service</a> package.</p>
+
+<p class="para">Inheritance:</p>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><a href="class.Solar_Base.Overview" class="link">Solar_Base</a>
+<ul class="itemizedlist"><li class="listitem"><p class="para">Solar_Service_Akismet</p></li>
+</ul></p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Configuration Keys</h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><a href="class.Solar_Service_Akismet.Config#class.Solar_Service_Akismet.Config.key" class="link"><code class="literal">key</code></a>: The Akismet service API key.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Service_Akismet.Config#class.Solar_Service_Akismet.Config.blog" class="link"><code class="literal">blog</code></a>: The front page to the blog, wiki, site, etc.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Service_Akismet.Config#class.Solar_Service_Akismet.Config.http" class="link"><code class="literal">http</code></a>: A configuration array for the Solar_Http_Request object to   be used internally.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Service_Akismet.Config#class.Solar_Service_Akismet.Config.request" class="link"><code class="literal">request</code></a>: A Solar_Request dependency injection. Default &#039;request&#039;.</p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Constants</h2>
+
+<p class="para">None.</p>
+
+</div>
+
+<div>
+<h2>Public Properties</h2>
+
+<p class="para">The Solar_Service_Akismet class has no public properties; try the list of <a href="class.Solar_Service_Akismet.Properties" class="link">all properties</a>.</p>
+
+</div>
+
+<div>
+<h2>Public Methods</h2>
+
+<p class="para">These are all the public methods in the Solar_Service_Akismet class.</p>
+
+<p class="para">You can also view the list of <a href="class.Solar_Service_Akismet.Methods" class="link">all public, protected, and private methods</a>.</p>
+
+<dl>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Service_Akismet.__construct" class="link"><code class="literal">__construct()</code></a></span>
+<dd>
+<p class="para">Constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Service_Akismet.__destruct" class="link"><code class="literal">__destruct()</code></a></span>
+<dd>
+<p class="para">Default destructor; does nothing other than provide a safe fallback for calls to parent::__destruct().</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Service_Akismet.commentCheck" class="link"><code class="literal">commentCheck()</code></a></span>
+<dd>
+<p class="para">Checks the comment data with Akismet to see if it is spam.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Service_Akismet.dump" class="link"><code class="literal">dump()</code></a></span>
+<dd>
+<p class="para">Convenience method for getting a dump the whole object, or one of its properties, or an external variable.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Service_Akismet.getResponse" class="link"><code class="literal">getResponse()</code></a></span>
+<dd>
+<p class="para">Get the most-recent response sent from Akismet.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Service_Akismet.locale" class="link"><code class="literal">locale()</code></a></span>
+<dd>
+<p class="para">Looks up class-specific locale strings based on a key.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Service_Akismet.submitHam" class="link"><code class="literal">submitHam()</code></a></span>
+<dd>
+<p class="para">Submits data to Akismet to establish it as ham (i.e., not spam).</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Service_Akismet.submitSpam" class="link"><code class="literal">submitSpam()</code></a></span>
+<dd>
+<p class="para">Submits data to Akismet to establish it as spam.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Service_Akismet.verifyKey" class="link"><code class="literal">verifyKey()</code></a></span>
+<dd>
+<p class="para">Verifies the API key with Akismet.</p></dd>
+
+</dt>
+
+
+</dl>
+
+
+</div>
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Service_Akismet">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_Service_Akismet">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Service_Akismet.Config">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_Service_Akismet</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Configuration</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

@@ -1,0 +1,614 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:58 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">7.3. Authentication Processing</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="user.object">Prev</a> </td>
+          <th width="60%" align="center">Chapter 7. User Authentication, Roles, and Access Control</th>
+          <td width="20%" align="right"> <a accesskey="n" href="user.auth-forms">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="7.3. Authentication Processing">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="user.auth-process"></a>7.3. Authentication Processing</h2>
+          </div>
+          <div>
+            <div class="author">
+              <h3 class="author"><span class="firstname">Jon</span> <span class="surname">Elofson</span></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>
+        In most other frameworks, you have to create your own page controller
+        to deal with authentication processing. In Solar, this is not the
+        case; instead, the logic for processing login and logout requests is
+        encapsulated into the 
+        <a class="link" href="http://solarphp.com/class/Solar_Auth_Adapter" target="_top">Solar_Auth_Adapter</a>
+        class. After you configure an adapter so that it knows how to
+        recognize login and logout attempts, the adapter will intercept
+        incoming requests and handle the process automatically.
+    </p>
+      <div class="note" title="Note">
+        <table border="0" summary="Note">
+          <tr>
+            <td rowspan="2" align="center" valign="top" width="25">
+              <img alt="[Note]" src="images/note.png" />
+            </td>
+            <th align="left">Note</th>
+          </tr>
+          <tr>
+            <td align="left" valign="top">
+              <p>
+            If you want to build a separate authentication controller for some
+            reason, you can, but usually it's not necessary.
+        </p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="sect2" title="7.3.1. Adapters">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="user.auth-process.adapters"></a>7.3.1. Adapters</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+    		Solar provides different adapters allowing several methods of
+            authentication. The current adapters shipped with Solar are as
+            follows:
+    	</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p><a class="link" href="http://solarphp.com/class/Solar_Auth_Adapter_Htpasswd" target="_top">Solar_Auth_Adapter_Htpasswd</a> - Authenticate against a file generated by htpasswd</p>
+            </li>
+            <li class="listitem">
+              <p><a class="link" href="http://solarphp.com/class/Solar_Auth_Adapter_Ini" target="_top">Solar_Auth_Adapter_Ini</a> - Authenticate against .ini style files</p>
+            </li>
+            <li class="listitem">
+              <p><a class="link" href="http://solarphp.com/class/Solar_Auth_Adapter_Ldap" target="_top">Solar_Auth_Adapter_Ldap</a> - Authenticate against an LDAP server</p>
+            </li>
+            <li class="listitem">
+              <p><a class="link" href="http://solarphp.com/class/Solar_Auth_Adapter_None" target="_top">Solar_Auth_Adapter_None</a> - Authenticate against nothing; defaults all authentication to "failed"</p>
+            </li>
+            <li class="listitem">
+              <p><a class="link" href="http://solarphp.com/class/Solar_Auth_Adapter_Post" target="_top">Solar_Auth_Adapter_Post</a> - Authenticate via simple HTTP POST request-and-reply</p>
+            </li>
+            <li class="listitem">
+              <p><a class="link" href="http://solarphp.com/class/Solar_Auth_Adapter_Sql" target="_top">Solar_Auth_Adapter_Sql</a> - Authenticate against an SQL database table</p>
+            </li>
+            <li class="listitem">
+              <p><a class="link" href="http://solarphp.com/class/Solar_Auth_Adapter_Typekey" target="_top">Solar_Auth_Adapter_Typekey</a> - Authentication adapter for TypeKey</p>
+            </li>
+          </ul>
+        </div>
+        <div class="note" title="Note">
+          <table border="0" summary="Note">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">Note</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+    	        Note that these adapters are read-only. They do not create or
+                manage user accounts for you, they only compare the incoming
+                user credentials to the stored credentials.
+    	    </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <p>
+		    Solar uses a <a class="link" href="http://solarphp.com/class/Solar_Auth" target="_top">Solar_Auth</a>
+		    factory to create the adapter instance, so you need to configure
+            the factory to create the kind of adapter you want to use for
+            authentication. You can do so in the config file like this:
+		</p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Auth'</span><span style="color: #007700">] = array(
+    </span><span style="color: #DD0000">'adapter'    </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Solar_Auth_Adapter_Sql'</span><span style="color: #007700">,
+);</span></span></code></pre>
+      </div>
+      <div class="sect2" title="7.3.2. General Adapter Configuration">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="user.auth.config-general"></a>7.3.2. General Adapter Configuration</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+		    Now that we have told the factory what adapter to create, we need
+            to configure the adapter itself. All the adapters have the same
+            underlying config settings, although each adapter also has some
+            additional settings specific to itself.
+		</p>
+        <p>
+		    The following are the common underlying config settings for
+		    authentication adapters:
+		</p>
+        <div class="variablelist">
+          <dl>
+            <dt>
+              <span class="term">
+                <code class="literal">expire</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    (int) The lifetime, in seconds, that an authentication should
+                    last. After this period, the user will be forcibly logged
+                    out and will have to log in again. Zero is forever.
+                    Default is 14400 (4 hours). If this value is greater than
+                    the non-zero PHP ini setting for
+                    `session.cookie_lifetime`, it will throw an exception.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">idle</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    (int) The maximum allowed idle time in seconds. If the user is
+                    idle for longer than this, he will be logged out
+                    automatically and will have to log in again. Zero is
+                    forever. Default is 1440 (24 minutes). If this value is
+                    greater than the the PHP ini setting for
+                    `session.gc_maxlifetime`, it will throw an exception.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">source</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    (string) The source array for auth credentials, <code class="literal">'get'</code>
+                    (via the for <code class="literal">$_GET</code> request vars) or
+                    <code class="literal">'post'</code> (via the
+                    <code class="literal">$_POST</code> request vars). Default is
+                    <code class="literal">'post'</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">source_handle</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    (string) Username key in the auth credential source array,
+                    default <code class="literal">'handle'</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">source_passwd</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    (string) Password key in the auth credential source array,
+                    default <code class="literal">'passwd'</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">source_redirect</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    (string) Element key in the credential array source to indicate
+                    where to redirect on successful login or logout, default
+                    <code class="literal">'redirect'</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">source_process</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    (string) Element key in the credential array source to indicate how
+                    to process the request, default <code class="literal">'process'</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">process_login</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    (string) The source_process element value indicating a login
+                    request; default is the <code class="literal">'PROCESS_LOGIN'</code>
+                    locale key value, which is <code class="literal">'login'</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">process_logout</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    (string) The source_process element value indicating a
+                    logout request; default is the
+                    <code class="literal">'PROCESS_LOGOUT'</code> locale key value,
+                    which is <code class="literal">'logout'</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">login_callback</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    (callback) A callback to execute as part of the login
+                    process, whether or not login was successful.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">logout_callback</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    (callback) A callback to execute as part of the logout
+                    process.
+                </p>
+            </dd>
+          </dl>
+        </div>
+        <p>
+            Based on the above default settings, we can discern the following:
+        </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>
+                The adapter will process a login request whenever it sees
+                <code class="literal">$_POST['process'] == 'login'</code>. It will use
+                the value <code class="literal">$_POST['handle']</code> as the username,
+                and the value of <code class="literal">$_POST['passwd']</code> as the
+                plaintext password, when it checks the adapter-specific
+                credential store.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                The adapter will process a logout request whenever it sees
+                <code class="literal">$_POST['process'] == 'logout'</code>.
+            </p>
+            </li>
+            <li class="listitem">
+              <p>
+                After a successful login or logout, the adapter will look
+                at the value of <code class="literal">$_POST['redirect']</code> and,
+                if not empty, will issue a redirect to that URI.
+            </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="sect2" title="7.3.3. Adapter-Specific Configuration">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="user.auth-process.config-specific"></a>7.3.3. Adapter-Specific Configuration</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            In addition to the common configuration settings above, each
+            adapter has config settings specific to its credential storage
+            backend.
+        </p>
+        <p>
+            In the above example, we used a <a class="link" href="http://solarphp.com/class/Solar_Auth_Adapter_Sql" target="_top">Solar_Auth_Adapter_Sql</a>
+            adapter.  You can see the combined set of all config options
+            <a class="link" href="http://solarphp.com/class/Solar_Auth_Adapter_Sql/Config" target="_top">here</a>,
+            Let's look at a few of adapter-specific settings:
+        </p>
+        <div class="variablelist">
+          <dl>
+            <dt>
+              <span class="term">
+                <code class="literal">sql</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    (dependency) A <code class="literal">Solar_Sql</code> dependency
+                    injection. This is what gives the adapter a connection
+                    to the SQL database. Default is <code class="literal">'sql'</code>,
+                    meaning that it will look for a registry entry named
+                    <code class="literal">sql</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">table</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    (string) The name of the database table with handles (usernames)
+                    and passwords. Default is <code class="literal">'members'</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">handle_col</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    (string) The column in the table for handles (usernames).
+                    Default is <code class="literal">'handle'</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">passwd_col</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    (string) The column in the table for hashed passwords.
+                    Default is <code class="literal">'passwd'</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">hash_algo</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    (string) The hash algorithm used for passwords. Default 
+                    is <code class="literal">'md5'</code>/
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="literal">salt</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    (string) The salt string prefixed to every password before
+                    hashing it. Default is empty.
+                </p>
+            </dd>
+          </dl>
+        </div>
+        <p>
+            For example, if you want to use a registry entry <code class="literal">'sql'</code>
+            for the database connection, with <code class="literal">users.handle</code>
+            and <code class="literal">users.password</code> as the table columns, using
+            <code class="literal">sha1</code> hashing for the password, you would make
+            these entries in the config file:
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$config</span><span style="color: #007700">[</span><span style="color: #DD0000">'Solar_Auth_Adapter_Sql'</span><span style="color: #007700">] = array(
+    </span><span style="color: #DD0000">'sql'          </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'sql'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'table'        </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'users'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'handle_col'   </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'handle'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'passwd_col'   </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'password'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'hash_algo'    </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'sha1'
+</span><span style="color: #007700">);</span></span></code></pre>
+        <p>
+		    Again, each adapter has its own special config settings, so
+		    the API documentation for the adapter you want to use.
+		</p>
+      </div>
+      <div class="sect2" title="7.3.4. Handling Authentication Attempts">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="user.auth-process.handling"></a>7.3.4. Handling Authentication Attempts</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+	        Configuration is the hardest part of setting up authentication.
+            Once that part is done correctly, all you need to do is
+            instantiate a <a class="link" href="http://solarphp.com/class/Solar_User" target="_top">Solar_User</a> object, either by creating it yourself
+            or by retrieving it from the registry. The Solar_User instance will
+            automatically instantiate a <a class="link" href="http://solarphp.com/class/Solar_Auth" target="_top">Solar_Auth</a> object and start the
+            authentication processing for you, handling login and logout
+            attempts automatically.
+	    </p>
+        <div class="note" title="Note">
+          <table border="0" summary="Note">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">Note</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+	        For more information on exactly what's happening behind the
+            scenes, take a look at the code in the
+            <code class="literal">Solar_Auth_Adapter::start()</code> method.
+        </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="sect2" title="7.3.5. Usage">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="user.auth-process.usage"></a>7.3.5. Usage</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+	        Let's say we are using the SQL role adapter to read from
+            <code class="literal">roles</code> table with the following information:
+	    </p>
+        <pre class="screen">
+# table: members
+handle      passwd
+--------    ----------
+bolivar     ****
+andy        ****
+sarah       ****
+jameel      ****
+kornblum    ****
+</pre>
+        <p>
+            Let's also say that the user 'andy' has just logged in. The
+            <a class="link" href="http://solarphp.com/class/Solar_User" target="_top">Solar_User</a> object, which has a <a class="link" href="http://solarphp.com/class/Solar_Auth_Adapter" target="_top">Solar_Auth_Adapter</a> instance
+            inside it, processes the login attempt for us when we instantiate
+            it. We can then use the following <a class="link" href="http://solarphp.com/class/Solar_Auth_Adapter" target="_top">Solar_Auth_Adapter</a> methods and
+            properties to find out about Andy authenticated identity.
+            (Remember, we use a <a class="link" href="http://solarphp.com/class/Solar_User" target="_top">Solar_User</a> object instead of instantiating a
+            separate role adapter instance.)
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$user </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar_Registry</span><span style="color: #007700">::</span><span style="color: #0000BB">get</span><span style="color: #007700">(</span><span style="color: #DD0000">'user'</span><span style="color: #007700">);
+
+</span><span style="color: #FF8000">// is the current user authenticated (logged in)?
+</span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">auth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isValid</span><span style="color: #007700">(); </span><span style="color: #FF8000">// true when logged in, false when not
+
+// what is the handle for the authenticated user?
+</span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">auth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">handle</span><span style="color: #007700">; </span><span style="color: #FF8000">// 'andy', or null when not logged in</span></span></code></pre>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="user.object">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="user">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="user.auth-forms">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">7.2. The Solar_User Object </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 7.4. Authentication Forms</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

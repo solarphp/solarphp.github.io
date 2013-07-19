@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 10:05:55 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Sql_Adapter_Oracle : _sqlColdef</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Solar_Sql_Adapter_Oracle::_sqlColdef()</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Sql_Adapter_Oracle._splitSchemaIdent">Prev</a></td>
+                <th width="60%" align="center">Solar_Sql_Adapter_Oracle</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Sql_Adapter_Oracle._sqlCreateTable">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Sql_Adapter_Oracle._sqlColdef" class="section">
+
+<h1>Solar_Sql_Adapter_Oracle::_sqlColdef()</h1>
+
+<div class="methodsynopsis dc-description">
+    <span class="modifier">protected</span>
+    <span class="type">string</span>
+     <span class="methodname">Solar_Sql_Adapter_Oracle::_sqlColdef</span> 
+         ( <span class="methodparam"><span class="type">string</span>  <span class="parameter">$name</span></span>
+        , <span class="methodparam"><span class="type">array</span>  <span class="parameter">$info</span></span>
+    
+ )</div>
+
+
+<p class="para">Returns a column definition string.</p>
+
+<p class="para">Inherited from <a href="class.Solar_Sql_Adapter._sqlColdef" class="link">Solar_Sql_Adapter</a>.</p>
+
+<div>
+<h2>Parameters</h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><em class="emphasis">(string)</em> <code class="literal">$name</code>: The column name.</p></li>
+<li class="listitem"><p class="para"><em class="emphasis">(array)</em> <code class="literal">$info</code>: The column information.</p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Returns</h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><em class="emphasis">(string)</em> The column definition string.</p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Description</h2>
+
+<p class="para">Returns a column definition string.</p>
+
+<p class="para">The $info parameter should be in this format ...</p>
+
+<pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$info </span><span style="color: #007700">= array(
+    </span><span style="color: #DD0000">'type'    </span><span style="color: #007700">=&gt; (string) </span><span style="color: #0000BB">bool</span><span style="color: #007700">, </span><span style="color: #0000BB">char</span><span style="color: #007700">, </span><span style="color: #0000BB">int</span><span style="color: #007700">, ...
+    </span><span style="color: #DD0000">'size'    </span><span style="color: #007700">=&gt; (int) </span><span style="color: #0000BB">total length </span><span style="color: #007700">for </span><span style="color: #0000BB">char</span><span style="color: #007700">|</span><span style="color: #0000BB">varchar</span><span style="color: #007700">|</span><span style="color: #0000BB">numeric
+    </span><span style="color: #DD0000">'scope'   </span><span style="color: #007700">=&gt; (int) </span><span style="color: #0000BB">decimal places </span><span style="color: #007700">for </span><span style="color: #0000BB">numeric
+    </span><span style="color: #DD0000">'default' </span><span style="color: #007700">=&gt; (bool) </span><span style="color: #0000BB">the </span><span style="color: #007700">default </span><span style="color: #0000BB">value</span><span style="color: #007700">, if </span><span style="color: #0000BB">any
+    </span><span style="color: #DD0000">'require' </span><span style="color: #007700">=&gt; (bool) </span><span style="color: #0000BB">is the value required to be NOT NULL</span><span style="color: #007700">?
+    </span><span style="color: #DD0000">'primary' </span><span style="color: #007700">=&gt; (bool) </span><span style="color: #0000BB">is this a primary key column</span><span style="color: #007700">?
+    </span><span style="color: #DD0000">'autoinc' </span><span style="color: #007700">=&gt; (bool) </span><span style="color: #0000BB">is this an auto</span><span style="color: #007700">-</span><span style="color: #0000BB">increment column</span><span style="color: #007700">?
+);</span></span></code></pre>
+
+
+</div>
+    
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Sql_Adapter_Oracle._splitSchemaIdent">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_Sql_Adapter_Oracle">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Sql_Adapter_Oracle._sqlCreateTable">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_Sql_Adapter_Oracle::_splitSchemaIdent()</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Solar_Sql_Adapter_Oracle::_sqlCreateTable()</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

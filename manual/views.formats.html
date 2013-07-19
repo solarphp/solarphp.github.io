@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:55 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">5.4. Alternate Formats</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="views.nested">Prev</a> </td>
+          <th width="60%" align="center">Chapter 5. Views and Layouts</th>
+          <td width="20%" align="right"> <a accesskey="n" href="views.helpers">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="5.4. Alternate Formats">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="views.formats"></a>5.4. Alternate Formats</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+		Perhaps you would like to display a list of your recent blog
+		posts as xml for an RSS reader. Or perhaps you have tabular data that you
+		would like to download as CSV data. Solar makes this easy using alternate
+		formats.
+	</p>
+      <p>
+		First, you need to map the alternate formats to the action methods.
+	</p>
+      <p>
+		Open <code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/App/Blog.php</code> 
+		and add the following <code class="literal">$_action_format</code> array to the <code class="literal">_setup()</code> method so it looks like the
+		code below.
+	</p>
+      <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #007700">protected function </span><span style="color: #0000BB">_setup</span><span style="color: #007700">()
+{
+    </span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">_setup</span><span style="color: #007700">();
+    </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_model </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar_Registry</span><span style="color: #007700">::</span><span style="color: #0000BB">get</span><span style="color: #007700">(</span><span style="color: #DD0000">'model_catalog'</span><span style="color: #007700">);
+    
+    </span><span style="color: #FF8000">// allow xml as an action format when browsing the index action
+    // browsing to index.xml will output to index.xml.php    
+    </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_action_format </span><span style="color: #007700">= array(
+        </span><span style="color: #DD0000">'index' </span><span style="color: #007700">=&gt; array(</span><span style="color: #DD0000">'xml'</span><span style="color: #007700">)
+    );
+}   
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+      <p>This tells Solar that if a user browses to
+		<a class="link" href="http://localhost/blog/index.xml" target="_top">http://localhost/blog/index.xml</a>, then 
+	</p>
+      <div class="orderedlist">
+        <ol class="orderedlist" type="1">
+          <li class="listitem">
+            <p>it should look for a view named <code class="filename">index.xml.php</code>,</p>
+          </li>
+          <li class="listitem">
+            <p>it should set the appropriate content type (application/xml), and</p>
+          </li>
+          <li class="listitem">
+            <p>it should turn off the layout.</p>
+          </li>
+        </ol>
+      </div>
+      <p>
+		Try this by creating a new view script called <code class="filename">index.xml.php</code> in
+		the <code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/source/acme/Acme/App/Blog/View</code> folder.
+	</p>
+      <p>Add the following text to the newly created view script.</p>
+      <pre class="programlisting"><code><span style="color: #000000">&lt;items&gt;
+<span style="color: #0000BB">&lt;?php </span><span style="color: #007700">foreach (</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">list </span><span style="color: #007700">as </span><span style="color: #0000BB">$item</span><span style="color: #007700">) : </span><span style="color: #0000BB">?&gt;
+</span>&lt;item&gt;
+    &lt;title&gt;<span style="color: #0000BB">&lt;?php </span><span style="color: #007700">echo </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">escape</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title</span><span style="color: #007700">); </span><span style="color: #0000BB">?&gt;</span>&lt;/title&gt;
+&lt;/item&gt;
+<span style="color: #0000BB">&lt;?php </span><span style="color: #007700">endforeach; </span><span style="color: #0000BB">?&gt;
+</span>&lt;/items&gt;</span></code></pre>
+      <p>
+		Browse to <a class="link" href="http://localhost/blog/index.xml" target="_top">http://localhost/blog/index.xml</a> and you should see
+		your page in xml format without a layout wrapping around it. Depending on your
+		browser, you may have to view the source. No attempt was made to make
+		this valid rss xml format.
+	</p>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="views.nested">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="views">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="views.helpers">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">5.3. Nested Views and Partials </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 5.5. View Helpers</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

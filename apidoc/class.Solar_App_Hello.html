@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:56:24 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_App_Hello</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Solar_App_Hello</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Access_Adapter_Sql.reset">Prev</a></td>
+                <th width="60%" align="center">Classes</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_App_Hello.Overview">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_App_Hello" class="chapter">
+
+<h1>Solar_App_Hello</h1><p><b>Table of Contents</b></p><ul class="chunklist chunklist_title">
+<li><a href="class.Solar_App_Hello.Overview">Overview</a></li>
+<li><a href="class.Solar_App_Hello.Config">Configuration</a></li>
+<li><a href="class.Solar_App_Hello.Constants">Constants</a></li>
+<li><a href="class.Solar_App_Hello.Properties">Properties</a></li>
+<li><a href="class.Solar_App_Hello.Methods">Methods</a></li>
+<li><a href="class.Solar_App_Hello.__construct">Solar_App_Hello::__construct()</a></li>
+<li><a href="class.Solar_App_Hello.__destruct">Solar_App_Hello::__destruct()</a></li>
+<li><a href="class.Solar_App_Hello.__get">Solar_App_Hello::__get()</a></li>
+<li><a href="class.Solar_App_Hello.__set">Solar_App_Hello::__set()</a></li>
+<li><a href="class.Solar_App_Hello._addViewHelpers">Solar_App_Hello::_addViewHelpers()</a></li>
+<li><a href="class.Solar_App_Hello._addViewTemplates">Solar_App_Hello::_addViewTemplates()</a></li>
+<li><a href="class.Solar_App_Hello._buildConfig">Solar_App_Hello::_buildConfig()</a></li>
+<li><a href="class.Solar_App_Hello._csrfAttempt">Solar_App_Hello::_csrfAttempt()</a></li>
+<li><a href="class.Solar_App_Hello._error">Solar_App_Hello::_error()</a></li>
+<li><a href="class.Solar_App_Hello._exception">Solar_App_Hello::_exception()</a></li>
+<li><a href="class.Solar_App_Hello._exceptionDuringFetch">Solar_App_Hello::_exceptionDuringFetch()</a></li>
+<li><a href="class.Solar_App_Hello._fixAction">Solar_App_Hello::_fixAction()</a></li>
+<li><a href="class.Solar_App_Hello._fixFormat">Solar_App_Hello::_fixFormat()</a></li>
+<li><a href="class.Solar_App_Hello._fixInfo">Solar_App_Hello::_fixInfo()</a></li>
+<li><a href="class.Solar_App_Hello._fixLayout">Solar_App_Hello::_fixLayout()</a></li>
+<li><a href="class.Solar_App_Hello._fixViewObject">Solar_App_Hello::_fixViewObject()</a></li>
+<li><a href="class.Solar_App_Hello._forward">Solar_App_Hello::_forward()</a></li>
+<li><a href="class.Solar_App_Hello._getActionFormat">Solar_App_Hello::_getActionFormat()</a></li>
+<li><a href="class.Solar_App_Hello._getActionMethod">Solar_App_Hello::_getActionMethod()</a></li>
+<li><a href="class.Solar_App_Hello._getActionView">Solar_App_Hello::_getActionView()</a></li>
+<li><a href="class.Solar_App_Hello._info">Solar_App_Hello::_info()</a></li>
+<li><a href="class.Solar_App_Hello._isProcess">Solar_App_Hello::_isProcess()</a></li>
+<li><a href="class.Solar_App_Hello._load">Solar_App_Hello::_load()</a></li>
+<li><a href="class.Solar_App_Hello._loadInfoQueryFormat">Solar_App_Hello::_loadInfoQueryFormat()</a></li>
+<li><a href="class.Solar_App_Hello._notFound">Solar_App_Hello::_notFound()</a></li>
+<li><a href="class.Solar_App_Hello._postAction">Solar_App_Hello::_postAction()</a></li>
+<li><a href="class.Solar_App_Hello._postConfig">Solar_App_Hello::_postConfig()</a></li>
+<li><a href="class.Solar_App_Hello._postConstruct">Solar_App_Hello::_postConstruct()</a></li>
+<li><a href="class.Solar_App_Hello._postRender">Solar_App_Hello::_postRender()</a></li>
+<li><a href="class.Solar_App_Hello._postRun">Solar_App_Hello::_postRun()</a></li>
+<li><a href="class.Solar_App_Hello._preAction">Solar_App_Hello::_preAction()</a></li>
+<li><a href="class.Solar_App_Hello._preConfig">Solar_App_Hello::_preConfig()</a></li>
+<li><a href="class.Solar_App_Hello._preRender">Solar_App_Hello::_preRender()</a></li>
+<li><a href="class.Solar_App_Hello._preRun">Solar_App_Hello::_preRun()</a></li>
+<li><a href="class.Solar_App_Hello._query">Solar_App_Hello::_query()</a></li>
+<li><a href="class.Solar_App_Hello._redirect">Solar_App_Hello::_redirect()</a></li>
+<li><a href="class.Solar_App_Hello._redirectNoCache">Solar_App_Hello::_redirectNoCache()</a></li>
+<li><a href="class.Solar_App_Hello._render">Solar_App_Hello::_render()</a></li>
+<li><a href="class.Solar_App_Hello._renderLayout">Solar_App_Hello::_renderLayout()</a></li>
+<li><a href="class.Solar_App_Hello._renderView">Solar_App_Hello::_renderView()</a></li>
+<li><a href="class.Solar_App_Hello._setContentType">Solar_App_Hello::_setContentType()</a></li>
+<li><a href="class.Solar_App_Hello._setLayoutTemplates">Solar_App_Hello::_setLayoutTemplates()</a></li>
+<li><a href="class.Solar_App_Hello._setViewObject">Solar_App_Hello::_setViewObject()</a></li>
+<li><a href="class.Solar_App_Hello._setup">Solar_App_Hello::_setup()</a></li>
+<li><a href="class.Solar_App_Hello.actionError">Solar_App_Hello::actionError()</a></li>
+<li><a href="class.Solar_App_Hello.actionIndex">Solar_App_Hello::actionIndex()</a></li>
+<li><a href="class.Solar_App_Hello.display">Solar_App_Hello::display()</a></li>
+<li><a href="class.Solar_App_Hello.dump">Solar_App_Hello::dump()</a></li>
+<li><a href="class.Solar_App_Hello.fetch">Solar_App_Hello::fetch()</a></li>
+<li><a href="class.Solar_App_Hello.locale">Solar_App_Hello::locale()</a></li>
+<li><a href="class.Solar_App_Hello.setController">Solar_App_Hello::setController()</a></li>
+<li><a href="class.Solar_App_Hello.setFrontController">Solar_App_Hello::setFrontController()</a></li>
+</ul>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Access_Adapter_Sql.reset">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_App_Hello.Overview">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_Access_Adapter_Sql::reset()</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Overview</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

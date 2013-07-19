@@ -1,0 +1,522 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:10 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Mail_Message : Overview</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Overview</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Mail_Message">Prev</a></td>
+                <th width="60%" align="center">Solar_Mail_Message</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Mail_Message.Config">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Mail_Message.Overview" class="section">
+
+<h1>Overview</h1>
+
+<p class="para">Class to build an email message for sending through a transport.</p>
+
+<p class="para">Heavily modified and refactored from Zend_Mail_Message and related classes.</p>
+
+<div>
+<h2>Package</h2>
+
+<p class="para">This class is part of the <a href="package.Solar_Mail" class="link">Solar_Mail</a> package.</p>
+
+<p class="para">Inheritance:</p>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><a href="class.Solar_Base.Overview" class="link">Solar_Base</a>
+<ul class="itemizedlist"><li class="listitem"><p class="para">Solar_Mail_Message</p></li>
+</ul></p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Configuration Keys</h2>
+
+<ul class="itemizedlist">
+<li class="listitem"><p class="para"><a href="class.Solar_Mail_Message.Config#class.Solar_Mail_Message.Config.boundary" class="link"><code class="literal">boundary</code></a>: The default boundary value for separating message parts.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Mail_Message.Config#class.Solar_Mail_Message.Config.charset" class="link"><code class="literal">charset</code></a>: The character-set for messages; default is &#039;utf-8&#039;.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Mail_Message.Config#class.Solar_Mail_Message.Config.encoding" class="link"><code class="literal">encoding</code></a>: The encoding for messages; default is &#039;8bit&#039;.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Mail_Message.Config#class.Solar_Mail_Message.Config.crlf" class="link"><code class="literal">crlf</code></a>: The line-ending string to use; default is &quot;\r\n&quot;.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Mail_Message.Config#class.Solar_Mail_Message.Config.headers" class="link"><code class="literal">headers</code></a>: An array of key-value pairs where the key is the header label   and the value is the header value.  Default null.</p></li>
+<li class="listitem"><p class="para"><a href="class.Solar_Mail_Message.Config#class.Solar_Mail_Message.Config.transport" class="link"><code class="literal">transport</code></a>: A Solar_Mail_Transport dependency injection, for use    with the send() method.  Default null, which means you need to send   this message through a separate transport object.</p></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Constants</h2>
+
+<p class="para">None.</p>
+
+</div>
+
+<div>
+<h2>Public Properties</h2>
+
+<p class="para">The Solar_Mail_Message class has no public properties; try the list of <a href="class.Solar_Mail_Message.Properties" class="link">all properties</a>.</p>
+
+</div>
+
+<div>
+<h2>Public Methods</h2>
+
+<p class="para">These are all the public methods in the Solar_Mail_Message class.</p>
+
+<p class="para">You can also view the list of <a href="class.Solar_Mail_Message.Methods" class="link">all public, protected, and private methods</a>.</p>
+
+<dl>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.__construct" class="link"><code class="literal">__construct()</code></a></span>
+<dd>
+<p class="para">Constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.__destruct" class="link"><code class="literal">__destruct()</code></a></span>
+<dd>
+<p class="para">Default destructor; does nothing other than provide a safe fallback for calls to parent::__destruct().</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.addBcc" class="link"><code class="literal">addBcc()</code></a></span>
+<dd>
+<p class="para">Adds a &quot;Bcc:&quot; address recipient.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.addCc" class="link"><code class="literal">addCc()</code></a></span>
+<dd>
+<p class="para">Adds a &quot;Cc:&quot; address recipient.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.addHeader" class="link"><code class="literal">addHeader()</code></a></span>
+<dd>
+<p class="para">Adds a custom header to the message.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.addTo" class="link"><code class="literal">addTo()</code></a></span>
+<dd>
+<p class="para">Adds a &quot;To:&quot; address recipient.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.attachFile" class="link"><code class="literal">attachFile()</code></a></span>
+<dd>
+<p class="para">Attaches a file to the message.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.attachPart" class="link"><code class="literal">attachPart()</code></a></span>
+<dd>
+<p class="para">Attaches a Solar_Mail_Message_Part to the message.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.dump" class="link"><code class="literal">dump()</code></a></span>
+<dd>
+<p class="para">Convenience method for getting a dump the whole object, or one of its properties, or an external variable.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.fetchContent" class="link"><code class="literal">fetchContent()</code></a></span>
+<dd>
+<p class="para">Fetches all the content parts of this message as a string.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.fetchHeaders" class="link"><code class="literal">fetchHeaders()</code></a></span>
+<dd>
+<p class="para">Fetches all the headers of this message as a sequential array.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.getCharset" class="link"><code class="literal">getCharset()</code></a></span>
+<dd>
+<p class="para">Returns the character set for this message.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.getCrlf" class="link"><code class="literal">getCrlf()</code></a></span>
+<dd>
+<p class="para">Returns the CRLF sequence for this message.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.getEncoding" class="link"><code class="literal">getEncoding()</code></a></span>
+<dd>
+<p class="para">Returns the encoding for this message.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.getFrom" class="link"><code class="literal">getFrom()</code></a></span>
+<dd>
+<p class="para">Returns the &quot;From:&quot; address for this message.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.getHtml" class="link"><code class="literal">getHtml()</code></a></span>
+<dd>
+<p class="para">Returns the Solar_Mail_Message_Part for the HTML portion.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.getRcpt" class="link"><code class="literal">getRcpt()</code></a></span>
+<dd>
+<p class="para">Returns an array of all recipient addresses.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.getReplyTo" class="link"><code class="literal">getReplyTo()</code></a></span>
+<dd>
+<p class="para">Returns the &quot;Reply-To:&quot; address for this message.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.getReturnPath" class="link"><code class="literal">getReturnPath()</code></a></span>
+<dd>
+<p class="para">Returns the current Return-Path address for the email.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.getSubject" class="link"><code class="literal">getSubject()</code></a></span>
+<dd>
+<p class="para">Returns the message subject.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.getText" class="link"><code class="literal">getText()</code></a></span>
+<dd>
+<p class="para">Returns the Solar_Mail_Message_Part for the plain-text portion.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.locale" class="link"><code class="literal">locale()</code></a></span>
+<dd>
+<p class="para">Looks up class-specific locale strings based on a key.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.resetRcpt" class="link"><code class="literal">resetRcpt()</code></a></span>
+<dd>
+<p class="para">Resets all recipients in To, Cc and Bcc.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.send" class="link"><code class="literal">send()</code></a></span>
+<dd>
+<p class="para">If a transport dependency has been injected, use it to send this email.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.setBcc" class="link"><code class="literal">setBcc()</code></a></span>
+<dd>
+<p class="para">Sets the &quot;Bcc:&quot; address recipient, removing previous &quot;Bcc:&quot; recipients.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.setCc" class="link"><code class="literal">setCc()</code></a></span>
+<dd>
+<p class="para">Sets the &quot;Cc:&quot; address recipient, removing previous &quot;Cc:&quot; recipients.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.setCharset" class="link"><code class="literal">setCharset()</code></a></span>
+<dd>
+<p class="para">Sets the character set for this message.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.setCrlf" class="link"><code class="literal">setCrlf()</code></a></span>
+<dd>
+<p class="para">Sets the CRLF sequence for this message.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.setEncoding" class="link"><code class="literal">setEncoding()</code></a></span>
+<dd>
+<p class="para">Sets the encoding for this message.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.setFrom" class="link"><code class="literal">setFrom()</code></a></span>
+<dd>
+<p class="para">Sets the &quot;From:&quot; (sender) on this message.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.setHtml" class="link"><code class="literal">setHtml()</code></a></span>
+<dd>
+<p class="para">Sets the part for the HTML portion of this message.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.setReplyTo" class="link"><code class="literal">setReplyTo()</code></a></span>
+<dd>
+<p class="para">Sets the &quot;Reply-To:&quot; on this message.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.setReturnPath" class="link"><code class="literal">setReturnPath()</code></a></span>
+<dd>
+<p class="para">Sets the Return-Path header for an email.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.setSubject" class="link"><code class="literal">setSubject()</code></a></span>
+<dd>
+<p class="para">Sets the subject of the message.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.setText" class="link"><code class="literal">setText()</code></a></span>
+<dd>
+<p class="para">Sets the part for the plain-text portion of this message.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.setTo" class="link"><code class="literal">setTo()</code></a></span>
+<dd>
+<p class="para">Sets the &quot;To:&quot; address recipient, removing previous &quot;To:&quot; recipients.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Mail_Message.setTransport" class="link"><code class="literal">setTransport()</code></a></span>
+<dd>
+<p class="para">Sets the Solar_Mail_Transport dependency.</p></dd>
+
+</dt>
+
+
+</dl>
+
+
+</div>
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Mail_Message">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_Mail_Message">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Mail_Message.Config">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_Mail_Message</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Configuration</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

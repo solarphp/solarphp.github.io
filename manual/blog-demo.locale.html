@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:54:42 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">1.14. Set Locale Strings</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="blog-demo.app.delete">Prev</a> </td>
+          <th width="60%" align="center">Chapter 1. Quick-Start Blog Demo</th>
+          <td width="20%" align="right"> <a accesskey="n" href="blog-demo.vhost">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="1.14. Set Locale Strings">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="blog-demo.locale"></a>1.14. Set Locale Strings</h2>
+          </div>
+        </div>
+      </div>
+      <div class="sect2" title="1.14.1. About Locale Files and Methods">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="blog-demo.locale.about"></a>1.14.1. About Locale Files and Methods</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            Solar comes with a built-in localization system based on PHP 
+            arrays, where the array key is an identifier, and the value is the
+            replacement string. Every class in Solar has a <code class="filename">Locale/</code>
+            subdirectory; therein are translation files named for language and
+            country.  The default is <code class="filename">en_US.php</code>. The locale
+            file is loaded on-demand.
+        </p>
+        <p>
+            Every class in Solar has a <code class="literal">locale()</code> method that
+            translates a locale key to its replacement string.  As with most other
+            things in Solar, locale files are inherited, so if you ask for a locale
+            key that exists only in a parent class, Solar will work up the inheritance
+            chain until it finds that key.
+        </p>
+        <p>
+            Inside a view, you can use the <code class="literal">getText()</code> helper
+            to get the locale strings for the application. (You can use the
+            <code class="literal">locale()</code> method on other objects in the view to
+            get their translation strings.)
+        </p>
+      </div>
+      <div class="sect2" title="1.14.2. Modify Locale File">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="blog-demo.locale.modify"></a>1.14.2. Modify Locale File</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            To modify the locale strings for the blog application, open the
+            <code class="filename">Blog/Locale/en_US.php</code> file.
+            
+            </p>
+        <pre class="screen">$ <strong class="userinput"><code>vim Blog/Locale/en_US.php</code></strong></pre>
+        <p>
+        </p>
+        <p>
+            Change the contents of the file to the following, and save it.
+            </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php </span><span style="color: #007700">return array(
+    </span><span style="color: #DD0000">'ERR_NO_ID_SPECIFIED'    </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'No ID was specified'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'ERR_NO_RECORDS'         </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'No records found.'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'ERR_NO_SUCH_ITEM'       </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'That item does not exist.'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'HEADING_ADD'            </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Add New Article'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'HEADING_DELETE'         </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Delete This Article?'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'HEADING_DRAFTS'         </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Draft Articles'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'HEADING_EDIT'           </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Edit Article'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'HEADING_INDEX'          </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Published Articles'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'TEXT_DELETED'           </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Deleted the article.'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'TITLE_ADD'              </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Blog : Add New Article'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'TITLE_DELETE'           </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Blog : Delete Article'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'TITLE_DRAFTS'           </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Blog : Draft Articles'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'TITLE_EDIT'             </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Blog : Edit Article'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'TITLE_INDEX'            </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Blog : Published Articles'</span><span style="color: #007700">,
+);</span></span></code></pre>
+        <p>
+        
+        </p>
+        <p>
+            Now when you go to the application, you should see the
+            translated locale strings.
+        </p>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="blog-demo.app.delete">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="blog-demo">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="blog-demo.vhost">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">1.13. Delete One Article </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 1.15. Cleaner URIs with a Virtual Host</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

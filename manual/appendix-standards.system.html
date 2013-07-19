@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:56:06 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">A.6. Project System</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="appendix-standards.config">Prev</a> </td>
+          <th width="60%" align="center">Appendix A. Project Standards</th>
+          <td width="20%" align="right"> <a accesskey="n" href="appendix-naming">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="A.6. Project System">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="appendix-standards.system"></a>A.6. Project System</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+        The library organization for Solar and your Vendor files is good for
+        the core of the application, but usually you will need to deploy those
+        libraries, as well as libraries from other Vendors, to a web server or
+        other target machine. That means we need a common level of
+        organization for the various support files and SVN externals; we call
+        this a Solar "system" for your project.
+    </p>
+      <p>
+        These are the main files and directories in a Solar system:
+    </p>
+      <pre class="screen"><em class="replaceable"><code>SYSTEM/</code></em>
+    index.php               # quick-start (insecure) bootstrap
+    config.php              # main config file
+    config/                 # other config files
+    docroot/                # web server document root
+        .htaccess           # mod-rewrite rules
+        index.php           # real bootstrap file
+        public/             # public assets
+            Solar/          # Solar assets
+    include/                # used as the php include_path
+    script/                 # command-line scripts
+        solar               # the solar command-line tool
+    source/                 # source packages, libraries, etc
+    sqlite/                 # sqlite files
+    tmp/                    # temp files
+        cache/              # private cache
+        log/                # log files
+        mail/               # test emails
+        session/            # session files</pre>
+      <p>
+        The "big four" directories here are <code class="filename">source/</code>,
+        <code class="filename">include/</code>, <code class="filename">config/</code>, and
+        <code class="filename">docroot/</code>. The others are mostly self-explanatory.
+    </p>
+      <div class="sect2" title="A.6.1. The source/ Directory">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="appendix-standards.system.source"></a>A.6.1. The <code class="literal">source/</code> Directory</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            The <code class="filename">source/</code> directory is where all your source
+            files are placed, including the files from
+            <span class="command"><strong>make-vendor</strong></span>. This is *not* used as the
+            include-path; it is a holding location to keep all your source code in
+            one place. (We will get to the include-path shortly.)
+        </p>
+        <p>
+            The <code class="filename">source/</code> directory doesn't care what kind of
+            code or pacakges you keep there. You can download and extract
+            PEAR-style packages, keep downloads of third-party libraries, or use
+            svn externals or git clones. You could even keep multiple versions of
+            the same libraries here, so long as each gets its own subdirectory.
+        </p>
+        <p>
+            The <code class="filename">source/</code> directory is organized like this:
+        </p>
+        <pre class="screen">source/
+    acme/               # libraries from the `make-vendor Acme` CLI call
+        Acme.php
+        Acme/
+        config/
+        script/
+        docs/
+        tests/
+    example/            # svn:externals http://svn.example.com/trunk
+        ...
+    solar/              # core Solar libraries
+        Solar.php
+        Solar/
+        config/
+        script/
+        docs/
+        tests/
+    third-party/        # copied or downloaded from a third party
+        ...</pre>
+      </div>
+      <div class="sect2" title="A.6.2. The include/ Directory">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="appendix-standards.system.include"></a>A.6.2. The <code class="filename">include/</code> Directory</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            The <code class="filename">include/</code> directory is used as the
+            include-path for your Solar system code. In general, the
+            <code class="filename">include/</code> directory contains only symlinks to the
+            <code class="filename">source/</code> directory. This means you can have any
+            files at all in the <code class="filename">source/</code> directory and not
+            pollute your include-path. It also means you can swap between sources
+            at will by pointing the symlink to whatever you want.
+        </p>
+        <p>
+            The <code class="filename">include/</code> directory is organized like
+            this:
+        </p>
+        <pre class="screen">include/
+    Acme.php            # ln -s ../source/acme/Acme.php
+    Acme/               # ln -s ../source/acme/Acme
+    Example/            # ln -s ../source/Example
+    Solar.php           # ln -s ../source/solar/Solar.php
+    Solar/              # ln -s ../source/solar/Solar
+    thirdparty.php      # ln -s ../source/third-party/some_file.php</pre>
+        <p>
+            If you use <span class="command"><strong>make-vendor</strong></span>, these links will be created
+            for you automatically (both Windows Vista and Unix style symlinks are
+            supported). If you bring in your own sources from Solar-style vendors,
+            you can use <span class="command"><strong>link-vendor</strong></span> to create them for you. For
+            non-Solar-style vendors, you will need to create the links yourself.
+        </p>
+      </div>
+      <div class="sect2" title="A.6.3. The config/ Directory">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="appendix-standards.system.config"></a>A.6.3. The <code class="filename">config/</code> Directory</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            Next, we have the <code class="filename">config/</code> directory. This one
+            holds all configuration files for the system.
+        </p>
+        <pre class="screen">config.php
+config/
+    access.txt          # an example ACL file
+    htpasswd.conf       # an example password file
+    thirdparty.ini      # a .ini file for a third-party library</pre>
+      </div>
+      <div class="sect2" title="A.6.4. The docroot/ Directory">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="appendix-standards.system.docroot"></a>A.6.4. The <code class="filename">docroot/</code> Directory</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            The last of the "big four" directories is the
+            <code class="filename">docroot/</code>. This is the web server document root for
+            the system; your virtual host configurations should point to this
+            directory, not to the
+            <code class="filename"><em class="replaceable"><code>SYSTEM</code></em></code> root.
+        </p>
+        <p>
+            The <code class="filename">public/</code> subdirectory contains public assets
+            such as Javascript files, stylesheets, images, etc.  In a Solar-style
+            vendor, the ending directories are actually symlinks back to a
+            <code class="filename">Public/</code> directory for a particular class.  This
+            lets you distribute public assets along with the class package without
+            having to copy those assets every time you change them.
+        </p>
+        <p>
+            The <code class="filename">public/</code> subdirectory is organized as
+            follows:
+        </p>
+        <pre class="screen">docroot/
+    index.php               # bootstrap file
+    public/                 # public assets
+        Solar/              # 
+            View/           # 
+                Helper/     # 
+                    Pager/  # ln -s <code class="filename"><em class="replaceable"><code>SYSTEM</code></em>/source/Solar/View/Helper/Pager/Public</code></pre>
+        <p>
+            If you create class with a <code class="filename">Public/</code> subdirectory
+            for public assets, you can use the <span class="command"><strong>link-public</strong></span>
+            command to automatically create these symlinks (both Windows Vista
+            and Unix symlinks are supported).
+        </p>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="appendix-standards.config">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="appendix-standards">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="appendix-naming">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">A.5. Universal Configuration </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> Appendix B. Naming Conventions</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

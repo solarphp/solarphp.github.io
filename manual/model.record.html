@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:55:52 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">3.6. Record Creation, Modification, and Saving</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="model.results">Prev</a> </td>
+          <th width="60%" align="center">Chapter 3. Working With Models</th>
+          <td width="20%" align="right"> <a accesskey="n" href="model.filters">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="3.6. Record Creation, Modification, and Saving">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="model.record"></a>3.6. Record Creation, Modification, and Saving</h2>
+          </div>
+        </div>
+      </div>
+      <div class="sect2" title="3.6.1. Creating a New Record">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="model.record.create"></a>3.6.1. Creating a New Record</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            You can get an existing record from the database using
+            <code class="literal">fetchOne()</code>, but you also need to be able to
+            create new records to save later.  You can do so using the
+            <code class="literal">fetchNew()</code> method, optionally passing an
+            array of data to pre-populate its properties.
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">// a new blog record with default values
+</span><span style="color: #0000BB">$new_blog </span><span style="color: #007700">= </span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">blogs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchNew</span><span style="color: #007700">();
+
+</span><span style="color: #FF8000">// a new blog record with specified values
+</span><span style="color: #0000BB">$new_blog </span><span style="color: #007700">= </span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">blogs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchNew</span><span style="color: #007700">(array(
+    </span><span style="color: #DD0000">'title' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'New Title Text'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'body'  </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'(insert body here)'</span><span style="color: #007700">,
+));</span></span></code></pre>
+        <div class="warning" title="Warning">
+          <table border="0" summary="Warning">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Warning]" src="images/warning.png" />
+              </td>
+              <th align="left">Warning</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+            There is a <code class="literal">newRecord()</code> method as well, but that
+            is for building a record object either from an existing data set
+            or from a new one, usually through a relationship. In general, you
+            won't need that method yourself.
+        </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="sect2" title="3.6.2. Modifying A Record">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="model.record.modify"></a>3.6.2. Modifying A Record</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            Whether it is a new record or an existing one, you can modify the
+            properties of the record by addressing its properties individually,
+            or by using the <code class="literal">load()</code> method to load an array
+            of data to the record in one pass.
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">/**
+ * @var Solar_Sql_Model_Record $item The result of fetchNew() or fetchOne(),
+ * or a record from a collection.
+ */
+
+// modify the properties individually:
+</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title </span><span style="color: #007700">= </span><span style="color: #DD0000">'Another Title'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">body  </span><span style="color: #007700">= </span><span style="color: #DD0000">'Different body text'</span><span style="color: #007700">;
+
+</span><span style="color: #FF8000">// or modify them via load().
+</span><span style="color: #0000BB">$data </span><span style="color: #007700">= array(
+    </span><span style="color: #DD0000">'status' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'draft'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'title'  </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Another Title'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'body'   </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Different body text'</span><span style="color: #007700">,
+);
+
+</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">load</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">);
+
+</span><span style="color: #FF8000">// only load certain properties. useful for loading only
+// specific values from a data source, e.g. $_POST.
+</span><span style="color: #0000BB">$whitelist </span><span style="color: #007700">= array(</span><span style="color: #DD0000">'title'</span><span style="color: #007700">, </span><span style="color: #DD0000">'body'</span><span style="color: #007700">);
+</span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">load</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">, </span><span style="color: #0000BB">$whitelist</span><span style="color: #007700">);</span></span></code></pre>
+      </div>
+      <div class="sect2" title="3.6.3. Saving A Record">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="model.record.save"></a>3.6.3. Saving A Record</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            Once you have modified the record, you can call the
+            <code class="literal">save()</code> method to insert or update it to the
+            database. (The record object knows if it is new, it needs to be
+            inserted; otherwise it will update itself using its primary key
+            value.)
+        </p>
+        <div class="note" title="Note">
+          <table border="0" summary="Note">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">Note</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+            The record will save only the data that has changed; that is, only
+            the "dirty" elements.
+        </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <p>
+            Because the model has defined certain filters for the record,
+            the <code class="literal">save()</code> call will fail if any of the
+            validations fail, so you need to check if the <code class="literal">save()</code>
+            succeeded to see what went wrong.
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">/**
+ * @var Solar_Sql_Model_Record $item The result of fetchNew() or fetchOne(),
+ * or a record from a collection, and thereafter modified.
+ */
+
+// attempt to save the record.
+</span><span style="color: #0000BB">$success </span><span style="color: #007700">= </span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">save</span><span style="color: #007700">();
+
+</span><span style="color: #FF8000">// did it work?
+</span><span style="color: #007700">if (! </span><span style="color: #0000BB">$success</span><span style="color: #007700">) {
+    </span><span style="color: #FF8000">// no, something was not valid
+    </span><span style="color: #0000BB">$invalid </span><span style="color: #007700">= </span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getInvalid</span><span style="color: #007700">();
+    foreach (</span><span style="color: #0000BB">$invalid </span><span style="color: #007700">as </span><span style="color: #0000BB">$property </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$message</span><span style="color: #007700">) {
+        echo </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$property</span><span style="color: #007700">) . </span><span style="color: #DD0000">' is not valid: '
+           </span><span style="color: #007700">. </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$message</span><span style="color: #007700">) . </span><span style="color: #DD0000">'&lt;br /&gt;'</span><span style="color: #007700">;
+    }
+    
+    </span><span style="color: #FF8000">// or you can get the internal exception
+    // that caused the save to fail.
+    </span><span style="color: #007700">echo </span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getSaveException</span><span style="color: #007700">();
+} else {
+    </span><span style="color: #FF8000">// yes, it worked
+    </span><span style="color: #007700">echo </span><span style="color: #DD0000">'Saved!'</span><span style="color: #007700">;
+}</span></span></code></pre>
+        <p>
+            You can combine<code class="literal">load()</code> and
+            <code class="literal">save()</code> into a single <code class="literal">save()</code>
+            call, optionally with a whitelist.
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">/**
+ * @var Solar_Sql_Model_Record $item The result of fetchNew() or fetchOne(),
+ * or a record from a collection.
+ */
+
+// incoming data
+</span><span style="color: #0000BB">$data </span><span style="color: #007700">= array(
+    </span><span style="color: #DD0000">'status' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'draft'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'title'  </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Another Title'</span><span style="color: #007700">,
+    </span><span style="color: #DD0000">'body'   </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'Different body text'</span><span style="color: #007700">,
+);
+
+</span><span style="color: #FF8000">// only load these properties
+</span><span style="color: #0000BB">$whitelist </span><span style="color: #007700">= array(</span><span style="color: #DD0000">'title'</span><span style="color: #007700">, </span><span style="color: #DD0000">'body'</span><span style="color: #007700">);
+
+</span><span style="color: #FF8000">// load and save the record in one call
+</span><span style="color: #0000BB">$success </span><span style="color: #007700">= </span><span style="color: #0000BB">$item</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">save</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">, </span><span style="color: #0000BB">$whitelist</span><span style="color: #007700">);
+
+</span><span style="color: #FF8000">// did it work?
+</span><span style="color: #007700">if (! </span><span style="color: #0000BB">$success</span><span style="color: #007700">) {
+    </span><span style="color: #FF8000">// ...
+</span><span style="color: #007700">} else {
+    </span><span style="color: #FF8000">// yes, it worked
+    </span><span style="color: #007700">echo </span><span style="color: #DD0000">'Saved!'</span><span style="color: #007700">;
+}</span></span></code></pre>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="model.results">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="model">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="model.filters">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">3.5. Records and Collections </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 3.7. Record Filters</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

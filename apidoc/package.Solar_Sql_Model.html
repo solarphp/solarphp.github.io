@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:54:36 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Package : Solar_Sql_Model</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Solar_Sql_Model</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="package.Solar_Sql">Prev</a></td>
+                <th width="60%" align="center">Packages</th>
+                <td width="20%" align="right"><a accesskey="n" href="package.Solar_Test">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="package.Solar_Sql_Model" class="chapter">
+
+<h1>Solar_Sql_Model</h1>
+
+<p class="para">Classes in the <code class="literal">Solar_Sql_Model</code> package:</p>
+
+<dl>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model.Overview" class="link">Solar_Sql_Model</a></span>
+<dd>
+<p class="para">An SQL-centric Model class based on TableDataGateway, using Collection and Record objects for returns, with integrated caching of versioned result data.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Cache.Overview" class="link">Solar_Sql_Model_Cache</a></span>
+<dd>
+<p class="para">Support class for models to work with with a Solar_Cache object.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Catalog.Overview" class="link">Solar_Sql_Model_Catalog</a></span>
+<dd>
+<p class="para">Acts as a central catalog for model instances; reduces the number of times you instantiate model classes.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Collection.Overview" class="link">Solar_Sql_Model_Collection</a></span>
+<dd>
+<p class="para">Represents a collection of Solar_Sql_Model_Record objects.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Metadata.Overview" class="link">Solar_Sql_Model_Metadata</a></span>
+<dd>
+<p class="para">Retains metadata about a model table.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Params.Overview" class="link">Solar_Sql_Model_Params</a></span>
+<dd>
+<p class="para">A value-object to represent the various parameters for specifying a model fetch() call.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Params_Eager.Overview" class="link">Solar_Sql_Model_Params_Eager</a></span>
+<dd>
+<p class="para">A value-object to represent the various parameters available when eager- fetching related records in a model fetch() call.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Params_Fetch.Overview" class="link">Solar_Sql_Model_Params_Fetch</a></span>
+<dd>
+<p class="para">A value-object to represent the various parameters for specifying a model fetch() call.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Record.Overview" class="link">Solar_Sql_Model_Record</a></span>
+<dd>
+<p class="para">Represents a single record returned from a Solar_Sql_Model.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related.Overview" class="link">Solar_Sql_Model_Related</a></span>
+<dd>
+<p class="para">Abstract class to represent the characteristics of a related model.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related_BelongsTo.Overview" class="link">Solar_Sql_Model_Related_BelongsTo</a></span>
+<dd>
+<p class="para">Represents the characteristics of a relationship where a native model &quot;belongs to&quot; a foreign model.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related_HasMany.Overview" class="link">Solar_Sql_Model_Related_HasMany</a></span>
+<dd>
+<p class="para">Represents the characteristics of a relationship where a native model &quot;has many&quot; of a foreign model.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related_HasManyThrough.Overview" class="link">Solar_Sql_Model_Related_HasManyThrough</a></span>
+<dd>
+<p class="para">Represents the characteristics of a relationship where a native model &quot;has many&quot; of a foreign model.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related_HasOne.Overview" class="link">Solar_Sql_Model_Related_HasOne</a></span>
+<dd>
+<p class="para">Represents the characteristics of a relationship where a native model &quot;has one&quot; of a foreign model.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related_HasOneOrNull.Overview" class="link">Solar_Sql_Model_Related_HasOneOrNull</a></span>
+<dd>
+<p class="para">Represents the characteristics of a relationship where a native model &quot;has one or none&quot; of a foreign model; the difference from &quot;has one&quot; is is that when there is no related at the database, no placeholder record will be returned.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related_ToMany.Overview" class="link">Solar_Sql_Model_Related_ToMany</a></span>
+<dd>
+<p class="para">Represents the characteristics of a &quot;to-many&quot; related model.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related_ToOne.Overview" class="link">Solar_Sql_Model_Related_ToOne</a></span>
+<dd>
+<p class="para">Represents the characteristics of a &quot;to-one&quot; related model.</p></dd>
+
+</dt>
+
+
+</dl>
+
+
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="package.Solar_Sql">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="package">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="package.Solar_Test">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Solar_Sql</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Solar_Test</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li class="active"><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

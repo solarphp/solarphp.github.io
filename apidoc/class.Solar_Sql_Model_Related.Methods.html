@@ -1,0 +1,572 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 10:06:49 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework : Class : Solar_Sql_Model_Related : Methods</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Apidoc/style.css" />
+</head>
+<body id="apidoc-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                
+    <div class="navheader">
+        <table width="100%" summary="Navigation header">
+            <tr>
+                <th colspan="3" align="center">Methods</th>
+            </tr>
+            <tr>
+                <td width="20%" align="left"><a accesskey="p" href="class.Solar_Sql_Model_Related.Properties">Prev</a></td>
+                <th width="60%" align="center">Solar_Sql_Model_Related</th>
+                <td width="20%" align="right"><a accesskey="n" href="class.Solar_Sql_Model_Related.__construct">Next</a></td>
+            </tr>
+        </table>
+    </div>
+
+<div id="class.Solar_Sql_Model_Related.Methods" class="section">
+
+<h1>Methods</h1>
+
+<p class="para">All methods in the <code class="literal">Solar_Sql_Model_Related</code> class.</p>
+
+<div>
+<h2>Public</h2>
+
+<dl>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related.__construct" class="link"><code class="literal">__construct()</code></a></span>
+<dd>
+<p class="para">Constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related.__destruct" class="link"><code class="literal">__destruct()</code></a></span>
+<dd>
+<p class="para">Default destructor; does nothing other than provide a safe fallback for calls to parent::__destruct().</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related.dump" class="link"><code class="literal">dump()</code></a></span>
+<dd>
+<p class="para">Convenience method for getting a dump the whole object, or one of its properties, or an external variable.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related.fetch" class="link"><code class="literal">fetch()</code></a></span>
+<dd>
+<p class="para">Fetches the related record or collection for a native ID or record.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related.fetchEmpty" class="link"><code class="literal">fetchEmpty()</code></a></span>
+<dd>
+<p class="para">Returns a new empty value appropriate for a lazy- or eager-fetch; this is different for each kind of related.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related.fetchNew" class="link"><code class="literal">fetchNew()</code></a></span>
+<dd>
+<p class="para">Fetches a new record or collection object.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related.getForeignConditions" class="link"><code class="literal">getForeignConditions()</code></a></span>
+<dd>
+<p class="para">Gets the foreign-model WHERE conditions and merges with the WHERE conditions on this relationship.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related.getModel" class="link"><code class="literal">getModel()</code></a></span>
+<dd>
+<p class="para">Returns the related (foreign) model instance.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related.isInvalid" class="link"><code class="literal">isInvalid()</code></a></span>
+<dd>
+<p class="para">Is the related record or collection valid?</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related.isMany" class="link"><code class="literal">isMany()</code></a></span>
+<dd>
+<p class="para">Is this related to many records?</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related.isOne" class="link"><code class="literal">isOne()</code></a></span>
+<dd>
+<p class="para">Is this related to one record?</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related.load" class="link"><code class="literal">load()</code></a></span>
+<dd>
+<p class="para">Loads this relationship object with user-defined characteristics (options), and corrects them as needed.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related.locale" class="link"><code class="literal">locale()</code></a></span>
+<dd>
+<p class="para">Looks up class-specific locale strings based on a key.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related.modEagerFetch" class="link"><code class="literal">modEagerFetch()</code></a></span>
+<dd>
+<p class="para">Fixes the native fetch params and eager params; then, if the join_flag is set on the eager, calles _modEagerFetch() to modify the native fetch params based on the eager params.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related.modEagerResult" class="link"><code class="literal">modEagerResult()</code></a></span>
+<dd>
+<p class="para">Modifies the parent result array to add eager records.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related.newObject" class="link"><code class="literal">newObject()</code></a></span>
+<dd>
+<p class="para">Packages foreign data as a record or collection object.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related.preSave" class="link"><code class="literal">preSave()</code></a></span>
+<dd>
+<p class="para">Pre-save hook for saving related records or collections from a native record.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related.save" class="link"><code class="literal">save()</code></a></span>
+<dd>
+<p class="para">Saves a related record or collection from a native record.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related.setNativeModel" class="link"><code class="literal">setNativeModel()</code></a></span>
+<dd>
+<p class="para">Sets the native (origin) model instance.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related.toArray" class="link"><code class="literal">toArray()</code></a></span>
+<dd>
+<p class="para">Returns the relation characteristics as an array.</p></dd>
+
+</dt>
+
+
+</dl>
+
+
+</div>
+
+<div>
+<h2>Protected</h2>
+
+<dl>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._buildConfig" class="link"><code class="literal">_buildConfig()</code></a></span>
+<dd>
+<p class="para">Builds and returns the default config for a class, including all configs inherited from its parents.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._collate" class="link"><code class="literal">_collate()</code></a></span>
+<dd>
+<p class="para">Given a results array, collates the results based on a key within each result.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._exception" class="link"><code class="literal">_exception()</code></a></span>
+<dd>
+<p class="para">Convenience method for returning exceptions with localized text.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._fetchIntoArrayAll" class="link"><code class="literal">_fetchIntoArrayAll()</code></a></span>
+<dd>
+<p class="para">Fetches eager results into an existing native array rowset.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._fetchIntoArrayOne" class="link"><code class="literal">_fetchIntoArrayOne()</code></a></span>
+<dd>
+<p class="para">Fetches eager results into an existing single native array row.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._fixEagerParams" class="link"><code class="literal">_fixEagerParams()</code></a></span>
+<dd>
+<p class="para">Fixes the eager params based on the settings for this related.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._fixFetchParams" class="link"><code class="literal">_fixFetchParams()</code></a></span>
+<dd>
+<p class="para">Fixes the native fetch params based on the settings for this related.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._fixForeignKey" class="link"><code class="literal">_fixForeignKey()</code></a></span>
+<dd>
+<p class="para">Corrects the foreign_key value in the options.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._fixRelatedCol" class="link"><code class="literal">_fixRelatedCol()</code></a></span>
+<dd>
+<p class="para">Fixes the related column names in the user-defined options <em class="emphasis">in place</em>.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._getEmpty" class="link"><code class="literal">_getEmpty()</code></a></span>
+<dd>
+<p class="para">Returns an empty related value for an internal array result.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._getNativeBySelect" class="link"><code class="literal">_getNativeBySelect()</code></a></span>
+<dd>
+<p class="para">Returns an INNER JOIN specification for joining to the native table as as sub-SELECT.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._getNativeByWherein" class="link"><code class="literal">_getNativeByWherein()</code></a></span>
+<dd>
+<p class="para">Returns an array of WHERE conditions for selecting only certain native values from the foreign table using &quot;WHERE IN (...)&quot;.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._modEagerFetch" class="link"><code class="literal">_modEagerFetch()</code></a></span>
+<dd>
+<p class="para">Modifies the native fetch with an eager join so that the foreign table is joined properly.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._postConfig" class="link"><code class="literal">_postConfig()</code></a></span>
+<dd>
+<p class="para">A hook that activates after _buildConfig() in the constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._postConstruct" class="link"><code class="literal">_postConstruct()</code></a></span>
+<dd>
+<p class="para">Post-construction tasks to complete object construction.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._preConfig" class="link"><code class="literal">_preConfig()</code></a></span>
+<dd>
+<p class="para">A hook that activates before _buildConfig() in the constructor.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._setCols" class="link"><code class="literal">_setCols()</code></a></span>
+<dd>
+<p class="para">Sets the foreign columns to be selected based on user-defined  relationship options.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._setConditions" class="link"><code class="literal">_setConditions()</code></a></span>
+<dd>
+<p class="para">Sets additional conditions from the relationship definition; these are used in the WHERE and/or JOIN ON conditions.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._setForeignClass" class="link"><code class="literal">_setForeignClass()</code></a></span>
+<dd>
+<p class="para">Sets the base name for the foreign class.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._setForeignModel" class="link"><code class="literal">_setForeignModel()</code></a></span>
+<dd>
+<p class="para">Sets the foreign model instance based on user-defined relationship options.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._setMerge" class="link"><code class="literal">_setMerge()</code></a></span>
+<dd>
+<p class="para">Sets the merge type.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._setNativeBy" class="link"><code class="literal">_setNativeBy()</code></a></span>
+<dd>
+<p class="para">Sets the native-by strategy (&#039;wherein&#039; or &#039;select&#039;).</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._setOrder" class="link"><code class="literal">_setOrder()</code></a></span>
+<dd>
+<p class="para">Sets default ORDER clause from the relationship definition.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._setRelated" class="link"><code class="literal">_setRelated()</code></a></span>
+<dd>
+<p class="para">Sets the characteristics for the related model, table, etc.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._setType" class="link"><code class="literal">_setType()</code></a></span>
+<dd>
+<p class="para">Sets the relationship type.</p></dd>
+
+</dt>
+
+
+<dt>
+
+<span class="term"><a href="class.Solar_Sql_Model_Related._setWhereinMax" class="link"><code class="literal">_setWhereinMax()</code></a></span>
+<dd>
+<p class="para">Sets the &#039;wherein_max&#039; value (i.e., the number of records in the native collection after which we should use a &#039;native-by select&#039; strategy).</p></dd>
+
+</dt>
+
+
+</dl>
+
+
+</div>
+
+<div>
+<h2>Private</h2>
+
+<p class="para">None.</p>
+
+</div>
+    
+</div>
+    <div class="navfooter">
+        <table width="100%" summary="Navigation footer">
+            <tr>
+                <td width="40%" align="left"><a accesskey="p" href="class.Solar_Sql_Model_Related.Properties">Prev</a></td>
+                <td width="20%" align="center"><a accesskey="u" href="class.Solar_Sql_Model_Related">Up</a></td>
+                <td width="40%" align="right"><a accesskey="n" href="class.Solar_Sql_Model_Related.__construct">Next</a></td>
+            </tr>
+            <tr>
+                <td width="40%" align="left" valign="top">Properties</td>
+                <td width="20%" align="center"><a accesskey="h" href="apidoc">Home</a></td>
+                <td width="40%" align="right" valign="top">Solar_Sql_Model_Related::__construct()</td>
+            </tr>
+        </table>
+    </div>
+                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li class="active"><a href="/apidoc/class.index">Classes</a></li>
+<li><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

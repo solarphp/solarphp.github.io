@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:56:03 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">9.2. Composing Messages</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="mail.intro">Prev</a> </td>
+          <th width="60%" align="center">Chapter 9. Mail</th>
+          <td width="20%" align="right"> <a accesskey="n" href="mail.attachments">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="9.2. Composing Messages">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="mail.composing"></a>9.2. Composing Messages</h2>
+          </div>
+        </div>
+      </div>
+      <p>
+		Here's a short example on how to build a basic message and set the recipients.
+		In this example, I'll send a quick note to my old friend Bolivar Shagnasty, 
+		and give him both a text and HTML version of the message.
+	</p>
+      <div class="note" title="Note">
+        <table border="0" summary="Note">
+          <tr>
+            <td rowspan="2" align="center" valign="top" width="25">
+              <img alt="[Note]" src="images/note.png" />
+            </td>
+            <th align="left">Note</th>
+          </tr>
+          <tr>
+            <td align="left" valign="top">
+              <p>Note that the <code class="literal">Solar_Mail_Message set*()</code> methods are fluent, 
+			so you can chain them together when you find it appropriate. 
+			(You can review the full set of <code class="literal">Solar_Mail_Message</code>
+			<a class="link" href="http://solarphp.com/apidoc/class.Solar_Mail_Message.Overview" target="_top">methods</a> if you like.)
+		</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$text </span><span style="color: #007700">= </span><span style="color: #0000BB">TEXT</span><span style="color: #007700">&lt;&lt;&lt;
+</span><span style="color: #0000BB">The quick brown fox jumps over the lazy dog</span><span style="color: #007700">.
+
+</span><span style="color: #0000BB">Now is the time </span><span style="color: #007700">for </span><span style="color: #0000BB">all good men to come to the aid of their country</span><span style="color: #007700">.
+</span><span style="color: #0000BB">TEXT</span><span style="color: #007700">;
+
+</span><span style="color: #0000BB">$html </span><span style="color: #007700">= </span><span style="color: #0000BB">HTML</span><span style="color: #007700">&lt;&lt;&lt;
+&lt;</span><span style="color: #0000BB">p</span><span style="color: #007700">&gt;</span><span style="color: #0000BB">The quick brown fox jumps </span><span style="color: #007700">&lt;</span><span style="color: #0000BB">em</span><span style="color: #007700">&gt;</span><span style="color: #0000BB">over</span><span style="color: #007700">&lt;/</span><span style="color: #0000BB">em</span><span style="color: #007700">&gt; </span><span style="color: #0000BB">the lazy dog</span><span style="color: #007700">.&lt;/</span><span style="color: #0000BB">p</span><span style="color: #007700">&gt;
+
+&lt;</span><span style="color: #0000BB">p</span><span style="color: #007700">&gt;&lt;</span><span style="color: #0000BB">strong</span><span style="color: #007700">&gt;</span><span style="color: #0000BB">Now</span><span style="color: #007700">&lt;/</span><span style="color: #0000BB">strong</span><span style="color: #007700">&gt; </span><span style="color: #0000BB">is the time </span><span style="color: #007700">for </span><span style="color: #0000BB">all good men
+to come to the aid of their country</span><span style="color: #007700">.&lt;/</span><span style="color: #0000BB">p</span><span style="color: #007700">&gt;
+</span><span style="color: #0000BB">HTML</span><span style="color: #007700">;
+
+</span><span style="color: #0000BB">$mail </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">factory</span><span style="color: #007700">(</span><span style="color: #DD0000">'Solar_Mail_Message'</span><span style="color: #007700">);
+
+</span><span style="color: #0000BB">$mail</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setCharset</span><span style="color: #007700">(</span><span style="color: #DD0000">'utf-8'</span><span style="color: #007700">)
+     -&gt;</span><span style="color: #0000BB">setFrom</span><span style="color: #007700">(</span><span style="color: #DD0000">'pmjones@example.com'</span><span style="color: #007700">, </span><span style="color: #DD0000">'Paul M. Jones'</span><span style="color: #007700">)
+     -&gt;</span><span style="color: #0000BB">addTo</span><span style="color: #007700">(</span><span style="color: #DD0000">'boshag@example.com'</span><span style="color: #007700">, </span><span style="color: #DD0000">'Bolivar Shagnasty'</span><span style="color: #007700">)
+     -&gt;</span><span style="color: #0000BB">addCc</span><span style="color: #007700">(</span><span style="color: #DD0000">'nobody@example.net'</span><span style="color: #007700">)
+     -&gt;</span><span style="color: #0000BB">setSubject</span><span style="color: #007700">(</span><span style="color: #DD0000">'A Short Test Message'</span><span style="color: #007700">)
+     -&gt;</span><span style="color: #0000BB">setText</span><span style="color: #007700">(</span><span style="color: #0000BB">$text</span><span style="color: #007700">)
+     -&gt;</span><span style="color: #0000BB">setHtml</span><span style="color: #007700">(</span><span style="color: #0000BB">$html</span><span style="color: #007700">);
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+      <p>
+That's pretty easy ... but is it safe?
+</p>
+      <div class="sect2" title="9.2.1. Headers and Header Injection">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="mail.composing.headers"></a>9.2.1. Headers and Header Injection</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+        	Anything that ends up getting sent as a mail header, including addresses and the subject line, 
+			is sanitized against header-injection attacks by removing newlines from the header label and value. 
+			Let's say you want to add a new custom header:
+        </p>
+        <pre class="programlisting"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$mail </span><span style="color: #007700">= </span><span style="color: #0000BB">Solar</span><span style="color: #007700">::</span><span style="color: #0000BB">factory</span><span style="color: #007700">(</span><span style="color: #DD0000">'Solar_Mail_Message'</span><span style="color: #007700">);
+</span><span style="color: #0000BB">$mail</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setHeader</span><span style="color: #007700">(</span><span style="color: #DD0000">'X-Custom-Header'</span><span style="color: #007700">, </span><span style="color: #DD0000">"Foo\r\n\r\nAn evil message"</span><span style="color: #007700">);
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+        <p>
+			Under a less-secure system this would cause the header to be sent as:
+		</p>
+        <pre class="programlisting"><code><span style="color: #000000">X-Custom-Header: Foo
+
+An evil message.</span></code></pre>
+        <p>
+			That's no good -- somebody just injected their own message into our email.
+		</p>
+        <p>
+			With <code class="literal">Solar_Mail_Message</code>, when the mail gets sent, that header will go out as:
+		</p>
+        <pre class="programlisting"><code><span style="color: #000000">X-Custom-Header: FooAn evil message</span></code></pre>
+        <p>
+			We strip the newlines in header labels and values automatically, so you should be safe against 
+			header injections. (If there are other aspects to securing against header injections I would 
+			be happy to hear them.)
+		</p>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="mail.intro">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="mail">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="mail.attachments">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">9.1. Introduction </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 9.3. Message Attachments</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>

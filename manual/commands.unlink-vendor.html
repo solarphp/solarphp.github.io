@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- cached 2013-07-17 09:56:01 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Solar Framework for PHP 5</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/typo.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/forms.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Proxima/Controller/Page/cssfw/layout-navtop-1col.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/Controller/Page/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/Helios/App/Manual/style.css" />
+</head>
+<body id="manual-page">
+    
+    <div id="page">
+        
+        <div id="header" class="clearfix">
+                        <div id="branding">
+            </div><!-- end branding -->
+            
+            <div id="search">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-0303143248109581";
+                /* 234x60, created 3/23/10 */
+                google_ad_slot = "2131834509";
+                google_ad_width = 234;
+                google_ad_height = 60;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div><!-- end search -->
+            
+                <div id="auth">
+            </div>
+        </div><!-- end header -->
+        
+        <div id="content" class="clearfix">
+            
+            <div id="main">
+                <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">8.5. Unlink Vendor Source</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="commands.link-public">Prev</a> </td>
+          <th width="60%" align="center">Chapter 8. Command-Line Tools</th>
+          <td width="20%" align="right"> <a accesskey="n" href="commands.help">Next</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sect1" title="8.5. Unlink Vendor Source">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title" style="clear: both"><a id="commands.unlink-vendor"></a>8.5. Unlink Vendor Source</h2>
+          </div>
+        </div>
+      </div>
+      <div class="cmdsynopsis">
+        <p><code class="command">./script/solar unlink-vendor</code>   <em class="replaceable"><code>VendorName</code></em> </p>
+      </div>
+      <p>
+        The <span class="command"><strong>unlink-vendor</strong></span> command deletes the
+        standard symbolic links in a Solar system for a given vendor, without
+        deleting the source files themselves.
+    </p>
+      <div class="sect2" title="8.5.1. Example">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h3 class="title"><a id="commands.unlink-vendor.example"></a>8.5.1. Example</h3>
+            </div>
+          </div>
+        </div>
+        <p>
+            To unlink a vendor source from a Solar system, issue the
+            following command:
+        </p>
+        <pre class="screen">$ <strong class="userinput"><code>./script/solar unlink-vendor <em class="replaceable"><code>VendorName</code></em></code></strong>
+Removing links for vendor '<em class="replaceable"><code>VendorName</code></em>' ...
+    Removing 'script/<em class="replaceable"><code>vendor-name</code></em>' ... done.
+    Removing 'include/Fixture/<em class="replaceable"><code>VendorName</code></em>' ... done.
+    Removing 'include/Mock/<em class="replaceable"><code>VendorName</code></em>' ... done.
+    Removing 'include/Test/<em class="replaceable"><code>VendorName</code></em>' ... done.
+    Removing 'include/<em class="replaceable"><code>VendorName</code></em>' ... done.
+... done.
+Remember to remove '<em class="replaceable"><code>VendorName</code></em>_App' from the ['Solar_Controller_Front']['classes'] element in your config file.
+Remember to remove '<em class="replaceable"><code>VendorName</code></em>_Model' from the ['Solar_Sql_Model_Catalog']['classes'] element in your config file.
+You will need to remove the 'docroot/public/<em class="replaceable"><code>VendorName</code></em>' directory yourself, as it may contain copies of public assets (not links).
+$</pre>
+        <div class="note" title="Note">
+          <table border="0" summary="Note">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[Note]" src="images/note.png" />
+              </td>
+              <th align="left">Note</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>
+            The public assets for the vendor in the <code class="filename">docroot/public/</code> 
+            are not deleted. This is because the public assets may be needed by
+            other parts of the application. You will have to unlink or delete
+            them yourself.
+        </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="commands.link-public">Prev</a> </td>
+          <td width="20%" align="center">
+            <a accesskey="u" href="commands">Up</a>
+          </td>
+          <td width="40%" align="right"> <a accesskey="n" href="commands.help">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">8.4. Link Public Assets </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index">Home</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 8.6. Get Help</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="revinfo"></div>
+  </body>                <hr />
+            </div><!-- end main content -->
+            
+            <div id="sub">
+                                <hr />
+            </div><!-- end sub content -->
+            
+            <div id="local">
+                <h2 class="accessibility">Local</h2>
+            </div><!--  end local nav -->
+            
+            <div id="nav">
+                <h2 class="accessibility">Navigation</h2>
+<ul class="clearfix">
+    <li><a href="/">Home</a></li>
+<li><a href="/project">Project</a></li>
+<li><a href="/apidoc/package.index">Packages</a></li>
+<li><a href="/apidoc/class.index">Classes</a></li>
+<li class="active"><a href="/manual">Manual</a></li>
+    <li><a href="https://github.com/solarphp/core/issues">Bugs</a></li>
+</ul>
+            </div><!-- end main nav -->
+            
+        </div><!-- end content -->
+        
+        <div id="footer" class="clearfix">
+            <p style="float: left;">
+    Copyright &copy; 2005-2013, <a href="mailto:pmjones@solarphp.com">Paul M. Jones</a> and other contributors.<br />
+    Logo Design by <a href="http://wine-by-benito.blogspot.com/">Ben Carter</a>,
+    Site Design by <a href="http://mattbrett.com/design">Matt Brett</a>.
+</p>
+<p style="float: right;">
+    <!-- Site Meter -->
+    <script type="text/javascript" src="http://s10.sitemeter.com/js/counter.js?site=s10solarphp">
+    </script>
+    <noscript><div>
+        <a href="http://s10.sitemeter.com/stats.asp?site=s10solarphp"><img src="http://s10.sitemeter.com/meter.asp?site=s10solarphp" alt="Site Meter" /></a>
+    </div></noscript>
+    <!-- Copyright (c)2006 Site Meter -->
+</p>
+        </div><!-- end footer -->
+        
+    </div><!-- end page -->
+    
+    <div id="extra1">&nbsp;</div>
+    <div id="extra2">&nbsp;</div>
+    
+</body>
+
+</html>
